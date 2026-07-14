@@ -1,10 +1,34 @@
-import { AppShell } from './AppShell'
+import { lazy, Suspense } from 'react'
+
 import { HomePage } from '../features/home/HomePage'
+import { AppShell } from './AppShell'
+
+const MotionLabPage = lazy(() =>
+  import('../features/motion-lab/MotionLabPage').then((module) => ({
+    default: module.MotionLabPage,
+  })),
+)
+
+function isMotionLabEnabled() {
+  if (typeof window === 'undefined') {
+    return false
+  }
+
+  return new URLSearchParams(window.location.search).get('motion-lab') === '1'
+}
 
 export function App() {
+  const motionLabEnabled = isMotionLabEnabled()
+
   return (
     <AppShell>
-      <HomePage />
+      {motionLabEnabled ? (
+        <Suspense fallback={<HomePage />}>
+          <MotionLabPage />
+        </Suspense>
+      ) : (
+        <HomePage />
+      )}
     </AppShell>
   )
 }

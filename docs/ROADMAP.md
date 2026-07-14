@@ -1,5 +1,13 @@
 # SUBEROS — Master Roadmap
 
+## Current delivery status
+
+- Phase 0 complete
+- Phase 1 complete
+- Phase 2 complete
+- Phase 3 complete
+- Next recommended sprint: Phase 4 - Cinematic preloader and hero
+
 ## Product vision
 Create a cinematic, high-impact creative studio website with extreme GSAP motion, large editorial typography, charcoal-to-black art direction, immersive scroll storytelling and conversion-focused content. The experience must remain usable, accessible and performant across desktop, tablet and mobile.
 

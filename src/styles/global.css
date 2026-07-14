@@ -605,6 +605,7 @@ body {
 
 .hero__copy {
   max-width: var(--container-content);
+  min-width: 0;
 }
 
 .hero__eyebrow {
@@ -626,6 +627,10 @@ body {
 .hero__meta {
   color: var(--color-muted-text);
   font-size: var(--font-size-small);
+}
+
+.hero__meta .text-link {
+  color: var(--color-muted-text);
 }
 
 .hero__panel .media-frame__viewport {
@@ -661,6 +666,48 @@ body {
   width: min(100%, 16rem);
   height: 1px;
   background: linear-gradient(90deg, var(--color-warm-white), rgba(255, 255, 255, 0.15));
+}
+
+.motion-lab {
+  border-bottom: var(--border-thin);
+}
+
+.motion-lab__scene,
+.motion-lab__pin-wrap,
+.motion-lab__horizontal-viewport,
+.motion-lab__velocity-card {
+  position: relative;
+}
+
+.motion-lab__pin-wrap {
+  min-height: 140vh;
+}
+
+.motion-lab__pin-card {
+  max-width: 38rem;
+}
+
+.motion-lab__horizontal-viewport {
+  overflow: clip;
+}
+
+.motion-lab__horizontal-track {
+  display: grid;
+  grid-auto-columns: minmax(16rem, 24rem);
+  grid-auto-flow: column;
+  gap: var(--space-md);
+  align-items: stretch;
+  width: max-content;
+  padding-right: var(--space-md);
+}
+
+.motion-lab__horizontal-card {
+  min-height: 16rem;
+}
+
+.motion-lab__velocity-card p {
+  transform-origin: left center;
+  will-change: transform;
 }
 
 .service-card p,
@@ -758,6 +805,14 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .hero__layout {
+    gap: var(--space-xl);
+  }
+
+  .hero__meta {
+    align-items: flex-start;
+  }
+
   .site-header__nav-desktop,
   .site-header__actions .button {
     display: none;
@@ -775,6 +830,31 @@ body {
 @media (max-width: 40rem) {
   .section {
     padding-block: var(--space-xl);
+  }
+
+  h1 {
+    font-size: clamp(2.9rem, 13.5vw, 4.4rem);
+  }
+
+  .hero__actions {
+    display: grid;
+  }
+
+  .hero__actions .button {
+    min-width: 0;
+  }
+
+  .hero__meta {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .motion-lab__pin-wrap {
+    min-height: auto;
+  }
+
+  .motion-lab__horizontal-track {
+    grid-auto-columns: minmax(14rem, 80vw);
   }
 
   .hero__actions .button {

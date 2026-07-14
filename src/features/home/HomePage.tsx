@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+
 import { Bleed } from '../../components/layout/Bleed'
 import { Cluster } from '../../components/layout/Cluster'
 import { Container } from '../../components/layout/Container'
@@ -12,9 +14,30 @@ import { MediaFrame } from '../../components/ui/MediaFrame'
 import { SectionHeader } from '../../components/ui/SectionHeader'
 import { TextLink } from '../../components/ui/TextLink'
 import { homeContent, processNotes, projectReadiness, siteServices } from '../../data/siteContent'
+import { useElementReveal } from '../../motion/hooks/useElementReveal'
+import { useScrollScene } from '../../motion/hooks/useScrollScene'
+import { createParallaxScene } from '../../motion/scenes/createParallaxScene'
 import { ContactSection } from '../contact/ContactSection'
 
 export function HomePage() {
+  const heroPanelRef = useRef<HTMLDivElement | null>(null)
+  const manifestoRef = useRef<HTMLElement | null>(null)
+  const servicesRef = useRef<HTMLElement | null>(null)
+  const projectsRef = useRef<HTMLElement | null>(null)
+  const processRef = useRef<HTMLElement | null>(null)
+
+  useElementReveal(manifestoRef, { selector: '.section-header, .surface' })
+  useElementReveal(servicesRef, { selector: '.section-header, .service-card' })
+  useElementReveal(projectsRef, { selector: '.section-header, .surface, .media-frame' })
+  useElementReveal(processRef, { selector: '.section-header, .divider, .surface' })
+  useScrollScene(manifestoRef, {
+    scene: (context) =>
+      createParallaxScene(context, {
+        distance: 24,
+        target: heroPanelRef.current,
+      }),
+  })
+
   return (
     <>
       <Section className="hero" id="inicio" aria-labelledby="home-title" tone="hero" spacing="scene">
@@ -37,6 +60,7 @@ export function HomePage() {
                 <TextLink href={`tel:${homeContent.heroContactPhoneHref}`}>{homeContent.heroContactPhone}</TextLink>
               </Cluster>
             </Stack>
+            <div ref={heroPanelRef}>
             <MediaFrame
               className="hero__panel"
               ratio="portrait"
@@ -57,11 +81,12 @@ export function HomePage() {
                 </div>
               }
             />
+            </div>
           </Grid>
         </Container>
       </Section>
 
-      <Section id="estudio" aria-labelledby="estudio-title">
+      <Section id="estudio" aria-labelledby="estudio-title" ref={manifestoRef}>
         <Container>
           <Stack gap="xl">
           <ScrollAccent label="Editorial reveal validation" />
@@ -97,7 +122,7 @@ export function HomePage() {
         </Container>
       </Section>
 
-      <Section id="servicios" aria-labelledby="services-title" tone="muted">
+      <Section id="servicios" aria-labelledby="services-title" ref={servicesRef} tone="muted">
         <Container>
           <Stack gap="xl">
           <SectionHeader
@@ -124,7 +149,7 @@ export function HomePage() {
         </Container>
       </Section>
 
-      <Section id="proyectos" aria-labelledby="projects-title">
+      <Section id="proyectos" aria-labelledby="projects-title" ref={projectsRef}>
         <Container>
           <Stack gap="xl">
             <SectionHeader
@@ -163,7 +188,7 @@ export function HomePage() {
         </Container>
       </Section>
 
-      <Section id="proceso" aria-labelledby="process-title" tone="raised">
+      <Section id="proceso" aria-labelledby="process-title" ref={processRef} tone="raised">
         <Container>
           <Stack gap="xl">
             <SectionHeader

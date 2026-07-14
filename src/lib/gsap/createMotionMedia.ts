@@ -1,5 +1,1 @@
-import gsap from 'gsap'
-
-export function createMotionMedia() {
-  return gsap.matchMedia()
-}
+export { createMotionMedia } from '../../motion/lib/createMotionMedia'

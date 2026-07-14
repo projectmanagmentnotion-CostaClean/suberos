@@ -1,48 +1,58 @@
 # Motion System
 
-## Objetivo del Sprint 01
+## Estado actual
 
-Establecer una base de motion segura y reutilizable antes de desarrollar escenas cinematicas de alta complejidad.
+Sprint 03 completado. SUBEROS ya dispone de arquitectura central de motion, perfiles de preferencia, ownership unico de `Lenis`, refresh manager y primitives de escena listas para escalar hacia el hero y el preloader.
 
-## Piezas implementadas
+## Piezas activas
 
-- Registro centralizado de GSAP y ScrollTrigger en `src/lib/gsap/registerGsap.ts`
-- Utilidad de media queries para motion en `src/lib/gsap/createMotionMedia.ts`
-- Deteccion real de `prefers-reduced-motion` en `src/hooks/useReducedMotion.ts`
-- Integracion Lenis + ScrollTrigger con limpieza en `src/hooks/useLenisScroll.ts`
-- Animacion de validacion ligada al scroll en `src/hooks/useScrollAccent.ts` y `src/components/motion/ScrollAccent.tsx`
+- Registro central:
+  - `src/motion/core/registerGsap.ts`
+- Preferencias y perfiles:
+  - `src/motion/core/motionPreferences.ts`
+  - `src/motion/hooks/MotionPreferencesProvider.tsx`
+  - `src/motion/hooks/useMotionPreferences.ts`
+- Runtime global:
+  - `src/motion/core/scrollEngine.ts`
+  - `src/motion/core/refreshManager.ts`
+- Hooks reutilizables:
+  - `src/motion/hooks/useGsapContext.ts`
+  - `src/motion/hooks/useScrollScene.ts`
+  - `src/motion/hooks/useElementReveal.ts`
+  - `src/motion/hooks/useScrollVelocity.ts`
+- Primitives:
+  - `src/motion/scenes/createRevealScene.ts`
+  - `src/motion/scenes/createParallaxScene.ts`
+  - `src/motion/scenes/createPinnedScene.ts`
+  - `src/motion/scenes/createHorizontalScene.ts`
 
-## Ciclo de vida
+## Perfiles
 
-1. `src/main.tsx` registra plugins una sola vez.
-2. `AppProviders` consulta reduced motion.
-3. Si reduced motion no esta activo, `useLenisScroll` inicializa Lenis y sincroniza `ScrollTrigger.update`.
-4. Cada componente con motion usa su propio hook aislado.
-5. Cada hook usa `useGSAP` y `gsap.matchMedia()` para limpiar contextos y listeners al desmontar.
+- `full`: desktop amplio, puntero fino y sin reduced motion.
+- `balanced`: estado intermedio por defecto.
+- `reduced`: `prefers-reduced-motion` o `?reduced-motion=1`.
 
-## Regla actual de reduced motion
+## Reglas activas
 
-- Si el usuario tiene `prefers-reduced-motion: reduce`, Lenis no se activa.
-- La animacion del acento scroll no se ejecuta.
-- El contenido queda completamente legible y operativo sin depender de movimiento.
+- `Lenis` no se activa en reduced.
+- Escenas pinned y horizontales no corren en mobile ni reduced.
+- Cada escena limpia tweens, triggers y estilos al desmontar.
+- El laboratorio interno vive en `?motion-lab=1` y fuerza `noindex`.
 
-## Validacion implementada en Sprint 01
+## Validacion actual
 
-- Una linea horizontal se expande con `scrub` cuando entra en viewport.
-- El bloque completo se desplaza levemente en Y para confirmar que el sistema scroll-linked funciona.
-- No hay pinning, scroll traps ni timelines largas en esta fase.
+- Home publica valida reveal y parallax ligero con contenido real.
+- Motion Lab valida:
+  - reveal
+  - parallax
+  - pinning
+  - horizontal
+  - velocity
+  - reduced motion
 
-## Restricciones activas
+## Documentacion relacionada
 
-- No hay secuencias de frames.
-- No hay autoplay de audio.
-- No hay cursor custom.
-- No hay dependencias secundarias de animacion.
-- No se usan estados globales mutables para motion.
-
-## Siguiente escalon recomendado
-
-- Escenas por seccion con `gsap.context()`
-- Breakpoints diferenciados para desktop/tablet/mobile
-- FLIP para transiciones entre estados de loader y hero
-- Timelines por feature con presupuesto de performance por escena
+- `docs/MOTION_ARCHITECTURE.md`
+- `docs/MOTION_PERFORMANCE_BUDGET.md`
+- `docs/MOTION_QA.md`
+- `docs/SPRINT_03_REPORT.md`

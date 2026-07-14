@@ -1,9 +1,8 @@
 import { MutableRefObject } from 'react'
 
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-
-import { createMotionMedia } from '../lib/gsap/createMotionMedia'
+import { gsap } from '../motion/core/registerGsap'
+import { createMotionMedia } from '../motion/lib/createMotionMedia'
+import { useGsapContext } from '../motion/hooks/useGsapContext'
 
 type UseMenuMotionOptions = {
   isOpen: boolean
@@ -24,7 +23,7 @@ export function useMenuMotion({
   panelRef,
   reducedMotion,
 }: UseMenuMotionOptions) {
-  useGSAP(
+  useGsapContext(
     () => {
       if (!isReady || reducedMotion || !panelRef.current || !overlayRef.current) {
         return

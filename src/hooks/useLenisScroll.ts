@@ -1,37 +1,18 @@
 import { useEffect } from 'react'
-import Lenis from 'lenis'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import { MotionPreferences } from '../motion/types/motion.types'
+import { scrollEngine } from '../motion/core/scrollEngine'
 
 type UseLenisScrollOptions = {
-  enabled: boolean
+  preferences: MotionPreferences
 }
 
-export function useLenisScroll({ enabled }: UseLenisScrollOptions) {
+export function useLenisScroll({ preferences }: UseLenisScrollOptions) {
   useEffect(() => {
-    if (!enabled) {
-      return
-    }
-
-    const lenis = new Lenis({
-      autoRaf: false,
-      duration: 1.05,
-      smoothWheel: true,
-      syncTouch: false,
-    })
-
-    const updateScroll = (timeInSeconds: number) => {
-      lenis.raf(timeInSeconds * 1000)
-    }
-
-    lenis.on('scroll', ScrollTrigger.update)
-    gsap.ticker.add(updateScroll)
-    gsap.ticker.lagSmoothing(0)
+    scrollEngine.start(preferences)
 
     return () => {
-      lenis.off('scroll', ScrollTrigger.update)
-      gsap.ticker.remove(updateScroll)
-      lenis.destroy()
+      scrollEngine.destroy()
     }
-  }, [enabled])
+  }, [preferences])
 }

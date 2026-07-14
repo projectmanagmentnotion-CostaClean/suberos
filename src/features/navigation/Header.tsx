@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
-import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
 import { Cluster } from '../../components/layout/Cluster'
@@ -12,15 +11,18 @@ import { siteContact, siteNavigation } from '../../data/siteContent'
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock'
 import { useHeaderScrollState } from '../../hooks/useHeaderScrollState'
 import { useMenuMotion } from '../../hooks/useMenuMotion'
-import { useReducedMotion } from '../../hooks/useReducedMotion'
-import { createMotionMedia } from '../../lib/gsap/createMotionMedia'
+import { refreshManager } from '../../motion/core/refreshManager'
+import { useMotionPreferences } from '../../motion/hooks/useMotionPreferences'
+import { createMotionMedia } from '../../motion/lib/createMotionMedia'
+import { useGsapContext } from '../../motion/hooks/useGsapContext'
 import { cx } from '../../lib/utils/cx'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuReady, setIsMenuReady] = useState(false)
   const [shouldRestoreFocus, setShouldRestoreFocus] = useState(false)
-  const reducedMotion = useReducedMotion()
+  const preferences = useMotionPreferences()
+  const reducedMotion = preferences.reducedMotion
   const isElevated = useHeaderScrollState()
   const panelId = useId()
   const headerRef = useRef<HTMLElement | null>(null)
@@ -68,7 +70,7 @@ export function Header() {
     reducedMotion,
   })
 
-  useGSAP(
+  useGsapContext(
     () => {
       if (!headerRef.current || reducedMotion) {
         return
@@ -92,6 +94,10 @@ export function Header() {
     },
     { dependencies: [isElevated, reducedMotion], scope: headerRef },
   )
+
+  useEffect(() => {
+    refreshManager.requestRefresh('menu-state')
+  }, [isMenuReady])
 
   useEffect(() => {
     if (!isMenuReady) {

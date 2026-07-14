@@ -1,64 +1,30 @@
 import { RefObject } from 'react'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 
-import { createMotionMedia } from '../lib/gsap/createMotionMedia'
-import { useReducedMotion } from './useReducedMotion'
+import { createParallaxScene } from '../motion/scenes/createParallaxScene'
+import { createRevealScene } from '../motion/scenes/createRevealScene'
+import { useScrollScene } from '../motion/hooks/useScrollScene'
 
 type ScrollAccentRef = RefObject<HTMLDivElement | null>
 
 export function useScrollAccent(ref: ScrollAccentRef) {
-  const reducedMotion = useReducedMotion()
+  useScrollScene(ref, {
+    scene: (context) => {
+      const line = context.scope.querySelector('.scroll-accent__line')
 
-  useGSAP(
-    () => {
-      if (!ref.current || reducedMotion) {
-        return
-      }
-
-      const mm = createMotionMedia()
-
-      mm.add('(min-width: 0px)', () => {
-        const line = ref.current?.querySelector<HTMLElement>('.scroll-accent__line')
-        if (!line) {
-          return
-        }
-
-        gsap.fromTo(
-          line,
-          { scaleX: 0.2, transformOrigin: 'left center' },
-          {
-            scaleX: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: ref.current,
-              start: 'top 85%',
-              end: 'bottom 35%',
-              scrub: 0.8,
-            },
-          },
-        )
-
-        gsap.fromTo(
-          ref.current,
-          { y: 0 },
-          {
-            y: -18,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: ref.current,
-              start: 'top 90%',
-              end: 'bottom top',
-              scrub: 0.8,
-            },
-          },
-        )
+      const revealCleanup = createRevealScene(context, {
+        distance: 18,
+        stagger: 0,
+        targets: line ? [line] : [],
+      })
+      const parallaxCleanup = createParallaxScene(context, {
+        distance: 18,
+        target: context.scope,
       })
 
       return () => {
-        mm.revert()
+        revealCleanup?.()
+        parallaxCleanup?.()
       }
     },
-    { scope: ref },
-  )
+  })
 }
