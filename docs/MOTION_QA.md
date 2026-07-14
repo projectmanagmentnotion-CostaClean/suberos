@@ -6,9 +6,13 @@ Fecha: 2026-07-14
 
 Comandos:
 
+- `npm run qa:isolation`
+- `npm run qa:portfolio`
 - `npm run lint`
 - `npm run build`
+- `npm run qa:visual`
 - `npm run preview -- --host 127.0.0.1 --port 4173`
+- `npm run preview -- --host 127.0.0.1 --port 4174`
 
 ## Escenarios revisados
 
@@ -24,11 +28,21 @@ Home publica:
 - `?preloader=1&asset-fail=1`
 - segunda carga de sesion sin repetir preloader
 - entrada directa a `#estudio`, `#servicios`, `#trabajo`, `#proceso`, `#contacto`
+- `?reduced-motion=1`
 
 Motion Lab interno:
 
 - `1366x768`
 - `1366x768` con `?reduced-motion=1`
+
+Portfolio Lab interno:
+
+- `390x844`
+- `768x1024`
+- `1366x768`
+- `?portfolio-lab=1`
+- comprobacion de `noindex,nofollow`
+- comprobacion de ausencia en `robots.txt` y `sitemap.xml`
 
 ## Hallazgos y correcciones aplicadas
 
@@ -42,6 +56,8 @@ Motion Lab interno:
   - Corregido con escenas editoriales para estudio, servicios, trabajo, metodo y statement.
 - `aria-labelledby` apuntaba a titulos sin `id` real.
   - Corregido anadiendo `titleId` a `SectionHeader`.
+- El Portfolio Lab podia dejar la meta `robots` en `noindex,nofollow` al volver a la home dentro de la SPA.
+  - Corregido restaurando o eliminando correctamente el atributo `content` en cleanup.
 
 ## Resultado de reduced motion
 
@@ -50,6 +66,7 @@ Motion Lab interno:
 - Motion Lab sigue mostrando `ScrollTrigger.getAll().length = 0` en reduced.
 - `Lenis` no se activa en reduced.
 - Las escenas nuevas limpian estilos y dejan todo el contenido visible en orden natural.
+- La home y el Portfolio Lab mantienen un unico `h1`, sin overflow y sin errores de consola en reduced.
 
 ## Validacion accesible revisada
 
@@ -61,10 +78,11 @@ Motion Lab interno:
 - CTA del hero tienen destino real.
 - Las secciones principales ya exponen `h2` con IDs reales para `aria-labelledby`.
 - Los anchors directos a secciones se verificaron en preview.
+- El Portfolio Lab queda claramente marcado como interno y no indexable.
 
 ## Limites de esta QA
 
 - No se ejecuto Lighthouse.
-- No existe suite automatizada de tests en el repositorio actual.
+- La revision manual del navegador embebido exigio esperar a la hidratacion del chunk lazy del Portfolio Lab antes de leer el DOM.
 - No se probo Safari iOS fisico.
-- La validacion visual se hizo con capturas y comprobaciones DOM, no con diff visual automatizado.
+- La validacion visual se hizo con Playwright y comprobaciones manuales de preview, no con diff visual pixel-perfect.

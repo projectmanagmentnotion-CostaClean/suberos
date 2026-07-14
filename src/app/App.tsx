@@ -3,28 +3,48 @@ import { lazy, Suspense } from 'react'
 import { HomeExperience } from '../features/home/HomeExperience'
 import { AppShell } from './AppShell'
 
+const PortfolioLabPage = lazy(() =>
+  import('../features/portfolio-lab/PortfolioLabPage').then((module) => ({
+    default: module.PortfolioLabPage,
+  })),
+)
+
 const MotionLabPage = lazy(() =>
   import('../features/motion-lab/MotionLabPage').then((module) => ({
     default: module.MotionLabPage,
   })),
 )
 
-function isMotionLabEnabled() {
+function getAppMode() {
   if (typeof window === 'undefined') {
-    return false
+    return 'home'
   }
 
-  return new URLSearchParams(window.location.search).get('motion-lab') === '1'
+  const params = new URLSearchParams(window.location.search)
+
+  if (params.get('portfolio-lab') === '1') {
+    return 'portfolio-lab'
+  }
+
+  if (params.get('motion-lab') === '1') {
+    return 'motion-lab'
+  }
+
+  return 'home'
 }
 
 export function App() {
-  const motionLabEnabled = isMotionLabEnabled()
+  const appMode = getAppMode()
 
   return (
     <AppShell>
-      {motionLabEnabled ? (
+      {appMode === 'motion-lab' ? (
         <Suspense fallback={null}>
           <MotionLabPage />
+        </Suspense>
+      ) : appMode === 'portfolio-lab' ? (
+        <Suspense fallback={null}>
+          <PortfolioLabPage />
         </Suspense>
       ) : (
         <HomeExperience />

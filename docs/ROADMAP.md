@@ -10,7 +10,8 @@
 - Cross-project European technical/legal standard added
 - Phase 5 complete
 - Phase 5.1 complete - Repository isolation and content correction
-- Next recommended sprint: Phase 6 - SUBEROS content architecture and visual portfolio foundation once approved public materials exist
+- Phase 6 complete - SUBEROS visual content system and portfolio readiness
+- Next recommended sprint: Phase 7 - Frame sequences and advanced media once approved real assets exist
 - Mandatory compliance implementation sprint must be completed before public launch
 
 ## Mandatory governing documents
@@ -126,7 +127,7 @@ Acceptance:
 
 ---
 
-## Phase 6 — SUBEROS content architecture and visual portfolio foundation
+## Phase 6 — SUBEROS content architecture and visual portfolio foundation — COMPLETE
 
 This phase is not a case-study import phase. It creates the architecture for future real SUBEROS content.
 
@@ -141,6 +142,8 @@ This phase is not a case-study import phase. It creates the architecture for fut
 - Prepare future FLIP transitions without depending on them for navigation.
 - Record media ownership, permission and licence evidence.
 - Establish a professional content intake checklist for each future project.
+- Keep the public site capabilities-led until a real case is approved.
+- Maintain an internal noindex Portfolio Lab for readiness review.
 
 No named project may be added by Codex unless the user explicitly confirms it for SUBEROS.
 

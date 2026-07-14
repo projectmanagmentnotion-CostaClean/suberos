@@ -8,9 +8,10 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 02 completado: design system, primitives de layout, shell accesible, header/menu/footer y linking interno estable.
 - Sprint 03 completado: arquitectura de motion endurecida, laboratorio interno, perfiles de preferencia y escenas reutilizables.
 - Sprint 04 completado: preloader cinematografico con carga real, persistencia de sesion, transicion FLIP y hero foundation scroll-linked.
-- Sprint 05 completado: narrativa inmersiva de home, escenas editoriales y primer proyecto real integrado.
+- Sprint 05 completado: narrativa inmersiva de home, escenas editoriales y estructura de conversion para la home publica.
 - Sprint 05.1 completado: aislamiento de repositorio, retirada de referencias cruzadas y sustitucion del bloque de proyectos por una seccion editorial propia.
-- El siguiente foco recomendado es el sistema de proyectos solo cuando existan materiales y permisos aprobados para un caso publico real de SUBEROS.
+- Sprint 06 completado: sistema visual interno, pipeline de assets, Portfolio Lab privado y readiness del portfolio sin publicar casos ficticios.
+- El siguiente foco recomendado es Phase 7: frame sequences y media avanzada una vez existan materiales reales aprobados para motion.
 
 ## Stack
 
@@ -25,6 +26,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm install`
 - `npm run dev`
 - `npm run qa:isolation`
+- `npm run qa:portfolio`
+- `npm run qa:visual`
 - `npm run lint`
 - `npm run build`
 - `npm run preview`
@@ -60,10 +63,13 @@ src/
 public/
   branding/
   hero/
+  backgrounds/
+  motion/
+  portfolio/
+  services/
   legacy-source/
-  legal/
-  placeholders/
   textures/
+  legal/
 docs/
 ```
 
@@ -75,6 +81,7 @@ docs/
   - `public/branding/fonts/StretchPro.otf`
   - `public/legacy-source/fonts/StretchPro.otf`
 - Tambien permanecen en legacy las fuentes verificadas `couture-bld.otf` y `Oswald-VariableFont_wght.ttf`
+- El sistema visual de Sprint 06 anade primitives reutilizables para media editorial, placeholders premium y revisiones internas de portfolio
 - Primitives de layout: `Container`, `Section`, `Stack`, `Cluster`, `Grid`, `Bleed`, `Surface`
 - UI components: `Button`, `TextLink`, `IconButton`, `Eyebrow`, `SectionHeader`, `MediaFrame`, `Divider`, `SkipLink`
 - Nuevas piezas de motion viven en `src/motion/`
@@ -95,6 +102,10 @@ Documentacion relacionada:
 - `docs/HOME_SCENES.md`
 - `docs/PROJECT_CONTENT_MODEL.md`
 - `docs/PROJECT_ISOLATION.md`
+- `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md`
+- `docs/SUBEROS_ASSET_PRODUCTION_BRIEF.md`
+- `docs/FRAME_SEQUENCE_SPEC.md`
+- `docs/PORTFOLIO_READINESS.md`
 - `docs/LEGACY_SITE_AUDIT.md`
 - `docs/LEGACY_ASSET_INVENTORY.md`
 - `docs/SPRINT_01_REPORT.md`
@@ -116,6 +127,8 @@ Documentacion relacionada:
 - Laboratorio interno:
   - `/?motion-lab=1`
   - `/?motion-lab=1&reduced-motion=1`
+  - `/?portfolio-lab=1`
+  - `/?portfolio-lab=1&reduced-motion=1`
 - QA del preloader:
   - `/?preloader=1`
   - `/?preloader=reset`
@@ -130,10 +143,11 @@ Documentacion relacionada:
 - Mantener contenido 100 % real y verificable.
 - No exponer proyectos, clientes ni rutas externas hasta contar con materiales aprobados para publicacion.
 - No hotlinkear assets del sitio legado.
+- No indexar laboratorios internos ni drafts del portfolio.
 - Centralizar nuevos tokens y estados de UI; no duplicar CSS ad hoc.
 - Registrar GSAP una sola vez y limpiar contextos y side effects.
 - Usar `src/motion/` como entrypoint de nuevas escenas, no crear hooks GSAP ad hoc fuera del sistema salvo compatibilidad puntual.
-- Validar siempre `npm run lint` y `npm run build` antes de cerrar un bloque.
+- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.
 
 ## Validacion minima por sprint
 

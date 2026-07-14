@@ -1,0 +1,40 @@
+.portfolio-lab {
+  position: relative;
+}
+
+.portfolio-lab__section {
+  overflow: clip;
+}
+
+.portfolio-lab__hero {
+  max-width: 62rem;
+}
+
+.portfolio-lab__tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.portfolio-lab__empty-state {
+  min-height: 12rem;
+  align-content: center;
+}
+
+.project-draft-card {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.project-draft-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.project-draft-card__meta {
+  display: grid;
+  gap: var(--space-2xs);
+  color: var(--color-muted-text);
+  font-size: var(--font-size-small);
+}

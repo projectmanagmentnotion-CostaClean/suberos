@@ -8,8 +8,9 @@ import { Stack } from '../../components/layout/Stack'
 import { Surface } from '../../components/layout/Surface'
 import { Button } from '../../components/ui/Button'
 import { Divider } from '../../components/ui/Divider'
-import { MediaFrame } from '../../components/ui/MediaFrame'
+import { EditorialMedia } from '../../components/ui/EditorialMedia'
 import { SectionHeader } from '../../components/ui/SectionHeader'
+import { AssetPlaceholder } from '../../components/ui/AssetPlaceholder'
 import { homeContent } from '../../data/homeContent'
 import { workShowcaseDisciplines, workShowcaseNotes } from '../../data/workShowcase'
 import { useElementReveal } from '../../motion/hooks/useElementReveal'
@@ -35,25 +36,13 @@ export function FeaturedWorkSection() {
 
           <Grid className="work-spotlight" columns="halves" gap="lg">
             <Bleed inset="md">
-              <MediaFrame
-                caption="Composicion editorial propia de SUBEROS basada en disciplinas reales y sin portfolio publicado todavia."
-                media={
-                  <div aria-hidden="true" className="work-spotlight__visual">
-                    {workShowcaseDisciplines.map((discipline, index) => (
-                      <div
-                        className={`work-spotlight__panel work-spotlight__panel--${index + 1}`}
-                        key={discipline.id}
-                      >
-                        <small>{discipline.label}</small>
-                        <span>{discipline.title}</span>
-                      </div>
-                    ))}
-                    <div className="work-spotlight__grid" />
-                    <div className="work-spotlight__glow" />
-                  </div>
-                }
-                ratio="cinema"
-              />
+              <EditorialMedia className="work-spotlight__media">
+                <AssetPlaceholder
+                  label="SUBEROS visual portfolio"
+                  title="Fotografia, identidad, produccion y web"
+                  variant="discipline-grid"
+                />
+              </EditorialMedia>
             </Bleed>
 
             <Stack className="work-spotlight__aside" gap="lg">

@@ -11,15 +11,31 @@ public/
   branding/
     fonts/
   hero/
-  projects/
-  placeholders/
+  services/
+    photography/
+    branding/
+    print/
+    web/
+  portfolio/
+    drafts/
+    approved/
+    published/
+  motion/
+    sequences/
+    posters/
+  backgrounds/
   textures/
   legacy-source/
 ```
 
 - `branding/`: assets aprobados para produccion
 - `hero/`: variantes futuras del primer viewport
-- `projects/`: reservado para casos aprobados; no publicar aqui materiales dudosos o no autorizados
+- `services/`: assets de disciplinas por servicio; pueden permanecer vacios hasta contar con material aprobado
+- `portfolio/drafts/`: material privado no publicable
+- `portfolio/approved/`: material aprobado internamente pero todavia no publicado
+- `portfolio/published/`: unico origen valido para media de portfolio publica
+- `motion/sequences/` y `motion/posters/`: reservados para secuencias y posters aprobados
+- `backgrounds/` y `textures/`: overlays, grain y fondos propios aprobados
 - `textures/`: grain, overlays y fondos aprobados
 - `placeholders/`: placeholders editoriales controlados
 - `legacy-source/`: originales recuperados, sin servir como dependencia final por defecto
@@ -35,7 +51,7 @@ public/
 
 ## Assets de portfolio
 
-- `public/projects/` permanece sin assets publicados en este momento
+- `public/portfolio/` permanece sin assets publicados en este momento
 - cualquier futuro caso de estudio debe aportar:
   - assets propios o autorizados
   - dimensiones y peso documentados
@@ -91,6 +107,8 @@ La fuente original `StretchPro.otf` queda conservada tanto en `branding/fonts/` 
 - display actual: `StretchPro`
 - preservar fuente original descargada del sitio legado si existe verificada
 - evitar sumar familias innecesarias antes de medir impacto real en LCP
+- `StretchPro.otf` queda conservada tanto en `public/branding/fonts/` como en `public/legacy-source/fonts/`
+- `couture-bld.otf` y `Oswald-VariableFont_wght.ttf` permanecen solo como legado pendiente de verificacion de licencia para uso productivo
 
 ## Secuencias futuras
 
@@ -101,8 +119,21 @@ Si en fases posteriores se incorporan secuencias:
 - documentar frame count, peso total y fallback estatico
 - no ubicar secuencias dentro de `branding/`
 
+## Herramientas de optimizacion
+
+- `sharp` se incorpora como `devDependency`, no como dependencia runtime
+- justificacion:
+  - inspeccion reproducible de dimensiones y formato
+  - conversion controlada a `webp` y `avif`
+  - generacion de variantes mobile y posters
+  - eliminacion de metadatos innecesarios
+- comandos actuales:
+  - `node scripts/inspect-asset-metadata.mjs <file>`
+  - `node scripts/optimize-asset.mjs --input <file> --output <file> --format webp`
+  - `node scripts/optimize-asset.mjs --input <file> --output <file> --format avif --width 1600`
+
 ## Licencias y procedencia
 
 - usar solo assets propios, recuperados del sitio legado o entregados por el usuario
 - no promover a produccion assets de clientes o proyectos separados hasta confirmar permiso de uso en la web corporativa de SUBEROS
-- documentar toda nueva incorporacion en `docs/LEGACY_ASSET_INVENTORY.md` o en el sprint correspondiente
+- documentar toda nueva incorporacion en `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md` y en el sprint correspondiente

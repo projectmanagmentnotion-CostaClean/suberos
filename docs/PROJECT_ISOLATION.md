@@ -36,8 +36,10 @@ Evitar que la web publica, el codigo activo y la documentacion viva de SUBEROS m
 
 - solo contenido `published` puede salir en la web publica
 - todo proyecto necesita copy, assets, permiso de publicacion y ownership documentado
-- `public/projects/` permanece vacio hasta que exista ese material aprobado
+- `public/portfolio/published/` permanece vacio hasta que exista ese material aprobado
+- `public/portfolio/drafts/` y `public/portfolio/approved/` no deben ser referenciados desde la web publica
 - si no hay portfolio publicado, la home debe usar composiciones editoriales propias, nunca proyectos inventados
+- `?portfolio-lab=1` es una herramienta interna, no una ruta publica indexable
 
 ## Script automatizado
 
@@ -56,6 +58,7 @@ Evitar que la web publica, el codigo activo y la documentacion viva de SUBEROS m
 
 - ejecutar `npm run qa:isolation`
 - verificar que no existan enlaces externos accidentales en home, SEO o docs activas
-- revisar `public/projects/` y `public/legacy-source/`
+- ejecutar `npm run qa:portfolio`
+- revisar `public/portfolio/`, `public/services/`, `public/motion/` y `public/legacy-source/`
 - confirmar que sitemap, robots y metadata solo exponen contenido actual de SUBEROS
 - documentar cualquier excepcion tecnica o historica antes del commit
