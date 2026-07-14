@@ -10,7 +10,7 @@ export const siteNavigation = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Estudio', href: '#estudio' },
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Trabajo', href: '#trabajo' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Contacto', href: '#contacto' },
 ] as const

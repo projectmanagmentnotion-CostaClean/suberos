@@ -2,16 +2,16 @@
 
 ## Current delivery status
 
-- Phase 0 complete — governance and baseline.
-- Phase 1 complete — legacy asset recovery and brand foundation.
-- Phase 2 complete — design system and application shell.
-- Phase 3 complete — motion system.
-- Phase 4 complete — cinematic preloader and hero foundation.
-- Phase 5 complete — core homepage narrative.
-- European professional standard integrated for SUBEROS only.
-- Next required sprint: Phase 5.1 — repository isolation and content correction.
-- Next product sprint after correction: Phase 6 — SUBEROS content architecture and visual portfolio foundation.
-- Mandatory compliance implementation sprint remains required before launch.
+- Phase 0 complete
+- Phase 1 complete
+- Phase 2 complete
+- Phase 3 complete
+- Phase 4 complete
+- Cross-project European technical/legal standard added
+- Phase 5 complete
+- Phase 5.1 complete - Repository isolation and content correction
+- Next recommended sprint: Phase 6 - SUBEROS content architecture and visual portfolio foundation once approved public materials exist
+- Mandatory compliance implementation sprint must be completed before public launch
 
 ## Mandatory governing documents
 
@@ -98,7 +98,7 @@ The valid architecture and motion work remain. Any content or route referring to
 
 ---
 
-## Phase 5.1 — Repository isolation and content correction — NEXT
+## Phase 5.1 — Repository isolation and content correction — COMPLETE
 
 Purpose: remove all cross-project contamination while preserving completed SUBEROS engineering and design work.
 

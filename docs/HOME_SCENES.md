@@ -54,9 +54,9 @@
   - mata tween y triggers por item
   - limpia `data-active`
 
-## Proyecto destacado
+## Trabajo
 
-- componente: `src/features/home/FeaturedProjectsSection.tsx`
+- componente: `src/features/home/FeaturedWorkSection.tsx`
 - motion:
   - `useElementReveal`
 - trigger:
@@ -65,7 +65,7 @@
   - `full`/`balanced`: reveal
   - `reduced`: contenido visible
 - assets:
-  - composicion temporal por CSS para Luxury Shisha
+  - composicion editorial propia por CSS, sin casos externos publicados
 - cleanup:
   - gestionado por `createRevealScene`
 

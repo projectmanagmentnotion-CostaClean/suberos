@@ -1,5 +1,10 @@
 # Sprint 05 Report
 
+## Correction note added in Sprint 05.1
+
+- Este documento se conserva como registro historico del resultado de Sprint 05.
+- La exposicion publica de `Luxury Shisha` y sus referencias derivadas se retiraron posteriormente en Sprint 05.1 para aislar SUBEROS de contenido cruzado y dejar la home sin proyectos externos publicados.
+
 ## Sprint
 
 Immersive Home Narrative

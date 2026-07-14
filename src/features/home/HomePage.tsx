@@ -1,6 +1,6 @@
 import { ContactSection } from '../contact/ContactSection'
 import { BrandStatementSection } from './BrandStatementSection'
-import { FeaturedProjectsSection } from './FeaturedProjectsSection'
+import { FeaturedWorkSection } from './FeaturedWorkSection'
 import { HeroSection } from './HeroSection'
 import { ProcessSection } from './ProcessSection'
 import { ServicesSection } from './ServicesSection'
@@ -13,7 +13,7 @@ export function HomePage() {
       <HeroSection />
       <StudioSection />
       <ServicesSection />
-      <FeaturedProjectsSection />
+      <FeaturedWorkSection />
       <ProcessSection />
       <BrandStatementSection />
       <ContactSection />

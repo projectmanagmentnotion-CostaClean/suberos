@@ -5,11 +5,11 @@ export const homeContent = {
     titleLines: ['CREAMOS', 'IMAGENES', 'QUE MUEVEN', 'MARCAS'] as const,
     body:
       'Fotografia, diseno, impresion digital y experiencias web para marcas que quieren destacar, emocionar y ser recordadas.',
-    primaryCta: 'Ver proyectos',
+    primaryCta: 'Ver servicios',
     secondaryCta: 'Cuentanos tu proyecto',
     visualEyebrow: 'Fotografia / Diseno / Impresion / Web',
     visualBody:
-      'Base visual real, logo recuperado y capas listas para evolucionar hacia portfolio, escenas y casos verificados.',
+      'Base visual real, logo recuperado y capas listas para evolucionar hacia piezas, escenas y casos aprobados.',
     visualCaption: 'Activo propio de SUBEROS servido localmente como visual principal del primer viewport.',
     scrollLabel: 'Explorar el estudio',
   },
@@ -31,7 +31,7 @@ export const homeContent = {
     detailPoints: [
       'Servicios confirmados en la web publica actual.',
       'Narrativa pensada para digital, impreso y contenido visual.',
-      'Base preparada para crecer hacia casos y portfolio reales.',
+      'Base preparada para crecer hacia portfolio real solo cuando existan materiales aprobados.',
     ] as const,
   },
   services: {
@@ -40,13 +40,15 @@ export const homeContent = {
     body:
       'La home deja atras las cards genericas y organiza las capacidades reales de SUBEROS como una secuencia editorial con beneficio, resultado y siguiente accion.',
   },
-  projects: {
-    eyebrow: 'Proyecto destacado',
-    title: 'Luxury Shisha abre la seccion de proyectos con un caso real ya publicado.',
+  work: {
+    eyebrow: 'Trabajo',
+    title: 'Mostramos capacidades reales y una direccion visual propia mientras el portfolio publico se prepara con criterio.',
     body:
-      'No se muestran clientes inventados ni resultados ficticios. Se presenta un unico caso verificado y el sistema queda listo para incorporar nuevos proyectos solo cuando esten confirmados.',
-    pendingNote:
-      'Los siguientes casos quedan pendientes hasta disponer de contenido visual, copy y assets aprobados para publicacion.',
+      'La seccion no finge un portfolio inexistente: presenta disciplinas, ritmo editorial y enfoque creativo con contenido nativo de SUBEROS.',
+    asideTitle: 'Direccion creativa integrada',
+    asideBody:
+      'Fotografia, branding, produccion y web se presentan como partes de una misma cadena de decision visual, no como bloques aislados.',
+    notesTitle: 'Estado del portfolio',
   },
   process: {
     eyebrow: 'Metodo',

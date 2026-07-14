@@ -70,7 +70,7 @@ export function HeroSection() {
             <p className="hero__body hero-foundation__body">{homeContent.hero.body}</p>
 
             <Cluster className="hero__actions" gap="sm">
-              <Button href="#proyectos" size="large" variant="primary">
+              <Button href="#servicios" size="large" variant="primary">
                 {homeContent.hero.primaryCta}
               </Button>
               <Button href="#contacto" size="large" variant="ghost">

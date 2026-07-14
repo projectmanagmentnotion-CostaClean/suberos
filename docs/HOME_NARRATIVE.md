@@ -2,14 +2,14 @@
 
 ## Objetivo
 
-La home deja de ser una secuencia de bloques de readiness y pasa a una narrativa continua: impacto inicial, definicion del estudio, capacidades, caso real, metodo, declaracion de marca y cierre a contacto.
+La home deja de ser una secuencia de bloques de readiness y pasa a una narrativa continua: impacto inicial, definicion del estudio, capacidades, trabajo, metodo, declaracion de marca y cierre a contacto.
 
 ## Orden
 
 1. Hero
 2. Que es SUBEROS
 3. Servicios
-4. Proyecto destacado
+4. Trabajo
 5. Metodo
 6. Declaracion de marca
 7. Contacto
@@ -34,11 +34,11 @@ La home deja de ser una secuencia de bloques de readiness y pasa a una narrativa
 - evita cards SaaS genericas
 - prepara enlaces contextuales hacia contacto y proyectos
 
-### Proyecto destacado
+### Trabajo
 
-- presenta un caso real ya publicado: Luxury Shisha
-- evita portfolio inventado
-- deja documentado que los assets visuales finales del caso siguen pendientes
+- mantiene una seccion visual potente sin fingir proyectos publicados
+- convierte disciplinas reales en una composicion editorial propia de SUBEROS
+- deja documentado que el portfolio publico se activara solo cuando existan materiales aprobados
 
 ### Metodo
 
@@ -64,11 +64,11 @@ La home deja de ser una secuencia de bloques de readiness y pasa a una narrativa
 
 - hero y estudio comparten escala tipografica y negro editorial
 - servicios mantiene profundidad visual con panel activo
-- proyectos usa una composicion temporal coherente con la direccion del hero
+- trabajo usa una composicion editorial propia coherente con la direccion del hero
 - statement y contacto cierran sin cortar abruptamente la narrativa
 
 ## Fallbacks
 
 - reduced motion muestra todo el contenido en orden natural
 - en mobile desaparece el visual sticky de servicios y queda la lista editorial completa
-- Luxury Shisha usa una composicion temporal en codigo hasta disponer de capturas aprobadas
+- la seccion de trabajo usa una composicion propia en codigo sin depender de assets de terceros o de clientes

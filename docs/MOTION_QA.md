@@ -23,7 +23,7 @@ Home publica:
 - `?preloader=1&reduced-motion=1`
 - `?preloader=1&asset-fail=1`
 - segunda carga de sesion sin repetir preloader
-- entrada directa a `#estudio`, `#servicios`, `#proyectos`, `#proceso`, `#contacto`
+- entrada directa a `#estudio`, `#servicios`, `#trabajo`, `#proceso`, `#contacto`
 
 Motion Lab interno:
 
@@ -39,7 +39,7 @@ Motion Lab interno:
 - El lock de scroll era demasiado basico para encadenar preloader y drawer.
   - Corregido con un lock fijo por referencia que preserva y restaura `scrollY`.
 - La home bajo el hero seguia siendo una secuencia de readiness cards.
-  - Corregido con escenas editoriales para estudio, servicios, proyecto destacado, metodo y statement.
+  - Corregido con escenas editoriales para estudio, servicios, trabajo, metodo y statement.
 - `aria-labelledby` apuntaba a titulos sin `id` real.
   - Corregido anadiendo `titleId` a `SectionHeader`.
 

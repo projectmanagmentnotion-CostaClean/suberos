@@ -26,7 +26,7 @@ Anchors disponibles:
 - `#inicio`
 - `#estudio`
 - `#servicios`
-- `#proyectos`
+- `#trabajo`
 - `#proceso`
 - `#contacto`
 

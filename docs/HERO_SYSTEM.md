@@ -9,7 +9,7 @@ El hero de Sprint 04 establece la primera escena cinematografica real de SUBEROS
 - eyebrow real: `Estudio creativo / Calella, Barcelona`
 - un unico `h1`
 - cuerpo explicativo real
-- CTA primaria a `#proyectos`
+- CTA primaria a `#servicios`
 - CTA secundaria a `#contacto`
 - metadata de servicios y contacto real
 - visual principal con asset propio
@@ -74,7 +74,7 @@ Perfiles:
 ## SEO
 
 - H1 unico alineado con meta description actualizada
-- CTA principal dirigida a proyectos
+- CTA principal dirigida a servicios
 - CTA secundaria dirigida a contacto
 - anchors semanticos estables
 - copy inmediata sobre que hace SUBEROS y por que contactar

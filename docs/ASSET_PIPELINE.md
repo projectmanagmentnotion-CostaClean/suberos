@@ -11,13 +11,15 @@ public/
   branding/
     fonts/
   hero/
-  textures/
+  projects/
   placeholders/
+  textures/
   legacy-source/
 ```
 
 - `branding/`: assets aprobados para produccion
 - `hero/`: variantes futuras del primer viewport
+- `projects/`: reservado para casos aprobados; no publicar aqui materiales dudosos o no autorizados
 - `textures/`: grain, overlays y fondos aprobados
 - `placeholders/`: placeholders editoriales controlados
 - `legacy-source/`: originales recuperados, sin servir como dependencia final por defecto
@@ -31,14 +33,14 @@ public/
 - `public/branding/suberos-logo-symbol.webp`
 - `public/branding/fonts/StretchPro.otf`
 
-## Assets pendientes por proyecto
+## Assets de portfolio
 
-- `Luxury Shisha`
-  - estado visual actual en home: composicion editorial temporal construida en codigo
-  - pendientes:
-    - capturas aprobadas desktop/mobile
-    - version optimizada para `public/projects/`
-    - alt final basado en la captura real aprobada
+- `public/projects/` permanece sin assets publicados en este momento
+- cualquier futuro caso de estudio debe aportar:
+  - assets propios o autorizados
+  - dimensiones y peso documentados
+  - aprobacion explicita para publicacion
+  - copia original en `public/legacy-source/` cuando proceda
 
 ## Assets legado conservados
 
@@ -102,4 +104,5 @@ Si en fases posteriores se incorporan secuencias:
 ## Licencias y procedencia
 
 - usar solo assets propios, recuperados del sitio legado o entregados por el usuario
+- no promover a produccion assets de clientes o proyectos separados hasta confirmar permiso de uso en la web corporativa de SUBEROS
 - documentar toda nueva incorporacion en `docs/LEGACY_ASSET_INVENTORY.md` o en el sprint correspondiente

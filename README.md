@@ -9,7 +9,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 03 completado: arquitectura de motion endurecida, laboratorio interno, perfiles de preferencia y escenas reutilizables.
 - Sprint 04 completado: preloader cinematografico con carga real, persistencia de sesion, transicion FLIP y hero foundation scroll-linked.
 - Sprint 05 completado: narrativa inmersiva de home, escenas editoriales y primer proyecto real integrado.
-- El siguiente foco recomendado es el sistema de proyectos y el desarrollo de casos reales.
+- Sprint 05.1 completado: aislamiento de repositorio, retirada de referencias cruzadas y sustitucion del bloque de proyectos por una seccion editorial propia.
+- El siguiente foco recomendado es el sistema de proyectos solo cuando existan materiales y permisos aprobados para un caso publico real de SUBEROS.
 
 ## Stack
 
@@ -23,6 +24,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 
 - `npm install`
 - `npm run dev`
+- `npm run qa:isolation`
 - `npm run lint`
 - `npm run build`
 - `npm run preview`
@@ -92,6 +94,7 @@ Documentacion relacionada:
 - `docs/HOME_NARRATIVE.md`
 - `docs/HOME_SCENES.md`
 - `docs/PROJECT_CONTENT_MODEL.md`
+- `docs/PROJECT_ISOLATION.md`
 - `docs/LEGACY_SITE_AUDIT.md`
 - `docs/LEGACY_ASSET_INVENTORY.md`
 - `docs/SPRINT_01_REPORT.md`
@@ -99,6 +102,7 @@ Documentacion relacionada:
 - `docs/SPRINT_03_REPORT.md`
 - `docs/SPRINT_04_REPORT.md`
 - `docs/SPRINT_05_REPORT.md`
+- `docs/SPRINT_05_1_REPORT.md`
 
 ## Shell y rutas
 
@@ -106,7 +110,7 @@ Documentacion relacionada:
   - `#inicio`
   - `#estudio`
   - `#servicios`
-  - `#proyectos`
+  - `#trabajo`
   - `#proceso`
   - `#contacto`
 - Laboratorio interno:
@@ -124,6 +128,7 @@ Documentacion relacionada:
 ## Desarrollo
 
 - Mantener contenido 100 % real y verificable.
+- No exponer proyectos, clientes ni rutas externas hasta contar con materiales aprobados para publicacion.
 - No hotlinkear assets del sitio legado.
 - Centralizar nuevos tokens y estados de UI; no duplicar CSS ad hoc.
 - Registrar GSAP una sola vez y limpiar contextos y side effects.
@@ -133,6 +138,7 @@ Documentacion relacionada:
 ## Validacion minima por sprint
 
 - `npm install` o `npm ci`
+- `npm run qa:isolation`
 - `npm run lint`
 - `npm run build`
 - revision de teclado

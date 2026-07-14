@@ -46,8 +46,8 @@ export const siteServices: ServiceContent[] = [
     summary: 'Creamos experiencias digitales claras, mobile-first y preparadas para destacar y convertir.',
     benefit: 'Una presencia digital mas util, mas memorable y conectada con el resto de la marca.',
     result: 'Webs, landings o experiencias editoriales con narrativa y contacto directo.',
-    ctaHref: '#proyectos',
-    ctaLabel: 'Ver proyecto relacionado',
+    ctaHref: '#trabajo',
+    ctaLabel: 'Ver enfoque digital',
     visualEyebrow: 'Experiencia digital',
   },
 ]
