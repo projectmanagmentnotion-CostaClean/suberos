@@ -3,6 +3,25 @@
 ## Mission
 Build SUBEROS as a premium, immersive, conversion-oriented creative studio website. The visual target is an Awwwards-level motion experience, but every implementation must remain accessible, responsive, maintainable, SEO-ready and reliable on real devices.
 
+## Mandatory master standard
+
+Before planning or implementing any sprint, read and follow:
+
+- `docs/EU_WEB_APP_STANDARD.md`
+
+This is the cross-project technical, legal, privacy, accessibility, security, SEO, performance and Awwwards-quality baseline. It is a mandatory release and architecture standard, not optional guidance.
+
+Rules:
+
+- Applicable law and verified user rights take priority over visual concepts, motion, analytics and conversion experiments.
+- Every legal or privacy decision must be based on actual project data flows, vendors, business model and jurisdiction.
+- Do not invent legal identity, company details, retention periods, processors, licences, lawful bases or compliance claims.
+- Mark uncertain legal applicability in documentation and require owner or qualified legal review before launch.
+- Every sprint must consider whether it changes personal-data processing, storage, cookies, security, accessibility, consumer obligations, third-party transfers or legal-page content.
+- Temporary legal placeholders are never launch-ready.
+- Before final release create and complete `docs/LEGAL_APPLICABILITY_MATRIX.md`.
+- Specific project documents may strengthen the master standard but may not weaken it.
+
 ## Non-negotiable priorities
 1. Use the most professional, robust and scalable solution by default.
 2. Preserve real content and improve clarity, hierarchy, SEO and conversion without inventing clients, awards, results or testimonials.
@@ -66,6 +85,28 @@ Use responsive composition, not only smaller font sizes. Mobile may use shorter 
 - Respect `prefers-reduced-motion` and provide an equivalent readable experience.
 - Avoid flashes, violent zooms and vestibular motion without a reduced-motion alternative.
 
+## Privacy, legal and consent rules
+- Maintain a real inventory of forms, personal data, cookies, local/session storage, analytics, embeds and processors.
+- Collect only data required for a documented purpose.
+- Do not load non-essential cookies, pixels, embeds or tracking before valid consent where consent is required.
+- Rejecting or withdrawing consent must be as easy as accepting it.
+- Do not use dark patterns, preselected consent or bundled marketing consent.
+- Legal notice, privacy, cookie, accessibility and commercial terms must match actual runtime behaviour and verified owner data.
+- Every contact or account flow must define recipient, lawful basis, retention, security and deletion/rights handling.
+- Do not send personal data or form contents to analytics.
+- Review third-party hosting, CDN, email, database, fonts, maps, video, chat and AI services for processing and international transfers.
+- Ecommerce, subscription, account, upload, marketplace or community features require a new legal applicability review before implementation.
+
+## Security rules
+- HTTPS is mandatory in production.
+- Never expose secrets in the repository or client bundle.
+- Validate all external input server-side.
+- Apply least privilege to APIs, databases and storage.
+- Protect forms and endpoints against abuse without introducing unnecessary tracking.
+- File uploads require type, size, filename, access and malware-risk controls.
+- Define security headers, CSP and deployment hardening before launch.
+- Do not claim security, encryption or compliance unless the implementation was verified.
+
 ## SEO rules
 - Preserve one canonical URL per page.
 - Maintain correct title, meta description, Open Graph and structured data.
@@ -100,6 +141,7 @@ Do not overload every viewport with competing CTAs. One dominant action per scen
 - Preserve SVG when clean and safe.
 - Record source URL, original filename, dimensions, format, license/ownership note and final destination in `docs/LEGACY_ASSET_INVENTORY.md`.
 - Remove unused assets before release.
+- Verify commercial rights for fonts, photography, video, audio, icons, 3D and client case-study materials.
 
 ## Performance budgets
 Initial targets:
@@ -109,6 +151,7 @@ Initial targets:
 - Avoid loading full frame sequences before they are near the viewport.
 - Prevent layout shifts by declaring media dimensions.
 - Prefer local optimized fonts and preload only the critical font files.
+- Target field Core Web Vitals at the 75th percentile: LCP <= 2.5 s, INP <= 200 ms and CLS <= 0.1.
 
 ## Quality gates before every sprint closure
 Run and report:
@@ -121,8 +164,24 @@ Run and report:
 - reduced-motion review
 - console error review
 - broken-link review
+- privacy/storage impact review for changed functionality
+- bundle/performance comparison
 
 If a check cannot run, document the exact blocker. Do not claim validation that did not occur.
+
+## Final release gates
+Before production launch, additionally verify:
+
+- Completed legal applicability matrix.
+- Verified legal owner and contact data.
+- Privacy policy matches actual processing.
+- Cookie/storage audit matches runtime behaviour.
+- Consent gating and withdrawal work when required.
+- Required terms, consumer information and accessibility information exist.
+- Security headers, HTTPS, forms, backups and rollback are verified.
+- Asset and font licences are confirmed.
+- Lighthouse/Web Vitals and real-device checks are documented.
+- Temporary legal pages, placeholders, test routes and unapproved assets are removed or blocked appropriately.
 
 ## Git workflow
 - Inspect `git status` before editing.
@@ -138,4 +197,4 @@ If a check cannot run, document the exact blocker. Do not claim validation that 
 - Improve copy for clarity, emotional impact and search intent while preserving factual truth.
 
 ## Definition of done
-A sprint is complete only when the requested result is implemented, responsive, accessible, tested, documented, committed and pushed.
+A sprint is complete only when the requested result is implemented, responsive, accessible, tested, documented, committed and pushed. A release is complete only when the technical, legal, privacy, security, accessibility, content and operational gates in `docs/EU_WEB_APP_STANDARD.md` are also satisfied.
