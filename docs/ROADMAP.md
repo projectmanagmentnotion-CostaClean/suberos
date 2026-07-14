@@ -2,15 +2,16 @@
 
 ## Current delivery status
 
-- Phase 0 complete
-- Phase 1 complete
-- Phase 2 complete
-- Phase 3 complete
-- Phase 4 complete
-- Cross-project European technical/legal standard added
-- Phase 5 complete
-- Next recommended sprint: Phase 6 - Project system and case studies
-- Mandatory compliance implementation sprint must be completed before public launch
+- Phase 0 complete — governance and baseline.
+- Phase 1 complete — legacy asset recovery and brand foundation.
+- Phase 2 complete — design system and application shell.
+- Phase 3 complete — motion system.
+- Phase 4 complete — cinematic preloader and hero foundation.
+- Phase 5 complete — core homepage narrative.
+- European professional standard integrated for SUBEROS only.
+- Next required sprint: Phase 5.1 — repository isolation and content correction.
+- Next product sprint after correction: Phase 6 — SUBEROS content architecture and visual portfolio foundation.
+- Mandatory compliance implementation sprint remains required before launch.
 
 ## Mandatory governing documents
 
@@ -19,213 +20,269 @@ Every phase and sprint must follow:
 - `AGENTS.md`
 - `docs/EU_WEB_APP_STANDARD.md`
 
-`docs/EU_WEB_APP_STANDARD.md` is the project-wide technical, legal, privacy, cookie, accessibility, security, SEO, performance and Awwwards-quality baseline. Later documents may make requirements stricter but may not weaken it.
-
-Every sprint must include a short impact check for:
-
-- personal data;
-- cookies and browser storage;
-- third-party services and international transfers;
-- accessibility;
-- security;
-- consumer/ecommerce obligations;
-- asset and font licensing;
-- legal-page accuracy.
+These documents apply exclusively to SUBEROS. No external project, website, application, client, route, case study, domain, asset or branding may be mixed into this repository or public experience.
 
 ## Product vision
-Create a cinematic, high-impact creative studio website with extreme GSAP motion, large editorial typography, charcoal-to-black art direction, immersive scroll storytelling and conversion-focused content. The experience must remain usable, accessible and performant across desktop, tablet and mobile.
 
-## Phase 0 — Governance and baseline
-- Add AGENTS.md and project operating rules.
-- Confirm stack, scripts, folder structure and deployment target.
-- Audit existing code and current public website.
-- Create an inventory of real content, contacts, services and assets.
+Create a cinematic, high-impact SUBEROS creative studio website with extreme but controlled GSAP motion, monumental editorial typography, charcoal-to-black art direction, immersive scroll storytelling and conversion-focused content.
+
+The experience must remain:
+
+- understandable;
+- accessible;
+- responsive;
+- legally reviewable;
+- secure;
+- SEO-ready;
+- performant on real devices;
+- independent from every other project.
+
+---
+
+## Phase 0 — Governance and baseline — COMPLETE
+
+- Add AGENTS.md and operating rules.
+- Confirm stack, scripts, folders and deployment target.
+- Audit the existing code and current public SUBEROS website.
+- Inventory real content, contacts, services and assets.
 - Establish responsive, accessibility, SEO and performance baselines.
-- Adopt `docs/EU_WEB_APP_STANDARD.md` as the mandatory master standard.
+- Adopt the European professional standard.
 
-## Phase 1 — Legacy asset recovery and brand foundation
-- Download owned logo, favicon and useful visual assets from the current site.
-- Record every source and destination.
-- Clean SVGs and optimize raster files.
-- Create brand folders and naming conventions.
-- Define charcoal/black color tokens, spacing, typography, borders, shadows, grain and gradients.
-- Build a basic brand sheet inside documentation.
-- Record ownership and licence status for fonts, images and media.
+## Phase 1 — Legacy asset recovery and brand foundation — COMPLETE
 
-## Phase 2 — Design system and application shell
-- Build semantic AppShell, header, full-screen menu, footer and skip link.
-- Create Button, TextLink, SectionHeader, Eyebrow, MediaFrame, ProjectLink and CTA components.
-- Define fluid typography with `clamp()`.
-- Create focus, hover, active, loading and disabled states.
-- Add responsive layout primitives and content containers.
+- Recover owned SUBEROS logo, favicon and useful brand assets.
+- Record source and destination.
+- Preserve and audit original fonts.
+- Optimize approved assets.
+- Define charcoal/black visual tokens.
+- Establish brand folders and naming conventions.
+- Track ownership and licence status.
 
-## Phase 3 — Motion system
+## Phase 2 — Design system and application shell — COMPLETE
+
+- Semantic AppShell, header, menu, footer and skip link.
+- Reusable UI and layout primitives.
+- Fluid typography.
+- Focus, hover, active, loading and disabled states.
+- Responsive containers and editorial layout system.
+
+## Phase 3 — Motion system — COMPLETE
+
 - Central GSAP registration.
-- Lenis/ScrollTrigger synchronization.
-- Reusable hooks and scene lifecycle.
-- Breakpoint and reduced-motion orchestration with `gsap.matchMedia()`.
-- Reveal, split-text, mask, parallax, horizontal movement, velocity and FLIP primitives.
-- Debug mode and cleanup checks.
-- Document motion rules and performance limits.
+- Lenis and ScrollTrigger lifecycle.
+- Motion profiles: full, balanced and reduced.
+- Reusable scene primitives.
+- Refresh manager and cleanup.
+- Motion Lab and QA documentation.
 
-## Phase 4 — Cinematic preloader and hero
-- Real asset-aware preload logic.
-- 000–100 progress UI.
-- Logo construction/reveal.
-- FLIP transition from loader to hero.
-- Hero timeline tied to scroll.
-- Large typography, image masks and layered depth.
-- Mobile-specific timeline and static fallback.
+## Phase 4 — Cinematic preloader and hero — COMPLETE
 
-## Phase 5 — Core homepage narrative
-- Manifesto / what SUBEROS is.
-- Services with contextual internal linking.
-- Featured work with large-format visual scenes.
-- Photography section.
-- Branding and graphic design section.
-- Print and production section.
-- Web design and development section.
+- Real critical-asset preload logic.
+- Progress interface and timeout.
+- Session persistence.
+- FLIP transition into hero.
+- Scroll-linked hero foundation.
+- Mobile and reduced-motion alternatives.
+
+## Phase 5 — Core homepage narrative — COMPLETE, SUBJECT TO ISOLATION CLEANUP
+
+- Studio manifesto.
+- Confirmed SUBEROS services.
+- Services narrative.
 - Process/method section.
-- High-conversion final contact scene.
-- Confirm that new embeds, CTAs or storage do not introduce undocumented privacy/cookie impact.
+- Brand statement.
+- Conversion-focused contact closure.
+- Continuous visual transitions.
 
-## Phase 6 — Project system and case studies
-- Typed project data model.
-- Projects index with filters only if useful.
-- Individual SEO-ready project routes.
-- FLIP transitions between listing and detail.
-- Narrative case-study blocks: context, challenge, solution, media, outcome and related projects.
-- Add Luxury Shisha as the first fully developed case.
-- Record client publication permission and asset ownership for each case.
+The valid architecture and motion work remain. Any content or route referring to another project must be removed or replaced without undoing the design system, motion system, preloader, hero or home narrative.
+
+---
+
+## Phase 5.1 — Repository isolation and content correction — NEXT
+
+Purpose: remove all cross-project contamination while preserving completed SUBEROS engineering and design work.
+
+Required work:
+
+- Search source, public assets, metadata, structured data, sitemap, robots, docs and tests for foreign project names, domains, routes, contact details and assets.
+- Remove any external project used as a featured item, case study, demo or route.
+- Remove links to unrelated websites except verified third-party legal or social links that genuinely belong to SUBEROS.
+- Rebuild the featured-work area as a SUBEROS-owned editorial placeholder system that does not pretend unapproved work is published.
+- Keep the section valuable through art direction, process, capabilities and calls to contact.
+- Update typed data so unpublished portfolio items cannot leak publicly.
+- Remove foreign screenshots and media from production folders; preserve nothing unless its ownership and SUBEROS relevance are confirmed.
+- Correct SEO, structured data, canonical, sitemap and internal links.
+- Add an automated repository-isolation check.
+- Update all affected documentation and sprint reports with an explicit correction note.
+- Validate lint, build, responsive, reduced motion, console, links and bundle.
+- Commit and push.
+
+Acceptance:
+
+- Zero unintended foreign project references.
+- No broken layout or motion regression.
+- No invented replacement projects.
+- Home remains visually complete and conversion-oriented.
+
+---
+
+## Phase 6 — SUBEROS content architecture and visual portfolio foundation
+
+This phase is not a case-study import phase. It creates the architecture for future real SUBEROS content.
+
+- Audit and approve the real SUBEROS content inventory.
+- Define typed content models for services, capabilities, media and approved portfolio entries.
+- Create a publication status system: draft, approved, published and archived.
+- Prevent drafts and unapproved media from appearing publicly.
+- Build a visual work index only when at least one real SUBEROS item is approved.
+- If no portfolio item is approved, use a capabilities-led editorial experience rather than fake projects.
+- Define reusable large-format media blocks.
+- Prepare SEO-ready route architecture without publishing thin or empty pages.
+- Prepare future FLIP transitions without depending on them for navigation.
+- Record media ownership, permission and licence evidence.
+- Establish a professional content intake checklist for each future project.
+
+No named project may be added by Codex unless the user explicitly confirms it for SUBEROS.
 
 ## Phase 7 — Frame sequences and advanced media
+
+- Define asset-production specifications for SUBEROS scenes.
 - Canvas sequence player with preload window.
 - Desktop, tablet/mobile and static fallback packages.
 - Pause rendering outside viewport.
 - Memory-safe handling for Safari iOS.
-- Optional video and WebGL only when justified.
-- Define asset production specifications for Anderson.
-- Provide semantic and reduced-motion alternatives for all advanced media.
+- Optional video or WebGL only when justified.
+- Semantic and reduced-motion alternatives.
+- Strict media and bundle budgets.
 
 ## Phase 8 — Contact and conversion engine
-- Multi-step or concise contact flow based on conversion testing.
-- Real endpoint using a serverless function, Resend or Supabase.
-- Validation, spam protection and success/error states.
-- WhatsApp and email contact paths.
-- Analytics events for CTA, form start, completion and project views.
-- Privacy and legal consent implementation.
-- Define fields, purposes, lawful basis, destination, processors, retention and deletion workflow.
-- Prevent personal data from being sent to analytics.
-- Add first-layer privacy information and separate optional marketing consent where applicable.
+
+- Choose concise or multi-step contact flow based on actual needs.
+- Real endpoint using an approved provider or serverless function.
+- Server-side validation.
+- Spam and abuse protection.
+- Accessible success and error states.
+- Confirmed phone, email and WhatsApp paths only.
+- Define purpose, fields, lawful basis, destination, processors, retention and deletion.
+- First-layer privacy information.
+- Separate optional marketing consent when applicable.
+- Analytics events only after privacy assessment and without personal data.
 
 ## Phase 9 — SEO, legal, privacy and compliance architecture
-- Confirm sitemap and information architecture.
-- Optimize titles, descriptions, headings, canonicals and structured data.
-- Build service-to-project and project-to-service relationships.
-- Contextual internal links and related work.
-- Image alt strategy and media metadata.
+
+- Confirm final information architecture.
+- Optimize titles, descriptions, headings, canonicals and verified structured data.
+- Build internal links between studio, services, process and contact.
+- Add portfolio relationships only when approved content exists.
+- Image alt and media metadata strategy.
 - Robots, sitemap, redirects and 404.
-- Local SEO only with verified business details.
+- Local SEO only with verified details.
 - Create `docs/LEGAL_APPLICABILITY_MATRIX.md`.
-- Create a real data-processing and vendor inventory.
-- Create a cookie/storage inventory from runtime behaviour.
-- Replace temporary legal placeholders with verified legal notice, privacy policy and cookie policy where applicable.
-- Assess European Accessibility Act / Spanish Law 11/2023 applicability.
-- Create accessibility information or statement when required or adopted.
-- Confirm whether ecommerce, subscriptions, accounts, uploads, marketplace or DSA obligations apply.
-- Verify legal owner, tax/company details and contact route.
+- Create data/vendor and cookie/storage inventories.
+- Replace temporary legal placeholders.
+- Assess European accessibility applicability.
+- Verify legal owner and contact data.
 - Version legal text and consent evidence where applicable.
-- Obtain qualified legal review when the risk or business model warrants it.
+- Obtain qualified legal review where warranted.
 
 ## Phase 10 — Accessibility and inclusive motion
-- WCAG 2.2 AA audit.
-- Keyboard and screen-reader flow.
-- Reduced-motion experience.
-- Contrast and focus review.
-- Touch target and form error review.
-- Ensure all canvas/video content has semantic equivalents.
-- Review zoom, reflow, authentication and status messages.
-- Produce remediation record and accessibility statement inputs.
+
+- Full WCAG 2.2 AA audit.
+- Keyboard and screen-reader flows.
+- Reduced-motion equivalence.
+- Contrast, focus, zoom and reflow.
+- Touch targets and form errors.
+- Semantic alternatives for canvas and video.
+- Remediation record and accessibility statement inputs.
 
 ## Phase 11 — Performance, security and device hardening
+
 - Route and scene code splitting.
 - Responsive media and lazy loading.
 - Font optimization.
 - Frame sequence budgets.
-- Lighthouse and Web Vitals review.
-- Real-device testing on iPhone Safari, Android Chrome and tablet.
+- Lighthouse and Core Web Vitals review.
+- Real-device review on iPhone Safari, Android Chrome and tablet where available.
 - Slow network and low-memory testing.
-- Verify HTTPS, CSP, HSTS readiness and security headers.
-- Review secrets, dependencies, endpoint validation, rate limits and upload controls.
-- Verify backup and rollback process.
+- HTTPS, CSP, HSTS and security-header readiness.
+- Dependency, secret, endpoint and rate-limit review.
+- Backup and rollback process.
 
 ## Phase 12 — Visual and functional QA automation
-- Establish screenshot baselines at 390x844, 768x1024, 1366x768 and 1440x900.
-- Verify headers, menu, hero, pinned scenes, project pages, form and footer.
-- Test normal and reduced-motion modes.
-- Add stable `data-qa` hooks where needed.
-- Document known browser differences.
-- Add legal-link, cookie-gating, form, consent-withdrawal and security-header checks where applicable.
+
+- Screenshot baselines at 390x844, 768x1024, 1366x768 and 1440x900.
+- Header, menu, preloader, hero, narrative, contact, legal pages and footer.
+- Normal and reduced-motion modes.
+- Stable `data-qa` hooks.
+- Console, link, anchor and overflow assertions.
+- Repository-isolation assertion.
+- Cookie gating, form and consent checks when applicable.
+- Browser-difference documentation.
 
 ## Phase 13 — Content, legal and launch-readiness polish
-- Final copy audit for factual accuracy, emotional impact and conversion.
-- Proofread Spanish copy.
-- Verify all links, contact details, legal pages and social profiles.
-- Remove placeholders and unused assets.
-- Confirm asset, font, client and media publication rights.
-- Complete the legal applicability matrix with evidence.
-- Confirm privacy/cookie documents match production runtime.
-- Final build and deployment package.
+
+- Final factual copy audit.
+- Spanish proofreading.
+- Verify links, contacts and approved social profiles.
+- Remove placeholders, temporary routes and unused assets.
+- Confirm all asset and font rights.
+- Complete legal applicability evidence.
+- Confirm privacy and cookie documents match runtime.
+- Final production build and deployment package.
 
 ## Phase 14 — Deployment and monitoring
-- Back up the current site.
-- Deploy to staging first.
-- Validate domain, HTTPS, forms, analytics and Search Console.
+
+- Back up the existing SUBEROS site.
+- Deploy to staging.
+- Validate domain, HTTPS, forms, Search Console and approved analytics.
 - Configure redirects from old URLs.
-- Run post-deploy smoke tests.
-- Verify production cookies/storage before enabling analytics.
-- Verify security headers, legal links and consent controls.
-- Monitor errors, conversion and performance after launch.
+- Run production smoke tests.
+- Verify cookies, storage, legal links and security headers.
+- Monitor errors, conversion and performance.
 - Define privacy-request and incident-response ownership.
 
 ## Phase 15 — Continuous improvement
-- Add new case studies through the project data system.
-- Review conversion paths and user behavior.
-- Optimize heavy scenes based on real device data.
-- Keep dependencies and browser compatibility current.
+
+- Add only approved SUBEROS work through the content system.
+- Review conversion paths and user behaviour.
+- Optimize heavy scenes using real-device data.
+- Keep dependencies and browser support current.
 - Run periodic SEO, accessibility, privacy, cookie, security and performance audits.
-- Reassess legal applicability whenever the business model, vendors, countries or data flows change.
+- Reassess legal applicability whenever vendors, countries, features or data flows change.
+
+---
 
 ## Mandatory pre-launch compliance sprint
 
-This sprint may run after the core experience is stable, but it cannot be skipped or left until after public launch.
+Cannot be skipped or deferred until after launch.
 
 Deliverables:
 
-- `docs/LEGAL_APPLICABILITY_MATRIX.md`.
-- Verified legal-owner information checklist.
-- Data-processing inventory.
-- Vendor/subprocessor and international-transfer inventory.
-- Cookie/localStorage/sessionStorage/third-party runtime audit.
-- Consent architecture and withdrawal mechanism if required.
-- Final legal notice.
-- Final privacy policy.
-- Final cookie policy if applicable.
-- Accessibility applicability assessment and statement/information where required.
-- Terms/consumer documents if the scope adds sales, bookings, subscriptions or accounts.
-- Asset and font licence approval.
-- Security-header and endpoint review.
-- Final release-gate report against `docs/EU_WEB_APP_STANDARD.md`.
+- `docs/LEGAL_APPLICABILITY_MATRIX.md`
+- verified legal-owner checklist;
+- data-processing inventory;
+- vendor and transfer inventory;
+- runtime cookie/storage audit;
+- consent architecture when required;
+- final legal notice;
+- final privacy policy;
+- final cookie policy when applicable;
+- accessibility applicability assessment;
+- asset and font licence register;
+- security-header and endpoint review;
+- release-gate report against `docs/EU_WEB_APP_STANDARD.md`.
 
-Unknown or placeholder legal information blocks launch approval.
+Unknown legal identity, placeholder legal content or unresolved cross-project contamination blocks launch approval.
 
 ## Definition of project success
+
 - Immediate emotional impact.
-- Clear understanding of SUBEROS services.
+- Clear understanding of SUBEROS.
 - Smooth, controlled motion across devices.
 - No content or conversion path blocked by animation.
-- Strong project discovery and internal linking.
+- No mixing with other projects.
+- Strong internal navigation based on real content.
 - Real contact generation.
-- Maintainable code and documented content/asset workflows.
-- Legal, privacy, accessibility, security and consumer obligations are assessed and implemented based on real project scope.
-- Awwwards-level creativity is delivered as progressive enhancement, never at the expense of user rights or core usability.
+- Maintainable code and documented workflows.
+- Legal, privacy, accessibility, security and performance requirements assessed against the real production scope.
+- Awwwards-level creativity delivered as progressive enhancement.
