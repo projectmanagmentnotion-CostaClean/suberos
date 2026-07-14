@@ -9,6 +9,8 @@ Comandos:
 - `npm run qa:isolation`
 - `npm run qa:portfolio`
 - `npm run qa:sequences`
+- `npm run qa:contact`
+- `npm run qa:privacy`
 - `npm run lint`
 - `npm run build`
 - `npm run qa:visual`
@@ -31,6 +33,10 @@ Home publica:
 - segunda carga de sesion sin repetir preloader
 - entrada directa a `#estudio`, `#servicios`, `#trabajo`, `#proceso`, `#contacto`
 - `?reduced-motion=1`
+- formulario de contacto con estado success local
+- formulario de contacto con error recuperable
+- formulario de contacto con rate limit
+- formulario de contacto con doble submit bloqueado
 
 Motion Lab interno:
 
@@ -84,6 +90,7 @@ Sequence Lab interno:
 - Las escenas nuevas limpian estilos y dejan todo el contenido visible en orden natural.
 - La home y el Portfolio Lab mantienen un unico `h1`, sin overflow y sin errores de consola en reduced.
 - `Sequence Lab` en reduced queda con `Phase fallback`, `Loaded 0`, `Memory 0` y `Canvas off`.
+- El bloque de contacto mantiene labels visibles, feedback accesible y metodos alternativos operativos.
 
 ## Validacion accesible revisada
 
@@ -98,6 +105,15 @@ Sequence Lab interno:
 - El Portfolio Lab queda claramente marcado como interno y no indexable.
 - `Sequence Lab` queda claramente marcado como interno y no indexable.
 - El fallback estatico mantiene contenido util cuando falla un frame.
+- El formulario mueve el foco al primer error y mantiene contenido tras errores recuperables.
+
+## Contacto y privacidad
+
+- `qa:contact`: `11` pruebas pasando
+- `qa:privacy`: `2` pruebas pasando
+- `qa:visual`: `32` pruebas pasando
+- el mock local deja de contaminar el rate limit entre escenarios
+- el conteo de doble submit ignora el preflight y solo cuenta `POST` reales
 
 ## Limites de esta QA
 

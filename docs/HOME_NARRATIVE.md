@@ -53,12 +53,14 @@ La home deja de ser una secuencia de bloques de readiness y pasa a una narrativa
 ### Contacto
 
 - convierte la narrativa en siguiente accion
-- mantiene email, telefono, ubicacion y formulario actuales
+- mantiene email, telefono y ubicacion publicos
+- usa formulario accesible y validado como capa de conversion
+- no promete entrega online real mientras no exista backend de produccion aprobado
 
 ## Emocion y conversion
 
 - emocion: tipografia monumental, ritmos editoriales, contrastes charcoal/negro y escenas conectadas
-- conversion: CTA dominantes, anchors reales, proyecto destacado y cierre directo a contacto
+- conversion: CTA dominantes, anchors reales, cierre directo a contacto y metodos alternativos siempre visibles
 
 ## Continuidad visual
 

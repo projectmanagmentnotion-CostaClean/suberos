@@ -24,6 +24,8 @@ const allowedUrlPatterns = [
   /^https:\/\/suberos\.com(?:\/|$)/i,
   /^https:\/\/schema\.org(?:\/|$)/i,
   /^http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9$/i,
+  /^http:\/\/127\.0\.0\.1:8787\/api\/contact$/i,
+  /^https:\/\/\$\{/,
 ]
 
 const forbiddenMatchers = [

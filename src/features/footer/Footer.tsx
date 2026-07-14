@@ -15,8 +15,8 @@ export function Footer() {
           <div className="site-footer__column">
             <p className="site-footer__brand">SUBEROS</p>
             <p className="site-footer__copy">
-              Branding, fotografia profesional, impresion digital y diseno y desarrollo web con datos y
-              contacto confirmados en la web publica actual.
+              Branding, fotografia profesional, impresion digital y diseno y desarrollo web con contacto
+              publicado en la web actual y pendiente de verificacion legal final antes del lanzamiento.
             </p>
             <TextLink href="#inicio">Volver arriba</TextLink>
           </div>

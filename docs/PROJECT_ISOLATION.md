@@ -40,6 +40,8 @@ Evitar que la web publica, el codigo activo y la documentacion viva de SUBEROS m
 - `public/portfolio/drafts/` y `public/portfolio/approved/` no deben ser referenciados desde la web publica
 - si no hay portfolio publicado, la home debe usar composiciones editoriales propias, nunca proyectos inventados
 - `?portfolio-lab=1` es una herramienta interna, no una ruta publica indexable
+- el formulario publico no puede prometer entrega real mientras no exista backend de produccion aprobado
+- el mock de contacto debe permanecer restringido a localhost y fuera del build publico
 
 ## Script automatizado
 

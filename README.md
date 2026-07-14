@@ -12,7 +12,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 05.1 completado: aislamiento de repositorio, retirada de referencias cruzadas y sustitucion del bloque de proyectos por una seccion editorial propia.
 - Sprint 06 completado: sistema visual interno, pipeline de assets, Portfolio Lab privado y readiness del portfolio sin publicar casos ficticios.
 - Sprint 07 completado: motor de frame sequences, secuencia abstracta propia, Sequence Lab privado y pipeline de manifiestos/QA.
-- El siguiente foco recomendado es Phase 8: contacto y conversion real, salvo que entren assets de secuencia publica aprobados para una integracion narrativa adicional.
+- Sprint 08 completado localmente: motor de contacto y conversion con validacion, mock local, QA visual/privacidad y bloqueo honesto de produccion sin backend real.
+- El siguiente foco recomendado es Phase 9: SEO, legal, privacy and compliance architecture.
 
 ## Stack
 
@@ -30,6 +31,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run qa:portfolio`
 - `npm run qa:sequences`
 - `npm run qa:visual`
+- `npm run qa:contact`
+- `npm run qa:privacy`
 - `npm run lint`
 - `npm run build`
 - `npm run preview`
@@ -90,6 +93,7 @@ docs/
 - UI components: `Button`, `TextLink`, `IconButton`, `Eyebrow`, `SectionHeader`, `MediaFrame`, `Divider`, `SkipLink`
 - Nuevas piezas de motion viven en `src/motion/`
 - El preloader vive en `src/features/preloader/` y el hero foundation en `src/features/home/`
+- El sistema de contacto vive en `src/features/contact/`
 
 Documentacion relacionada:
 
@@ -114,6 +118,15 @@ Documentacion relacionada:
 - `docs/FRAME_SEQUENCE_MEMORY.md`
 - `docs/SEQUENCE_LAB.md`
 - `docs/PORTFOLIO_READINESS.md`
+- `docs/CONTACT_SYSTEM.md`
+- `docs/CONTACT_DATA_FLOW.md`
+- `docs/VENDOR_AND_PROCESSOR_INVENTORY.md`
+- `docs/CONTACT_SECURITY.md`
+- `docs/CONVERSION_EVENTS.md`
+- `docs/LEGAL_OWNER_INFORMATION_REQUIRED.md`
+- `docs/SPRINT_08_REPORT.md`
+- `docs/DEPLOYMENT_SITEGROUND.md`
+- `docs/PRODUCTION_RELEASE_REPORT.md`
 - `docs/LEGACY_SITE_AUDIT.md`
 - `docs/LEGACY_ASSET_INVENTORY.md`
 - `docs/SPRINT_01_REPORT.md`
@@ -156,10 +169,11 @@ Documentacion relacionada:
 - No hotlinkear assets del sitio legado.
 - No indexar laboratorios internos ni drafts del portfolio.
 - No integrar secuencias publicas fuera del laboratorio mientras no exista aprobacion real de assets y rendimiento suficiente.
+- No afirmar que el formulario envia emails reales mientras no exista backend de produccion aprobado.
 - Centralizar nuevos tokens y estados de UI; no duplicar CSS ad hoc.
 - Registrar GSAP una sola vez y limpiar contextos y side effects.
 - Usar `src/motion/` como entrypoint de nuevas escenas, no crear hooks GSAP ad hoc fuera del sistema salvo compatibilidad puntual.
-- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run qa:sequences`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.
+- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run qa:sequences`, `npm run qa:contact`, `npm run qa:privacy`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.
 
 ## Validacion minima por sprint
 

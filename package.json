@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
+    "contact:mock-server": "node ./node_modules/tsx/dist/cli.mjs scripts/contact-mock-server.ts",
     "lint": "eslint .",
     "assets:sequence-manifest": "node scripts/generate-sequence-manifest.mjs",
     "qa:isolation": "node scripts/check-project-isolation.mjs",
     "qa:portfolio": "node scripts/check-portfolio-readiness.mjs",
     "qa:sequences": "node scripts/check-frame-sequences.mjs",
-    "qa:visual": "playwright test"
+    "qa:contact": "node scripts/check-contact-system.mjs && set PLAYWRIGHT_PORT=4176&& set PLAYWRIGHT_CONTACT_MOCK=1&& playwright test tests/contact.spec.ts",
+    "qa:privacy": "node scripts/check-privacy-storage.mjs && set PLAYWRIGHT_PORT=4177&& playwright test tests/privacy.spec.ts",
+    "qa:visual": "set PLAYWRIGHT_PORT=4178&& set PLAYWRIGHT_CONTACT_MOCK=1&& playwright test"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -24,6 +27,7 @@
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@playwright/test": "^1.61.1",
+    "@types/node": "^24.3.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
@@ -35,6 +39,7 @@
     "sharp": "^0.35.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
+    "tsx": "^4.20.3",
     "vite": "^7.1.2"
   }
 }

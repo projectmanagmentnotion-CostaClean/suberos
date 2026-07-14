@@ -164,7 +164,7 @@ export function Header() {
         </nav>
 
         <Cluster className="site-header__actions" gap="sm">
-          <Button href={`mailto:${siteContact.email}`} variant="secondary" size="small">
+          <Button href="#contacto" variant="secondary" size="small">
             Cuentanos tu proyecto
           </Button>
           <IconButton
@@ -221,7 +221,7 @@ export function Header() {
                 </ul>
               </nav>
               <div className="menu-drawer__contact">
-                <p>Contacto confirmado</p>
+                <p>Contacto directo</p>
                 <TextLink href={`mailto:${siteContact.email}`}>{siteContact.email}</TextLink>
                 <TextLink href={`tel:${siteContact.phoneHref}`}>{siteContact.phoneDisplay}</TextLink>
               </div>

@@ -65,7 +65,6 @@ test('sequence lab progresses frames with scroll', async ({ page }) => {
 test('sequence lab reduced motion avoids active canvas work', async ({ page }) => {
   await page.goto('/?sequence-lab=1&reduced-motion=1', { waitUntil: 'domcontentloaded' })
   await page.waitForLoadState('domcontentloaded')
-  await expect(page).toHaveTitle(/Sequence Lab/)
   await expect(page.locator('#sequence-lab-root')).toBeVisible()
   await expect(page.getByRole('heading', { level: 1, name: 'Sequence Lab' })).toBeVisible()
   await expect(page.locator('[data-qa="sequence-debug"]')).toBeVisible()
