@@ -11,7 +11,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 05 completado: narrativa inmersiva de home, escenas editoriales y estructura de conversion para la home publica.
 - Sprint 05.1 completado: aislamiento de repositorio, retirada de referencias cruzadas y sustitucion del bloque de proyectos por una seccion editorial propia.
 - Sprint 06 completado: sistema visual interno, pipeline de assets, Portfolio Lab privado y readiness del portfolio sin publicar casos ficticios.
-- El siguiente foco recomendado es Phase 7: frame sequences y media avanzada una vez existan materiales reales aprobados para motion.
+- Sprint 07 completado: motor de frame sequences, secuencia abstracta propia, Sequence Lab privado y pipeline de manifiestos/QA.
+- El siguiente foco recomendado es Phase 8: contacto y conversion real, salvo que entren assets de secuencia publica aprobados para una integracion narrativa adicional.
 
 ## Stack
 
@@ -27,6 +28,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run dev`
 - `npm run qa:isolation`
 - `npm run qa:portfolio`
+- `npm run qa:sequences`
 - `npm run qa:visual`
 - `npm run lint`
 - `npm run build`
@@ -44,10 +46,12 @@ src/
   data/
   features/
     contact/
+    frame-sequence/
     footer/
     home/
     motion-lab/
     navigation/
+    sequence-lab/
   hooks/
   lib/
     gsap/
@@ -105,6 +109,10 @@ Documentacion relacionada:
 - `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md`
 - `docs/SUBEROS_ASSET_PRODUCTION_BRIEF.md`
 - `docs/FRAME_SEQUENCE_SPEC.md`
+- `docs/FRAME_SEQUENCE_ENGINE.md`
+- `docs/FRAME_SEQUENCE_LOADING.md`
+- `docs/FRAME_SEQUENCE_MEMORY.md`
+- `docs/SEQUENCE_LAB.md`
 - `docs/PORTFOLIO_READINESS.md`
 - `docs/LEGACY_SITE_AUDIT.md`
 - `docs/LEGACY_ASSET_INVENTORY.md`
@@ -129,6 +137,9 @@ Documentacion relacionada:
   - `/?motion-lab=1&reduced-motion=1`
   - `/?portfolio-lab=1`
   - `/?portfolio-lab=1&reduced-motion=1`
+  - `/?sequence-lab=1`
+  - `/?sequence-lab=1&reduced-motion=1`
+  - `/?sequence-lab=1&asset-fail=1`
 - QA del preloader:
   - `/?preloader=1`
   - `/?preloader=reset`
@@ -144,10 +155,11 @@ Documentacion relacionada:
 - No exponer proyectos, clientes ni rutas externas hasta contar con materiales aprobados para publicacion.
 - No hotlinkear assets del sitio legado.
 - No indexar laboratorios internos ni drafts del portfolio.
+- No integrar secuencias publicas fuera del laboratorio mientras no exista aprobacion real de assets y rendimiento suficiente.
 - Centralizar nuevos tokens y estados de UI; no duplicar CSS ad hoc.
 - Registrar GSAP una sola vez y limpiar contextos y side effects.
 - Usar `src/motion/` como entrypoint de nuevas escenas, no crear hooks GSAP ad hoc fuera del sistema salvo compatibilidad puntual.
-- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.
+- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run qa:sequences`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.
 
 ## Validacion minima por sprint
 

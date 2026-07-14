@@ -1,4 +1,4 @@
-# SUBEROS — Master Roadmap
+# SUBEROS â€” Master Roadmap
 
 ## Current delivery status
 
@@ -11,7 +11,8 @@
 - Phase 5 complete
 - Phase 5.1 complete - Repository isolation and content correction
 - Phase 6 complete - SUBEROS visual content system and portfolio readiness
-- Next recommended sprint: Phase 7 - Frame sequences and advanced media once approved real assets exist
+- Phase 7 complete - Frame sequence engine and advanced media foundation
+- Next recommended sprint: Phase 8 - Contact and conversion engine unless approved public sequence assets justify an integration pass first
 - Mandatory compliance implementation sprint must be completed before public launch
 
 ## Mandatory governing documents
@@ -40,7 +41,7 @@ The experience must remain:
 
 ---
 
-## Phase 0 — Governance and baseline — COMPLETE
+## Phase 0 â€” Governance and baseline â€” COMPLETE
 
 - Add AGENTS.md and operating rules.
 - Confirm stack, scripts, folders and deployment target.
@@ -49,7 +50,7 @@ The experience must remain:
 - Establish responsive, accessibility, SEO and performance baselines.
 - Adopt the European professional standard.
 
-## Phase 1 — Legacy asset recovery and brand foundation — COMPLETE
+## Phase 1 â€” Legacy asset recovery and brand foundation â€” COMPLETE
 
 - Recover owned SUBEROS logo, favicon and useful brand assets.
 - Record source and destination.
@@ -59,7 +60,7 @@ The experience must remain:
 - Establish brand folders and naming conventions.
 - Track ownership and licence status.
 
-## Phase 2 — Design system and application shell — COMPLETE
+## Phase 2 â€” Design system and application shell â€” COMPLETE
 
 - Semantic AppShell, header, menu, footer and skip link.
 - Reusable UI and layout primitives.
@@ -67,7 +68,7 @@ The experience must remain:
 - Focus, hover, active, loading and disabled states.
 - Responsive containers and editorial layout system.
 
-## Phase 3 — Motion system — COMPLETE
+## Phase 3 â€” Motion system â€” COMPLETE
 
 - Central GSAP registration.
 - Lenis and ScrollTrigger lifecycle.
@@ -76,7 +77,7 @@ The experience must remain:
 - Refresh manager and cleanup.
 - Motion Lab and QA documentation.
 
-## Phase 4 — Cinematic preloader and hero — COMPLETE
+## Phase 4 â€” Cinematic preloader and hero â€” COMPLETE
 
 - Real critical-asset preload logic.
 - Progress interface and timeout.
@@ -85,7 +86,7 @@ The experience must remain:
 - Scroll-linked hero foundation.
 - Mobile and reduced-motion alternatives.
 
-## Phase 5 — Core homepage narrative — COMPLETE, SUBJECT TO ISOLATION CLEANUP
+## Phase 5 â€” Core homepage narrative â€” COMPLETE, SUBJECT TO ISOLATION CLEANUP
 
 - Studio manifesto.
 - Confirmed SUBEROS services.
@@ -99,7 +100,7 @@ The valid architecture and motion work remain. Any content or route referring to
 
 ---
 
-## Phase 5.1 — Repository isolation and content correction — COMPLETE
+## Phase 5.1 â€” Repository isolation and content correction â€” COMPLETE
 
 Purpose: remove all cross-project contamination while preserving completed SUBEROS engineering and design work.
 
@@ -127,7 +128,7 @@ Acceptance:
 
 ---
 
-## Phase 6 — SUBEROS content architecture and visual portfolio foundation — COMPLETE
+## Phase 6 â€” SUBEROS content architecture and visual portfolio foundation â€” COMPLETE
 
 This phase is not a case-study import phase. It creates the architecture for future real SUBEROS content.
 
@@ -147,7 +148,7 @@ This phase is not a case-study import phase. It creates the architecture for fut
 
 No named project may be added by Codex unless the user explicitly confirms it for SUBEROS.
 
-## Phase 7 — Frame sequences and advanced media
+## Phase 7 â€” Frame sequences and advanced media â€” COMPLETE
 
 - Define asset-production specifications for SUBEROS scenes.
 - Canvas sequence player with preload window.
@@ -157,8 +158,9 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Optional video or WebGL only when justified.
 - Semantic and reduced-motion alternatives.
 - Strict media and bundle budgets.
+- Internal sequence lab and QA coverage in place.
 
-## Phase 8 — Contact and conversion engine
+## Phase 8 â€” Contact and conversion engine
 
 - Choose concise or multi-step contact flow based on actual needs.
 - Real endpoint using an approved provider or serverless function.
@@ -171,7 +173,7 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Separate optional marketing consent when applicable.
 - Analytics events only after privacy assessment and without personal data.
 
-## Phase 9 — SEO, legal, privacy and compliance architecture
+## Phase 9 â€” SEO, legal, privacy and compliance architecture
 
 - Confirm final information architecture.
 - Optimize titles, descriptions, headings, canonicals and verified structured data.
@@ -188,7 +190,7 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Version legal text and consent evidence where applicable.
 - Obtain qualified legal review where warranted.
 
-## Phase 10 — Accessibility and inclusive motion
+## Phase 10 â€” Accessibility and inclusive motion
 
 - Full WCAG 2.2 AA audit.
 - Keyboard and screen-reader flows.
@@ -198,7 +200,7 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Semantic alternatives for canvas and video.
 - Remediation record and accessibility statement inputs.
 
-## Phase 11 — Performance, security and device hardening
+## Phase 11 â€” Performance, security and device hardening
 
 - Route and scene code splitting.
 - Responsive media and lazy loading.
@@ -211,7 +213,7 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Dependency, secret, endpoint and rate-limit review.
 - Backup and rollback process.
 
-## Phase 12 — Visual and functional QA automation
+## Phase 12 â€” Visual and functional QA automation
 
 - Screenshot baselines at 390x844, 768x1024, 1366x768 and 1440x900.
 - Header, menu, preloader, hero, narrative, contact, legal pages and footer.
@@ -222,7 +224,7 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Cookie gating, form and consent checks when applicable.
 - Browser-difference documentation.
 
-## Phase 13 — Content, legal and launch-readiness polish
+## Phase 13 â€” Content, legal and launch-readiness polish
 
 - Final factual copy audit.
 - Spanish proofreading.
@@ -233,7 +235,7 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Confirm privacy and cookie documents match runtime.
 - Final production build and deployment package.
 
-## Phase 14 — Deployment and monitoring
+## Phase 14 â€” Deployment and monitoring
 
 - Back up the existing SUBEROS site.
 - Deploy to staging.
@@ -244,7 +246,7 @@ No named project may be added by Codex unless the user explicitly confirms it fo
 - Monitor errors, conversion and performance.
 - Define privacy-request and incident-response ownership.
 
-## Phase 15 — Continuous improvement
+## Phase 15 â€” Continuous improvement
 
 - Add only approved SUBEROS work through the content system.
 - Review conversion paths and user behaviour.

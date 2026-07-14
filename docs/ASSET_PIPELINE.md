@@ -11,6 +11,11 @@ public/
   branding/
     fonts/
   hero/
+  motion/
+    lab/
+      suberos-sequence-lab/
+    sequences/
+    posters/
   services/
     photography/
     branding/
@@ -20,9 +25,6 @@ public/
     drafts/
     approved/
     published/
-  motion/
-    sequences/
-    posters/
   backgrounds/
   textures/
   legacy-source/
@@ -30,14 +32,13 @@ public/
 
 - `branding/`: assets aprobados para produccion
 - `hero/`: variantes futuras del primer viewport
+- `motion/lab/`: secuencias internas de QA no publicables
+- `motion/sequences/` y `motion/posters/`: reservados para secuencias y posters aprobados
 - `services/`: assets de disciplinas por servicio; pueden permanecer vacios hasta contar con material aprobado
 - `portfolio/drafts/`: material privado no publicable
 - `portfolio/approved/`: material aprobado internamente pero todavia no publicado
 - `portfolio/published/`: unico origen valido para media de portfolio publica
-- `motion/sequences/` y `motion/posters/`: reservados para secuencias y posters aprobados
 - `backgrounds/` y `textures/`: overlays, grain y fondos propios aprobados
-- `textures/`: grain, overlays y fondos aprobados
-- `placeholders/`: placeholders editoriales controlados
 - `legacy-source/`: originales recuperados, sin servir como dependencia final por defecto
 
 ## Assets actuales aprobados
@@ -57,6 +58,19 @@ public/
   - dimensiones y peso documentados
   - aprobacion explicita para publicacion
   - copia original en `public/legacy-source/` cuando proceda
+
+## Assets de secuencia
+
+- `public/motion/lab/suberos-sequence-lab/` contiene la secuencia abstracta propia de Sprint 07
+- uso:
+  - solo `Sequence Lab`
+  - no publicable como portfolio
+  - no enlazado desde la web publica
+- composicion actual:
+  - `poster.webp`
+  - `fallback.webp`
+  - sets `desktop/`, `tablet/`, `mobile/`
+  - `README.txt` de trazabilidad
 
 ## Assets legado conservados
 
@@ -118,6 +132,8 @@ Si en fases posteriores se incorporan secuencias:
 - definir ventana de preload y descarte
 - documentar frame count, peso total y fallback estatico
 - no ubicar secuencias dentro de `branding/`
+- producir manifiesto JSON en `src/motion/sequences/manifests/`
+- validar con `npm run qa:sequences`
 
 ## Herramientas de optimizacion
 
@@ -131,6 +147,9 @@ Si en fases posteriores se incorporan secuencias:
   - `node scripts/inspect-asset-metadata.mjs <file>`
   - `node scripts/optimize-asset.mjs --input <file> --output <file> --format webp`
   - `node scripts/optimize-asset.mjs --input <file> --output <file> --format avif --width 1600`
+  - `node scripts/generate-sequence-lab-assets.mjs`
+  - `npm run assets:sequence-manifest`
+  - `npm run qa:sequences`
 
 ## Licencias y procedencia
 

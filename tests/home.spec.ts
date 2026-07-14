@@ -25,7 +25,8 @@ for (const viewport of homeViewports) {
     const consoleIssues = await collectConsoleIssues(page)
 
     await page.setViewportSize({ width: viewport.width, height: viewport.height })
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.waitForLoadState('domcontentloaded')
     await expect(page).toHaveTitle(/SUBEROS/)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('#trabajo')).toBeVisible()
@@ -47,7 +48,8 @@ for (const viewport of homeViewports) {
 test('home supports reduced motion query without console errors', async ({ page }) => {
   const consoleIssues = await collectConsoleIssues(page)
 
-  await page.goto('/?reduced-motion=1')
+  await page.goto('/?reduced-motion=1', { waitUntil: 'domcontentloaded' })
+  await page.waitForLoadState('domcontentloaded')
   await expect(page.locator('h1')).toHaveCount(1)
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)
@@ -56,7 +58,7 @@ test('home supports reduced motion query without console errors', async ({ page 
 })
 
 test('home keyboard access exposes skip link and real anchors', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
   await page.keyboard.press('Tab')
 
   const skipLink = page.locator('a[href="#main-content"]').first()
@@ -68,7 +70,7 @@ test('home keyboard access exposes skip link and real anchors', async ({ page })
 })
 
 test('home image assets render without broken media', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
 
   const imageHealth = await page.locator('img').evaluateAll((images) =>
     images.map((image) => ({

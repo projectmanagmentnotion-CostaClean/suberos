@@ -45,6 +45,8 @@ export function MotionLabPage() {
       document.title = previousTitle
       if (robotsMeta && previousRobots) {
         robotsMeta.setAttribute('content', previousRobots)
+      } else if (robotsMeta) {
+        robotsMeta.removeAttribute('content')
       }
     }
   }, [])

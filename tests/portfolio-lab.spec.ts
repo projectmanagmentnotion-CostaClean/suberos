@@ -25,7 +25,8 @@ for (const viewport of labViewports) {
     const consoleIssues = await collectConsoleIssues(page)
 
     await page.setViewportSize({ width: viewport.width, height: viewport.height })
-    await page.goto('/?portfolio-lab=1')
+    await page.goto('/?portfolio-lab=1', { waitUntil: 'domcontentloaded' })
+    await page.waitForLoadState('domcontentloaded')
     await expect(page).toHaveTitle(/Portfolio Lab/)
     await expect(page.getByRole('heading', { level: 1, name: 'Portfolio Lab' })).toBeVisible()
     await expect(page.locator('header nav')).not.toContainText('Portfolio Lab')
@@ -53,10 +54,10 @@ test('portfolio lab does not leak into robots or sitemap', async ({ request }) =
 })
 
 test('portfolio lab restores public robots when leaving the lab', async ({ page }) => {
-  await page.goto('/?portfolio-lab=1')
+  await page.goto('/?portfolio-lab=1', { waitUntil: 'domcontentloaded' })
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex,nofollow')
 
-  await page.goto('/')
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     'content',
     'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',

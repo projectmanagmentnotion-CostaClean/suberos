@@ -4,7 +4,7 @@ Fecha de auditoria: 2026-07-14
 
 ## Alcance
 
-Inventario maestro de assets visuales localizados en el repositorio durante Sprint 06. No se asume propiedad solo por presencia en disco. Los assets solo son publicables cuando su propiedad, licencia y aprobacion quedan confirmadas.
+Inventario maestro de assets visuales localizados en el repositorio. No se asume propiedad solo por presencia en disco. Los assets solo son publicables cuando su propiedad, licencia y aprobacion quedan confirmadas.
 
 ## Resumen
 
@@ -20,7 +20,8 @@ Inventario maestro de assets visuales localizados en el repositorio durante Spri
 - Fuentes legacy adicionales conservadas pero no aprobadas para uso productivo:
   - `public/legacy-source/fonts/couture-bld.otf`
   - `public/legacy-source/fonts/Oswald-VariableFont_wght.ttf`
-- No existen aun fotografias, video, mockups, secuencias ni portfolio publicado dentro del repositorio
+- No existen aun fotografias, video, mockups ni portfolio publicado dentro del repositorio
+- Existe una secuencia abstracta interna de QA para `Sequence Lab`
 
 ## Inventario
 
@@ -32,6 +33,11 @@ Inventario maestro de assets visuales localizados en el repositorio durante Spri
 | brand-icon-192 | `public/branding/suberos-icon-192.png` | icono | confirmada | pendiente de registro formal | 192x192 | 15917 | PNG | PWA/Android icon | si | si | high | optimizado | si | Referenciado en metadata |
 | brand-icon-512 | `public/branding/suberos-icon-512.png` | icono | confirmada | pendiente de registro formal | 512x512 | 50927 | PNG | OG fallback, app icon | si | si | high | optimizado | si | Se usa como `og:image` actual |
 | brand-font-stretchpro | `public/branding/fonts/StretchPro.otf` | fuente | pendiente | pendiente de licencia formal | n/a | 199652 | OTF | display font | si | si | high | original | pendiente | Fuente preservada para uso actual local; requiere registro/licencia documental |
+| sequence-lab-poster | `public/motion/lab/suberos-sequence-lab/poster.webp` | imagen | confirmada | interna SUBEROS | 1600x900 | 20494 | WebP | poster Sequence Lab | si | si | normal | optimizado | no | Solo para laboratorio interno |
+| sequence-lab-fallback | `public/motion/lab/suberos-sequence-lab/fallback.webp` | imagen | confirmada | interna SUBEROS | 1200x675 | 14662 | WebP | fallback Sequence Lab | si | si | normal | optimizado | no | Solo para laboratorio interno |
+| sequence-lab-desktop | `public/motion/lab/suberos-sequence-lab/desktop/*.webp` | secuencia | confirmada | interna SUBEROS | 1600x900 | 737674 total | WebP | QA scroll desktop | si | no | normal | optimizado | no | 36 frames |
+| sequence-lab-tablet | `public/motion/lab/suberos-sequence-lab/tablet/*.webp` | secuencia | confirmada | interna SUBEROS | 1280x720 | 440064 total | WebP | QA scroll tablet | si | si | normal | optimizado | no | 28 frames |
+| sequence-lab-mobile | `public/motion/lab/suberos-sequence-lab/mobile/*.webp` | secuencia | confirmada | interna SUBEROS | 960x540 | 286724 total | WebP | QA scroll mobile | no | si | high | optimizado | no | 24 frames |
 | legacy-logo-master | `public/legacy-source/LOGO-SUBEROS-1-989x1024.webp` | imagen | confirmada | pendiente de registro formal | 989x1024 | 77016 | WebP | original legacy | no | no | normal | original | no | No usar directamente en produccion |
 | legacy-icon-32 | `public/legacy-source/cropped-cropped-ikigai-logo-32x32.png` | icono | confirmada | pendiente de registro formal | 32x32 | 1698 | PNG | original legacy | no | no | normal | original | no | Copia de trazabilidad |
 | legacy-icon-180 | `public/legacy-source/cropped-cropped-ikigai-logo-180x180.png` | icono | confirmada | pendiente de registro formal | 180x180 | 14881 | PNG | original legacy | no | no | normal | original | no | Copia de trazabilidad |
@@ -53,6 +59,7 @@ Inventario maestro de assets visuales localizados en el repositorio durante Spri
 - `public/portfolio/published/`
 - `public/motion/sequences/`
 - `public/motion/posters/`
+- `public/motion/lab/` salvo la secuencia abstracta actual
 - `public/backgrounds/`
 - `public/textures/`
 
@@ -61,6 +68,8 @@ Inventario maestro de assets visuales localizados en el repositorio durante Spri
 - Aprobados para produccion actual:
   - logo simbolo WebP
   - paquete favicon PNG
+- Aprobados para uso interno:
+  - secuencia abstracta de `Sequence Lab`
 - Pendientes de evidencia documental:
   - `StretchPro.otf`
 - Rechazados para publicacion actual:
@@ -70,4 +79,5 @@ Inventario maestro de assets visuales localizados en el repositorio durante Spri
 
 - La licencia documental de `StretchPro.otf` no esta registrada en el repositorio
 - No existen texturas, fotografia, mockups ni secuencias reales aprobadas para elevar mas la home sin recurrir a placeholders editoriales
+- La secuencia del laboratorio no es un asset publicable ni sustituye assets reales de produccion
 - El inventario refleja el estado real del repo, no una aprobacion legal definitiva

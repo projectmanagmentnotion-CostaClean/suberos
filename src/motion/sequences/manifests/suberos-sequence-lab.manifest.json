@@ -1,0 +1,53 @@
+{
+  "aspectRatio": 1.7777777778,
+  "fallbackImage": "/motion/lab/suberos-sequence-lab/fallback.webp",
+  "id": "suberos-sequence-lab",
+  "loop": false,
+  "ownershipConfirmed": true,
+  "poster": "/motion/lab/suberos-sequence-lab/poster.webp",
+  "preloadRadius": 4,
+  "priorityFrames": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "publicationApproved": false,
+  "reducedMotionDisabled": true,
+  "sets": [
+    {
+      "basePath": "/motion/lab/suberos-sequence-lab/desktop",
+      "estimatedTotalBytes": 737674,
+      "extension": "webp",
+      "filenamePattern": "frame-{index}",
+      "frameCount": 36,
+      "height": 900,
+      "profile": "desktop",
+      "startIndex": 1,
+      "width": 1600
+    },
+    {
+      "basePath": "/motion/lab/suberos-sequence-lab/tablet",
+      "estimatedTotalBytes": 440064,
+      "extension": "webp",
+      "filenamePattern": "frame-{index}",
+      "frameCount": 28,
+      "height": 720,
+      "profile": "tablet",
+      "startIndex": 1,
+      "width": 1280
+    },
+    {
+      "basePath": "/motion/lab/suberos-sequence-lab/mobile",
+      "estimatedTotalBytes": 286724,
+      "extension": "webp",
+      "filenamePattern": "frame-{index}",
+      "frameCount": 24,
+      "height": 540,
+      "profile": "mobile",
+      "startIndex": 1,
+      "width": 960
+    }
+  ],
+  "title": "SUBEROS Sequence Lab"
+}

@@ -15,6 +15,12 @@ const MotionLabPage = lazy(() =>
   })),
 )
 
+const SequenceLabPage = lazy(() =>
+  import('../features/sequence-lab/SequenceLabPage').then((module) => ({
+    default: module.SequenceLabPage,
+  })),
+)
+
 function getAppMode() {
   if (typeof window === 'undefined') {
     return 'home'
@@ -24,6 +30,10 @@ function getAppMode() {
 
   if (params.get('portfolio-lab') === '1') {
     return 'portfolio-lab'
+  }
+
+  if (params.get('sequence-lab') === '1') {
+    return 'sequence-lab'
   }
 
   if (params.get('motion-lab') === '1') {
@@ -41,6 +51,10 @@ export function App() {
       {appMode === 'motion-lab' ? (
         <Suspense fallback={null}>
           <MotionLabPage />
+        </Suspense>
+      ) : appMode === 'sequence-lab' ? (
+        <Suspense fallback={null}>
+          <SequenceLabPage />
         </Suspense>
       ) : appMode === 'portfolio-lab' ? (
         <Suspense fallback={null}>
