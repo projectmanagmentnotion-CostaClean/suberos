@@ -10,6 +10,7 @@ export const CONTACT_MAX_PAYLOAD_CHARS = 6_000
 export const CONTACT_MIN_SUBMIT_DELAY_MS = 1_500
 export const CONTACT_RATE_LIMIT_WINDOW_MS = 60_000
 export const CONTACT_RATE_LIMIT_MAX_REQUESTS = 3
+export const CONTACT_REAL_ENDPOINT_ENABLED = false
 
 const localHostname = [108, 111, 99, 97, 108, 104, 111, 115, 116]
   .map((characterCode) => String.fromCharCode(characterCode))
@@ -105,7 +106,10 @@ export const contactSuccessMessage =
   'Solicitud recibida en el entorno tecnico de SUBEROS. La entrega real por correo sigue bloqueada hasta aprobar el backend y el proveedor final.'
 
 export const contactBlockedMessage =
-  'El envio online todavia no esta habilitado en produccion. Puedes escribirnos por correo o llamarnos y te responderemos por esa via.'
+  'El formulario online estara disponible proximamente. Puedes contactar ahora por email o telefono.'
+
+export const contactProductionStatusMessage =
+  'El formulario online permanece desactivado en esta version publica mientras se define el endpoint real y la capa legal definitiva.'
 
 export const contactRateLimitMessage =
   'Hemos detenido temporalmente nuevos envios desde este entorno. Espera un momento o usa correo o telefono si tu consulta es urgente.'

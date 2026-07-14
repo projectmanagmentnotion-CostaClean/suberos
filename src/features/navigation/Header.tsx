@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
+import { homeAnchors } from '../../app/routes'
 import gsap from 'gsap'
 
 import { Cluster } from '../../components/layout/Cluster'
@@ -148,7 +149,7 @@ export function Header() {
   return (
     <header className={cx('site-header', isElevated && 'is-elevated')} data-site-header="" ref={headerRef}>
       <Container className="site-header__inner">
-        <a className="site-header__brand" href="#inicio" aria-label="SUBEROS, volver al inicio">
+        <a className="site-header__brand" href={homeAnchors.inicio} aria-label="SUBEROS, volver al inicio">
           <img src="/branding/suberos-icon-192.png" width="40" height="40" alt="" aria-hidden="true" />
           <span>SUBEROS</span>
         </a>
@@ -164,7 +165,7 @@ export function Header() {
         </nav>
 
         <Cluster className="site-header__actions" gap="sm">
-          <Button href="#contacto" variant="secondary" size="small">
+          <Button href={homeAnchors.contacto} variant="secondary" size="small">
             Cuentanos tu proyecto
           </Button>
           <IconButton

@@ -1,4 +1,5 @@
 import {
+  CONTACT_REAL_ENDPOINT_ENABLED,
   CONTACT_ENDPOINT,
   getContactMockEndpoint,
   isContactDebugHost,
@@ -17,9 +18,12 @@ import type {
 
 declare global {
   interface Window {
+    __SUBEROS_CONTACT_TEST_MODE__?: boolean
     __SUBEROS_CONTACT_TEST_SCENARIO__?: string
   }
 }
+
+type ContactTestScenario = 'success' | 'error' | 'rate-limit' | 'timeout' | 'blocked'
 
 type ContactApiSuccess = {
   ok: true
@@ -48,10 +52,19 @@ function getDebugScenario() {
   const fromGlobal = window.__SUBEROS_CONTACT_TEST_SCENARIO__
 
   if (typeof fromGlobal === 'string' && fromGlobal) {
-    return fromGlobal
+    return fromGlobal as ContactTestScenario
   }
 
-  return new URLSearchParams(window.location.search).get('contact-debug')
+  const fromSearch = new URLSearchParams(window.location.search).get('contact-debug')
+  return fromSearch ? (fromSearch as ContactTestScenario) : null
+}
+
+function isQaMockMode() {
+  if (typeof window === 'undefined') {
+    return false
+  }
+
+  return window.__SUBEROS_CONTACT_TEST_MODE__ === true && Boolean(getDebugScenario())
 }
 
 function toFailure(reason: ContactSubmitFailure['reason'], message: string, fieldErrors?: ContactFieldErrors, retryAfterSeconds?: number): ContactSubmitFailure {
@@ -78,7 +91,7 @@ function getContactEndpoint() {
     return CONTACT_ENDPOINT
   }
 
-  if (isContactDebugHost(window.location.hostname)) {
+  if (isQaMockMode()) {
     return getContactMockEndpoint(window.location.origin)
   }
 
@@ -102,6 +115,10 @@ async function parseContactApiResponse(response: Response) {
 export async function submitContactRequest(validation: ContactValidationResult): Promise<ContactSubmitResult> {
   if (!validation.ok) {
     return toFailure('validation', validation.formError ?? contactGenericErrorMessage, validation.errors)
+  }
+
+  if (!isQaMockMode() && !CONTACT_REAL_ENDPOINT_ENABLED) {
+    return toFailure('blocked', contactBlockedMessage)
   }
 
   const controller = new AbortController()

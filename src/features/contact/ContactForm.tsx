@@ -3,7 +3,13 @@ import { useRef, useState } from 'react'
 import { Button } from '../../components/ui/Button'
 import { focusFirstFieldError } from '../../lib/forms/focusFirstFieldError'
 import { siteContact } from '../../data/siteContent'
-import { contactFieldOrder, contactInitialValues } from './contact.constants'
+import {
+  CONTACT_REAL_ENDPOINT_ENABLED,
+  contactBlockedMessage,
+  contactFieldOrder,
+  contactInitialValues,
+  contactProductionStatusMessage,
+} from './contact.constants'
 import { trackConversionEvent } from './contact.events'
 import { ContactError } from './ContactError'
 import { ContactFormFields } from './ContactFormFields'
@@ -35,6 +41,7 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
     website: useRef<HTMLInputElement | null>(null),
     contactPreference: useRef<HTMLSelectElement | null>(null),
   }
+  const isProductionEndpointUnavailable = !CONTACT_REAL_ENDPOINT_ENABLED
 
   function syncStatus(nextStatus: ContactFormStatus) {
     setStatus(nextStatus)
@@ -148,6 +155,13 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
             </p>
           </div>
 
+          {isProductionEndpointUnavailable ? (
+            <div className="contact-feedback contact-feedback--warning" data-qa="contact-production-status" role="status">
+              <p className="contact-feedback__eyebrow">Canal online en preparacion</p>
+              <p>{contactProductionStatusMessage}</p>
+            </div>
+          ) : null}
+
           {status === 'error' || status === 'rate-limited' ? (
             <ContactError
               message={feedbackMessage}
@@ -171,7 +185,9 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
             <Button data-qa="contact-submit" loading={status === 'submitting'} type="submit" variant="primary">
               {status === 'submitting' ? 'Enviando solicitud' : 'Enviar solicitud'}
             </Button>
-            <p className="contact-form__meta">Sin cookies no esenciales. Sin analitica. Sin datos personales en la URL.</p>
+            <p className="contact-form__meta">
+              {isProductionEndpointUnavailable ? contactBlockedMessage : 'Sin cookies no esenciales. Sin analitica. Sin datos personales en la URL.'}
+            </p>
           </div>
         </form>
       )}

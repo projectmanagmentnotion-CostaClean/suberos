@@ -1,0 +1,21 @@
+.not-found-page__hero h1 {
+  max-width: 10ch;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.92;
+}
+
+.not-found-page__hero,
+.not-found-page__intro {
+  max-width: 46rem;
+}
+
+.not-found-page__intro,
+.not-found-page .surface p {
+  color: var(--color-muted-text);
+}
+
+.not-found-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}

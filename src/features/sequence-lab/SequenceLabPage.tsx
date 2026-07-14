@@ -24,20 +24,7 @@ export function SequenceLabPage() {
   const manifest = useMemo(() => getSequenceLabManifest({ failFrames: shouldFailAssets }), [shouldFailAssets])
 
   useEffect(() => {
-    const previousTitle = document.title
-    const robotsMeta = document.querySelector('meta[name="robots"]')
-    const previousRobots = robotsMeta?.getAttribute('content') ?? null
-
-    document.title = 'SUBEROS Sequence Lab'
-    robotsMeta?.setAttribute('content', 'noindex,nofollow')
-
     return () => {
-      document.title = previousTitle
-      if (robotsMeta && previousRobots) {
-        robotsMeta.setAttribute('content', previousRobots)
-      } else if (robotsMeta) {
-        robotsMeta.removeAttribute('content')
-      }
       controller.dispose()
     }
   }, [controller])

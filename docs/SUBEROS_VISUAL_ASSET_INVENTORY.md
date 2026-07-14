@@ -14,6 +14,9 @@ Inventario maestro de assets visuales localizados en el repositorio. No se asume
   - `public/branding/suberos-icon-180.png`
   - `public/branding/suberos-icon-192.png`
   - `public/branding/suberos-icon-512.png`
+- Social card propia creada en Sprint 09:
+  - `public/branding/suberos-social-card.svg`
+  - `public/branding/suberos-social-card.png`
 - Fuente original conservada:
   - `public/branding/fonts/StretchPro.otf`
   - copia legacy en `public/legacy-source/fonts/StretchPro.otf`
@@ -32,6 +35,8 @@ Inventario maestro de assets visuales localizados en el repositorio. No se asume
 | brand-icon-180 | `public/branding/suberos-icon-180.png` | icono | confirmada | pendiente de registro formal | 180x180 | 14881 | PNG | apple touch icon | si | si | high | optimizado | si | Para iOS homescreen |
 | brand-icon-192 | `public/branding/suberos-icon-192.png` | icono | confirmada | pendiente de registro formal | 192x192 | 15917 | PNG | PWA/Android icon | si | si | high | optimizado | si | Referenciado en metadata |
 | brand-icon-512 | `public/branding/suberos-icon-512.png` | icono | confirmada | pendiente de registro formal | 512x512 | 50927 | PNG | OG fallback, app icon | si | si | high | optimizado | si | Se usa como `og:image` actual |
+| brand-social-card-svg | `public/branding/suberos-social-card.svg` | imagen | confirmada | interna SUBEROS | 1200x630 | 1519 | SVG | base editable para social card | si | si | high | original | si | Composicion editorial propia creada para metadata social |
+| brand-social-card-png | `public/branding/suberos-social-card.png` | imagen | confirmada | interna SUBEROS | 1200x630 | 29873 | PNG | `og:image` y `twitter:image` | si | si | high | optimizado | si | Exportada desde la composicion SVG propia |
 | brand-font-stretchpro | `public/branding/fonts/StretchPro.otf` | fuente | pendiente | pendiente de licencia formal | n/a | 199652 | OTF | display font | si | si | high | original | pendiente | Fuente preservada para uso actual local; requiere registro/licencia documental |
 | sequence-lab-poster | `public/motion/lab/suberos-sequence-lab/poster.webp` | imagen | confirmada | interna SUBEROS | 1600x900 | 20494 | WebP | poster Sequence Lab | si | si | normal | optimizado | no | Solo para laboratorio interno |
 | sequence-lab-fallback | `public/motion/lab/suberos-sequence-lab/fallback.webp` | imagen | confirmada | interna SUBEROS | 1200x675 | 14662 | WebP | fallback Sequence Lab | si | si | normal | optimizado | no | Solo para laboratorio interno |
@@ -68,6 +73,7 @@ Inventario maestro de assets visuales localizados en el repositorio. No se asume
 - Aprobados para produccion actual:
   - logo simbolo WebP
   - paquete favicon PNG
+  - social card propia SVG/PNG
 - Aprobados para uso interno:
   - secuencia abstracta de `Sequence Lab`
 - Pendientes de evidencia documental:
@@ -78,6 +84,7 @@ Inventario maestro de assets visuales localizados en el repositorio. No se asume
 ## Riesgos actuales
 
 - La licencia documental de `StretchPro.otf` no esta registrada en el repositorio
+- La publicacion final sigue bloqueada hasta confirmar licencia comercial y self-hosting de StretchPro
 - No existen texturas, fotografia, mockups ni secuencias reales aprobadas para elevar mas la home sin recurrir a placeholders editoriales
 - La secuencia del laboratorio no es un asset publicable ni sustituye assets reales de produccion
 - El inventario refleja el estado real del repo, no una aprobacion legal definitiva

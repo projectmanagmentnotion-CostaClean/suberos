@@ -1,18 +1,20 @@
+import { homeAnchors } from '../app/routes'
+
 export const siteMeta = {
-  title: 'SUBEROS | Branding, fotografia, impresion digital y desarrollo web',
+  title: 'SUBEROS - Estudio creativo de fotografia, diseno, produccion y web',
   description:
-    'Fotografia, diseno, impresion digital y experiencias web para marcas que quieren destacar, emocionar y ser recordadas.',
+    'SUBEROS une fotografia, diseno, produccion e interaccion web para marcas que necesitan una direccion visual clara y una ejecucion coherente.',
   canonicalUrl: 'https://suberos.com/',
-  ogImage: 'https://suberos.com/branding/suberos-icon-512.png',
+  ogImage: 'https://suberos.com/branding/suberos-social-card.png',
 }
 
 export const siteNavigation = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Estudio', href: '#estudio' },
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Trabajo', href: '#trabajo' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Inicio', href: homeAnchors.inicio },
+  { label: 'Estudio', href: homeAnchors.estudio },
+  { label: 'Servicios', href: homeAnchors.servicios },
+  { label: 'Trabajo', href: homeAnchors.trabajo },
+  { label: 'Proceso', href: homeAnchors.proceso },
+  { label: 'Contacto', href: homeAnchors.contacto },
 ] as const
 
 export const siteContact = {

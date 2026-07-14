@@ -1,3 +1,4 @@
+import { homeAnchors } from '../../app/routes'
 import { useRef } from 'react'
 
 import { Cluster } from '../../components/layout/Cluster'
@@ -33,7 +34,7 @@ export function ServicesSection() {
         <Stack gap="xl">
           <SectionHeader
             action={
-              <Button href="#contacto" size="small" variant="secondary">
+              <Button href={homeAnchors.contacto} size="small" variant="secondary">
                 Solicitar presupuesto
               </Button>
             }

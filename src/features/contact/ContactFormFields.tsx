@@ -240,7 +240,7 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
 
       <input name="startedAt" type="hidden" value={values.startedAt} />
       <p className="contact-form__privacy" id="contact-consent-context">
-        {contactConsentContext} <a href="/legal/privacidad.html">Politica de privacidad provisional</a>.
+        {contactConsentContext} <a href="/legal/privacidad">Politica de privacidad</a>.
       </p>
     </>
   )

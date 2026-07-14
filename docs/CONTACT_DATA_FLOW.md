@@ -12,19 +12,24 @@ Fecha: 2026-07-14
    - el foco salta al primer error
 4. Si pasa la validacion:
    - `submitContactRequest()` serializa el payload normalizado
-   - el cliente hace `POST` JSON al endpoint resuelto por host
-5. El endpoint local mock vuelve a validar en servidor.
-6. El mock responde con:
+   - la build publica comprueba primero si existe endpoint real habilitado
+   - si no existe y no se ha activado QA explicita, el flujo devuelve bloqueo honesto sin enviar red
+5. Solo en QA explicita:
+   - `window.__SUBEROS_CONTACT_TEST_MODE__ = true`
+   - escenario de mock valido
+   - el cliente hace `POST` JSON al mock local
+6. El endpoint local mock vuelve a validar en servidor.
+7. El mock responde con:
    - exito tecnico
    - error recuperable
    - rate limit
    - timeout
    - bloqueo
-7. La UI muestra el estado accesible correspondiente.
+8. La UI muestra el estado accesible correspondiente.
 
-## Destino real de datos
+## Destino QA de datos
 
-- En localhost, los datos llegan al mock local.
+- Solo en QA explicita, los datos llegan al mock local.
 - El mock no entrega email ni persiste solicitudes.
 - El mock registra solo:
   - `requestId`
@@ -35,7 +40,7 @@ Fecha: 2026-07-14
 
 - No existe backend real documentado en este repositorio.
 - El build publico no incorpora el mock.
-- Si `/api/contact` no existe, el usuario recibe un mensaje de indisponibilidad del canal online.
+- La build publica responde con un mensaje de indisponibilidad del canal online mientras `CONTACT_REAL_ENDPOINT_ENABLED` siga en `false`.
 
 ## Retencion
 

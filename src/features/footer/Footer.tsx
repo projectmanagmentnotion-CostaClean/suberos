@@ -1,3 +1,4 @@
+import { homeAnchors, legalPaths } from '../../app/routes'
 import { Cluster } from '../../components/layout/Cluster'
 import { Container } from '../../components/layout/Container'
 import { Grid } from '../../components/layout/Grid'
@@ -15,10 +16,10 @@ export function Footer() {
           <div className="site-footer__column">
             <p className="site-footer__brand">SUBEROS</p>
             <p className="site-footer__copy">
-              Branding, fotografia profesional, impresion digital y diseno y desarrollo web con contacto
-              publicado en la web actual y pendiente de verificacion legal final antes del lanzamiento.
+              Branding, fotografia profesional, impresion digital y diseno y desarrollo web con contacto publicado en la
+              web actual y pendiente de verificacion legal final antes del lanzamiento.
             </p>
-            <TextLink href="#inicio">Volver arriba</TextLink>
+            <TextLink href={homeAnchors.inicio}>Volver arriba</TextLink>
           </div>
 
           <div className="site-footer__column">
@@ -37,7 +38,7 @@ export function Footer() {
             <ul className="site-footer__list">
               {siteServices.map((service) => (
                 <li key={service.id}>
-                  <TextLink href={`#${service.id}`}>{service.title}</TextLink>
+                  <TextLink href={service.ctaHref}>{service.title}</TextLink>
                 </li>
               ))}
             </ul>
@@ -60,16 +61,19 @@ export function Footer() {
         <Cluster as="div" className="site-footer__bottom" gap="md" justify="between">
           <Cluster as="ul" className="site-footer__legal" gap="sm">
             <li>
-              <TextLink href="/legal/aviso-legal.html">Aviso legal</TextLink>
+              <TextLink href={legalPaths.avisoLegal}>Aviso legal</TextLink>
             </li>
             <li>
-              <TextLink href="/legal/privacidad.html">Privacidad</TextLink>
+              <TextLink href={legalPaths.privacidad}>Privacidad</TextLink>
             </li>
             <li>
-              <TextLink href="/legal/cookies.html">Cookies</TextLink>
+              <TextLink href={legalPaths.cookies}>Cookies</TextLink>
+            </li>
+            <li>
+              <TextLink href={legalPaths.accesibilidad}>Accesibilidad</TextLink>
             </li>
           </Cluster>
-          <p className="site-footer__meta">© {currentYear} SUBEROS</p>
+          <p className="site-footer__meta">&#169; {currentYear} SUBEROS</p>
         </Cluster>
       </Container>
     </footer>

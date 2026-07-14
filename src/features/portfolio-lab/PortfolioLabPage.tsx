@@ -75,22 +75,7 @@ export function PortfolioLabPage() {
   })
 
   useEffect(() => {
-    const previousTitle = document.title
-    const robotsMeta = document.querySelector('meta[name="robots"]')
-    const previousRobots = robotsMeta?.getAttribute('content') ?? null
-
-    document.title = 'SUBEROS Portfolio Lab'
-    robotsMeta?.setAttribute('content', 'noindex,nofollow')
     refreshManager.requestRefresh('layout-change')
-
-    return () => {
-      document.title = previousTitle
-      if (robotsMeta && previousRobots) {
-        robotsMeta.setAttribute('content', previousRobots)
-      } else if (robotsMeta) {
-        robotsMeta.removeAttribute('content')
-      }
-    }
   }, [])
 
   return (
@@ -130,7 +115,7 @@ export function PortfolioLabPage() {
                   <ApprovalBadge tone="warning">Noindex</ApprovalBadge>
                 </div>
                 <p>El Portfolio Lab no se enlaza desde la navegacion publica, no entra en sitemap y solo se activa mediante `?portfolio-lab=1`.</p>
-                <TextLink href="#trabajo">Volver al bloque publico de trabajo</TextLink>
+                <TextLink href="/#trabajo">Volver al bloque publico de trabajo</TextLink>
               </Stack>
             </Surface>
           </Stack>

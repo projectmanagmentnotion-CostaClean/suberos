@@ -37,6 +37,13 @@ async function fillValidContactForm(page: Parameters<typeof test>[0]['page']) {
   )
 }
 
+async function enableContactQaScenario(page: Parameters<typeof test>[0]['page'], scenario: 'success' | 'error' | 'rate-limit' | 'timeout' | 'blocked') {
+  await page.addInitScript((nextScenario) => {
+    window.__SUBEROS_CONTACT_TEST_MODE__ = true
+    window.__SUBEROS_CONTACT_TEST_SCENARIO__ = nextScenario
+  }, scenario)
+}
+
 for (const viewport of contactViewports) {
   test(`contact form remains visible and accessible at ${viewport.name}`, async ({ page }) => {
     const consoleIssues = await collectConsoleIssues(page)
@@ -86,7 +93,18 @@ test('contact form rejects an invalid email without losing content', async ({ pa
   )
 })
 
-test('contact form succeeds against the local mock endpoint', async ({ page }) => {
+test('contact form stays honestly blocked outside QA mock mode', async ({ page }) => {
+  await gotoContact(page)
+  await fillValidContactForm(page)
+  await page.locator('[data-qa="contact-submit"]').click()
+
+  await expect(page.locator('[data-qa="contact-production-status"]')).toContainText(/canal online/i)
+  await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('formulario online estara disponible proximamente')
+  await expect(page).not.toHaveURL(/marta@example\.com|Marta/)
+})
+
+test('contact form succeeds against the local mock endpoint only in QA mode', async ({ page }) => {
+  await enableContactQaScenario(page, 'success')
   await gotoContact(page)
   await fillValidContactForm(page)
   await page.locator('[data-qa="contact-submit"]').click()
@@ -97,9 +115,7 @@ test('contact form succeeds against the local mock endpoint', async ({ page }) =
 })
 
 test('contact form shows a recoverable server error', async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__SUBEROS_CONTACT_TEST_SCENARIO__ = 'error'
-  })
+  await enableContactQaScenario(page, 'error')
   await gotoContact(page)
   await fillValidContactForm(page)
   await page.locator('[data-qa="contact-submit"]').click()
@@ -111,9 +127,7 @@ test('contact form shows a recoverable server error', async ({ page }) => {
 })
 
 test('contact form exposes rate limit feedback accessibly', async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__SUBEROS_CONTACT_TEST_SCENARIO__ = 'rate-limit'
-  })
+  await enableContactQaScenario(page, 'rate-limit')
   await gotoContact(page)
   await fillValidContactForm(page)
   await page.locator('[data-qa="contact-submit"]').click()
@@ -123,9 +137,7 @@ test('contact form exposes rate limit feedback accessibly', async ({ page }) => 
 })
 
 test('contact form prevents double submit while the request is in flight', async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__SUBEROS_CONTACT_TEST_SCENARIO__ = 'timeout'
-  })
+  await enableContactQaScenario(page, 'timeout')
 
   let requestCount = 0
   page.on('request', (request) => {
@@ -146,6 +158,7 @@ test('contact form prevents double submit while the request is in flight', async
 })
 
 test('contact form reports offline errors without leaking data into the URL', async ({ page, context }) => {
+  await enableContactQaScenario(page, 'success')
   await gotoContact(page)
   await fillValidContactForm(page)
   await context.setOffline(true)
@@ -159,7 +172,7 @@ test('contact form reports offline errors without leaking data into the URL', as
 test('contact form keeps reduced motion and direct methods intact', async ({ page }) => {
   await gotoContact(page)
 
-  await expect(page.getByRole('link', { name: /politica de privacidad provisional/i })).toBeVisible()
+  await expect(page.getByRole('link', { name: /politica de privacidad/i })).toBeVisible()
   await expect(page.locator('.contact-alternatives').getByRole('link', { name: 'info@suberos.com' })).toHaveAttribute(
     'href',
     'mailto:info@suberos.com',

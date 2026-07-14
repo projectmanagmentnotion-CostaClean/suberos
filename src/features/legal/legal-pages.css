@@ -1,0 +1,32 @@
+.legal-page__hero,
+.legal-page__sections {
+  max-width: 52rem;
+}
+
+.legal-page__intro,
+.legal-page__status p,
+.legal-page__sections p,
+.legal-page__list,
+.legal-page__updated {
+  color: var(--color-muted-text);
+}
+
+.legal-page__status {
+  max-width: 44rem;
+}
+
+.legal-page__updated {
+  font-size: var(--font-size-small);
+}
+
+.legal-page__list {
+  display: grid;
+  gap: var(--space-xs);
+  padding-left: 1.2rem;
+}
+
+.legal-page__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+}

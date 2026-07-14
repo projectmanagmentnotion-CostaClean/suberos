@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import { Container } from '../../components/layout/Container'
 import { Grid } from '../../components/layout/Grid'
@@ -32,24 +32,6 @@ export function MotionLabPage() {
   const horizontalTrackRef = useRef<HTMLDivElement | null>(null)
   const velocityRef = useRef<HTMLElement | null>(null)
   const velocityState = useScrollVelocity(velocityRef)
-
-  useEffect(() => {
-    const previousTitle = document.title
-    const robotsMeta = document.querySelector('meta[name="robots"]')
-    const previousRobots = robotsMeta?.getAttribute('content') ?? null
-
-    document.title = 'SUBEROS Motion Lab'
-    robotsMeta?.setAttribute('content', 'noindex,nofollow')
-
-    return () => {
-      document.title = previousTitle
-      if (robotsMeta && previousRobots) {
-        robotsMeta.setAttribute('content', previousRobots)
-      } else if (robotsMeta) {
-        robotsMeta.removeAttribute('content')
-      }
-    }
-  }, [])
 
   useElementReveal(revealRef, { selector: '[data-reveal-item]' })
   useElementReveal(velocityRef)

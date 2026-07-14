@@ -1,3 +1,4 @@
+import { homeAnchors } from '../../app/routes'
 import { useRef } from 'react'
 
 import { Bleed } from '../../components/layout/Bleed'
@@ -59,10 +60,10 @@ export function FeaturedWorkSection() {
                   ))}
                 </ul>
                 <Stack className="work-spotlight__actions" gap="sm">
-                  <Button href="#servicios" variant="primary">
+                  <Button href={homeAnchors.servicios} variant="primary">
                     Ver servicios
                   </Button>
-                  <Button href="#contacto" variant="ghost">
+                  <Button href={homeAnchors.contacto} variant="ghost">
                     Cuentanos tu proyecto
                   </Button>
                 </Stack>

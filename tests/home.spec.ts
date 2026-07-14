@@ -32,7 +32,7 @@ for (const viewport of homeViewports) {
     await expect(page.locator('#trabajo')).toBeVisible()
 
     if (viewport.width >= 1366) {
-      await expect(page.locator('header nav a[href="#trabajo"]')).toBeVisible()
+      await expect(page.locator('header nav a[href="/#trabajo"]')).toBeVisible()
     } else {
       await expect(page.getByRole('button', { name: /abrir menu principal/i })).toBeVisible()
     }

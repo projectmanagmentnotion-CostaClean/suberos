@@ -1,3 +1,4 @@
+import { homeAnchors } from '../../app/routes'
 import { useMemo, useRef } from 'react'
 
 import { Cluster } from '../../components/layout/Cluster'
@@ -70,10 +71,10 @@ export function HeroSection() {
             <p className="hero__body hero-foundation__body">{homeContent.hero.body}</p>
 
             <Cluster className="hero__actions" gap="sm">
-              <Button href="#servicios" size="large" variant="primary">
+              <Button href={homeAnchors.servicios} size="large" variant="primary">
                 {homeContent.hero.primaryCta}
               </Button>
-              <Button href="#contacto" size="large" variant="ghost">
+              <Button href={homeAnchors.contacto} size="large" variant="ghost">
                 {homeContent.hero.secondaryCta}
               </Button>
             </Cluster>
@@ -91,7 +92,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <a className="hero-foundation__scroll" href="#estudio" ref={scrollCueRef}>
+            <a className="hero-foundation__scroll" href={homeAnchors.estudio} ref={scrollCueRef}>
               <span className="hero-foundation__scroll-dot" aria-hidden="true" />
               <span>{homeContent.hero.scrollLabel}</span>
             </a>

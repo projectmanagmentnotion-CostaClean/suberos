@@ -1,7 +1,12 @@
 import { lazy, Suspense } from 'react'
 
+import { LegalPage } from '../features/legal/LegalPage'
 import { HomeExperience } from '../features/home/HomeExperience'
+import { NotFoundPage } from '../features/not-found/NotFoundPage'
+import { getRouteMetadata } from '../data/seoPageMetadata'
+import { useDocumentMetadata } from '../lib/seo/useDocumentMetadata'
 import { AppShell } from './AppShell'
+import { getAppRoute } from './routes'
 
 const PortfolioLabPage = lazy(() =>
   import('../features/portfolio-lab/PortfolioLabPage').then((module) => ({
@@ -21,45 +26,30 @@ const SequenceLabPage = lazy(() =>
   })),
 )
 
-function getAppMode() {
-  if (typeof window === 'undefined') {
-    return 'home'
-  }
-
-  const params = new URLSearchParams(window.location.search)
-
-  if (params.get('portfolio-lab') === '1') {
-    return 'portfolio-lab'
-  }
-
-  if (params.get('sequence-lab') === '1') {
-    return 'sequence-lab'
-  }
-
-  if (params.get('motion-lab') === '1') {
-    return 'motion-lab'
-  }
-
-  return 'home'
-}
-
 export function App() {
-  const appMode = getAppMode()
+  const route = typeof window === 'undefined' ? getAppRoute({ pathname: '/', search: '' }) : getAppRoute(window.location)
+  const metadata = getRouteMetadata(route)
+
+  useDocumentMetadata(metadata)
 
   return (
     <AppShell>
-      {appMode === 'motion-lab' ? (
+      {route.kind === 'motion-lab' ? (
         <Suspense fallback={null}>
           <MotionLabPage />
         </Suspense>
-      ) : appMode === 'sequence-lab' ? (
+      ) : route.kind === 'sequence-lab' ? (
         <Suspense fallback={null}>
           <SequenceLabPage />
         </Suspense>
-      ) : appMode === 'portfolio-lab' ? (
+      ) : route.kind === 'portfolio-lab' ? (
         <Suspense fallback={null}>
           <PortfolioLabPage />
         </Suspense>
+      ) : route.kind === 'legal' ? (
+        <LegalPage slug={route.slug} />
+      ) : route.kind === 'not-found' ? (
+        <NotFoundPage pathname={route.pathname} />
       ) : (
         <HomeExperience />
       )}

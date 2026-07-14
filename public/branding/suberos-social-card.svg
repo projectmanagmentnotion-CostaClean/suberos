@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SUBEROS social card</title>
+  <desc id="desc">Composicion editorial propia de SUBEROS con logo, tipografia y fondo charcoal.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#050505" />
+      <stop offset="100%" stop-color="#121212" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#1f2d44" stop-opacity="0.68" />
+      <stop offset="55%" stop-color="#0d1522" stop-opacity="0.24" />
+      <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <g opacity="0.24" stroke="#204a86" stroke-width="2" fill="none" transform="translate(860 118)">
+    <circle cx="95" cy="95" r="95" />
+    <circle cx="95" cy="95" r="62" />
+    <circle cx="95" cy="95" r="28" />
+  </g>
+  <g fill="#f2f2ee" font-family="'StretchPro', 'Segoe UI', sans-serif">
+    <text x="78" y="170" font-size="96" letter-spacing="-2">CREAMOS</text>
+    <text x="78" y="250" font-size="96" letter-spacing="-2">IMAGENES</text>
+    <text x="78" y="330" font-size="96" letter-spacing="-2">QUE MUEVEN</text>
+    <text x="78" y="410" font-size="96" letter-spacing="-2">MARCAS</text>
+  </g>
+  <g fill="#b8b8b1" font-family="'Segoe UI', Arial, sans-serif">
+    <text x="82" y="486" font-size="24" letter-spacing="2">FOTOGRAFIA · DISENO · PRODUCCION · WEB</text>
+    <text x="82" y="528" font-size="22">SUBEROS une direccion visual, produccion y experiencia digital.</text>
+  </g>
+  <g transform="translate(834 160)">
+    <rect width="268" height="268" rx="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" />
+    <image href="/branding/suberos-logo-symbol.webp" x="57" y="50" width="154" height="160" preserveAspectRatio="xMidYMid meet" />
+    <text x="36" y="228" fill="#f2f2ee" font-family="'Segoe UI', Arial, sans-serif" font-size="18" letter-spacing="2">SUBEROS</text>
+    <text x="36" y="252" fill="#b8b8b1" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Estudio creativo de fotografia, diseno, produccion y web</text>
+  </g>
+</svg>
