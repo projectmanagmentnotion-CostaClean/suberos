@@ -124,8 +124,9 @@ Convertir el repositorio actual en una base tecnica validada, accesible, escalab
 
 ## Estado Git
 
-- Commit SHA: pendiente
-- Push: pendiente
+- Commit SHA: `7f69dbc03b1b22aa62abc59972f988f7cba98d1b`
+- Commit message: `Establish SUBEROS production baseline and legacy asset audit`
+- Push: confirmado y sincronizado con `origin/main`
 
 ## Riesgos y siguientes pasos
 

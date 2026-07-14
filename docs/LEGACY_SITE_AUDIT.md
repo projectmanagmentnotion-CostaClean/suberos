@@ -69,8 +69,12 @@ Fecha de auditoria: 2026-07-14
 
 - Fotografias de platos y bebidas vinculadas a `malcriadobcn.com`.
   - Motivo: parecen corresponder a trabajo de cliente o proyecto externo; la propiedad de reutilizacion para la home corporativa no queda suficientemente documentada.
-- Fuentes `Oswald-VariableFont_wght.ttf`, `couture-bld.otf`, `StretchPro.otf`.
-  - Motivo: la licencia de redistribucion no esta confirmada en la auditoria.
+
+### Estado actualizado en Sprint 02 por solicitud del usuario
+
+- `StretchPro.otf` se ha descargado desde la web heredada, conservado en `public/legacy-source/fonts/` y activado como tipografia display local en `public/branding/fonts/StretchPro.otf`.
+- `couture-bld.otf` y `Oswald-VariableFont_wght.ttf` se han descargado y preservado en `public/legacy-source/fonts/`.
+- Sigue siendo recomendable confirmar la licencia o el alcance exacto de reutilizacion de las fuentes legacy antes de una publicacion final masiva o de su redistribucion fuera del proyecto.
 
 ## Problemas detectados en la web heredada
 

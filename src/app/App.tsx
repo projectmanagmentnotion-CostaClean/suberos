@@ -1,4 +1,4 @@
-import { AppShell } from '../components/layout/AppShell'
+import { AppShell } from './AppShell'
 import { HomePage } from '../features/home/HomePage'
 
 export function App() {

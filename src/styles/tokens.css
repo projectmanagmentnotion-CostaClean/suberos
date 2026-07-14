@@ -1,54 +1,99 @@
 :root {
   color-scheme: dark;
 
-  --color-black: #050505;
-  --color-black-elevated: #0a0a0a;
-  --color-charcoal: #141414;
-  --color-graphite: #242424;
-  --color-silver: #555555;
-  --color-light: #d8d8d8;
-  --color-warm-white: #f2f2f0;
-  --color-border: rgba(242, 242, 240, 0.12);
-  --color-border-strong: rgba(242, 242, 240, 0.24);
+  --color-black-absolute: #040404;
+  --color-black-elevated: #0b0b0b;
+  --color-charcoal: #151515;
+  --color-graphite: #222222;
+  --color-metallic-gray: #626262;
+  --color-muted-text: rgba(242, 242, 238, 0.7);
+  --color-primary-text: #f2f2ee;
+  --color-warm-white: #f5f3ed;
+  --color-border-subtle: rgba(242, 242, 238, 0.12);
+  --color-border-strong: rgba(242, 242, 238, 0.24);
+  --color-focus: #d4b57a;
+  --color-error: #f07f7f;
+  --color-success: #7fd0a4;
   --color-surface: rgba(255, 255, 255, 0.04);
-  --color-text: var(--color-warm-white);
-  --color-text-muted: rgba(242, 242, 240, 0.72);
+  --color-surface-strong: rgba(255, 255, 255, 0.07);
+
+  --gradient-page:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(180deg, var(--color-black-absolute) 0%, var(--color-black-elevated) 44%, var(--color-black-absolute) 100%);
+  --gradient-charcoal-black:
+    linear-gradient(145deg, rgba(21, 21, 21, 0.95) 0%, rgba(4, 4, 4, 1) 62%, rgba(10, 10, 10, 0.98) 100%);
+  --gradient-radial-light:
+    radial-gradient(circle at 82% 16%, rgba(255, 255, 255, 0.16), transparent 0 22%);
+  --gradient-metallic:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.14) 35%, rgba(255, 255, 255, 0.02) 72%);
+  --gradient-image-overlay:
+    linear-gradient(180deg, rgba(4, 4, 4, 0.08), rgba(4, 4, 4, 0.62));
+  --gradient-legibility:
+    linear-gradient(180deg, rgba(4, 4, 4, 0), rgba(4, 4, 4, 0.78));
+  --gradient-section-transition:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.02));
 
   --font-sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  --font-display: 'Arial Narrow', 'Segoe UI', Arial, sans-serif;
-  --font-size-xs: clamp(0.75rem, 0.73rem + 0.12vw, 0.82rem);
-  --font-size-sm: clamp(0.92rem, 0.88rem + 0.18vw, 1rem);
-  --font-size-md: clamp(1rem, 0.96rem + 0.22vw, 1.12rem);
-  --font-size-lg: clamp(1.2rem, 1.08rem + 0.42vw, 1.45rem);
-  --font-size-xl: clamp(2.4rem, 1.6rem + 3vw, 4.6rem);
-  --font-size-display: clamp(3.25rem, 2rem + 6vw, 7.5rem);
+  --font-display: 'StretchPro', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-size-eyebrow: clamp(0.72rem, 0.7rem + 0.1vw, 0.8rem);
+  --font-size-small: clamp(0.875rem, 0.83rem + 0.18vw, 0.98rem);
+  --font-size-body: clamp(1rem, 0.96rem + 0.24vw, 1.12rem);
+  --font-size-body-large: clamp(1.12rem, 1.04rem + 0.4vw, 1.35rem);
+  --font-size-heading-m: clamp(1.4rem, 1.18rem + 1vw, 2rem);
+  --font-size-heading-l: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  --font-size-heading-xl: clamp(2.8rem, 2rem + 3.6vw, 5rem);
+  --font-size-display: clamp(3.5rem, 2.4rem + 6vw, 7.5rem);
+  --font-size-nav: clamp(0.9rem, 0.86rem + 0.14vw, 0.98rem);
+  --font-size-metadata: clamp(0.78rem, 0.75rem + 0.1vw, 0.84rem);
 
+  --space-2xs: 0.375rem;
   --space-xs: 0.75rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
   --space-lg: 2rem;
   --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 6rem;
+  --space-scene: clamp(5rem, 9vw, 8rem);
+  --space-gutter: clamp(1rem, 3vw, 2rem);
 
-  --container-sm: 42rem;
-  --container-lg: 78rem;
+  --container-narrow: 38rem;
+  --container-content: 54rem;
+  --container-wide: 76rem;
+  --container-full: 90rem;
 
-  --radius-sm: 0.75rem;
+  --radius-sm: 0.875rem;
   --radius-md: 1.25rem;
+  --radius-lg: 1.75rem;
   --radius-pill: 999px;
 
-  --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.24);
-  --shadow-deep: 0 24px 72px rgba(0, 0, 0, 0.4);
+  --border-thin: 1px solid var(--color-border-subtle);
+  --border-strong: 1px solid var(--color-border-strong);
 
-  --gradient-page:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 28%),
-    linear-gradient(180deg, var(--color-black) 0%, var(--color-black-elevated) 44%, var(--color-black) 100%);
-  --gradient-hero:
-    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.14), transparent 24%),
-    linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-black) 58%, #0c0c0c 100%);
+  --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.24);
+  --shadow-deep: 0 26px 72px rgba(0, 0, 0, 0.42);
+  --shadow-header: 0 18px 40px rgba(0, 0, 0, 0.24);
+
+  --blur-sm: 14px;
+  --blur-md: 22px;
 
   --duration-fast: 180ms;
+  --duration-medium: 280ms;
+  --duration-slow: 420ms;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
 
-  --z-header: 10;
-  --z-skip-link: 20;
+  --touch-target-min: 44px;
+  --header-height: 5rem;
+
+  --z-base: 1;
+  --z-header: 20;
+  --z-skip-link: 40;
+  --z-overlay: 60;
+  --z-drawer: 70;
+
+  --bp-sm: 40rem;
+  --bp-md: 64rem;
+  --bp-lg: 85rem;
 }
