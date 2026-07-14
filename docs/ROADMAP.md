@@ -8,7 +8,8 @@
 - Phase 3 complete
 - Phase 4 complete
 - Cross-project European technical/legal standard added
-- Next recommended sprint: Phase 5 - Core homepage narrative
+- Phase 5 complete
+- Next recommended sprint: Phase 6 - Project system and case studies
 - Mandatory compliance implementation sprint must be completed before public launch
 
 ## Mandatory governing documents

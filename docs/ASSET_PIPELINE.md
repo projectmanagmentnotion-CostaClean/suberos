@@ -31,6 +31,15 @@ public/
 - `public/branding/suberos-logo-symbol.webp`
 - `public/branding/fonts/StretchPro.otf`
 
+## Assets pendientes por proyecto
+
+- `Luxury Shisha`
+  - estado visual actual en home: composicion editorial temporal construida en codigo
+  - pendientes:
+    - capturas aprobadas desktop/mobile
+    - version optimizada para `public/projects/`
+    - alt final basado en la captura real aprobada
+
 ## Assets legado conservados
 
 - `public/legacy-source/LOGO-SUBEROS-1-989x1024.webp`

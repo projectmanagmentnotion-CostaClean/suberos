@@ -8,7 +8,9 @@ import { Stack } from '../../components/layout/Stack'
 import { Surface } from '../../components/layout/Surface'
 import { Button } from '../../components/ui/Button'
 import { Divider } from '../../components/ui/Divider'
-import { homeContent, siteContact, siteServices } from '../../data/siteContent'
+import { homeContent } from '../../data/homeContent'
+import { siteContact } from '../../data/siteContent'
+import { siteServices } from '../../data/services'
 import { useScrollScene } from '../../motion/hooks/useScrollScene'
 import { createHeroFoundationScene } from '../../motion/scenes/createHeroFoundationScene'
 import './hero.css'
@@ -49,9 +51,9 @@ export function HeroSection() {
         <Grid className="hero-foundation__layout" columns="content-aside" gap="lg">
           <Stack className="hero-foundation__copy" gap="lg">
             <div>
-              <p className="hero__eyebrow hero-foundation__eyebrow">{homeContent.heroEyebrow}</p>
-              <h1 aria-label={homeContent.heroTitle} className="hero-foundation__title" id="home-title" ref={titleRef}>
-                {homeContent.heroTitleLines.map((line, index) => (
+              <p className="hero__eyebrow hero-foundation__eyebrow">{homeContent.hero.eyebrow}</p>
+              <h1 aria-label={homeContent.hero.title} className="hero-foundation__title" id="home-title" ref={titleRef}>
+                {homeContent.hero.titleLines.map((line, index) => (
                   <span
                     className="hero-foundation__line"
                     key={line}
@@ -65,14 +67,14 @@ export function HeroSection() {
               </h1>
             </div>
 
-            <p className="hero__body hero-foundation__body">{homeContent.heroBody}</p>
+            <p className="hero__body hero-foundation__body">{homeContent.hero.body}</p>
 
             <Cluster className="hero__actions" gap="sm">
               <Button href="#proyectos" size="large" variant="primary">
-                {homeContent.heroPrimaryCta}
+                {homeContent.hero.primaryCta}
               </Button>
               <Button href="#contacto" size="large" variant="ghost">
-                {homeContent.heroSecondaryCta}
+                {homeContent.hero.secondaryCta}
               </Button>
             </Cluster>
 
@@ -91,7 +93,7 @@ export function HeroSection() {
 
             <a className="hero-foundation__scroll" href="#estudio" ref={scrollCueRef}>
               <span className="hero-foundation__scroll-dot" aria-hidden="true" />
-              <span>{homeContent.heroScrollLabel}</span>
+              <span>{homeContent.hero.scrollLabel}</span>
             </a>
           </Stack>
 
@@ -102,8 +104,8 @@ export function HeroSection() {
               <div aria-hidden="true" className="hero-foundation__orbital" />
 
               <div className="hero-foundation__visual-head">
-                <span className="hero-foundation__visual-label">{homeContent.heroVisualEyebrow}</span>
-                <p>{homeContent.heroVisualBody}</p>
+                <span className="hero-foundation__visual-label">{homeContent.hero.visualEyebrow}</span>
+                <p>{homeContent.hero.visualBody}</p>
               </div>
 
               <div className="hero-foundation__emblem" data-hero-emblem>
@@ -125,7 +127,7 @@ export function HeroSection() {
                 <div className="hero-foundation__divider" data-hero-divider>
                   <Divider />
                 </div>
-                <p>{homeContent.heroVisualCaption}</p>
+                <p>{homeContent.hero.visualCaption}</p>
               </div>
             </Surface>
           </div>

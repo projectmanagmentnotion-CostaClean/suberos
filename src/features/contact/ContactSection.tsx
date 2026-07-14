@@ -7,7 +7,9 @@ import { Button } from '../../components/ui/Button'
 import { Divider } from '../../components/ui/Divider'
 import { SectionHeader } from '../../components/ui/SectionHeader'
 import { TextLink } from '../../components/ui/TextLink'
-import { homeContent, siteContact, siteServices } from '../../data/siteContent'
+import { homeContent } from '../../data/homeContent'
+import { siteContact } from '../../data/siteContent'
+import { siteServices } from '../../data/services'
 
 export function ContactSection() {
   return (
@@ -17,9 +19,11 @@ export function ContactSection() {
           <SectionHeader
             eyebrow="Contacto"
             title="Cuentanos que necesitas y te responderemos con una direccion clara."
-            body={homeContent.contactBody}
+            titleId="contact-title"
+            body={homeContent.contact.body}
           />
           <Surface className="contact-card" padding="lg" tone="highlight">
+            <p className="contact-section__lead">{homeContent.contact.closingLead}</p>
             <form className="contact-form" action={`mailto:${siteContact.email}`} method="post" encType="text/plain">
               <label>
                 Nombre

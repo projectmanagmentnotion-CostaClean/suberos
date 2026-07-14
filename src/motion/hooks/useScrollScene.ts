@@ -73,7 +73,6 @@ export function useScrollScene(ref: RefObject<HTMLElement | null>, { dependencie
     {
       dependencies: [enabled, preferences, ...dependencies],
       revertOnUpdate: true,
-      scope: ref,
     },
   )
 }

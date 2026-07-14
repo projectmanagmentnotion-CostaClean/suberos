@@ -8,7 +8,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 02 completado: design system, primitives de layout, shell accesible, header/menu/footer y linking interno estable.
 - Sprint 03 completado: arquitectura de motion endurecida, laboratorio interno, perfiles de preferencia y escenas reutilizables.
 - Sprint 04 completado: preloader cinematografico con carga real, persistencia de sesion, transicion FLIP y hero foundation scroll-linked.
-- El siguiente foco recomendado es la narrativa principal de la home y los bloques de proyectos reales.
+- Sprint 05 completado: narrativa inmersiva de home, escenas editoriales y primer proyecto real integrado.
+- El siguiente foco recomendado es el sistema de proyectos y el desarrollo de casos reales.
 
 ## Stack
 
@@ -88,12 +89,16 @@ Documentacion relacionada:
 - `docs/PRELOADER_SYSTEM.md`
 - `docs/HERO_SYSTEM.md`
 - `docs/ASSET_PIPELINE.md`
+- `docs/HOME_NARRATIVE.md`
+- `docs/HOME_SCENES.md`
+- `docs/PROJECT_CONTENT_MODEL.md`
 - `docs/LEGACY_SITE_AUDIT.md`
 - `docs/LEGACY_ASSET_INVENTORY.md`
 - `docs/SPRINT_01_REPORT.md`
 - `docs/SPRINT_02_REPORT.md`
 - `docs/SPRINT_03_REPORT.md`
 - `docs/SPRINT_04_REPORT.md`
+- `docs/SPRINT_05_REPORT.md`
 
 ## Shell y rutas
 

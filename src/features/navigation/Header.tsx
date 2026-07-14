@@ -94,7 +94,7 @@ export function Header() {
         mm.revert()
       }
     },
-    { dependencies: [isElevated, reducedMotion], scope: headerRef },
+    { dependencies: [isElevated, reducedMotion] },
   )
 
   useEffect(() => {

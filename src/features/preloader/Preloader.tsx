@@ -109,7 +109,6 @@ export function Preloader({ onComplete }: PreloaderProps) {
     {
       dependencies: [phase, preferences.profile],
       revertOnUpdate: true,
-      scope: rootRef,
     },
   )
 

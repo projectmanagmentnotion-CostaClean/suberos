@@ -2,7 +2,8 @@ import { Cluster } from '../../components/layout/Cluster'
 import { Container } from '../../components/layout/Container'
 import { Grid } from '../../components/layout/Grid'
 import { TextLink } from '../../components/ui/TextLink'
-import { siteContact, siteNavigation, siteServices } from '../../data/siteContent'
+import { siteContact, siteNavigation } from '../../data/siteContent'
+import { siteServices } from '../../data/services'
 
 const currentYear = new Date().getFullYear()
 
