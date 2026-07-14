@@ -1,7 +1,7 @@
 export const siteMeta = {
   title: 'SUBEROS | Branding, fotografia, impresion digital y desarrollo web',
   description:
-    'SUBEROS ofrece branding, fotografia profesional, impresion digital y desarrollo web para empresas y emprendedores que buscan una presencia visual mas clara y competitiva.',
+    'Fotografia, diseno, impresion digital y experiencias web para marcas que quieren destacar, emocionar y ser recordadas.',
   canonicalUrl: 'https://suberos.com/',
   ogImage: 'https://suberos.com/branding/suberos-icon-512.png',
 }
@@ -50,18 +50,21 @@ export const siteContact = {
 }
 
 export const homeContent = {
-  heroEyebrow: 'Soluciones creativas y personalizadas',
-  heroTitle: 'Creatividad que crea realidad.',
+  heroEyebrow: 'Estudio creativo / Calella, Barcelona',
+  heroTitle: 'Creamos imagenes que mueven marcas.',
+  heroTitleLines: ['CREAMOS', 'IMAGENES', 'QUE MUEVEN', 'MARCAS'] as const,
   heroBody:
-    'SUBEROS presenta servicios confirmados de branding, fotografia profesional, impresion digital y diseno y desarrollo web, ahora dentro de una base editorial accesible, responsive y preparada para motion cinematografico posterior.',
-  heroPrimaryCta: 'Cuentanos tu proyecto',
-  heroSecondaryCta: 'Ver servicios',
+    'Fotografia, diseno, impresion digital y experiencias web para marcas que quieren destacar, emocionar y ser recordadas.',
+  heroPrimaryCta: 'Ver proyectos',
+  heroSecondaryCta: 'Cuentanos tu proyecto',
   heroContactEmail: 'info@suberos.com',
   heroContactPhone: '691 93 72 72',
   heroContactPhoneHref: '+34691937272',
-  heroPanelEyebrow: 'Sistema visual base',
-  heroPanelBody: 'Logo, shell, tokens, linking interno y motion controlado listos para evolucionar sin rehacer la arquitectura.',
-  heroPanelCaption: 'Marca propia recuperada y servida localmente.',
+  heroVisualEyebrow: 'Fotografia / Diseno / Impresion / Web',
+  heroVisualBody:
+    'Base visual real, logo recuperado y capas listas para evolucionar hacia portfolio, escenas y casos verificados.',
+  heroVisualCaption: 'Activo propio de SUBEROS servido localmente como visual principal del primer viewport.',
+  heroScrollLabel: 'Explorar el estudio',
   manifestoTitle: 'Una base clara antes de construir la experiencia cinematografica completa.',
   manifestoBody:
     'El sitio publico actual confirma servicios, contacto y marca. Este sprint reorganiza esa base en un sistema profesional sin inventar contenido ni depender de animaciones para funcionar.',
@@ -76,9 +79,9 @@ export const projectReadiness = [
       'Logo y favicon de SUBEROS se sirven desde `public/branding/`, sin hotlinks y con trazabilidad documentada.',
   },
   {
-    title: 'Escenas preparadas',
+    title: 'Hero y preloader base',
     body:
-      'MediaFrame, Surface y los primitives de layout dejan preparada la base para futuros case studies y escenas de portfolio.',
+      'La home ya arranca con un primer viewport cinematografico, scroll-linked y preparado para ampliar la narrativa sin rehacer la base.',
   },
   {
     title: 'SEO y enlaces limpios',

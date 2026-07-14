@@ -31,6 +31,13 @@ export function Header() {
   const panelRef = useRef<HTMLDivElement | null>(null)
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([])
 
+  const finalizeMenuClose = useCallback(() => {
+    setIsMenuReady(false)
+    if (shouldRestoreFocus) {
+      menuButtonRef.current?.focus()
+    }
+  }, [shouldRestoreFocus])
+
   const closeMenu = useCallback((restoreFocus = true) => {
     setShouldRestoreFocus(restoreFocus)
 
@@ -59,12 +66,7 @@ export function Header() {
     isOpen: isMenuOpen,
     isReady: isMenuReady,
     itemRefs,
-    onCloseComplete: () => {
-      setIsMenuReady(false)
-      if (shouldRestoreFocus) {
-        menuButtonRef.current?.focus()
-      }
-    },
+    onCloseComplete: finalizeMenuClose,
     overlayRef,
     panelRef,
     reducedMotion,
@@ -129,8 +131,22 @@ export function Header() {
     })
   }, [isMenuReady])
 
+  useEffect(() => {
+    if (!isMenuReady || isMenuOpen || reducedMotion) {
+      return
+    }
+
+    const timeout = window.setTimeout(() => {
+      finalizeMenuClose()
+    }, 420)
+
+    return () => {
+      window.clearTimeout(timeout)
+    }
+  }, [finalizeMenuClose, isMenuOpen, isMenuReady, reducedMotion])
+
   return (
-    <header className={cx('site-header', isElevated && 'is-elevated')} ref={headerRef}>
+    <header className={cx('site-header', isElevated && 'is-elevated')} data-site-header="" ref={headerRef}>
       <Container className="site-header__inner">
         <a className="site-header__brand" href="#inicio" aria-label="SUBEROS, volver al inicio">
           <img src="/branding/suberos-icon-192.png" width="40" height="40" alt="" aria-hidden="true" />
@@ -173,7 +189,20 @@ export function Header() {
           <div className="menu-drawer__overlay" onClick={() => closeMenu()} ref={overlayRef} />
           <div className="menu-drawer__panel" id={panelId} ref={panelRef}>
             <Container className="menu-drawer__content" size="content">
-              <p className="menu-drawer__eyebrow">Navegacion</p>
+              <div className="menu-drawer__header">
+                <p className="menu-drawer__eyebrow">Navegacion</p>
+                <IconButton
+                  className="menu-drawer__close-button"
+                  label="Cerrar menu principal"
+                  onClick={() => closeMenu()}
+                >
+                  <span className={cx('menu-icon', 'is-open')}>
+                    <span />
+                    <span />
+                    <span />
+                  </span>
+                </IconButton>
+              </div>
               <nav aria-label="Menu movil">
                 <ul className="menu-drawer__list">
                   {siteNavigation.map((item, index) => (

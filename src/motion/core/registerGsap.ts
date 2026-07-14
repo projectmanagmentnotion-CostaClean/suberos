@@ -1,4 +1,5 @@
 import { useGSAP } from '@gsap/react'
+import { Flip } from 'gsap/Flip'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -9,8 +10,8 @@ export function registerMotionPlugins() {
     return
   }
 
-  gsap.registerPlugin(useGSAP, ScrollTrigger)
+  gsap.registerPlugin(useGSAP, ScrollTrigger, Flip)
   registered = true
 }
 
-export { gsap, ScrollTrigger, useGSAP }
+export { Flip, gsap, ScrollTrigger, useGSAP }

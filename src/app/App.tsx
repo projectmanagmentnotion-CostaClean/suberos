@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 
-import { HomePage } from '../features/home/HomePage'
+import { HomeExperience } from '../features/home/HomeExperience'
 import { AppShell } from './AppShell'
 
 const MotionLabPage = lazy(() =>
@@ -23,11 +23,11 @@ export function App() {
   return (
     <AppShell>
       {motionLabEnabled ? (
-        <Suspense fallback={<HomePage />}>
+        <Suspense fallback={null}>
           <MotionLabPage />
         </Suspense>
       ) : (
-        <HomePage />
+        <HomeExperience />
       )}
     </AppShell>
   )

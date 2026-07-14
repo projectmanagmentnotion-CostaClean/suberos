@@ -7,7 +7,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 01 completado: auditoria, baseline, SEO, motion base y assets heredados verificados.
 - Sprint 02 completado: design system, primitives de layout, shell accesible, header/menu/footer y linking interno estable.
 - Sprint 03 completado: arquitectura de motion endurecida, laboratorio interno, perfiles de preferencia y escenas reutilizables.
-- El siguiente foco recomendado es el preloader cinematico y el hero definitivo.
+- Sprint 04 completado: preloader cinematografico con carga real, persistencia de sesion, transicion FLIP y hero foundation scroll-linked.
+- El siguiente foco recomendado es la narrativa principal de la home y los bloques de proyectos reales.
 
 ## Stack
 
@@ -55,8 +56,11 @@ src/
     global.css
 public/
   branding/
+  hero/
   legacy-source/
   legal/
+  placeholders/
+  textures/
 docs/
 ```
 
@@ -71,6 +75,7 @@ docs/
 - Primitives de layout: `Container`, `Section`, `Stack`, `Cluster`, `Grid`, `Bleed`, `Surface`
 - UI components: `Button`, `TextLink`, `IconButton`, `Eyebrow`, `SectionHeader`, `MediaFrame`, `Divider`, `SkipLink`
 - Nuevas piezas de motion viven en `src/motion/`
+- El preloader vive en `src/features/preloader/` y el hero foundation en `src/features/home/`
 
 Documentacion relacionada:
 
@@ -80,11 +85,15 @@ Documentacion relacionada:
 - `docs/MOTION_ARCHITECTURE.md`
 - `docs/MOTION_PERFORMANCE_BUDGET.md`
 - `docs/MOTION_QA.md`
+- `docs/PRELOADER_SYSTEM.md`
+- `docs/HERO_SYSTEM.md`
+- `docs/ASSET_PIPELINE.md`
 - `docs/LEGACY_SITE_AUDIT.md`
 - `docs/LEGACY_ASSET_INVENTORY.md`
 - `docs/SPRINT_01_REPORT.md`
 - `docs/SPRINT_02_REPORT.md`
 - `docs/SPRINT_03_REPORT.md`
+- `docs/SPRINT_04_REPORT.md`
 
 ## Shell y rutas
 
@@ -98,6 +107,10 @@ Documentacion relacionada:
 - Laboratorio interno:
   - `/?motion-lab=1`
   - `/?motion-lab=1&reduced-motion=1`
+- QA del preloader:
+  - `/?preloader=1`
+  - `/?preloader=reset`
+  - `/?preloader=1&asset-fail=1`
 - Paginas legales tecnicas temporales:
   - `/legal/aviso-legal.html`
   - `/legal/privacidad.html`
