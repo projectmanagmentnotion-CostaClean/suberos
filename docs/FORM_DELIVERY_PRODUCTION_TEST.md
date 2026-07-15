@@ -4,27 +4,29 @@ Fecha: 2026-07-15
 
 ## Estado
 
-`NO EJECUTADO EN PRODUCCION`
+`NO ACTIVADO EN PRODUCCION`
 
-## Motivo
+## Estado real publicado
 
-No existe acceso operativo a SiteGround ni endpoint productivo desplegado durante este sprint.
+- La web publica ya esta desplegada.
+- El formulario continua bloqueado de forma honesta.
+- No existe `api/contact.php` desplegado.
+- No existe recepcion real verificada en `info@suberos.com`.
 
-## Lo que no pudo verificarse
+## Lo que si se verifico
 
-- `api/contact.php` en hosting real
+- No se publica ningun exito falso.
+- El canal alternativo visible sigue siendo:
+  - `info@suberos.com`
+  - `698 911 517`
+- La decision final del lanzamiento queda en `CONDITIONAL GO` porque la web esta operativa pero el envio online no.
+
+## Pendiente para activar el formulario
+
+- endpoint real compatible con SiteGround
 - SMTP autenticado del dominio
-- recepcion real en `info@suberos.com`
-- flujo `success`
-- validacion server-side publica
+- validacion server-side
 - honeypot
-- rate limiting
-- manejo de error SMTP
-- timeout
-- doble envio
-
-## Estado real del formulario
-
-- La base tecnica local sigue lista para una publicacion honesta.
-- No se ha activado ningun exito falso.
-- Hasta desplegar y verificar el endpoint, el estado correcto sigue siendo formulario no operativo en produccion o despliegue no ejecutado.
+- rate limit
+- respuestas JSON
+- prueba de recepcion real en `info@suberos.com`

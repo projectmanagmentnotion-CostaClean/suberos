@@ -15,9 +15,11 @@ Fecha: 2026-07-15
 ## Datos confirmados y reutilizables
 
 - nombre comercial: `SUBEROS`
+- titular verificado: `Anderson David Subero Garcia`
+- NIF publicado: `60952573C`
 - email publico: `info@suberos.com`
-- telefono publico: `691 93 72 72`
-- ubicacion publicada: `Calella, 08370 - Barcelona`
+- telefono publico: `698 911 517`
+- ubicacion publicada: `Calella, 08370, Barcelona, Espana`
 - servicios confirmados:
   - fotografia profesional
   - diseno grafico y branding
@@ -34,13 +36,10 @@ Fecha: 2026-07-15
 
 - Se centralizo el estado real de marca, contacto, legales, portfolio y formulario en `src/data/companyProfile.ts`.
 - Se actualizo el estado tipografico publico para reflejar `Syncopate` self-hosted como familia display aprobada.
-- Se mantuvo el formulario honestamente bloqueado y las paginas legales como provisionales.
+- Se mantuvo el formulario honestamente bloqueado y las paginas legales se actualizaron con los datos verificados del titular.
 
 ## Pendientes no resueltos por falta de evidencia
 
-- nombre o razon social del titular
-- NIF/CIF
-- domicilio legal
 - datos registrales si aplican
 - email legal definitivo si difiere del publico
 - proveedor real del formulario

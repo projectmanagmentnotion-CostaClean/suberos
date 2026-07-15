@@ -4,13 +4,17 @@ Fecha: 2026-07-15
 
 ## Estado exacto
 
-BUILD DE PRODUCCION VALIDADO LOCALMENTE; DESPLIEGUE EN SITEGROUND NO EJECUTADO POR FALTA DE SESION OPERATIVA VERIFICABLE EN SITE TOOLS. LA PUBLICACION FINAL SIGUE EN `NO-GO`.
+WEB PUBLICADA EN `https://suberos.com` CON ESTADO `CONDITIONAL GO`. EL FORMULARIO SIGUE BLOQUEADO HASTA DISPONER DE ENDPOINT REAL Y RECEPCION COMPROBADA.
 
 ## Codigo
 
 - Rama objetivo: `main`
 - Remoto: `https://github.com/projectmanagmentnotion-CostaClean/suberos.git`
-- Cambio estructural de este cierre: retirada completa de StretchPro del build publico y sustitucion por Syncopate self-hosted
+- Cambio estructural de este cierre:
+  - datos legales y de contacto publicados verificados
+  - `.htaccess` de produccion ajustado para Apache/Nginx con `DirectoryIndex index.html index.php`
+  - header `Permissions-Policy` corregido para eliminar warnings de consola
+  - `run-production-qa.mjs` endurecido para Windows
 
 ## Produccion local
 
@@ -20,23 +24,23 @@ BUILD DE PRODUCCION VALIDADO LOCALMENTE; DESPLIEGUE EN SITEGROUND NO EJECUTADO P
   - `Syncopate-Regular.woff2`
   - `Syncopate-Bold.woff2`
   - `LICENSE.txt`
-- Fuente: `Syncopate`
-- Repositorio oficial: `google/fonts/apache/syncopate`
-- Licencia: `Apache License 2.0`
-- Uso comercial: permitido
-- Self-hosting: permitido
-- Redistribucion: permitida conservando la licencia y avisos aplicables
-- `dist/` no contiene referencias a `StretchPro`, `couture-bld`, `fonts.googleapis.com` ni `fonts.gstatic.com`
-- ZIP de produccion esperado: `C:\Users\USUARIO\Documents\SUBEROS-real\release\suberos-production-2026-07-15.zip`
+- ZIP de produccion actualizado:
+  - `C:\Users\USUARIO\Documents\SUBEROS-real\release\suberos-production-2026-07-15.zip`
 
 ## SiteGround
 
-Estado actual:
+- Site Tools operativo para `suberos.com`
+- Backup manual creado: `suberos-before-launch-2026-07-15`
+- Document root real: `public_html`
+- WordPress previo conservado
+- Base de datos MySQL detectada: `dbry6hsvvnegv5`
+- Caché dinámica purgada
+- Cuenta FTP temporal eliminada
 
-- pantalla de login accesible
-- sesion operativa en Site Tools no alcanzada
-- backup remoto no verificable desde el repositorio
-- document root real no verificado
-- subida no ejecutada
-- cache remota no limpiada
-- dominio publico no modificado por esta ejecucion
+## Verificacion publica
+
+- home, legales, robots, sitemap y 404 verificados
+- HTTP redirige a HTTPS
+- `www` sigue pendiente de redireccion a la canonica apex
+- reduced motion publico verificado
+- sin errores de consola ni assets `404` en la comprobacion publica final

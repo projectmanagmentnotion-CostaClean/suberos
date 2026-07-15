@@ -4,6 +4,7 @@ import { Stack } from '../../components/layout/Stack'
 import { Surface } from '../../components/layout/Surface'
 import { TextLink } from '../../components/ui/TextLink'
 import { homeAnchors, legalPaths } from '../../app/routes'
+import { companyProfile } from '../../data/companyProfile'
 import { legalPageContent } from '../../data/legalContent'
 import { usePageHeadingFocus } from '../../lib/accessibility/usePageHeadingFocus'
 import './legal-pages.css'
@@ -22,7 +23,7 @@ export function LegalPage({ slug }: LegalPageProps) {
       <Container size="content">
         <Stack gap="xl">
           <Stack className="legal-page__hero" gap="md">
-            <p className="eyebrow">Informacion publica provisional</p>
+            <p className="eyebrow">{companyProfile.runtimeStatus.legal.publicLabel}</p>
             <h1 id="legal-page-title">{documentContent.title}</h1>
             <p className="legal-page__intro">{documentContent.intro}</p>
             <Surface className="legal-page__status" padding="lg" tone="highlight">

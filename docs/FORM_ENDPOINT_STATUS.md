@@ -12,7 +12,7 @@ Opcion B: formulario bloqueado.
 - El runtime publico muestra un mensaje honesto de indisponibilidad.
 - El fallback operativo real sigue siendo:
   - `info@suberos.com`
-  - `691 93 72 72`
+  - `698 911 517`
 - `qa:contact`, `qa:privacy`, `qa:legal` y `qa:release` validan que el formulario no simula exito fuera del modo QA.
 
 ## Lo que no existe todavia

@@ -4,27 +4,35 @@ Fecha: 2026-07-15
 
 ## Estado actual
 
-No se ejecuto despliegue en SiteGround durante este sprint. Por tanto, no fue necesario restaurar nada.
+Se ejecuto despliegue real en SiteGround y no fue necesario revertirlo.
 
-## Plan obligatorio antes del despliegue
+## Evidencia de rollback disponible
 
-1. Crear backup completo verificable con nombre `suberos-before-launch-2026-07-15`.
-2. Confirmar que incluye archivos, `.htaccess`, configuracion relevante y base de datos si existe.
-3. Publicar la nueva version de forma incremental, sin borrar el document root completo.
-4. Verificar home, legales, assets y endpoint real.
-5. Si aparece un error critico, restaurar inmediatamente el backup anterior.
+1. Backup manual verificado en SiteGround: `suberos-before-launch-2026-07-15`
+2. Instalacion WordPress original conservada en `public_html`
+3. Copia del `.htaccess` anterior descargada en `release/siteground-prelaunch-htaccess-2026-07-15.txt`
+
+## Plan de rollback si aparece una incidencia posterior
+
+1. Restaurar el backup `suberos-before-launch-2026-07-15` desde SiteGround.
+2. Verificar que vuelven:
+   - `index.php`
+   - `.htaccess` original
+   - `wp-content`
+   - base de datos WordPress
+3. Confirmar carga publica del sitio anterior.
+4. Revisar `shisha/` y el resto de subcarpetas preservadas.
 
 ## Condiciones de rollback inmediato
 
 - pantalla blanca
-- 403
-- 500
-- assets rotos
-- `.htaccess` defectuoso
-- formulario roto
-- perdida de contenido
-- HTTPS incorrecto
+- `403`
+- `500`
+- assets rotos criticos
+- bucle de redireccion
+- perdida de rutas legales o robots
+- corrupcion del document root
 
 ## Resultado del sprint
 
-Rollback no aplicado porque no hubo despliegue.
+Rollback no aplicado. Backup y material de reversibilidad confirmados.

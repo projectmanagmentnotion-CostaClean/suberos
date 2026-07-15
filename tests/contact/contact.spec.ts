@@ -24,7 +24,7 @@ for (const viewport of smokeViewports) {
     await expect(page.getByLabel('Proyecto o necesidad')).toBeVisible()
     await expect(page.getByRole('button', { name: /enviar solicitud/i })).toBeVisible()
     await expect(page.locator('.contact-alternatives').getByRole('link', { name: 'info@suberos.com' })).toBeVisible()
-    await expect(page.locator('.contact-alternatives').getByRole('link', { name: '691 93 72 72' })).toBeVisible()
+    await expect(page.locator('.contact-alternatives').getByRole('link', { name: '698 911 517' })).toBeVisible()
 
     await expectNoOverflow(page)
     expect(consoleIssues).toEqual([])

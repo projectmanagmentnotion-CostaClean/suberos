@@ -4,10 +4,15 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 
 ## Estado actual
 
-- Fases 0 a 13 completadas localmente.
+- Fases 0 a 14 completadas.
 - Sustitucion tipografica completada: `StretchPro` ha salido del build publico y el runtime usa `Syncopate` self-hosted.
-- `qa:release`, `lint`, `build`, `qa:lighthouse` y `qa:visual` pasan localmente tras actualizar los baselines.
-- El lanzamiento sigue en `NO-GO` por datos legales finales, proveedor real del formulario, falta de acceso operativo a SiteGround y pruebas fisicas pendientes.
+- `qa:release`, `lint`, `build`, `qa:lighthouse` y `qa:visual` pasan.
+- Produccion publicada en `https://suberos.com` con estado `CONDITIONAL GO`.
+- Bloqueos abiertos:
+  - endpoint real del formulario
+  - recepcion real en `info@suberos.com`
+  - redireccion `www -> https://suberos.com/`
+  - pruebas fisicas en iPhone Safari y Android Chrome
 
 ## Stack
 

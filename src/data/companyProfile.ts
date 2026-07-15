@@ -1,12 +1,13 @@
 export const companyProfile = {
   brandName: 'SUBEROS',
-  legalName: null,
-  legalIdentityVerified: false,
+  legalName: 'Anderson David Subero Garcia',
+  legalIdentityVerified: true,
+  legalIdentifier: '60952573C',
   contact: {
     email: 'info@suberos.com',
-    phoneDisplay: '691 93 72 72',
-    phoneHref: '+34691937272',
-    location: 'Calella, 08370 - Barcelona',
+    phoneDisplay: '698 911 517',
+    phoneHref: '+34698911517',
+    location: 'Calella, 08370, Barcelona, Espana',
   },
   runtimeStatus: {
     form: {
@@ -16,10 +17,10 @@ export const companyProfile = {
       fallbackMessage: 'El formulario online estara disponible proximamente. Puedes contactar ahora por email o telefono.',
     },
     legal: {
-      ownerDataVerified: false,
-      publicLabel: 'Informacion publica provisional',
+      ownerDataVerified: true,
+      publicLabel: 'Informacion legal verificada',
       missingDataSummary:
-        'La identidad legal completa del titular, los datos registrales y la politica definitiva de tratamiento siguen pendientes de validacion documental.',
+        'La identidad publica del titular ya ha sido verificada. La capa pendiente se limita al endpoint real del formulario, su proveedor de entrega y la validacion final del tratamiento asociado.',
     },
     portfolio: {
       hasPublishedProjects: false,

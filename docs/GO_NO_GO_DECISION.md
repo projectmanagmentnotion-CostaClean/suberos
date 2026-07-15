@@ -4,18 +4,21 @@ Fecha: 2026-07-15
 
 ## Decision
 
-`NO-GO`
+`CONDITIONAL GO - WEB PUBLICADA, FORMULARIO TEMPORALMENTE DESACTIVADO`
 
 ## Motivo objetivo
 
-No se cumplen todavia los requisitos minimos para declarar el sitio listo para publicacion final porque siguen abiertos bloqueos estructurales:
+Se cumplen los requisitos tecnicos para mantener la web publica de SUBEROS en produccion:
 
-1. Falta la identidad legal definitiva del titular.
-2. Falta NIF/CIF y domicilio legal.
-3. No existe endpoint productivo desplegado ni recepcion real verificada del formulario.
-4. No hay acceso operativo verificable a SiteGround, backup, document root, DNS ni HTTPS final.
-5. Siguen pendientes pruebas fisicas en iPhone Safari y Android Chrome.
+1. existe backup verificable;
+2. el document root y la web anterior fueron auditados;
+3. la nueva web publica ya responde en el dominio principal;
+4. legales, robots, sitemap y 404 fueron verificados publicamente;
+5. la caché dinámica fue purgada y la cuenta FTP temporal eliminada.
 
-## Bloqueos resueltos
+## Bloqueos que impiden un GO total
 
-- La licencia tipografica publica queda resuelta con `Syncopate` bajo `Apache License 2.0`.
+1. No existe endpoint productivo del formulario.
+2. No existe recepcion real verificada en `info@suberos.com`.
+3. `www.suberos.com` no redirige todavia a la canonica `https://suberos.com/`.
+4. Siguen pendientes pruebas fisicas en iPhone Safari y Android Chrome.

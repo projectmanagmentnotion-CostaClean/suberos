@@ -4,34 +4,46 @@ Fecha: 2026-07-15
 
 ## Estado
 
-`NO-GO - VERIFICACION PUBLICA NO EJECUTADA`
+`CONDITIONAL GO - VERIFICACION PUBLICA COMPLETADA CON FORMULARIO BLOQUEADO`
 
-## Motivo
+## Verificacion publica ejecutada
 
-La verificacion publica posterior al despliegue no pudo ejecutarse porque no hubo acceso operativo a SiteGround ni despliegue verificable.
+- `https://suberos.com/` publica el build estatico actual.
+- `http://suberos.com/` redirige a `https://suberos.com/` con `301`.
+- `https://suberos.com/robots.txt` responde `200`.
+- `https://suberos.com/sitemap.xml` responde `200`.
+- `https://suberos.com/legal/aviso-legal` responde `200`.
+- `https://suberos.com/legal/privacidad` responde `200`.
+- `https://suberos.com/legal/cookies` responde `200`.
+- `https://suberos.com/legal/accesibilidad` responde `200`.
+- `https://suberos.com/no-existe-ruta` responde por fallback SPA y renderiza la vista 404 del runtime.
 
-## Verificacion local completada
+## Evidencia tecnica
 
-- repo en `main`
-- `origin/main...HEAD = 0 0` al inicio del sprint
-- `npm run qa:release` en verde
-- `npm run qa:lighthouse` en verde
-- `npm run lint` en verde
-- `npm run build` en verde
-- `dist/` limpio y estable
-- ZIP de release disponible
+- Home publica: titulo `SUBEROS - Estudio creativo de fotografia, diseno, produccion y web`
+- Home publica: `canonical https://suberos.com/`
+- Legales: `robots noindex,nofollow`
+- 404 visual: `h1` publico `No encontramos esta pagina.`
+- Favicon publicado:
+  - `/branding/suberos-icon-32.png`
+  - `/branding/suberos-icon-192.png`
+  - `/branding/suberos-icon-180.png`
+- Social card publicada:
+  - `/branding/suberos-social-card.png`
 
-## Verificacion publica pendiente
+## QA visual y runtime
 
-- `https://suberos.com/`
-- `https://suberos.com/robots.txt`
-- `https://suberos.com/sitemap.xml`
-- `https://suberos.com/legal/aviso-legal`
-- `https://suberos.com/legal/privacidad`
-- `https://suberos.com/legal/cookies`
-- `https://suberos.com/legal/accesibilidad`
-- ruta inexistente con 404 visual y `noindex`
+- Viewports revisados publicamente:
+  - `390x844`
+  - `768x1024`
+  - `1366x768`
+- Reduced motion publico verificado en Chromium con `prefers-reduced-motion: reduce`.
+- Sin errores de consola ni requests fallidas tras corregir `Permissions-Policy`.
+- Sin claves en `localStorage`.
+- Sin claves de datos personales en `sessionStorage` durante la prueba publica ejecutada.
 
-## Requisito pendiente
+## Hallazgos abiertos
 
-Se necesita acceso real a Site Tools para desplegar, limpiar cache y validar la produccion publicada.
+- `www` no redirige todavia a `https://suberos.com/`; sirve el mismo build con `200`.
+- No se ejecuto prueba fisica en iPhone Safari ni Android Chrome.
+- El formulario no se activo en produccion.

@@ -6,20 +6,20 @@ Fecha: 2026-07-15
 | ---- | ------ | --------- | ------- | ----------- | ------ |
 | contenido | GO | `docs/CONTENT_FINAL_AUDIT.md` | No | Codex / titular | Mantener copy factual |
 | marca | GO | logo, favicon, social card y Syncopate locales | No | titular | Conservar inventario |
-| licencias | GO | `docs/ASSET_LICENSE_STATUS.md`, `docs/licenses/SYNCOPATE_LICENSE.md` | Bloqueo tipografico resuelto con Apache License 2.0 | Codex / titular | Mantener trazabilidad si cambia la fuente |
+| licencias | GO | `docs/ASSET_LICENSE_STATUS.md`, `docs/licenses/SYNCOPATE_LICENSE.md` | No | Codex / titular | Mantener trazabilidad |
 | portfolio | CONDITIONAL GO | `docs/PORTFOLIO_READINESS.md` | No hay casos publicados | titular | Solo publicar con permisos reales |
-| contacto | NO-GO | `docs/FORM_ENDPOINT_STATUS.md`, `docs/FORM_DELIVERY_PRODUCTION_TEST.md` | Sin endpoint productivo desplegado ni recepcion real verificada | titular | Desplegar endpoint y verificar correo real |
-| legal | NO-GO | `docs/LEGAL_OWNER_INFORMATION_REQUIRED.md` | Falta titular, NIF/CIF y domicilio legal | titular | Entregar datos verificados |
-| privacidad | NO-GO | `docs/LEGAL_APPLICABILITY_MATRIX.md` | Falta responsable, retention y receptor real | titular | Cerrar responsable y tratamiento |
+| contacto | NO-GO | `docs/FORM_ENDPOINT_STATUS.md`, `docs/FORM_DELIVERY_PRODUCTION_TEST.md` | Sin endpoint productivo ni recepcion real verificada | titular | Implementar backend real |
+| legal | GO | runtime publico y `src/data/legalContent.ts` | No | titular | Mantener datos verificados si cambian |
+| privacidad | CONDITIONAL GO | `docs/LEGAL_APPLICABILITY_MATRIX.md` | Falta politica final del endpoint cuando exista | titular | Ampliar al activar backend |
 | cookies | GO | `docs/COOKIE_AND_STORAGE_AUDIT.md` | No | Codex / titular | Reauditar si cambia runtime |
-| accesibilidad | CONDITIONAL GO | QA local y `docs/KNOWN_LIMITATIONS.md` | Faltan dispositivos fisicos | titular / QA | Ejecutar iOS y Android fisicos |
-| SEO | GO | `docs/LIGHTHOUSE_REPORT.md`, `public/sitemap.xml`, `public/robots.txt` | No critico | Codex | Mantener canonicals y noindex internos |
-| performance | CONDITIONAL GO | `docs/PERFORMANCE_AUDIT.md` | Validacion final pendiente tras QA actual | Codex | Reconfirmar bundle y Lighthouse |
-| seguridad | CONDITIONAL GO | `npm run qa:security` | Endpoint real aun no existe | Codex / titular | Revalidar cuando exista backend |
+| accesibilidad | CONDITIONAL GO | QA local + QA publica + `docs/KNOWN_LIMITATIONS.md` | Faltan dispositivos fisicos | titular / QA | Ejecutar iOS y Android fisicos |
+| SEO | CONDITIONAL GO | `docs/PRODUCTION_VERIFICATION_REPORT.md`, `public/sitemap.xml`, `public/robots.txt` | `www` no redirige a apex | Codex / titular | Corregir redireccion canonica |
+| performance | GO | `docs/PERFORMANCE_AUDIT.md`, `npm run qa:lighthouse` | No critico abierto | Codex | Monitorizar en produccion |
+| seguridad | GO | `npm run qa:security`, `.htaccess` publicado | No | Codex / titular | Revalidar si se activa backend |
 | dispositivos | NO-GO | `docs/KNOWN_LIMITATIONS.md` | Sin iPhone/Android fisicos | titular / QA | Ejecutar pruebas reales |
-| SiteGround | NO-GO | `docs/SITEGROUND_DEPLOYMENT_REPORT.md` | Sin sesion operativa verificable en Site Tools | titular | Abrir acceso real a Site Tools y backup |
-| backup | NO-GO | `docs/ROLLBACK_PLAN.md`, `docs/SITEGROUND_DEPLOYMENT_REPORT.md` | Backup no verificable sin acceso al hosting | titular | Crear y verificar backup antes del despliegue |
-| DNS | NO-GO | no verificado en este sprint | Sin acceso operativo | titular | Revisar DNS y canonical final |
-| HTTPS | NO-GO | no verificado en hosting real | Sin despliegue real | titular | Validar tras staging o hosting real |
-| formulario | NO-GO | `docs/FORM_ENDPOINT_STATUS.md` | Sin endpoint real | titular | Cerrar proveedor o mantener landing sin envio |
-| Search Console | NO-GO | no configurado desde repo | Sin acceso | titular | Configurar tras despliegue |
+| SiteGround | GO | `docs/SITEGROUND_DEPLOYMENT_REPORT.md` | No | titular / Codex | Mantener backup y rollback |
+| backup | GO | `docs/ROLLBACK_PLAN.md`, `docs/SITEGROUND_DEPLOYMENT_REPORT.md` | No | titular / Codex | Conservar evidencia |
+| DNS | CONDITIONAL GO | apex y `www` resolviendo | `www` sin redireccion canonica | titular | Ajustar hosting/dominio |
+| HTTPS | GO | verificacion publica `http -> https` | No | titular / Codex | Monitorizar certificados |
+| formulario | NO-GO | `docs/FORM_ENDPOINT_STATUS.md` | Sin endpoint real | titular | Desplegar proveedor |
+| Search Console | NO-GO | no configurado desde repo | Sin acceso | titular | Configurar tras launch |

@@ -19,15 +19,16 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
   'aviso-legal': {
     title: 'Aviso legal',
     intro:
-      'Esta version publica resume la informacion corporativa y de uso disponible hoy para SUBEROS sin inventar datos juridicos que todavia no han sido verificados documentalmente.',
-    statusNote: companyProfile.runtimeStatus.legal.missingDataSummary,
-    updatedAt: '2026-07-14',
+      'Esta version publica resume la informacion corporativa y de uso actualmente verificada para SUBEROS y la limita a los datos confirmados para evitar declaraciones no respaldadas.',
+    statusNote:
+      'Titular y contacto publico verificados. El formulario online sigue bloqueado hasta desplegar un endpoint real y validar su tratamiento completo.',
+    updatedAt: '2026-07-15',
     sections: [
       {
         title: 'Titularidad y contacto publicado',
         paragraphs: [
-          'SUBEROS opera publicamente bajo su nombre comercial actual y ofrece como canales publicados de contacto el correo info@suberos.com y el telefono 691 93 72 72.',
-          'La web no publica todavia datos societarios o registrales adicionales porque esa documentacion no ha sido verificada dentro del alcance tecnico actual.',
+          'Titular: Anderson David Subero Garcia. Nombre comercial: SUBEROS. NIF: 60952573C.',
+          `Canales de contacto publicados: ${companyProfile.contact.email}, ${companyProfile.contact.phoneDisplay} y ${companyProfile.contact.location}.`,
         ],
       },
       {
@@ -54,7 +55,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
       {
         title: 'Legislacion y jurisdiccion',
         paragraphs: [
-          'La redaccion definitiva sobre legislacion aplicable y jurisdiccion competente se incorporara cuando la identidad legal completa del titular quede verificada.',
+          'La web se dirige principalmente a publico en Espana y queda sujeta a la normativa espanola y europea aplicable segun la naturaleza del servicio y de la relacion que pudiera iniciarse por los canales de contacto publicados.',
         ],
         bullets: [
           `Volver al inicio: ${homeAnchors.inicio}`,
@@ -67,14 +68,15 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
   privacidad: {
     title: 'Politica de privacidad',
     intro:
-      'Esta politica describe el tratamiento real observable en la version tecnica actual de SUBEROS y evita declarar destinatarios, bases juridicas o plazos de conservacion que todavia no han sido confirmados por el titular.',
+      'Esta politica describe el tratamiento real observable en la version tecnica actual de SUBEROS y evita declarar integraciones o proveedores que no estan activos en produccion.',
     statusNote:
-      'La version final de privacidad requiere completar la identidad juridica del responsable, el receptor real del formulario y la politica definitiva de retencion.',
-    updatedAt: '2026-07-14',
+      'Responsable identificado. El cierre pendiente es habilitar un endpoint real para el formulario, documentar su proveedor y fijar la politica operativa de recepcion y retencion.',
+    updatedAt: '2026-07-15',
     sections: [
       {
         title: 'Datos y canales actualmente visibles',
         paragraphs: [
+          'Responsable publicado: Anderson David Subero Garcia, NIF 60952573C, con presencia operativa en Calella, 08370, Barcelona, Espana.',
           'SUBEROS publica hoy un correo de contacto, un telefono y un formulario web de presentacion inicial.',
           `El formulario online de produccion no esta conectado a un endpoint real. Mientras no exista backend definitivo, el canal operativo real sigue siendo el contacto directo por email o telefono: ${companyProfile.contact.email} y ${companyProfile.contact.phoneDisplay}.`,
         ],
@@ -90,7 +92,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
         title: 'Destinatarios y proveedores',
         paragraphs: [
           'No existe hoy un proveedor activo de envio real para el formulario en produccion dentro de este repositorio.',
-          'El hosting y las herramientas de desarrollo del proyecto se documentan por separado en el inventario tecnico de proveedores y no implican, por si mismos, que reciban datos del formulario de visitantes finales.',
+          'El hosting y las herramientas de desarrollo del proyecto se documentan por separado en el inventario tecnico de proveedores y no implican, por si mismos, que reciban datos del formulario de visitantes finales mientras el endpoint siga desactivado.',
         ],
       },
       {
@@ -103,7 +105,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
       {
         title: 'Derechos y version final',
         paragraphs: [
-          'La via definitiva para ejercer derechos, asi como la base juridica y los plazos de conservacion, se publicaran cuando el titular complete la validacion documental requerida.',
+          `Mientras el formulario permanezca desactivado, cualquier consulta sobre privacidad o ejercicio de derechos puede dirigirse a ${companyProfile.contact.email}. Cuando se active un canal de envio real, esta politica se ampliara con base juridica, plazos de conservacion y destinatarios efectivos.`,
         ],
         bullets: [
           `Canales actuales de contacto: ${homeAnchors.contacto}`,
@@ -119,7 +121,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
       'Esta pagina resume el comportamiento tecnico real observado en la version actual de SUBEROS en lugar de reutilizar plantillas genericas de consentimiento.',
     statusNote:
       'El alcance actual no justifica un banner de cookies porque no se han detectado tecnologias no esenciales activas en runtime publico.',
-    updatedAt: '2026-07-14',
+    updatedAt: '2026-07-15',
     sections: [
       {
         title: 'Cookies y tecnologias similares',
@@ -160,8 +162,8 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
     intro:
       'SUBEROS trabaja para alcanzar el nivel WCAG 2.2 AA y mantener una experiencia usable con y sin motion cinematica.',
     statusNote:
-      'La auditoria final de conformidad sigue pendiente antes de una publicacion definitiva.',
-    updatedAt: '2026-07-14',
+      'La auditoria final de conformidad en produccion sigue pendiente en dispositivos fisicos y con la configuracion definitiva del hosting.',
+    updatedAt: '2026-07-15',
     sections: [
       {
         title: 'Medidas actualmente aplicadas',

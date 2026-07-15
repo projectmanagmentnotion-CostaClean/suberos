@@ -31,6 +31,35 @@ function run(command, args, options = {}) {
   })
 }
 
+function waitForExit(child) {
+  return new Promise((resolve) => {
+    child.once('exit', () => resolve())
+  })
+}
+
+async function stopProcessTree(child) {
+  if (child.exitCode !== null || child.killed) {
+    return
+  }
+
+  if (process.platform === 'win32') {
+    await run('taskkill', ['/pid', String(child.pid), '/t', '/f'], { stdio: 'ignore' }).catch(() => {})
+    await waitForExit(child)
+    return
+  }
+
+  child.kill('SIGTERM')
+  await Promise.race([
+    waitForExit(child),
+    new Promise((resolve) => setTimeout(resolve, 2_000)),
+  ])
+
+  if (child.exitCode === null) {
+    child.kill('SIGKILL')
+    await waitForExit(child)
+  }
+}
+
 function waitForHttpOk(url, timeoutMs = 60_000) {
   return new Promise((resolve, reject) => {
     const startTime = Date.now()
@@ -94,5 +123,5 @@ try {
     '@qa-mock',
   ])
 } finally {
-  previewProcess.kill()
+  await stopProcessTree(previewProcess)
 }

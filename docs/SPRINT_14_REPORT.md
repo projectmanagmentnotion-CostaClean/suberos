@@ -8,44 +8,40 @@ SiteGround production deployment and launch verification.
 
 ## Resultado
 
-`NO-GO - DESPLIEGUE NO COMPLETADO`
+`CONDITIONAL GO - WEB PUBLICADA, FORMULARIO TEMPORALMENTE DESACTIVADO`
 
 ## Trabajo completado
 
-- verificacion local del repo y Git
-- `npm install`
+- verificacion local completa del repo en `main`
+- actualizacion de datos legales y de contacto publicados
+- correccion del wrapper `run-production-qa.mjs` para evitar procesos `preview` huerfanos en Windows
 - `npm run qa:release`
 - `npm run qa:lighthouse`
 - `npm run lint`
 - `npm run build`
-- comprobacion del commit inicial esperado
-- comprobacion de sincronizacion con remoto
-- intento de acceso a SiteGround desde navegador automatizado
+- backup remoto manual `suberos-before-launch-2026-07-15`
+- identificacion de `public_html` como document root
+- auditoria de la web previa WordPress
+- descarga del `.htaccess` legacy
+- publicacion del build estatico en SiteGround
+- purga de caché dinámica
+- verificacion publica del dominio
+- eliminacion de la cuenta FTP temporal de despliegue
 
-## Hallazgo critico
+## Hallazgos reales
 
-No hubo control efectivo de una sesion dentro de SiteGround Tools. Solo fue accesible la pantalla de login, sin autenticacion automatizable usable para continuar con auditoria, backup, despliegue o pruebas reales de correo.
-
-## Consecuencias
-
-No pudo verificarse:
-
-- backup previo
-- document root
-- web anterior
-- WordPress o PHP existentes
-- endpoint real
-- SMTP
-- recepcion real en `info@suberos.com`
-- subida segura
-- limpieza de cache
-- HTTPS o DNS post-despliegue
-- QA publica del despliegue
+- `public_html` contenia una instalacion WordPress activa con PHP y MySQL.
+- La base de datos detectada en SiteGround es `dbry6hsvvnegv5` (~108 MB en Site Tools).
+- El sitio legacy y `shisha/` se conservaron para rollback y compatibilidad.
+- La nueva web publica ya sirve el build estatico con `index.html` y cabeceras propias.
+- `www` sigue resolviendo en `200` y no redirige a la canonica raiz.
+- El formulario sigue bloqueado porque no hay backend real publicado ni recepcion verificada.
 
 ## Estado recomendado
 
-Hasta disponer de acceso efectivo a SiteGround:
-
-- mantener `NO-GO` para despliegue
-- no afirmar produccion publicada
-- no afirmar recepcion real del formulario
+- Mantener la web publica actual.
+- No activar exito del formulario hasta disponer de endpoint real y prueba de recepcion.
+- Cerrar en el siguiente bloque:
+  - canonical redirect `www -> apex`
+  - endpoint real del formulario
+  - validacion fisica en iPhone Safari y Android Chrome

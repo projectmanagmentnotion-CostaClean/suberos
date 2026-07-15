@@ -19,8 +19,8 @@
 - Phase 12 complete locally - Visual and functional QA automation
 - Phase 13 complete locally - Content, legal and launch-readiness audit with objective NO-GO
 - Typography compliance update complete locally - StretchPro removed from public build and replaced by self-hosted Syncopate
-- Phase 14 attempted locally - SiteGround deployment blocked by lack of effective Site Tools session
-- Next recommended sprint: resume SiteGround deployment only once a real Site Tools session, backup path and email delivery setup are accessible
+- Phase 14 complete - SiteGround production deployed with conditional GO and form still blocked
+- Next recommended sprint: implement the real contact endpoint, verify email delivery and close `www -> apex` canonical redirect
 
 ## Mandatory governing documents
 
