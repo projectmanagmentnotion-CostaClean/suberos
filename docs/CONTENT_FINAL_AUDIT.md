@@ -26,19 +26,15 @@ Fecha: 2026-07-15
 
 ## Hallazgos editoriales reales
 
-- El runtime publico todavia mostraba varias frases demasiado internas o tecnicas:
-  - referencias al logo recuperado y al asset servido localmente
-  - explicaciones sobre la home como sistema o estructura interna
-  - copy de footer demasiado centrada en el estado del repositorio
-- El mensaje legal provisional ya era honesto, pero estaba disperso entre `footer`, `contacto` y documentos.
-- El portfolio seguia correctamente sin inventar casos, aunque parte del copy podia expresarse mejor sin sonar a nota tecnica del repositorio.
+- El runtime publico mantiene contenido factual y evita claims inventados.
+- El portfolio sigue correctamente sin casos ficticios.
+- La sustitucion tipografica elimina la ambiguedad legal de StretchPro sin cambiar el alcance factual del contenido.
 
 ## Cambios aplicados
 
 - Se centralizo el estado real de marca, contacto, legales, portfolio y formulario en `src/data/companyProfile.ts`.
-- Se reescribio copy publico para eliminar lenguaje meta sin inventar claims nuevos.
+- Se actualizo el estado tipografico publico para reflejar `Syncopate` self-hosted como familia display aprobada.
 - Se mantuvo el formulario honestamente bloqueado y las paginas legales como provisionales.
-- Se preservo el enfoque editorial del bloque de trabajo sin publicar proyectos ficticios.
 
 ## Pendientes no resueltos por falta de evidencia
 
@@ -49,4 +45,3 @@ Fecha: 2026-07-15
 - email legal definitivo si difiere del publico
 - proveedor real del formulario
 - redes sociales oficiales verificadas
-- licencia documental de StretchPro

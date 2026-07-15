@@ -4,7 +4,7 @@ Fecha: 2026-07-15
 
 ## Estado general
 
-SUBEROS conserva en el repositorio los assets propios recuperados del sitio heredado y los sirve localmente. La publicacion final sigue bloqueada por la falta de evidencia documental suficiente sobre la fuente display `StretchPro`.
+SUBEROS mantiene los assets propios de marca en local y ha sustituido la fuente display publica por `Syncopate` self-hosted desde una fuente oficial verificable. Las fuentes legacy sin evidencia suficiente ya no forman parte de `public/` ni del build de produccion.
 
 ## Aprobados para produccion actual
 
@@ -17,17 +17,22 @@ SUBEROS conserva en el repositorio los assets propios recuperados del sitio here
 | Icon 512 | `public/branding/suberos-icon-512.png` | Approved | Uso productivo confirmado |
 | Social card SVG | `public/branding/suberos-social-card.svg` | Approved | Composicion propia del proyecto |
 | Social card PNG | `public/branding/suberos-social-card.png` | Approved | Export de la composicion propia |
+| Syncopate Regular | `public/branding/fonts/syncopate/Syncopate-Regular.woff2` | Approved | Fuente oficial self-hosted para soporte de peso 400 |
+| Syncopate Bold | `public/branding/fonts/syncopate/Syncopate-Bold.woff2` | Approved | Fuente oficial self-hosted critica para hero y titulares |
+| Syncopate license file | `public/branding/fonts/syncopate/OFL.txt` | Approved | Copia literal del fichero de licencia oficial descargado |
 
-## Conservados pero pendientes
+## Retirados del build publico
 
-| Asset | Ruta | Estado | Bloqueo |
+| Asset | Ruta actual | Estado | Motivo |
 | --- | --- | --- | --- |
-| StretchPro original | `public/branding/fonts/StretchPro.otf` | Pending | Falta licencia documental y derecho de self-hosting comercial |
-| StretchPro backup | `public/legacy-source/fonts/StretchPro.otf` | Pending | Copia de trazabilidad, mismo bloqueo documental |
-| couture-bld | `public/legacy-source/fonts/couture-bld.otf` | Pending | Fuente legacy sin aprobacion productiva |
-| Oswald Variable | `public/legacy-source/fonts/Oswald-VariableFont_wght.ttf` | Pending | Fuente legacy sin aprobacion productiva |
+| StretchPro original | `resources/fonts/legacy/StretchPro.otf` | Removed from public release | Sin evidencia documental suficiente para self-hosting comercial |
+| StretchPro backup | `resources/fonts/legacy/StretchPro-legacy.otf` | Removed from public release | Copia historica fuera del build |
+| couture-bld | `resources/fonts/legacy/couture-bld.otf` | Removed from public release | Fuente legacy sin aprobacion productiva |
+| Oswald Variable | `resources/fonts/legacy/Oswald-VariableFont_wght.ttf` | Removed from public release | Fuente legacy sin aprobacion productiva |
 
-## Evidencia de recuperacion
+## Evidencia
 
-- La recuperacion original de `StretchPro.otf`, `couture-bld.otf` y `Oswald-VariableFont_wght.ttf` ya estaba documentada en `docs/LEGACY_ASSET_INVENTORY.md`.
-- En Sprint 13 no se han descargado nuevos assets porque `https://suberos.com/` y sus URLs directas devolvieron `403` durante la comprobacion actual desde shell.
+- Fuente oficial usada: Google Fonts / repositorio oficial `google/fonts`.
+- Trazabilidad y licencia: `docs/licenses/SYNCOPATE_LICENSE.md`.
+- Checksums SHA-256: `docs/licenses/SYNCOPATE_CHECKSUMS.txt`.
+- Inventario maestro de assets: `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md`.

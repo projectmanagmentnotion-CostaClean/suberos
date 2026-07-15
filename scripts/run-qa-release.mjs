@@ -14,6 +14,7 @@ const steps = [
   ['npm', ['run', 'qa:privacy']],
   ['npm', ['run', 'qa:seo']],
   ['npm', ['run', 'qa:legal']],
+  ['npm', ['run', 'qa:font-licenses']],
   ['npm', ['run', 'qa:aria']],
   ['npm', ['run', 'qa:a11y']],
   ['npm', ['run', 'qa:security']],

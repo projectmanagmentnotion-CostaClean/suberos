@@ -78,9 +78,10 @@
 
 .preloader__logo span {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.8rem, 6.4vw, 6rem);
   line-height: 0.88;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.018em;
 }
 
 .preloader__sheen {

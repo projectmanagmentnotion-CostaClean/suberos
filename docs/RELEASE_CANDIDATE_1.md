@@ -4,33 +4,26 @@ Fecha: 2026-07-15
 
 ## Definicion
 
-Primer release candidate local que consolida:
+Release candidate local con:
 
+- tipografia publica licenciada y self-hosted
 - auditoria editorial final
 - estado legal honesto
 - formulario bloqueado de forma profesional
 - QA automatizada de release
 - Lighthouse reproducible
-- visual snapshots actualizados tras los cambios editoriales
-
-## Alcance tecnico
-
-- rama objetivo: `main`
-- repositorio: `https://github.com/projectmanagmentnotion-CostaClean/suberos.git`
-- baseline de partida: `ae1093b103ab351c947b9ceb72ece2ced0106d70`
-- commit de cierre del sprint: se registra al finalizar el cierre git
+- visual snapshots actualizados tras la sustitucion a Syncopate
 
 ## Bundle RC1
 
-- JS inicial: `443.30 kB` raw / `147.59 kB` gzip
-- CSS inicial: `36.49 kB` raw / `8.09 kB` gzip
+- JS inicial: `443.34 kB` raw / `147.61 kB` gzip
+- CSS inicial: `36.94 kB` raw / `8.13 kB` gzip
 - preview final local: `http://127.0.0.1:4173/`
-- HTTP verificado: `200`
-- PID preview final: `27028`
+- HTTP verificado: pendiente de reconfirmacion final al cierre de esta ejecucion
 
 ## Estado del candidate
 
 - funcional localmente
-- visualmente coherente tras la limpieza editorial
+- visualmente coherente tras la sustitucion tipografica
 - legalmente no publicable todavia
 - decision final de lanzamiento: `NO-GO`

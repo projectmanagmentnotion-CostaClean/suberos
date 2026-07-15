@@ -27,10 +27,10 @@ export const companyProfile = {
         'El portfolio publico solo se activara cuando existan casos, permisos y materiales aprobados expresamente para publicacion.',
     },
     font: {
-      family: 'StretchPro',
-      licenceVerified: false,
+      family: 'Syncopate',
+      licenceVerified: true,
       publicSummary:
-        'La fuente original se conserva en el proyecto, pero su licencia documental y el uso self-hosted siguen pendientes de verificacion.',
+        'La tipografia display publica usa Syncopate self-hosted desde una fuente oficial verificable y queda aprobada para el runtime actual.',
     },
   },
   officialSocialProfiles: [] as const,

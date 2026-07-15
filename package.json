@@ -18,6 +18,7 @@
     "qa:privacy": "node scripts/check-privacy-storage.mjs && node scripts/run-playwright-suite.mjs --port=4177 tests/contact/contact.spec.ts --project chromium --grep \"runtime stores no personal data|do not persist after reload|stays honestly blocked\"",
     "qa:seo": "node scripts/check-seo.mjs && node scripts/run-playwright-suite.mjs --port=4178 tests/seo tests/navigation/navigation.spec.ts --project chromium",
     "qa:legal": "node scripts/check-legal-readiness.mjs && node scripts/run-playwright-suite.mjs --port=4179 tests/legal tests/navigation/navigation.spec.ts --project chromium",
+    "qa:font-licenses": "node scripts/check-font-licenses.mjs",
     "qa:visual": "node scripts/run-playwright-suite.mjs --port=4180 --contact-mock=1 tests/visual --project chromium",
     "qa:cross-browser": "node scripts/run-cross-browser-qa.mjs",
     "qa:full": "node scripts/run-playwright-suite.mjs --port=4182 --contact-mock=1 tests/smoke tests/navigation tests/contact tests/legal tests/seo tests/labs tests/accessibility tests/performance --project chromium",

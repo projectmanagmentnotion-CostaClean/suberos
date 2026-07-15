@@ -97,12 +97,17 @@ if (!vendorInventory.toLowerCase().includes('ninguno') || !vendorInventory.toLow
   throw new Error('Vendor inventory must document that there is no active production contact provider yet.')
 }
 
-if (!legalMatrix.includes('Bloquea lanzamiento') || !legalMatrix.toLowerCase().includes('stretchpro')) {
-  throw new Error('Legal applicability matrix must include launch blockers and the StretchPro licence status.')
+if (!legalMatrix.includes('Bloquea lanzamiento') || !legalMatrix.toLowerCase().includes('syncopate')) {
+  throw new Error('Legal applicability matrix must include launch blockers and the approved Syncopate licence status.')
 }
 
-if (!assetInventory.toLowerCase().includes('stretchpro') || !assetInventory.toLowerCase().includes('pendiente')) {
-  throw new Error('The StretchPro font must remain documented as pending until its licence is confirmed.')
+const assetInventoryLowered = assetInventory.toLowerCase()
+if (!assetInventoryLowered.includes('syncopate') || !assetInventoryLowered.includes('aprobada')) {
+  throw new Error('The public font inventory must document Syncopate as approved.')
+}
+
+if (!assetInventoryLowered.includes('stretchpro') || !assetInventoryLowered.includes('retirada')) {
+  throw new Error('The legacy inventory must document StretchPro as removed from the public release.')
 }
 
 console.log('Legal readiness checks passed with publication blockers documented.')

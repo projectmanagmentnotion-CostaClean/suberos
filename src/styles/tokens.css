@@ -35,7 +35,7 @@
 
   --font-sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --font-display-fallback: 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
-  --font-display: 'StretchPro', var(--font-display-fallback);
+  --font-display: 'Syncopate', var(--font-display-fallback);
   --font-size-eyebrow: clamp(0.72rem, 0.7rem + 0.1vw, 0.8rem);
   --font-size-small: clamp(0.875rem, 0.83rem + 0.18vw, 0.98rem);
   --font-size-body: clamp(1rem, 0.96rem + 0.24vw, 1.12rem);

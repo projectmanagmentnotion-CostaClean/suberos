@@ -19,7 +19,7 @@
     <circle cx="95" cy="95" r="62" />
     <circle cx="95" cy="95" r="28" />
   </g>
-  <g fill="#f2f2ee" font-family="'StretchPro', 'Segoe UI', sans-serif">
+  <g fill="#f2f2ee" font-family="'Syncopate', 'Arial Narrow', 'Segoe UI', sans-serif">
     <text x="78" y="170" font-size="96" letter-spacing="-2">CREAMOS</text>
     <text x="78" y="250" font-size="96" letter-spacing="-2">IMAGENES</text>
     <text x="78" y="330" font-size="96" letter-spacing="-2">QUE MUEVEN</text>

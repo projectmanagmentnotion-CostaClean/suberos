@@ -13,8 +13,9 @@ const budgets = {
   mainCssGzipBytes: 10_240,
   mainJsGzipBytes: 160_000,
   mainJsWarningBytes: 150_000,
-  stretchProBytes: 220_000,
-  stretchProWarningBytes: 180_000,
+  syncopateTotalBytes: 55_000,
+  syncopateWarningBytes: 50_000,
+  syncopateBoldBytes: 20_000,
 }
 
 function resolveFromRoot(relativePath) {
@@ -73,11 +74,18 @@ if (heroImageStat.size > budgets.heroImageBytes) {
   warnings.push(`Hero visual is approaching the budget: ${heroImageStat.size} B.`)
 }
 
-const stretchProStat = await stat(resolveFromRoot('public/branding/fonts/StretchPro.otf'))
-if (stretchProStat.size > budgets.stretchProBytes) {
-  failures.push(`StretchPro exceeds the baseline font budget: ${stretchProStat.size} B > ${budgets.stretchProBytes} B.`)
-} else if (stretchProStat.size > budgets.stretchProWarningBytes) {
-  warnings.push(`StretchPro remains heavy and should be replaced or converted after licence review: ${stretchProStat.size} B.`)
+const syncopateRegularStat = await stat(resolveFromRoot('public/branding/fonts/syncopate/Syncopate-Regular.woff2'))
+const syncopateBoldStat = await stat(resolveFromRoot('public/branding/fonts/syncopate/Syncopate-Bold.woff2'))
+const syncopateTotalBytes = syncopateRegularStat.size + syncopateBoldStat.size
+
+if (syncopateTotalBytes > budgets.syncopateTotalBytes) {
+  failures.push(`Syncopate total font payload exceeds budget: ${syncopateTotalBytes} B > ${budgets.syncopateTotalBytes} B.`)
+} else if (syncopateTotalBytes > budgets.syncopateWarningBytes) {
+  warnings.push(`Syncopate total font payload is close to budget: ${syncopateTotalBytes} B.`)
+}
+
+if (syncopateBoldStat.size > budgets.syncopateBoldBytes) {
+  failures.push(`Critical Syncopate Bold preload exceeds budget: ${syncopateBoldStat.size} B > ${budgets.syncopateBoldBytes} B.`)
 }
 
 const fontsCss = read('src/styles/fonts.css').toString('utf8')
@@ -102,11 +110,17 @@ if (!indexSource.includes('rel="preload" as="image" href="/branding/suberos-logo
   failures.push('index.html must preload the approved hero visual.')
 }
 
+if (!indexSource.includes('/branding/fonts/syncopate/Syncopate-Bold.woff2')) {
+  failures.push('index.html must preload the critical Syncopate Bold font.')
+}
+
 console.log('Performance budget summary:')
 console.log(`- Main JS entry: ${scriptRefs[0] ?? 'missing'}`)
 console.log(`- Main CSS entry: ${cssRefs[0] ?? 'missing'}`)
 console.log(`- Hero visual: ${heroImageStat.size} B`)
-console.log(`- StretchPro: ${stretchProStat.size} B`)
+console.log(`- Syncopate Regular: ${syncopateRegularStat.size} B`)
+console.log(`- Syncopate Bold: ${syncopateBoldStat.size} B`)
+console.log(`- Syncopate total: ${syncopateTotalBytes} B`)
 
 if (failures.length > 0) {
   console.error('\nPerformance budget checks failed.\n')

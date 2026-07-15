@@ -174,7 +174,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
         title: 'Alcance y limitaciones conocidas',
         paragraphs: [
           'La conformidad final no se declara todavia porque falta una auditoria completa de cierre sobre contenido legal definitivo, rutas finales y comportamiento en produccion publica.',
-          'La tipografia actual StretchPro sigue pendiente de evidencia documental de licencia y puede requerir un plan de sustitucion antes de la salida publica final.',
+          'La tipografia display publica ya esta resuelta con Syncopate self-hosted y el cierre restante se concentra en dispositivos fisicos, datos legales definitivos y validacion final en hosting real.',
         ],
       },
       {
