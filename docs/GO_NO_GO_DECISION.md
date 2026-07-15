@@ -12,8 +12,8 @@ No se cumplen todavia los requisitos minimos para declarar el sitio listo para p
 
 1. Falta la identidad legal definitiva del titular.
 2. Falta NIF/CIF y domicilio legal.
-3. No existe endpoint real de formulario ni receptor confirmado.
-4. No hay verificacion operativa de SiteGround, backup, DNS ni HTTPS final.
+3. No existe endpoint productivo desplegado ni recepcion real verificada del formulario.
+4. No hay acceso operativo verificable a SiteGround, backup, document root, DNS ni HTTPS final.
 5. Siguen pendientes pruebas fisicas en iPhone Safari y Android Chrome.
 
 ## Bloqueos resueltos
