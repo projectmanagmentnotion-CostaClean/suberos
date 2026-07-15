@@ -17,12 +17,12 @@ for (const viewport of smokeViewports) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height })
     await gotoContact(page)
 
-    await expect(page.getByRole('heading', { level: 2, name: /cuentanos que necesitas/i })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 2, name: /cuentanos el proyecto/i })).toBeVisible()
     await expect(page.getByLabel('Nombre')).toBeVisible()
     await expect(page.getByLabel('Correo electronico')).toBeVisible()
     await expect(page.getByLabel('Tipo de proyecto o servicio')).toBeVisible()
     await expect(page.getByLabel('Proyecto o necesidad')).toBeVisible()
-    await expect(page.getByRole('button', { name: /enviar solicitud/i })).toBeVisible()
+    await expect(page.getByRole('button', { name: /formulario temporalmente desactivado/i })).toBeVisible()
     await expect(page.locator('.contact-alternatives').getByRole('link', { name: 'info@suberos.com' })).toBeVisible()
     await expect(page.locator('.contact-alternatives').getByRole('link', { name: '698 911 517' })).toBeVisible()
 
@@ -31,7 +31,8 @@ for (const viewport of smokeViewports) {
   })
 }
 
-test('contact form shows validation and focuses the first invalid field', async ({ page }) => {
+test('contact form shows validation and focuses the first invalid field @qa-mock', async ({ page }) => {
+  await enableContactQaScenario(page, 'success')
   await gotoContact(page)
   await page.locator('[data-qa="contact-submit"]').click()
 
@@ -42,7 +43,8 @@ test('contact form shows validation and focuses the first invalid field', async 
   await expect(page.locator('#contact-name')).toBeFocused()
 })
 
-test('contact form rejects invalid email without losing the message content', async ({ page }) => {
+test('contact form rejects invalid email without losing the message content @qa-mock', async ({ page }) => {
+  await enableContactQaScenario(page, 'success')
   await gotoContact(page)
   await page.locator('[data-qa="contact-name"]').fill('Marta Soler')
   await page.locator('[data-qa="contact-email"]').fill('marta@')
@@ -61,10 +63,9 @@ test('contact form rejects invalid email without losing the message content', as
 test('contact form stays honestly blocked outside QA mock mode', async ({ page }) => {
   await gotoContact(page)
   await fillValidContactForm(page)
-  await page.locator('[data-qa="contact-submit"]').click()
-
+  await expect(page.locator('[data-qa="contact-submit"]')).toBeDisabled()
   await expect(page.locator('[data-qa="contact-production-status"]')).toContainText(/canal online/i)
-  await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('formulario online estara disponible proximamente')
+  await expect(page.locator('[data-qa="contact-state"]')).toContainText('formulario online estara disponible proximamente')
   await expect(page).not.toHaveURL(/marta@example\.com|Marta/)
 })
 

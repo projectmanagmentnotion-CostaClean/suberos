@@ -5,6 +5,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 ## Estado actual
 
 - Fases 0 a 14 completadas.
+- Sprint 14.2 en ejecucion local: redireccion editorial de portfolio, proceso y contacto, con nueva auditoria visual y gates de assets/overflow.
 - Sustitucion tipografica completada: `StretchPro` ha salido del build publico y el runtime usa `Syncopate` self-hosted.
 - `qa:release`, `lint`, `build`, `qa:lighthouse` y `qa:visual` pasan.
 - Produccion publicada en `https://suberos.com` con estado `CONDITIONAL GO`.
@@ -29,6 +30,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run lint`
 - `npm run build`
 - `npm run qa:font-licenses`
+- `npm run qa:assets`
+- `npm run qa:overflow`
 - `npm run qa:legal`
 - `npm run qa:privacy`
 - `npm run qa:seo`
@@ -64,3 +67,4 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - No declarar el formulario operativo mientras no exista backend real aprobado.
 - Centralizar tokens, estados y motion; no duplicar logica ad hoc.
 - Validar siempre `npm run qa:release` antes de cerrar un bloque grande.
+- Usar `artifacts/reports/assets/asset-inventory.json` y `artifacts/reports/overflow/overflow-report.json` como evidencia automatizada del estado visual y de assets.

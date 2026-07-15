@@ -1,10 +1,10 @@
 import { ContactSection } from '../contact/ContactSection'
 import { BrandStatementSection } from './BrandStatementSection'
-import { FeaturedWorkSection } from './FeaturedWorkSection'
 import { HeroSection } from './HeroSection'
-import { ProcessSection } from './ProcessSection'
+import { ProcessEditorial } from '../process/ProcessEditorial'
 import { ServicesSection } from './ServicesSection'
 import { StudioSection } from './StudioSection'
+import { WorkShowcase } from '../work/WorkShowcase'
 import './home-page.css'
 
 export function HomePage() {
@@ -13,8 +13,8 @@ export function HomePage() {
       <HeroSection />
       <StudioSection />
       <ServicesSection />
-      <FeaturedWorkSection />
-      <ProcessSection />
+      <WorkShowcase />
+      <ProcessEditorial />
       <BrandStatementSection />
       <ContactSection />
     </>

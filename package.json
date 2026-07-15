@@ -11,6 +11,8 @@
     "lint": "eslint .",
     "assets:sequence-manifest": "node scripts/generate-sequence-manifest.mjs",
     "qa:isolation": "node scripts/check-project-isolation.mjs",
+    "qa:assets": "node scripts/check-assets.mjs",
+    "qa:overflow": "node scripts/check-runtime-overflow.mjs",
     "qa:portfolio": "node scripts/check-portfolio-readiness.mjs",
     "qa:sequences": "node scripts/check-frame-sequences.mjs",
     "qa:smoke": "node scripts/run-playwright-suite.mjs --port=4175 tests/smoke tests/navigation tests/contact/contact.spec.ts tests/legal tests/seo tests/labs tests/performance --project chromium --grep-invert @qa-mock",

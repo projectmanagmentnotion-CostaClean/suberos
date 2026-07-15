@@ -1,11 +1,7 @@
 import { useRef } from 'react'
 
 import { Container } from '../../components/layout/Container'
-import { Grid } from '../../components/layout/Grid'
 import { Section } from '../../components/layout/Section'
-import { Surface } from '../../components/layout/Surface'
-import { Divider } from '../../components/ui/Divider'
-import { SectionHeader } from '../../components/ui/SectionHeader'
 import { homeContent } from '../../data/homeContent'
 import { useElementReveal } from '../../motion/hooks/useElementReveal'
 import { ContactAlternativeMethods } from './ContactAlternativeMethods'
@@ -16,7 +12,7 @@ export function ContactSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
 
   useElementReveal(sectionRef, {
-    selector: '.section-header, .contact-card, .contact-alternatives',
+    selector: '.contact-section__intro, .contact-section__info, .contact-form-shell',
   })
 
   return (
@@ -29,20 +25,24 @@ export function ContactSection() {
       tone="raised"
     >
       <Container>
-        <Grid className="contact-section__grid" columns="content-aside" gap="lg">
-          <SectionHeader
-            eyebrow="Contacto"
-            title="Cuentanos que necesitas y te responderemos con una direccion clara."
-            titleId="contact-title"
-            body={homeContent.contact.body}
-          />
-          <Surface className="contact-card" padding="lg" tone="highlight">
+        <div className="contact-section__intro">
+          <p className="contact-section__eyebrow">Contacto</p>
+          <div className="contact-section__heading">
+            <h2 id="contact-title">Cuentanos el proyecto y cerramos la web con una conversacion clara.</h2>
+            <p>{homeContent.contact.body}</p>
+          </div>
+        </div>
+
+        <div className="contact-section__layout">
+          <div className="contact-section__info">
             <p className="contact-section__lead">{homeContent.contact.closingLead}</p>
-            <ContactForm />
-            <Divider />
             <ContactAlternativeMethods />
-          </Surface>
-        </Grid>
+          </div>
+
+          <div className="contact-form-shell">
+            <ContactForm />
+          </div>
+        </div>
       </Container>
     </Section>
   )

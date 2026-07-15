@@ -38,89 +38,45 @@ function getFieldDescribedBy(field: ContactFieldName, errors: ContactFieldErrors
 export function ContactFormFields({ errors, fieldRefs, onChange, values }: ContactFormFieldsProps) {
   return (
     <>
-      <div className="contact-form__field">
-        <label htmlFor="contact-name">Nombre</label>
-        <input
-          ref={fieldRefs.name}
-          aria-describedby={getFieldDescribedBy('name', errors)}
-          aria-invalid={Boolean(errors.name)}
-          autoComplete="name"
-          data-qa="contact-name"
-          id="contact-name"
-          name="name"
-          onChange={(event) => onChange('name', event.target.value)}
-          required={true}
-          value={values.name}
-        />
-        {errors.name ? <p className="contact-form__error" id="contact-error-name">{errors.name}</p> : null}
+      <div className="contact-form__row">
+        <div className="contact-form__field">
+          <label htmlFor="contact-name">Nombre</label>
+          <input
+            ref={fieldRefs.name}
+            aria-describedby={getFieldDescribedBy('name', errors)}
+            aria-invalid={Boolean(errors.name)}
+            autoComplete="name"
+            data-qa="contact-name"
+            id="contact-name"
+            name="name"
+            onChange={(event) => onChange('name', event.target.value)}
+            required={true}
+            value={values.name}
+          />
+          {errors.name ? <p className="contact-form__error" id="contact-error-name">{errors.name}</p> : null}
+        </div>
+
+        <div className="contact-form__field">
+          <label htmlFor="contact-email">Correo electronico</label>
+          <input
+            ref={fieldRefs.email}
+            aria-describedby={getFieldDescribedBy('email', errors)}
+            aria-invalid={Boolean(errors.email)}
+            autoComplete="email"
+            data-qa="contact-email"
+            id="contact-email"
+            inputMode="email"
+            name="email"
+            onChange={(event) => onChange('email', event.target.value)}
+            required={true}
+            type="email"
+            value={values.email}
+          />
+          {errors.email ? <p className="contact-form__error" id="contact-error-email">{errors.email}</p> : null}
+        </div>
       </div>
 
-      <div className="contact-form__field">
-        <label htmlFor="contact-email">Correo electronico</label>
-        <input
-          ref={fieldRefs.email}
-          aria-describedby={getFieldDescribedBy('email', errors)}
-          aria-invalid={Boolean(errors.email)}
-          autoComplete="email"
-          data-qa="contact-email"
-          id="contact-email"
-          inputMode="email"
-          name="email"
-          onChange={(event) => onChange('email', event.target.value)}
-          required={true}
-          type="email"
-          value={values.email}
-        />
-        {errors.email ? <p className="contact-form__error" id="contact-error-email">{errors.email}</p> : null}
-      </div>
-
-      <div className="contact-form__field">
-        <label htmlFor="contact-service">Tipo de proyecto o servicio</label>
-        <select
-          ref={fieldRefs.service}
-          aria-describedby={getFieldDescribedBy('service', errors, 'contact-hint-service')}
-          aria-invalid={Boolean(errors.service)}
-          data-qa="contact-service"
-          id="contact-service"
-          name="service"
-          onChange={(event) => onChange('service', event.target.value)}
-          required={true}
-          value={values.service}
-        >
-          <option value="">Selecciona una opcion</option>
-          {contactServiceOptions.map((service) => (
-            <option key={service.id} value={service.id}>
-              {service.title}
-            </option>
-          ))}
-        </select>
-        <p className="contact-form__hint" id="contact-hint-service">
-          Puedes elegir &quot;No estoy seguro&quot; si todavia necesitas orientacion.
-        </p>
-        {errors.service ? <p className="contact-form__error" id="contact-error-service">{errors.service}</p> : null}
-      </div>
-
-      <div className="contact-form__field">
-        <label htmlFor="contact-message">Proyecto o necesidad</label>
-        <textarea
-          ref={fieldRefs.message}
-          aria-describedby={getFieldDescribedBy('message', errors, 'contact-hint-message')}
-          aria-invalid={Boolean(errors.message)}
-          data-qa="contact-message"
-          id="contact-message"
-          name="message"
-          onChange={(event) => onChange('message', event.target.value)}
-          required={true}
-          rows={6}
-          value={values.message}
-        />
-        <p className="contact-form__hint" id="contact-hint-message">
-          Cuanto mas claro sea el contexto, mejor podremos responderte.
-        </p>
-        {errors.message ? <p className="contact-form__error" id="contact-error-message">{errors.message}</p> : null}
-      </div>
-
-      <div className="contact-form__grid">
+      <div className="contact-form__row">
         <div className="contact-form__field">
           <label htmlFor="contact-company">
             Empresa o marca <span>(opcional)</span>
@@ -155,10 +111,38 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
           />
           {errors.phone ? <p className="contact-form__error" id="contact-error-phone">{errors.phone}</p> : null}
         </div>
+      </div>
+
+      <div className="contact-form__row">
+        <div className="contact-form__field">
+          <label htmlFor="contact-service">Tipo de proyecto o servicio</label>
+          <select
+            ref={fieldRefs.service}
+            aria-describedby={getFieldDescribedBy('service', errors, 'contact-hint-service')}
+            aria-invalid={Boolean(errors.service)}
+            data-qa="contact-service"
+            id="contact-service"
+            name="service"
+            onChange={(event) => onChange('service', event.target.value)}
+            required={true}
+            value={values.service}
+          >
+            <option value="">Tipo de proyecto o servicio</option>
+            {contactServiceOptions.map((service) => (
+              <option key={service.id} value={service.id}>
+                {service.title}
+              </option>
+            ))}
+          </select>
+          <p className="contact-form__hint" id="contact-hint-service">
+            Puedes elegir &quot;No estoy seguro&quot; si todavia necesitas orientacion.
+          </p>
+          {errors.service ? <p className="contact-form__error" id="contact-error-service">{errors.service}</p> : null}
+        </div>
 
         <div className="contact-form__field">
           <label htmlFor="contact-budget">
-            Presupuesto aproximado <span>(opcional)</span>
+            Presupuesto o plazo <span>(opcional)</span>
           </label>
           <input
             ref={fieldRefs.budget}
@@ -170,32 +154,52 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
             value={values.budget}
           />
           <p className="contact-form__hint" id="contact-hint-budget">
-            Campo libre para no fijar rangos no aprobados todavia.
+            Campo libre para compartir una referencia util sin fijar rangos cerrados.
           </p>
           {errors.budget ? <p className="contact-form__error" id="contact-error-budget">{errors.budget}</p> : null}
         </div>
+      </div>
 
+      <div className="contact-form__field contact-form__field--message">
+        <label htmlFor="contact-message">Proyecto o necesidad</label>
+        <textarea
+          ref={fieldRefs.message}
+          aria-describedby={getFieldDescribedBy('message', errors, 'contact-hint-message')}
+          aria-invalid={Boolean(errors.message)}
+          data-qa="contact-message"
+          id="contact-message"
+          name="message"
+          onChange={(event) => onChange('message', event.target.value)}
+          required={true}
+          rows={6}
+          value={values.message}
+        />
+        <p className="contact-form__hint" id="contact-hint-message">
+          Cuanto mas claro sea el contexto, mejor podremos responderte.
+        </p>
+        {errors.message ? <p className="contact-form__error" id="contact-error-message">{errors.message}</p> : null}
+      </div>
+
+      <div className="contact-form__meta-fields" aria-hidden="true">
         <div className="contact-form__field">
-          <label htmlFor="contact-timeline">
-            Plazo o fecha <span>(opcional)</span>
-          </label>
+          <label htmlFor="contact-timeline">Plazo o fecha</label>
           <input
+            disabled={true}
             ref={fieldRefs.timeline}
             aria-describedby={getFieldDescribedBy('timeline', errors)}
             aria-invalid={Boolean(errors.timeline)}
             id="contact-timeline"
             name="timeline"
             onChange={(event) => onChange('timeline', event.target.value)}
+            tabIndex={-1}
             value={values.timeline}
           />
-          {errors.timeline ? <p className="contact-form__error" id="contact-error-timeline">{errors.timeline}</p> : null}
         </div>
 
         <div className="contact-form__field">
-          <label htmlFor="contact-website">
-            URL actual <span>(opcional)</span>
-          </label>
+          <label htmlFor="contact-website">URL actual</label>
           <input
+            disabled={true}
             ref={fieldRefs.website}
             aria-describedby={getFieldDescribedBy('website', errors)}
             aria-invalid={Boolean(errors.website)}
@@ -204,22 +208,22 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
             inputMode="url"
             name="website"
             onChange={(event) => onChange('website', event.target.value)}
+            tabIndex={-1}
             value={values.website}
           />
-          {errors.website ? <p className="contact-form__error" id="contact-error-website">{errors.website}</p> : null}
         </div>
 
         <div className="contact-form__field">
-          <label htmlFor="contact-preference">
-            Preferencia de contacto <span>(opcional)</span>
-          </label>
+          <label htmlFor="contact-preference">Preferencia de contacto</label>
           <select
+            disabled={true}
             ref={fieldRefs.contactPreference}
             aria-describedby={getFieldDescribedBy('contactPreference', errors)}
             aria-invalid={Boolean(errors.contactPreference)}
             id="contact-preference"
             name="contactPreference"
             onChange={(event) => onChange('contactPreference', event.target.value)}
+            tabIndex={-1}
             value={values.contactPreference}
           >
             <option value="">Sin preferencia</option>
@@ -229,11 +233,6 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
               </option>
             ))}
           </select>
-          {errors.contactPreference ? (
-            <p className="contact-form__error" id="contact-error-contactPreference">
-              {errors.contactPreference}
-            </p>
-          ) : null}
         </div>
       </div>
 

@@ -5,7 +5,6 @@ import { focusFirstFieldError } from '../../lib/forms/focusFirstFieldError'
 import { siteContact } from '../../data/siteContent'
 import {
   CONTACT_REAL_ENDPOINT_ENABLED,
-  contactBlockedMessage,
   contactFieldOrder,
   contactInitialValues,
   contactProductionStatusMessage,
@@ -42,6 +41,13 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
     contactPreference: useRef<HTMLSelectElement | null>(null),
   }
   const isProductionEndpointUnavailable = !CONTACT_REAL_ENDPOINT_ENABLED
+  const isQaMockMode =
+    import.meta.env.DEV &&
+    typeof window !== 'undefined' &&
+    window.__SUBEROS_CONTACT_TEST_MODE__ === true &&
+    typeof window.__SUBEROS_CONTACT_TEST_SCENARIO__ === 'string' &&
+    window.__SUBEROS_CONTACT_TEST_SCENARIO__.length > 0
+  const shouldDisableSubmit = isProductionEndpointUnavailable && !isQaMockMode
 
   function syncStatus(nextStatus: ContactFormStatus) {
     setStatus(nextStatus)
@@ -150,8 +156,8 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
           <div className="contact-form__status" aria-live="polite">
             <p className="contact-form__eyebrow">Solicitud online</p>
             <p className="contact-form__intro">
-              Cuatro campos obligatorios, el resto solo si aportan contexto real. Si prefieres una via directa, escribe a{' '}
-              <a href={`mailto:${siteContact.email}`}>{siteContact.email}</a>.
+              Nombre, email, servicio y mensaje bastan para entender el contexto. Si prefieres una via directa, escribe a{' '}
+              <a href={`mailto:${siteContact.email}`}>{siteContact.email}</a> o llama al {siteContact.phoneDisplay}.
             </p>
           </div>
 
@@ -182,11 +188,23 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
           <ContactFormFields errors={errors} fieldRefs={fieldRefs} onChange={handleChange} values={values} />
 
           <div className="contact-form__actions" data-qa="contact-state">
-            <Button data-qa="contact-submit" loading={status === 'submitting'} type="submit" variant="primary">
-              {status === 'submitting' ? 'Enviando solicitud' : 'Enviar solicitud'}
+            <Button
+              data-qa="contact-submit"
+              disabled={shouldDisableSubmit}
+              loading={status === 'submitting'}
+              type="submit"
+              variant="primary"
+            >
+              {status === 'submitting'
+                ? 'Enviando solicitud'
+                : shouldDisableSubmit
+                  ? 'Formulario temporalmente desactivado'
+                  : 'Enviar solicitud'}
             </Button>
             <p className="contact-form__meta">
-              {isProductionEndpointUnavailable ? contactBlockedMessage : 'Sin cookies no esenciales. Sin analitica. Sin datos personales en la URL.'}
+              {isProductionEndpointUnavailable
+                ? 'El formulario online estara disponible proximamente. Mientras tanto, puedes escribirnos o llamarnos directamente.'
+                : 'Sin cookies no esenciales. Sin analitica. Sin datos personales en la URL.'}
             </p>
           </div>
         </form>
