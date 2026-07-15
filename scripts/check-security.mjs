@@ -83,7 +83,17 @@ if (htaccess.includes('unsafe-eval')) {
 }
 
 const contactConstants = read('src/features/contact/contact.constants.ts')
-if (!contactConstants.includes('CONTACT_REAL_ENDPOINT_ENABLED = false')) {
+const companyProfile = read('src/data/companyProfile.ts')
+const formBlockedInProfile =
+  companyProfile.includes('endpointEnabled: false') &&
+  companyProfile.includes('El formulario online estara disponible proximamente') &&
+  companyProfile.includes('El formulario online permanece desactivado en esta version publica')
+const formBlockedInConstants =
+  contactConstants.includes('runtimeStatus.form.endpointEnabled') &&
+  contactConstants.includes('runtimeStatus.form.fallbackMessage') &&
+  contactConstants.includes('runtimeStatus.form.publicMessage')
+
+if (!formBlockedInProfile || !formBlockedInConstants) {
   failures.push('Public contact endpoint must remain blocked until a production endpoint exists.')
 }
 

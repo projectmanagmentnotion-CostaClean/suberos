@@ -1,6 +1,6 @@
 # Legal Owner Information Required
 
-Fecha: 2026-07-14
+Fecha: 2026-07-15
 
 ## Bloqueadores actuales
 
@@ -33,3 +33,4 @@ Sin estos datos no deben darse por definitivos:
 
 - las paginas legales del repo siguen siendo provisionales
 - la web no debe presentarlas como revision legal definitiva
+- este bloqueo mantiene la decision de lanzamiento en `NO-GO`

@@ -17,6 +17,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 10 completado localmente: baseline de accesibilidad, teclado, inclusive motion y QA automatizada con aria + axe.
 - Sprint 11 completado localmente: hardening de rendimiento, seguridad frontend, Lighthouse reproducible y smoke cross-browser.
 - Sprint 12 completado localmente: suite final de QA visual y funcional, baselines Chromium, smoke cross-browser, qa:production y qa:release.
+- Sprint 13 completado localmente: auditoria editorial y legal final, RC1, matriz de lanzamiento y decision objetiva de NO-GO por bloqueos reales.
 
 ## Stack
 
@@ -174,6 +175,13 @@ tests/
 - `docs/KNOWN_LIMITATIONS.md`
 - `docs/QA_RELEASE_GATE.md`
 - `docs/SPRINT_12_REPORT.md`
+- `docs/CONTENT_FINAL_AUDIT.md`
+- `docs/ASSET_LICENSE_STATUS.md`
+- `docs/FORM_ENDPOINT_STATUS.md`
+- `docs/RELEASE_CANDIDATE_1.md`
+- `docs/LAUNCH_READINESS_MATRIX.md`
+- `docs/GO_NO_GO_DECISION.md`
+- `docs/SPRINT_13_REPORT.md`
 
 ## Reglas de desarrollo
 
@@ -186,3 +194,4 @@ tests/
 - Centralizar nuevos tokens, estados de UI y metadata; no duplicar logica ad hoc.
 - Registrar GSAP una sola vez y limpiar contextos y side effects.
 - Validar siempre `npm run qa:release` antes de cerrar un bloque grande y usar `npm run qa:cross-browser` cuando el cambio afecte navegacion, labs, legales, contacto o responsive.
+- No declarar lanzamiento listo mientras falten titular legal, licencia verificable de StretchPro, endpoint real o acceso operativo al hosting.

@@ -9,8 +9,8 @@ export const homeContent = {
     secondaryCta: 'Cuentanos tu proyecto',
     visualEyebrow: 'Fotografia / Diseno / Impresion / Web',
     visualBody:
-      'Base visual real, logo recuperado y capas listas para evolucionar hacia piezas, escenas y casos aprobados.',
-    visualCaption: 'Activo propio de SUBEROS servido localmente como visual principal del primer viewport.',
+      'Una misma direccion visual para coordinar imagen, soporte fisico y presencia digital con criterio.',
+    visualCaption: 'Fotografia, diseno, impresion y web trabajando como una sola idea.',
     scrollLabel: 'Explorar el estudio',
   },
   studio: {
@@ -29,22 +29,22 @@ export const homeContent = {
     detailBody:
       'La diferencia no esta en sumar servicios sueltos, sino en coordinar imagen, soporte y experiencia para que una marca se entienda y se recuerde mejor.',
     detailPoints: [
-      'Servicios confirmados en la web publica actual.',
-      'Narrativa pensada para digital, impreso y contenido visual.',
-      'Base preparada para crecer hacia portfolio real solo cuando existan materiales aprobados.',
+      'Fotografia, diseno, impresion y web coordinados desde una misma direccion.',
+      'Piezas pensadas para digital, impreso y contenido visual.',
+      'Proceso claro para convertir una idea en imagen, soporte y presencia online.',
     ] as const,
   },
   services: {
     eyebrow: 'Servicios',
     title: 'Cuatro lineas reales de trabajo, conectadas como una misma narrativa de marca.',
     body:
-      'La home deja atras las cards genericas y organiza las capacidades reales de SUBEROS como una secuencia editorial con beneficio, resultado y siguiente accion.',
+      'SUBEROS trabaja fotografia, diseno, impresion y web como partes de una misma direccion visual, no como servicios aislados.',
   },
   work: {
     eyebrow: 'Trabajo',
-    title: 'Mostramos capacidades reales y una direccion visual propia mientras el portfolio publico se prepara con criterio.',
+    title: 'Mostramos criterio, disciplinas y enfoque real mientras el portfolio publico se activa solo con materiales aprobados.',
     body:
-      'La seccion no finge un portfolio inexistente: presenta disciplinas, ritmo editorial y enfoque creativo con contenido nativo de SUBEROS.',
+      'SUBEROS no publica proyectos sin permiso. Hasta que existan casos aprobados, esta seccion muestra enfoque, capacidades y criterio de ejecucion.',
     asideTitle: 'Direccion creativa integrada',
     asideBody:
       'Fotografia, branding, produccion y web se presentan como partes de una misma cadena de decision visual, no como bloques aislados.',
@@ -54,13 +54,13 @@ export const homeContent = {
     eyebrow: 'Metodo',
     title: 'Cada proyecto necesita una direccion clara antes de convertirse en imagen, pieza o experiencia.',
     body:
-      'Este flujo se formula como una base razonable derivada de los servicios confirmados y de la mezcla entre fotografia, diseno, produccion y web.',
+      'El proceso ordena idea, identidad, produccion y ejecucion para que cada pieza salga con criterio y continuidad.',
   },
   statement: {
     eyebrow: 'Declaracion',
     lines: ['NO CREAMOS PARA LLENAR ESPACIOS.', 'CREAMOS PARA QUE ALGO SE RECUERDE.'] as const,
     body:
-      'La narrativa de la home cierra con una frase breve, emocional y coherente con el posicionamiento real del estudio.',
+      'Cada decision visual debe ayudar a que la marca se entienda, se recuerde y avance con mas claridad.',
   },
   contact: {
     body:

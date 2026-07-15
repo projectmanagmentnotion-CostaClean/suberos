@@ -1,6 +1,6 @@
 # Legal Page Status
 
-Fecha: 2026-07-14
+Fecha: 2026-07-15
 
 ## Estado general
 
@@ -43,3 +43,4 @@ Las paginas legales de SUBEROS existen ya como parte de la aplicacion publica, p
 - Build local: permitida
 - Preview local: permitido
 - Publicacion final indexable: bloqueada hasta cerrar los datos obligatorios
+- Estado de lanzamiento derivado: `NO-GO`

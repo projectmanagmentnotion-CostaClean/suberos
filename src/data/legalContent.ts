@@ -1,4 +1,5 @@
 import { homeAnchors, legalPaths } from '../app/routes'
+import { companyProfile } from './companyProfile'
 
 export type LegalSection = {
   title: string
@@ -19,8 +20,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
     title: 'Aviso legal',
     intro:
       'Esta version publica resume la informacion corporativa y de uso disponible hoy para SUBEROS sin inventar datos juridicos que todavia no han sido verificados documentalmente.',
-    statusNote:
-      'La identificacion mercantil completa del titular y los datos registrales siguen pendientes de validacion documental antes de una publicacion final indexable.',
+    statusNote: companyProfile.runtimeStatus.legal.missingDataSummary,
     updatedAt: '2026-07-14',
     sections: [
       {
@@ -76,7 +76,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
         title: 'Datos y canales actualmente visibles',
         paragraphs: [
           'SUBEROS publica hoy un correo de contacto, un telefono y un formulario web de presentacion inicial.',
-          'El formulario online de produccion no esta conectado a un endpoint real. Mientras no exista backend definitivo, el canal operativo real sigue siendo el contacto directo por email o telefono.',
+          `El formulario online de produccion no esta conectado a un endpoint real. Mientras no exista backend definitivo, el canal operativo real sigue siendo el contacto directo por email o telefono: ${companyProfile.contact.email} y ${companyProfile.contact.phoneDisplay}.`,
         ],
       },
       {

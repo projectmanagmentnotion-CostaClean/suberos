@@ -1,6 +1,6 @@
 # SUBEROS Visual Asset Inventory
 
-Fecha de auditoria: 2026-07-14
+Fecha de auditoria: 2026-07-15
 
 ## Alcance
 
@@ -85,6 +85,7 @@ Inventario maestro de assets visuales localizados en el repositorio. No se asume
 
 - La licencia documental de `StretchPro.otf` no esta registrada en el repositorio
 - La publicacion final sigue bloqueada hasta confirmar licencia comercial y self-hosting de StretchPro
+- En la comprobacion actual de Sprint 13 no se pudieron recuperar nuevos assets desde la web heredada porque el dominio y las URLs directas auditadas devolvieron `403`
 - No existen texturas, fotografia, mockups ni secuencias reales aprobadas para elevar mas la home sin recurrir a placeholders editoriales
 - La secuencia del laboratorio no es un asset publicable ni sustituye assets reales de produccion
 - El inventario refleja el estado real del repo, no una aprobacion legal definitiva

@@ -45,14 +45,16 @@ Cambios aplicados para mejorar LCP y estabilidad:
 
 Referencias completas en `docs/LIGHTHOUSE_REPORT.md`.
 
-- mobile home: performance `85`, LCP `3243 ms`, CLS `0.001`, TBT `205 ms`
+- mobile home baseline previo: performance `85`, LCP `3243 ms`, CLS `0.001`, TBT `205 ms`
 - desktop home: performance `99`, LCP `704 ms`, CLS `0.000`, TBT `6 ms`
 
 ## Hallazgos reales
 
 - El cuello inicial no era solo el peso del logo; la entrada de `StretchPro` y el preloader estaban afectando LCP y CLS.
 - El `CLS` del hero quedo virtualmente eliminado al simplificar la salida del preloader y adelantar la carga de la fuente.
-- La home movil sigue por encima del objetivo ideal `<= 2.5 s` en LCP de laboratorio. El mayor riesgo restante es la fuente display `StretchPro.otf`, que sigue pesada y en formato OTF.
+- La home movil sigue por encima del objetivo ideal `<= 2.5 s` en LCP de laboratorio. La medicion final reproducida en Sprint 13 queda en `3396 ms`.
+- Se probo de forma conservadora cambiar `font-display: swap` a `font-display: fallback` en `StretchPro`, pero el resultado empeoro ligeramente a `3423 ms`; el cambio se revirtio.
+- El mayor riesgo restante sigue siendo la fuente display `StretchPro.otf`, que sigue pesada y en formato OTF.
 - Los labs siguen lazy y no entran en el shell publico salvo query explicita.
 - No se detectaron overflow ni errores de consola en las vistas auditadas.
 

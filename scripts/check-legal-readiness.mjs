@@ -22,6 +22,7 @@ for (const relativePath of requiredDocs) {
 }
 
 const footer = read('src/features/footer/Footer.tsx')
+const companyProfile = read('src/data/companyProfile.ts')
 const legalContent = read('src/data/legalContent.ts')
 const contactConstants = read('src/features/contact/contact.constants.ts')
 const routesSource = read('src/app/routes.ts')
@@ -57,11 +58,21 @@ for (const marker of footerMarkers) {
   }
 }
 
-if (!contactConstants.includes('CONTACT_REAL_ENDPOINT_ENABLED = false')) {
+const formBlockedInProfile =
+  companyProfile.includes('endpointEnabled: false') &&
+  companyProfile.includes('El formulario online estara disponible proximamente') &&
+  companyProfile.includes('El formulario online permanece desactivado en esta version publica')
+
+const formBlockedInConstants =
+  contactConstants.includes('runtimeStatus.form.endpointEnabled') &&
+  contactConstants.includes('runtimeStatus.form.fallbackMessage') &&
+  contactConstants.includes('runtimeStatus.form.publicMessage')
+
+if (!formBlockedInProfile || !formBlockedInConstants) {
   throw new Error('The public contact form must remain blocked until a real endpoint exists.')
 }
 
-if (!contactConstants.includes('El formulario online estara disponible proximamente')) {
+if (!companyProfile.includes('El formulario online estara disponible proximamente') || !contactConstants.includes('runtimeStatus.form.fallbackMessage')) {
   throw new Error('The public contact form must show an honest blocked message.')
 }
 

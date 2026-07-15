@@ -4,13 +4,14 @@ import type {
   ContactPreferenceOption,
   ContactServiceOption,
 } from './contact.types'
+import { companyProfile } from '../../data/companyProfile'
 
 export const CONTACT_ENDPOINT = '/api/contact'
 export const CONTACT_MAX_PAYLOAD_CHARS = 6_000
 export const CONTACT_MIN_SUBMIT_DELAY_MS = 1_500
 export const CONTACT_RATE_LIMIT_WINDOW_MS = 60_000
 export const CONTACT_RATE_LIMIT_MAX_REQUESTS = 3
-export const CONTACT_REAL_ENDPOINT_ENABLED = false
+export const CONTACT_REAL_ENDPOINT_ENABLED = companyProfile.runtimeStatus.form.endpointEnabled
 
 const localHostname = [108, 111, 99, 97, 108, 104, 111, 115, 116]
   .map((characterCode) => String.fromCharCode(characterCode))
@@ -106,10 +107,10 @@ export const contactSuccessMessage =
   'Solicitud recibida en el entorno tecnico de SUBEROS. La entrega real por correo sigue bloqueada hasta aprobar el backend y el proveedor final.'
 
 export const contactBlockedMessage =
-  'El formulario online estara disponible proximamente. Puedes contactar ahora por email o telefono.'
+  companyProfile.runtimeStatus.form.fallbackMessage
 
 export const contactProductionStatusMessage =
-  'El formulario online permanece desactivado en esta version publica mientras se define el endpoint real y la capa legal definitiva.'
+  companyProfile.runtimeStatus.form.publicMessage
 
 export const contactRateLimitMessage =
   'Hemos detenido temporalmente nuevos envios desde este entorno. Espera un momento o usa correo o telefono si tu consulta es urgente.'

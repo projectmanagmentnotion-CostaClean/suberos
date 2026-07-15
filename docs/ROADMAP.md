@@ -17,7 +17,8 @@
 - Phase 10 complete locally - Accessibility and inclusive motion
 - Phase 11 complete locally - Performance, security and browser hardening
 - Phase 12 complete locally - Visual and functional QA automation
-- Next recommended sprint: Phase 13 - Content, legal and launch-readiness polish
+- Phase 13 complete locally - Content, legal and launch-readiness audit with objective NO-GO
+- Next recommended sprint: mandatory pre-launch compliance closeout and deployment readiness once legal data, font licence and hosting access exist
 - Mandatory compliance implementation sprint must be completed before public launch
 
 ## Mandatory governing documents

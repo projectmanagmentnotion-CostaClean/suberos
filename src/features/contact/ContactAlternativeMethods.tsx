@@ -1,5 +1,6 @@
 import { Cluster } from '../../components/layout/Cluster'
 import { Stack } from '../../components/layout/Stack'
+import { companyProfile } from '../../data/companyProfile'
 import { TextLink } from '../../components/ui/TextLink'
 import { siteContact } from '../../data/siteContent'
 import { trackConversionEvent } from './contact.events'
@@ -35,7 +36,7 @@ export function ContactAlternativeMethods() {
       <Cluster className="contact-alternatives__notes" gap="sm">
         <span>Sin cookies no esenciales.</span>
         <span>Sin trackers.</span>
-        <span>Datos legales pendientes de verificacion final.</span>
+        <span>{companyProfile.runtimeStatus.legal.publicLabel}.</span>
       </Cluster>
     </Stack>
   )

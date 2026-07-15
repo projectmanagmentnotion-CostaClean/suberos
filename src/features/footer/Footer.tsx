@@ -3,6 +3,7 @@ import { Cluster } from '../../components/layout/Cluster'
 import { Container } from '../../components/layout/Container'
 import { Grid } from '../../components/layout/Grid'
 import { TextLink } from '../../components/ui/TextLink'
+import { companyProfile } from '../../data/companyProfile'
 import { siteContact, siteNavigation } from '../../data/siteContent'
 import { siteServices } from '../../data/services'
 
@@ -16,8 +17,8 @@ export function Footer() {
           <div className="site-footer__column">
             <p className="site-footer__brand">SUBEROS</p>
             <p className="site-footer__copy">
-              Branding, fotografia profesional, impresion digital y diseno y desarrollo web con contacto publicado en la
-              web actual y pendiente de verificacion legal final antes del lanzamiento.
+              Branding, fotografia profesional, impresion digital y diseno y desarrollo web para marcas que necesitan
+              una direccion visual clara.
             </p>
             <TextLink href={homeAnchors.inicio}>Volver arriba</TextLink>
           </div>
@@ -55,6 +56,9 @@ export function Footer() {
               </li>
               <li>{siteContact.location}</li>
             </ul>
+            {!companyProfile.runtimeStatus.legal.ownerDataVerified ? (
+              <p className="site-footer__copy">{companyProfile.runtimeStatus.legal.missingDataSummary}</p>
+            ) : null}
           </div>
         </Grid>
 

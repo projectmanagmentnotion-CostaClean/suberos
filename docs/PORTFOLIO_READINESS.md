@@ -1,5 +1,7 @@
 # Portfolio Readiness
 
+Fecha: 2026-07-15
+
 ## Objetivo
 
 Definir cuando un proyecto de SUBEROS puede pasar de borrador interno a publicacion real.
@@ -122,3 +124,9 @@ Accion:
 - Sin errores bloqueantes
 - QA automatizada en verde
 - QA manual revisada
+
+## Estado de Sprint 13
+
+- no existen proyectos publicos aprobados
+- el portfolio sigue sin bloquear por si solo una landing corporativa
+- la decision de lanzamiento continua en `NO-GO` por legales, licencia y operativa, no por ausencia de portfolio

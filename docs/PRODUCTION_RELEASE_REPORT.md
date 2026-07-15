@@ -1,6 +1,6 @@
 # Production Release Report
 
-Fecha: 2026-07-14
+Fecha: 2026-07-15
 
 ## Sprint 11 update
 
@@ -12,7 +12,7 @@ Fecha: 2026-07-14
 
 ## Estado exacto
 
-BUILD DE PRODUCCION VALIDADO LOCALMENTE; PUBLICACION EN SITEGROUND BLOQUEADA HASTA DISPONER DE ACCESO, BACKUP, ENDPOINT REAL Y DATOS LEGALES DEFINITIVOS
+BUILD DE PRODUCCION VALIDADO LOCALMENTE; PUBLICACION FINAL EN `NO-GO` HASTA DISPONER DE DATOS LEGALES VERIFICADOS, LICENCIA DE FUENTE, ACCESO OPERATIVO A SITEGROUND, BACKUP Y DECISION DEFINITIVA SOBRE EL FORMULARIO
 
 ## Codigo
 
@@ -40,7 +40,10 @@ Resultado esperado del sprint:
 - labs internos mantienen `noindex,nofollow`
 - paginas legales integradas en la SPA y marcadas `noindex,nofollow`
 - sin overflow ni errores de consola en los escenarios revisados
-- ZIP generado en `C:\\Users\\USUARIO\\Documents\\SUBEROS-real\\release\\suberos-production-2026-07-14.zip`
+- ZIP generado en `C:\\Users\\USUARIO\\Documents\\SUBEROS-real\\release\\suberos-production-2026-07-15.zip`
+- preview final activo en `http://127.0.0.1:4173/`
+- HTTP final verificado: `200`
+- PID preview final: `27028`
 
 ## SiteGround
 

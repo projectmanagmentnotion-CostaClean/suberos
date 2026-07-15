@@ -1,6 +1,6 @@
 # Legal Applicability Matrix
 
-Fecha: 2026-07-14
+Fecha: 2026-07-15
 
 ## Alcance auditado
 
@@ -12,7 +12,7 @@ No existe ecommerce, cuentas, reservas, newsletter, area privada, subida de arch
 
 | Requisito | Aplica | Estado | Evidencia | Pendiente | Bloquea lanzamiento |
 | --- | ---: | --- | --- | --- | ---: |
-| RGPD | Si | Parcial | `docs/CONTACT_DATA_FLOW.md`, `src/features/contact/contact.service.ts`, `src/data/legalContent.ts` | Definir responsable juridico, base legitimadora final, retencion y canal de derechos | Si |
+| RGPD | Si | Parcial | `docs/CONTACT_DATA_FLOW.md`, `src/features/contact/contact.service.ts`, `src/data/legalContent.ts`, `src/data/companyProfile.ts` | Definir responsable juridico, base legitimadora final, retencion y canal de derechos | Si |
 | LOPDGDD | Si | Parcial | Misma capa de contacto y privacidad descrita en el repo | Confirmacion documental del titular y politica definitiva de tratamiento | Si |
 | LSSI | Si | Parcial | Footer legal publico, rutas `/legal/*`, `docs/LEGAL_OWNER_INFORMATION_REQUIRED.md` | Nombre o razon social del titular, NIF/CIF, domicilio legal, datos registrales si aplican | Si |
 | Cookies | Si | Resuelto para el alcance actual | `docs/COOKIE_AND_STORAGE_AUDIT.md`, `scripts/check-privacy-storage.mjs` | Reauditar antes de activar analytics, embeds o backend de terceros | No |
@@ -23,7 +23,7 @@ No existe ecommerce, cuentas, reservas, newsletter, area privada, subida de arch
 | Transferencias internacionales | Potencialmente | Abierto | `docs/VENDOR_AND_PROCESSOR_INVENTORY.md` documenta que no hay proveedor activo de formulario | Confirmar hosting final, correo real y cualquier proveedor que procese solicitudes | Si |
 | Encargados | Si | Parcial | Inventario de proveedores y estado del formulario | Definir proveedor real del endpoint, correo receptor y politica de logs | Si |
 | Propiedad intelectual | Si | Parcial | `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md`, assets propios recuperados | Confirmar evidencias documentales de marca y materiales futuros | Si |
-| Licencias de fuente | Si | Abierto | `public/branding/fonts/StretchPro.otf`, `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md` | Confirmar licencia comercial y derecho de self-hosting de StretchPro | Si |
+| Licencias de fuente | Si | Abierto | `public/branding/fonts/StretchPro.otf`, `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md`, `docs/ASSET_LICENSE_STATUS.md` | Confirmar licencia comercial y derecho de self-hosting de StretchPro | Si |
 
 ## Conclusiones
 
@@ -33,3 +33,4 @@ No existe ecommerce, cuentas, reservas, newsletter, area privada, subida de arch
   - endpoint real y receptor del formulario;
   - revision final de accesibilidad;
   - licencia verificable de StretchPro.
+- Sprint 13 no ha aportado datos nuevos del titular; por tanto la decision de lanzamiento se mantiene en `NO-GO`.
