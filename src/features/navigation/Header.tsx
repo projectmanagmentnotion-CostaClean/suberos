@@ -205,14 +205,14 @@ export function Header() {
   }, [finalizeMenuClose, isMenuOpen, isMenuReady, reducedMotion])
 
   return (
-    <header className={cx('site-header', isElevated && 'is-elevated')} data-site-header="" ref={headerRef}>
+    <header className={cx('site-header', isElevated && 'is-elevated')} data-qa="site-header" data-site-header="" ref={headerRef}>
       <Container className="site-header__inner">
         <a aria-label="SUBEROS, volver al inicio" className="site-header__brand" href={homeAnchors.inicio}>
           <img alt="" aria-hidden="true" height="40" src="/branding/suberos-icon-192.png" width="40" />
           <span>SUBEROS</span>
         </a>
 
-        <nav aria-label="Navegacion principal" className="site-header__nav-desktop">
+        <nav aria-label="Navegacion principal" className="site-header__nav-desktop" data-qa="desktop-nav">
           <ul className="site-header__nav-list">
             {siteNavigation.map((item) => (
               <li key={item.href}>
@@ -245,7 +245,7 @@ export function Header() {
       </Container>
 
       {isMenuReady ? (
-        <div className="menu-drawer" aria-hidden={!isMenuOpen && !reducedMotion}>
+        <div className="menu-drawer" aria-hidden={!isMenuOpen && !reducedMotion} data-qa="mobile-menu">
           <div className="menu-drawer__overlay" onClick={() => closeMenu()} ref={overlayRef} />
           <div
             aria-labelledby={menuTitleId}

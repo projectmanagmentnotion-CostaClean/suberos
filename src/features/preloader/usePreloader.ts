@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
+import { isQaStaticMode } from '../../lib/qa/qaRuntime'
 import { MotionPreferences } from '../../motion/types/motion.types'
 import { CriticalAsset, PreloaderResolution, PreloaderState } from './preloader.types'
 
@@ -34,12 +35,13 @@ function readRuntime(profile: MotionPreferences['profile']) {
 
   const forcePreloader = searchParams.get('preloader') === '1'
   const sessionSeen = window.sessionStorage.getItem(SESSION_KEY) === '1'
+  const qaStatic = isQaStaticMode()
 
   return {
     assetFail: searchParams.get('asset-fail') === '1',
     forcePreloader,
     resetSession,
-    skipPreloader: !forcePreloader && (profile !== 'full' || sessionSeen),
+    skipPreloader: qaStatic || (!forcePreloader && (profile !== 'full' || sessionSeen)),
   }
 }
 

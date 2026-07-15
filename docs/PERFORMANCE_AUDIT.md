@@ -61,3 +61,13 @@ Referencias completas en `docs/LIGHTHOUSE_REPORT.md`.
 - convertir `StretchPro` a `woff2` o preparar sustitucion legal-equivalente cuando exista licencia verificable
 - reevaluar el hero movil si se quiere acercar el LCP de laboratorio a `<= 2.5 s` sin perder identidad visual
 - repetir la auditoria en iPhone Safari fisico y Android fisico antes de publicacion
+## Sprint 12 update
+
+- Added `tests/performance/performance.spec.ts` for:
+  - initial home route without lab chunk leakage
+  - preloader asset fail
+  - first-session versus second-load preloader behaviour
+- `qa:production` now validates the production build on a dedicated preview port.
+- Final measured bundle after Sprint 12:
+  - JS `443.04 kB` raw / `147.56 kB` gzip
+  - CSS `36.49 kB` raw / `8.09 kB` gzip

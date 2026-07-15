@@ -10,6 +10,7 @@ export type MotionPreferences = {
   pointer: 'coarse' | 'fine'
   prefersReducedMotion: boolean
   profile: MotionProfile
+  qaStatic: boolean
   qaReducedMotion: boolean
   reducedMotion: boolean
   viewport: {

@@ -1,5 +1,6 @@
 import { motionBreakpoints } from '../config/breakpoints'
 import { MotionPreferences } from '../types/motion.types'
+import { isQaStaticMode } from '../../lib/qa/qaRuntime'
 
 function getSearchParams() {
   return new URLSearchParams(window.location.search)
@@ -24,6 +25,7 @@ export function readMotionPreferencesSnapshot(): MotionPreferences {
       pointer: 'fine',
       prefersReducedMotion: true,
       profile: 'reduced',
+      qaStatic: false,
       qaReducedMotion: false,
       reducedMotion: true,
       viewport: {
@@ -34,6 +36,7 @@ export function readMotionPreferencesSnapshot(): MotionPreferences {
   }
 
   const params = getSearchParams()
+  const qaStatic = isQaStaticMode()
   const qaReducedMotion = params.get('reduced-motion') === '1'
   const debugMarkers = import.meta.env.DEV && params.get('motion-debug') === '1'
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -43,7 +46,7 @@ export function readMotionPreferencesSnapshot(): MotionPreferences {
     window.matchMedia('(hover: none)').matches ||
     window.matchMedia('(pointer: coarse)').matches ||
     'ontouchstart' in window
-  const reducedMotion = qaReducedMotion || prefersReducedMotion
+  const reducedMotion = qaStatic || qaReducedMotion || prefersReducedMotion
 
   let profile: MotionPreferences['profile'] = 'balanced'
 
@@ -59,6 +62,7 @@ export function readMotionPreferencesSnapshot(): MotionPreferences {
     pointer,
     prefersReducedMotion,
     profile,
+    qaStatic,
     qaReducedMotion,
     reducedMotion,
     viewport,

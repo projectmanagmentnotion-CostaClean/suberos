@@ -59,3 +59,8 @@ Estado actual:
 - ZIP de produccion en `release/`
 - documentacion de Sprint 09
 - guia de despliegue manual para SiteGround
+## Sprint 12 update
+
+- Added `npm run qa:production` to validate the built app through `vite preview` before release.
+- Added `npm run qa:release` as the mandatory aggregate gate.
+- Manual preview evidence and visual QA captures are now stored under `artifacts/reports/visual-manual/`.

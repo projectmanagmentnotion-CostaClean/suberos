@@ -82,7 +82,7 @@ export function PortfolioLabPage() {
   }, [])
 
   return (
-    <div className="portfolio-lab" id="portfolio-lab-root" ref={rootRef}>
+    <div className="portfolio-lab" data-qa="portfolio-lab-page" id="portfolio-lab-root" ref={rootRef}>
       <Section aria-labelledby="portfolio-lab-title" className="portfolio-lab__section" spacing="scene">
         <Container>
           <Stack gap="xl">

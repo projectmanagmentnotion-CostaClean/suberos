@@ -15,7 +15,7 @@ export function NotFoundPage({ pathname }: NotFoundPageProps) {
   usePageHeadingFocus('not-found-title')
 
   return (
-    <Section aria-labelledby="not-found-title" className="not-found-page" spacing="scene" tone="raised">
+    <Section aria-labelledby="not-found-title" className="not-found-page" data-qa="not-found-page" spacing="scene" tone="raised">
       <Container size="content">
         <Stack gap="xl">
           <Stack className="not-found-page__hero" gap="md">

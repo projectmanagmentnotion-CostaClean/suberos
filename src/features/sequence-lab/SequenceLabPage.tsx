@@ -33,7 +33,7 @@ export function SequenceLabPage() {
   }, [controller])
 
   return (
-    <div className="portfolio-lab" id="sequence-lab-root">
+    <div className="portfolio-lab" data-qa="sequence-lab-page" id="sequence-lab-root">
       <Section aria-labelledby="sequence-lab-title" className="portfolio-lab__section" spacing="scene">
         <Container>
           <Stack gap="xl">

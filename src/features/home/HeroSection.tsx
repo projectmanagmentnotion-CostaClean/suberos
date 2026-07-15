@@ -43,6 +43,7 @@ export function HeroSection() {
     <Section
       aria-labelledby="home-title"
       className="hero hero-foundation"
+      data-qa="hero-ready"
       id="inicio"
       ref={heroRef}
       tone="hero"

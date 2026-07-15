@@ -26,7 +26,7 @@ export function StudioSection() {
   })
 
   return (
-    <Section aria-labelledby="estudio-title" className="studio-scene" id="estudio" ref={sectionRef}>
+    <Section aria-labelledby="estudio-title" className="studio-scene" data-qa="section-studio" id="estudio" ref={sectionRef}>
       <Container>
         <Grid className="studio-scene__grid" columns="content-aside" gap="lg">
           <Stack className="studio-scene__copy" gap="lg">

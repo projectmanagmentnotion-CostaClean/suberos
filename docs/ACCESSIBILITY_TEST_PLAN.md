@@ -32,3 +32,9 @@ Fecha: 2026-07-15
 - NVDA en Windows con home, legales y formulario
 - VoiceOver en macOS/iOS si el proyecto se publica en esos targets
 - TalkBack en Android si la futura experiencia cinematografica afecta scroll o gestos
+## Sprint 12 update
+
+- Automated accessibility coverage now lives in `tests/accessibility/`.
+- The suite validates skip link, menu focus trap, non-home heading focus and contact helper bindings.
+- Axe runs on home, contact and `/legal/accesibilidad`.
+- Full browser-project runs passed on Chromium, Firefox and WebKit after worker and focus-trap hardening.

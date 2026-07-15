@@ -18,7 +18,7 @@ export function LegalPage({ slug }: LegalPageProps) {
   usePageHeadingFocus('legal-page-title')
 
   return (
-    <Section aria-labelledby="legal-page-title" className="legal-page" spacing="scene" tone="raised">
+    <Section aria-labelledby="legal-page-title" className="legal-page" data-qa="legal-page" spacing="scene" tone="raised">
       <Container size="content">
         <Stack gap="xl">
           <Stack className="legal-page__hero" gap="md">

@@ -16,6 +16,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 09 completado localmente: arquitectura SEO, legal, privacidad y compliance con preview de produccion en `127.0.0.1:4173`.
 - Sprint 10 completado localmente: baseline de accesibilidad, teclado, inclusive motion y QA automatizada con aria + axe.
 - Sprint 11 completado localmente: hardening de rendimiento, seguridad frontend, Lighthouse reproducible y smoke cross-browser.
+- Sprint 12 completado localmente: suite final de QA visual y funcional, baselines Chromium, smoke cross-browser, qa:production y qa:release.
 
 ## Stack
 
@@ -39,7 +40,12 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run qa:aria`
 - `npm run qa:a11y`
 - `npm run qa:a11y:axe`
+- `npm run qa:smoke`
 - `npm run qa:visual`
+- `npm run qa:cross-browser`
+- `npm run qa:full`
+- `npm run qa:production`
+- `npm run qa:release`
 - `npm run qa:security`
 - `npm run qa:performance`
 - `npm run qa:lighthouse`
@@ -88,6 +94,16 @@ public/
 docs/
 scripts/
 tests/
+  accessibility/
+  contact/
+  helpers/
+  labs/
+  legal/
+  navigation/
+  performance/
+  seo/
+  smoke/
+  visual/
 ```
 
 ## Rutas publicas y de QA
@@ -152,6 +168,12 @@ tests/
 - `docs/NETWORK_AND_CPU_TEST.md`
 - `docs/REAL_DEVICE_TEST_PLAN.md`
 - `docs/SPRINT_11_REPORT.md`
+- `docs/FINAL_QA_MATRIX.md`
+- `docs/VISUAL_REGRESSION_SYSTEM.md`
+- `docs/FUNCTIONAL_QA_SYSTEM.md`
+- `docs/KNOWN_LIMITATIONS.md`
+- `docs/QA_RELEASE_GATE.md`
+- `docs/SPRINT_12_REPORT.md`
 
 ## Reglas de desarrollo
 
@@ -163,4 +185,4 @@ tests/
 - No permitir que el mock del formulario se active en preview publico por hostname; solo en QA explicita.
 - Centralizar nuevos tokens, estados de UI y metadata; no duplicar logica ad hoc.
 - Registrar GSAP una sola vez y limpiar contextos y side effects.
-- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run qa:sequences`, `npm run qa:contact`, `npm run qa:privacy`, `npm run qa:seo`, `npm run qa:legal`, `npm run qa:aria`, `npm run qa:a11y`, `npm run qa:a11y:axe`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.
+- Validar siempre `npm run qa:release` antes de cerrar un bloque grande y usar `npm run qa:cross-browser` cuando el cambio afecte navegacion, labs, legales, contacto o responsive.

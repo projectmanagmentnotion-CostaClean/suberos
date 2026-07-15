@@ -42,3 +42,8 @@ Decision:
 
 - esta auditoria no sustituye cabeceras reales del hosting ni validacion final en SiteGround
 - `HSTS` no se activa como prueba definitiva local
+## Sprint 12 update
+
+- QA runners now isolate localhost-only contact mocks to explicit QA commands.
+- `qa:release` keeps `qa:security` as a blocking gate.
+- Contact privacy assertions are now automated inside the final suite, including no cookies, no localStorage persistence and same-origin-only runtime requests.

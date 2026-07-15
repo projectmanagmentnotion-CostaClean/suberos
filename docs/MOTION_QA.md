@@ -122,3 +122,8 @@ Sequence Lab interno:
 - La revision manual de `Sequence Lab` exigio un preview limpio aparte porque el navegador embebido puede enganchar previews viejos si ya habia un `vite preview` previo activo.
 - No se probo Safari iOS fisico.
 - La validacion visual se hizo con Playwright y comprobaciones manuales de preview, no con diff visual pixel-perfect.
+## Sprint 12 update
+
+- `?qa-static=1` now forces reduced-motion behaviour and disables CSS transitions globally for visual QA.
+- Reduced-motion preloader is now static, preventing screenshot instability.
+- Motion Lab, Sequence Lab and home reduced-motion paths are covered by the final Playwright matrix and Chromium visual baselines.

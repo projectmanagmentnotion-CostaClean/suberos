@@ -47,15 +47,18 @@ const homeStructuredData = [
 ]
 
 function createMetadata(overrides: Partial<SeoMetadata> & Pick<SeoMetadata, 'title' | 'description' | 'robots'>): SeoMetadata {
+  const canonicalUrl = overrides.canonicalUrl === undefined ? `${origin}/` : overrides.canonicalUrl
+  const ogUrl = overrides.ogUrl === undefined ? canonicalUrl : overrides.ogUrl
+
   return {
     title: overrides.title,
     description: overrides.description,
     robots: overrides.robots,
-    canonicalUrl: overrides.canonicalUrl ?? `${origin}/`,
+    canonicalUrl,
     ogType: overrides.ogType ?? 'website',
     ogTitle: overrides.ogTitle ?? overrides.title,
     ogDescription: overrides.ogDescription ?? overrides.description,
-    ogUrl: overrides.ogUrl ?? overrides.canonicalUrl ?? `${origin}/`,
+    ogUrl,
     ogImage: overrides.ogImage ?? socialImageUrl,
     ogImageAlt: overrides.ogImageAlt ?? socialImageAlt,
     ogImageWidth: overrides.ogImageWidth ?? '1200',

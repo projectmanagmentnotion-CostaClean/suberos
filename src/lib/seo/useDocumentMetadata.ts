@@ -57,7 +57,12 @@ function setStructuredData(jsonLd: SeoMetadata['jsonLd']) {
 
 export function useDocumentMetadata(metadata: SeoMetadata) {
   useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search)
+    const qaStatic = searchParams.get('qa-static') === '1'
+
     document.documentElement.lang = 'es'
+    document.documentElement.dataset.qaStatic = qaStatic ? 'true' : 'false'
+    document.body.dataset.qaStatic = qaStatic ? 'true' : 'false'
     document.title = metadata.title
 
     ensureMeta('meta[name="description"]', { name: 'description' }).setAttribute('content', metadata.description)

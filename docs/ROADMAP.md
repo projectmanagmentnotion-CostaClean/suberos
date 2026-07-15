@@ -16,7 +16,8 @@
 - Phase 9 complete locally - SEO, legal, privacy and compliance architecture
 - Phase 10 complete locally - Accessibility and inclusive motion
 - Phase 11 complete locally - Performance, security and browser hardening
-- Next recommended sprint: Phase 12 - Visual and functional QA automation
+- Phase 12 complete locally - Visual and functional QA automation
+- Next recommended sprint: Phase 13 - Content, legal and launch-readiness polish
 - Mandatory compliance implementation sprint must be completed before public launch
 
 ## Mandatory governing documents

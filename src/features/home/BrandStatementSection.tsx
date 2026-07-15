@@ -22,7 +22,7 @@ export function BrandStatementSection() {
   })
 
   return (
-    <Section className="brand-statement" ref={sectionRef} tone="hero">
+    <Section className="brand-statement" data-qa="section-statement" ref={sectionRef} tone="hero">
       <Container>
         <Stack className="brand-statement__inner" gap="lg">
           <p className="brand-statement__eyebrow">{homeContent.statement.eyebrow}</p>

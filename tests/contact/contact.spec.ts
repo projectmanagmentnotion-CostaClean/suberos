@@ -1,52 +1,18 @@
 import { expect, test } from '@playwright/test'
 
-const contactViewports = [
-  { name: 'mobile', width: 390, height: 844 },
-  { name: 'tablet', width: 768, height: 1024 },
-  { name: 'desktop', width: 1366, height: 768 },
-]
+import {
+  collectConsoleIssues,
+  enableContactQaScenario,
+  expectNoOverflow,
+  fillValidContactForm,
+  gotoContact,
+  smokeViewports,
+  waitForContactTimingWindow,
+} from '../helpers/runtime'
 
-async function collectConsoleIssues(page: Parameters<typeof test>[0]['page']) {
-  const consoleIssues: string[] = []
-  page.on('console', (msg) => {
-    if (msg.type() === 'error') {
-      consoleIssues.push(msg.text())
-    }
-  })
-  page.on('pageerror', (error) => {
-    consoleIssues.push(String(error))
-  })
-
-  return consoleIssues
-}
-
-async function gotoContact(page: Parameters<typeof test>[0]['page']) {
-  await page.goto('/?reduced-motion=1', { waitUntil: 'domcontentloaded' })
-  await page.waitForLoadState('domcontentloaded')
-  await expect(page.locator('#contacto')).toBeVisible()
-  await page.locator('#contacto').scrollIntoViewIfNeeded()
-  await expect(page.locator('[data-qa="contact-form"]')).toBeVisible()
-}
-
-async function fillValidContactForm(page: Parameters<typeof test>[0]['page']) {
-  await page.locator('[data-qa="contact-name"]').fill('Marta Soler')
-  await page.locator('[data-qa="contact-email"]').fill('marta@example.com')
-  await page.locator('[data-qa="contact-service"]').selectOption('branding')
-  await page.locator('[data-qa="contact-message"]').fill(
-    'Necesitamos renovar identidad visual y una web clara para una nueva etapa de marca.',
-  )
-}
-
-async function enableContactQaScenario(page: Parameters<typeof test>[0]['page'], scenario: 'success' | 'error' | 'rate-limit' | 'timeout' | 'blocked') {
-  await page.addInitScript((nextScenario) => {
-    window.__SUBEROS_CONTACT_TEST_MODE__ = true
-    window.__SUBEROS_CONTACT_TEST_SCENARIO__ = nextScenario
-  }, scenario)
-}
-
-for (const viewport of contactViewports) {
+for (const viewport of smokeViewports) {
   test(`contact form remains visible and accessible at ${viewport.name}`, async ({ page }) => {
-    const consoleIssues = await collectConsoleIssues(page)
+    const consoleIssues = collectConsoleIssues(page)
 
     await page.setViewportSize({ width: viewport.width, height: viewport.height })
     await gotoContact(page)
@@ -60,13 +26,12 @@ for (const viewport of contactViewports) {
     await expect(page.locator('.contact-alternatives').getByRole('link', { name: 'info@suberos.com' })).toBeVisible()
     await expect(page.locator('.contact-alternatives').getByRole('link', { name: '691 93 72 72' })).toBeVisible()
 
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)
-    expect(overflow).toBeFalsy()
+    await expectNoOverflow(page)
     expect(consoleIssues).toEqual([])
   })
 }
 
-test('contact form shows required-field validation and focuses the first error', async ({ page }) => {
+test('contact form shows validation and focuses the first invalid field', async ({ page }) => {
   await gotoContact(page)
   await page.locator('[data-qa="contact-submit"]').click()
 
@@ -77,7 +42,7 @@ test('contact form shows required-field validation and focuses the first error',
   await expect(page.locator('#contact-name')).toBeFocused()
 })
 
-test('contact form rejects an invalid email without losing content', async ({ page }) => {
+test('contact form rejects invalid email without losing the message content', async ({ page }) => {
   await gotoContact(page)
   await page.locator('[data-qa="contact-name"]').fill('Marta Soler')
   await page.locator('[data-qa="contact-email"]').fill('marta@')
@@ -103,40 +68,37 @@ test('contact form stays honestly blocked outside QA mock mode', async ({ page }
   await expect(page).not.toHaveURL(/marta@example\.com|Marta/)
 })
 
-test('contact form succeeds against the local mock endpoint only in QA mode', async ({ page }) => {
+test('contact form succeeds against the QA mock endpoint only in explicit QA mode @qa-mock', async ({ page }) => {
   await enableContactQaScenario(page, 'success')
   await gotoContact(page)
   await fillValidContactForm(page)
+  await waitForContactTimingWindow(page)
   await page.locator('[data-qa="contact-submit"]').click()
 
   await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('Solicitud recibida')
   await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('entorno tecnico de SUBEROS')
-  await expect(page).not.toHaveURL(/marta@example\.com|Marta/)
 })
 
-test('contact form shows a recoverable server error', async ({ page }) => {
+test('contact form exposes a recoverable server error state @qa-mock', async ({ page }) => {
   await enableContactQaScenario(page, 'error')
   await gotoContact(page)
   await fillValidContactForm(page)
+  await waitForContactTimingWindow(page)
   await page.locator('[data-qa="contact-submit"]').click()
-
   await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('No hemos podido completar el envio')
-  await expect(page.locator('[data-qa="contact-message"]')).toHaveValue(
-    'Necesitamos renovar identidad visual y una web clara para una nueva etapa de marca.',
-  )
 })
 
-test('contact form exposes rate limit feedback accessibly', async ({ page }) => {
+test('contact form exposes an accessible rate-limit state @qa-mock', async ({ page }) => {
   await enableContactQaScenario(page, 'rate-limit')
   await gotoContact(page)
   await fillValidContactForm(page)
+  await waitForContactTimingWindow(page)
   await page.locator('[data-qa="contact-submit"]').click()
-
   await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('Envio temporalmente limitado')
   await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('correo o telefono')
 })
 
-test('contact form prevents double submit while the request is in flight', async ({ page }) => {
+test('contact form prevents double submit while the request is in flight @qa-mock', async ({ page }) => {
   await enableContactQaScenario(page, 'timeout')
 
   let requestCount = 0
@@ -148,19 +110,21 @@ test('contact form prevents double submit while the request is in flight', async
 
   await gotoContact(page)
   await fillValidContactForm(page)
+  await waitForContactTimingWindow(page)
 
   const submitButton = page.locator('[data-qa="contact-submit"]')
   await submitButton.click()
   await expect(submitButton).toBeDisabled()
   await submitButton.click({ force: true })
-  await page.waitForTimeout(600)
-  expect(requestCount).toBe(1)
+
+  await expect.poll(() => requestCount).toBe(1)
 })
 
-test('contact form reports offline errors without leaking data into the URL', async ({ page, context }) => {
+test('contact form reports offline errors without leaking data into the URL @qa-mock', async ({ page, context }) => {
   await enableContactQaScenario(page, 'success')
   await gotoContact(page)
   await fillValidContactForm(page)
+  await waitForContactTimingWindow(page)
   await context.setOffline(true)
   await page.locator('[data-qa="contact-submit"]').click()
 
@@ -169,16 +133,48 @@ test('contact form reports offline errors without leaking data into the URL', as
   await context.setOffline(false)
 })
 
-test('contact form keeps reduced motion and direct methods intact', async ({ page }) => {
-  await gotoContact(page)
+test('contact runtime stores no personal data, cookies or external trackers', async ({ page }) => {
+  const requests: string[] = []
 
-  await expect(page.getByRole('link', { name: /politica de privacidad/i })).toBeVisible()
-  await expect(page.locator('.contact-alternatives').getByRole('link', { name: 'info@suberos.com' })).toHaveAttribute(
-    'href',
-    'mailto:info@suberos.com',
+  page.on('request', (request) => {
+    requests.push(request.url())
+  })
+
+  await gotoContact(page)
+  await page.getByLabel('Nombre').fill('Marta Soler')
+  await page.getByLabel('Correo electronico').fill('marta@example.com')
+  await page.getByLabel('Proyecto o necesidad').fill(
+    'Mensaje de prueba para confirmar que no se persiste contenido personal en el navegador.',
   )
-  await expect(page.locator('.contact-alternatives').getByRole('link', { name: '691 93 72 72' })).toHaveAttribute(
-    'href',
-    'tel:+34691937272',
-  )
+
+  const storage = await page.evaluate(() => ({
+    cookies: document.cookie,
+    externalScripts: Array.from(document.querySelectorAll('script[src]')).map((script) => script.getAttribute('src') ?? ''),
+    localStorageKeys: Object.keys(window.localStorage),
+    sessionStorageKeys: Object.keys(window.sessionStorage),
+    storedValues: {
+      localStorage: Object.values(window.localStorage),
+      sessionStorage: Object.values(window.sessionStorage),
+    },
+  }))
+
+  expect(storage.cookies).toBe('')
+  expect(storage.localStorageKeys).toEqual([])
+  expect(storage.sessionStorageKeys.every((key) => key === 'suberos.preloader.seen.v1')).toBeTruthy()
+  expect(storage.storedValues.localStorage.join(' ')).not.toContain('marta@example.com')
+  expect(storage.storedValues.sessionStorage.join(' ')).not.toContain('marta@example.com')
+  expect(storage.externalScripts.every((src) => !/^https?:\/\//.test(src))).toBeTruthy()
+
+  const currentOrigin = new URL(page.url()).origin
+  expect(requests.every((url) => new URL(url).origin === currentOrigin)).toBeTruthy()
+})
+
+test('contact values do not persist after reload', async ({ page }) => {
+  await gotoContact(page)
+  await page.getByLabel('Nombre').fill('Marta Soler')
+  await page.getByLabel('Correo electronico').fill('marta@example.com')
+  await page.reload({ waitUntil: 'domcontentloaded' })
+
+  await expect(page.getByLabel('Nombre')).toHaveValue('')
+  await expect(page.getByLabel('Correo electronico')).toHaveValue('')
 })

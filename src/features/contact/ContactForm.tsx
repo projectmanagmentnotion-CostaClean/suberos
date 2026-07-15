@@ -181,7 +181,7 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
 
           <ContactFormFields errors={errors} fieldRefs={fieldRefs} onChange={handleChange} values={values} />
 
-          <div className="contact-form__actions">
+          <div className="contact-form__actions" data-qa="contact-state">
             <Button data-qa="contact-submit" loading={status === 'submitting'} type="submit" variant="primary">
               {status === 'submitting' ? 'Enviando solicitud' : 'Enviar solicitud'}
             </Button>

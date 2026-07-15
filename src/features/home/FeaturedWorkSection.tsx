@@ -24,7 +24,7 @@ export function FeaturedWorkSection() {
   })
 
   return (
-    <Section aria-labelledby="work-title" className="work-scene" id="trabajo" ref={sectionRef}>
+    <Section aria-labelledby="work-title" className="work-scene" data-qa="section-work" id="trabajo" ref={sectionRef}>
       <Container>
         <Stack gap="xl">
           <SectionHeader

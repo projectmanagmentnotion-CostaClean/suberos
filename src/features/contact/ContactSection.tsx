@@ -23,6 +23,7 @@ export function ContactSection() {
     <Section
       ref={sectionRef}
       className="contact-section"
+      data-qa="section-contact"
       id="contacto"
       aria-labelledby="contact-title"
       tone="raised"

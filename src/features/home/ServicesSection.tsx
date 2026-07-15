@@ -29,7 +29,7 @@ export function ServicesSection() {
   })
 
   return (
-    <Section aria-labelledby="services-title" className="services-scene" id="servicios" ref={sectionRef} tone="muted">
+    <Section aria-labelledby="services-title" className="services-scene" data-qa="section-services" id="servicios" ref={sectionRef} tone="muted">
       <Container>
         <Stack gap="xl">
           <SectionHeader

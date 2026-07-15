@@ -1,9 +1,10 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useMemo } from 'react'
 
 import { LegalPage } from '../features/legal/LegalPage'
 import { HomeExperience } from '../features/home/HomeExperience'
 import { NotFoundPage } from '../features/not-found/NotFoundPage'
 import { getRouteMetadata } from '../data/seoPageMetadata'
+import { isQaStaticMode } from '../lib/qa/qaRuntime'
 import { useDocumentMetadata } from '../lib/seo/useDocumentMetadata'
 import { AppShell } from './AppShell'
 import { getAppRoute } from './routes'
@@ -28,7 +29,21 @@ const SequenceLabPage = lazy(() =>
 
 export function App() {
   const route = typeof window === 'undefined' ? getAppRoute({ pathname: '/', search: '' }) : getAppRoute(window.location)
-  const metadata = getRouteMetadata(route)
+  const metadata = useMemo(() => {
+    const nextMetadata = getRouteMetadata(route)
+
+    if (typeof window !== 'undefined' && isQaStaticMode()) {
+      return {
+        ...nextMetadata,
+        canonicalUrl: null,
+        ogUrl: null,
+        jsonLd: null,
+        robots: 'noindex,nofollow',
+      }
+    }
+
+    return nextMetadata
+  }, [route])
 
   useDocumentMetadata(metadata)
 

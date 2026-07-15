@@ -10,7 +10,7 @@ const currentYear = new Date().getFullYear()
 
 export function Footer() {
   return (
-    <footer className="site-footer" data-site-footer="">
+    <footer className="site-footer" data-qa="site-footer" data-site-footer="">
       <Container>
         <Grid className="site-footer__grid" columns="cards" gap="lg">
           <div className="site-footer__column">

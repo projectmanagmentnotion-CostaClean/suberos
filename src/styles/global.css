@@ -12,6 +12,18 @@ body {
   overflow-x: clip;
 }
 
+html[data-qa-static='true'] {
+  scroll-behavior: auto;
+}
+
+html[data-qa-static='true'] *,
+html[data-qa-static='true'] *::before,
+html[data-qa-static='true'] *::after {
+  animation: none !important;
+  scroll-behavior: auto !important;
+  transition: none !important;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;

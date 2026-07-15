@@ -64,7 +64,7 @@ export function MotionLabPage() {
 
   return (
     <>
-      <Section aria-labelledby="motion-lab-title" className="motion-lab" id="motion-lab" spacing="scene">
+      <Section aria-labelledby="motion-lab-title" className="motion-lab" data-qa="motion-lab-page" id="motion-lab" spacing="scene">
         <Container>
           <Stack gap="xl">
             <SectionHeader
@@ -76,6 +76,7 @@ export function MotionLabPage() {
               body="Laboratorio interno para validar reveal, parallax, pinning, horizontal scroll, velocity y reduced motion antes del hero y el preloader cinematograficos."
               eyebrow="Internal QA"
               title="Motion Lab"
+              titleAs="h1"
               titleId="motion-lab-title"
               width="wide"
             />

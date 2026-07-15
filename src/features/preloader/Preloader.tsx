@@ -100,6 +100,19 @@ export function Preloader({ onComplete }: PreloaderProps) {
         return
       }
 
+      if (preferences.reducedMotion) {
+        gsap.set(logoRef.current, {
+          autoAlpha: 1,
+          scale: 1,
+          yPercent: 0,
+        })
+        gsap.set(sheenRef.current, {
+          autoAlpha: 0,
+          xPercent: 0,
+        })
+        return
+      }
+
       const timeline = gsap.timeline({
         repeat: -1,
         repeatDelay: preferences.profile === 'full' ? 0.18 : 0.3,

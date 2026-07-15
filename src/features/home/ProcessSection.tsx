@@ -17,7 +17,7 @@ export function ProcessSection() {
   useElementReveal(sectionRef, { selector: '.section-header, .divider, .process-scene__step' })
 
   return (
-    <Section aria-labelledby="process-title" className="process-scene" id="proceso" ref={sectionRef} tone="raised">
+    <Section aria-labelledby="process-title" className="process-scene" data-qa="section-process" id="proceso" ref={sectionRef} tone="raised">
       <Container>
         <Stack gap="xl">
           <SectionHeader
