@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { MotionPreferences } from '../motion/types/motion.types'
 import { scrollEngine } from '../motion/core/scrollEngine'
@@ -8,11 +8,22 @@ type UseLenisScrollOptions = {
 }
 
 export function useLenisScroll({ preferences }: UseLenisScrollOptions) {
+  const { profile, reducedMotion } = preferences
+  const preferencesRef = useRef(preferences)
+
   useEffect(() => {
-    scrollEngine.start(preferences)
+    preferencesRef.current = preferences
+  }, [preferences])
+
+  useEffect(() => {
+    scrollEngine.start(preferencesRef.current)
 
     return () => {
       scrollEngine.destroy()
     }
-  }, [preferences])
+  }, [])
+
+  useEffect(() => {
+    scrollEngine.update(preferences)
+  }, [preferences, profile, reducedMotion])
 }

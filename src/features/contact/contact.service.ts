@@ -40,8 +40,10 @@ type ContactApiError = {
   retryAfterSeconds?: number
 }
 
+const CONTACT_DEV_TOOLS_ENABLED = import.meta.env.DEV
+
 function getDebugScenario() {
-  if (typeof window === 'undefined') {
+  if (!CONTACT_DEV_TOOLS_ENABLED || typeof window === 'undefined') {
     return null
   }
 
@@ -60,7 +62,7 @@ function getDebugScenario() {
 }
 
 function isQaMockMode() {
-  if (typeof window === 'undefined') {
+  if (!CONTACT_DEV_TOOLS_ENABLED || typeof window === 'undefined') {
     return false
   }
 
@@ -91,7 +93,7 @@ function getContactEndpoint() {
     return CONTACT_ENDPOINT
   }
 
-  if (isQaMockMode()) {
+  if (CONTACT_DEV_TOOLS_ENABLED && isQaMockMode()) {
     return getContactMockEndpoint(window.location.origin)
   }
 
@@ -127,12 +129,13 @@ export async function submitContactRequest(validation: ContactValidationResult):
   }, 8_000)
 
   try {
+    const debugScenario = getDebugScenario()
     const endpoint = getContactEndpoint()
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        ...(getDebugScenario() ? { 'x-suberos-contact-scenario': getDebugScenario() as string } : {}),
+        ...(debugScenario ? { 'x-suberos-contact-scenario': debugScenario } : {}),
       },
       body: JSON.stringify(validation.data),
       signal: controller.signal,

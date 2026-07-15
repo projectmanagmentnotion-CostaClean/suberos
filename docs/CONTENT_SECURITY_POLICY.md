@@ -75,3 +75,22 @@ Content-Security-Policy:
 - No se ha aplicado aun una CSP de enforcement en `.htaccess`.
 - La politica definitiva depende de validar la salida del hosting real y cualquier endpoint futuro de contacto.
 - No debe anadirse `unsafe-eval`.
+## Sprint 11 update - 2026-07-15
+
+- `.htaccess` pasa de plan a enforcement local documentado.
+- Politica activa:
+  - `default-src 'self'`
+  - `object-src 'none'`
+  - `base-uri 'self'`
+  - `frame-ancestors 'none'`
+  - `form-action 'self'`
+  - `script-src 'self'`
+  - `style-src 'self' 'unsafe-inline'`
+  - `img-src 'self' data: blob:`
+  - `font-src 'self' data:`
+  - `connect-src 'self'`
+  - `manifest-src 'self'`
+  - `media-src 'self'`
+  - `worker-src 'self' blob:`
+- `unsafe-eval` no se permite.
+- La CSP sigue siendo una preparacion de frontend; la validacion definitiva depende del hosting real.

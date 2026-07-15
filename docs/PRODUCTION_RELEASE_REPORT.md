@@ -2,6 +2,14 @@
 
 Fecha: 2026-07-14
 
+## Sprint 11 update
+
+- rendimiento, seguridad frontend y compatibilidad de navegador endurecidos localmente
+- Lighthouse reproducible disponible via `npm run qa:lighthouse`
+- seguridad reproducible disponible via `npm run qa:security`
+- budgets reproducibles disponibles via `npm run qa:performance`
+- preview local sigue siendo requisito antes de publicacion real
+
 ## Estado exacto
 
 BUILD DE PRODUCCION VALIDADO LOCALMENTE; PUBLICACION EN SITEGROUND BLOQUEADA HASTA DISPONER DE ACCESO, BACKUP, ENDPOINT REAL Y DATOS LEGALES DEFINITIVOS

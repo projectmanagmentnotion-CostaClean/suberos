@@ -20,7 +20,10 @@
     "qa:visual": "set PLAYWRIGHT_PORT=4178&& set PLAYWRIGHT_CONTACT_MOCK=1&& playwright test",
     "qa:aria": "node scripts/check-aria-integrity.mjs",
     "qa:a11y": "set PLAYWRIGHT_PORT=4179&& set PLAYWRIGHT_CONTACT_MOCK=1&& playwright test tests/accessibility.spec.ts",
-    "qa:a11y:axe": "node scripts/check-accessibility.mjs"
+    "qa:a11y:axe": "node scripts/check-accessibility.mjs",
+    "qa:security": "node scripts/check-security.mjs",
+    "qa:performance": "node scripts/check-performance-budget.mjs",
+    "qa:lighthouse": "node scripts/run-lighthouse.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -42,6 +45,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "lighthouse": "^13.4.0",
     "playwright": "^1.61.1",
     "sharp": "^0.35.3",
     "tsx": "^4.20.3",

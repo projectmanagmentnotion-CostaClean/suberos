@@ -74,3 +74,9 @@ El laboratorio interno expone:
 - memoria aproximada en bytes
 - estado del canvas
 - error actual
+## Sprint 11 update - 2026-07-15
+
+- La home publica no carga frame sequences.
+- `qa:performance` sigue validando que los labs permanezcan lazy.
+- No se detectaron regresiones de bundle por cargar assets de Sequence Lab en la home.
+- La validacion de memoria de secuencias sigue limitada a laboratorio local; Safari iOS fisico continua pendiente.

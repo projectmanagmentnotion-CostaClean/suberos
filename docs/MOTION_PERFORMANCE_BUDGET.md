@@ -44,3 +44,11 @@ Evitar que la evolucion cinematografica rompa legibilidad, navegacion o rendimie
 - Reduced:
   - `0` frames
   - `0` canvas activo
+## Sprint 11 update - 2026-07-15
+
+- `Lenis` mantiene una sola instancia y solo actualiza opciones cuando cambia el perfil de motion.
+- El preloader ya no bloquea perfiles `balanced` ni `reduced`.
+- La salida del preloader deja de recolocar el hero con `Flip`; ahora prioriza estabilidad visual del primer viewport.
+- Resultado real:
+  - home desktop `CLS ~ 0.000`
+  - home mobile `CLS ~ 0.001`

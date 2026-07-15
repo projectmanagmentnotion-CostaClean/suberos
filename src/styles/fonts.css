@@ -3,15 +3,3 @@
   src: url('/branding/fonts/StretchPro.otf') format('opentype');
   font-display: swap;
 }
-
-@font-face {
-  font-family: 'Legacy Couture';
-  src: url('/legacy-source/fonts/couture-bld.otf') format('opentype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Legacy Oswald';
-  src: url('/legacy-source/fonts/Oswald-VariableFont_wght.ttf') format('truetype');
-  font-display: swap;
-}

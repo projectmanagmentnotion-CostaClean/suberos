@@ -114,9 +114,11 @@ export function HeroSection() {
                   <source srcSet="/branding/suberos-logo-symbol.webp" type="image/webp" />
                   <img
                     alt="Simbolo de SUBEROS"
+                    data-qa="home-lcp"
                     decoding="async"
                     fetchPriority="high"
                     height="512"
+                    loading="eager"
                     src="/branding/suberos-logo-symbol.webp"
                     width="494"
                   />

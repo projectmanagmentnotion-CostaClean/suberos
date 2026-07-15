@@ -156,3 +156,9 @@ Si en fases posteriores se incorporan secuencias:
 - usar solo assets propios, recuperados del sitio legado o entregados por el usuario
 - no promover a produccion assets de clientes o proyectos separados hasta confirmar permiso de uso en la web corporativa de SUBEROS
 - documentar toda nueva incorporacion en `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md` y en el sprint correspondiente
+## Sprint 11 update - 2026-07-15
+
+- `src/styles/fonts.css` deja de declarar `Legacy Couture` y `Legacy Oswald` en runtime.
+- El runtime solo usa `StretchPro` desde `public/branding/fonts/StretchPro.otf`.
+- `StretchPro.otf` y el hero visual principal reciben preload explicito en `index.html`.
+- Las copias en `public/legacy-source/` se conservan solo como respaldo auditado, no como dependencia publica del runtime.

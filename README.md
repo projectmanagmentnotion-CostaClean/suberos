@@ -15,6 +15,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 08 completado localmente: motor de contacto y conversion con QA local y bloqueo honesto de produccion sin backend real.
 - Sprint 09 completado localmente: arquitectura SEO, legal, privacidad y compliance con preview de produccion en `127.0.0.1:4173`.
 - Sprint 10 completado localmente: baseline de accesibilidad, teclado, inclusive motion y QA automatizada con aria + axe.
+- Sprint 11 completado localmente: hardening de rendimiento, seguridad frontend, Lighthouse reproducible y smoke cross-browser.
 
 ## Stack
 
@@ -39,6 +40,9 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run qa:a11y`
 - `npm run qa:a11y:axe`
 - `npm run qa:visual`
+- `npm run qa:security`
+- `npm run qa:performance`
+- `npm run qa:lighthouse`
 - `npm run lint`
 - `npm run build`
 - `npm run preview`
@@ -139,6 +143,15 @@ tests/
 - `docs/ACCESSIBILITY_TEST_PLAN.md`
 - `docs/INCLUSIVE_MOTION_AUDIT.md`
 - `docs/SPRINT_10_REPORT.md`
+- `docs/PERFORMANCE_AUDIT.md`
+- `docs/PERFORMANCE_BUDGET.md`
+- `docs/LIGHTHOUSE_REPORT.md`
+- `docs/SECURITY_AUDIT.md`
+- `docs/SECURITY_HEADERS.md`
+- `docs/BROWSER_COMPATIBILITY.md`
+- `docs/NETWORK_AND_CPU_TEST.md`
+- `docs/REAL_DEVICE_TEST_PLAN.md`
+- `docs/SPRINT_11_REPORT.md`
 
 ## Reglas de desarrollo
 

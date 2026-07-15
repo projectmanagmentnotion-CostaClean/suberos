@@ -39,7 +39,7 @@ function readRuntime(profile: MotionPreferences['profile']) {
     assetFail: searchParams.get('asset-fail') === '1',
     forcePreloader,
     resetSession,
-    skipPreloader: !forcePreloader && (profile === 'reduced' || sessionSeen),
+    skipPreloader: !forcePreloader && (profile !== 'full' || sessionSeen),
   }
 }
 

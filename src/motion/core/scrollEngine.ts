@@ -10,6 +10,10 @@ class ScrollEngine {
   private tickerHandler: ((time: number) => void) | null = null
   private visibilityHandler: (() => void) | null = null
 
+  private getDuration(preferences: MotionPreferences) {
+    return preferences.profile === 'full' ? 1.05 : 0.9
+  }
+
   start(preferences: MotionPreferences) {
     if (preferences.reducedMotion) {
       this.destroy()
@@ -23,7 +27,7 @@ class ScrollEngine {
 
     this.lenis = new Lenis({
       autoRaf: false,
-      duration: preferences.profile === 'full' ? 1.05 : 0.9,
+      duration: this.getDuration(preferences),
       smoothWheel: true,
       syncTouch: false,
     })
@@ -63,7 +67,10 @@ class ScrollEngine {
 
     if (!this.lenis) {
       this.start(preferences)
+      return
     }
+
+    this.lenis.options.duration = this.getDuration(preferences)
   }
 
   destroy() {

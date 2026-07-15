@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react'
 
 import { isolateElements } from '../../lib/accessibility/isolateElements'
 import { refreshManager } from '../../motion/core/refreshManager'
-import { Flip, gsap } from '../../motion/core/registerGsap'
+import { gsap } from '../../motion/core/registerGsap'
 import { useGsapContext } from '../../motion/hooks/useGsapContext'
 import { useMotionPreferences } from '../../motion/hooks/useMotionPreferences'
 import { PreloaderLogo } from './PreloaderLogo'
@@ -25,21 +25,6 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
   const assets = useMemo<CriticalAsset[]>(
     () => [
-      {
-        id: 'brand-mark',
-        kind: 'image',
-        src: '/branding/suberos-icon-192.png',
-      },
-      {
-        id: 'favicon',
-        kind: 'image',
-        src: '/branding/suberos-icon-32.png',
-      },
-      {
-        id: 'display-font',
-        kind: 'font',
-        descriptor: '1em StretchPro',
-      },
       {
         id: 'hero-visual',
         kind: 'image',
@@ -162,9 +147,6 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
     exitStartedRef.current = true
 
-    const heroEmblem = document.querySelector<HTMLElement>('[data-hero-emblem]')
-    const heroDivider = document.querySelector<HTMLElement>('[data-hero-divider]')
-    const progressLine = rootRef.current.querySelector<HTMLElement>('[data-preloader-line]')
     const header = document.querySelector<HTMLElement>('[data-site-header]')
 
     if (preferences.profile === 'reduced') {
@@ -206,25 +188,6 @@ export function Preloader({ onComplete }: PreloaderProps) {
       }
     }
 
-    const heroEmblemState = heroEmblem ? Flip.getState(heroEmblem) : null
-    const heroDividerState = heroDivider ? Flip.getState(heroDivider) : null
-
-    if (heroEmblem && logoRef.current) {
-      heroEmblem.style.opacity = '1'
-      Flip.fit(heroEmblem, logoRef.current, {
-        absolute: true,
-        scale: true,
-      })
-    }
-
-    if (heroDivider && progressLine) {
-      heroDivider.style.opacity = '1'
-      Flip.fit(heroDivider, progressLine, {
-        absolute: true,
-        scale: true,
-      })
-    }
-
     const timeline = gsap.timeline({
       defaults: {
         ease: preferences.profile === 'full' ? 'power3.inOut' : 'power2.inOut',
@@ -235,32 +198,6 @@ export function Preloader({ onComplete }: PreloaderProps) {
         onComplete()
       },
     })
-
-    if (heroEmblemState && heroEmblem) {
-      timeline.add(
-        Flip.from(heroEmblemState, {
-          absolute: true,
-          duration: preferences.profile === 'full' ? 0.96 : 0.72,
-          ease: preferences.profile === 'full' ? 'expo.inOut' : 'power2.inOut',
-          scale: true,
-          targets: heroEmblem,
-        }),
-        0,
-      )
-    }
-
-    if (heroDividerState && heroDivider) {
-      timeline.add(
-        Flip.from(heroDividerState, {
-          absolute: true,
-          duration: preferences.profile === 'full' ? 0.84 : 0.62,
-          ease: 'power2.inOut',
-          scale: true,
-          targets: heroDivider,
-        }),
-        0.08,
-      )
-    }
 
     timeline
       .to(
@@ -277,7 +214,15 @@ export function Preloader({ onComplete }: PreloaderProps) {
           autoAlpha: 0,
           duration: 0.26,
         },
-        0.24,
+        0.18,
+      )
+      .to(
+        rootRef.current,
+        {
+          autoAlpha: 0,
+          duration: preferences.profile === 'full' ? 0.28 : 0.22,
+        },
+        0.52,
       )
 
     if (header) {
@@ -325,7 +270,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
             {preferences.profile === 'full'
               ? 'Sesion inicial / experiencia completa'
               : preferences.profile === 'balanced'
-                ? 'Sesion inicial / experiencia balanceada'
+                ? 'Sesion inicial / vista agil'
                 : 'Sesion inicial / reduced'}
           </span>
           <span className="preloader__hint">{forced ? 'QA / forced preload' : 'Critical assets loading'}</span>
@@ -341,7 +286,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
         <div className="preloader__footer">
           <span className="preloader__hint">
-            {failedAssetIds.length ? `Fallback ready / ${failedAssetIds.length} asset error` : 'Logo, font, favicon and hero visual'}
+            {failedAssetIds.length ? `Fallback ready / ${failedAssetIds.length} asset error` : 'Hero visual ready for first paint'}
           </span>
           <span className="preloader__eyebrow">
             {resolvedBy === 'timeout'
