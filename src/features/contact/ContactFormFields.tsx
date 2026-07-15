@@ -78,7 +78,7 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
         <label htmlFor="contact-service">Tipo de proyecto o servicio</label>
         <select
           ref={fieldRefs.service}
-          aria-describedby={getFieldDescribedBy('service', errors)}
+          aria-describedby={getFieldDescribedBy('service', errors, 'contact-hint-service')}
           aria-invalid={Boolean(errors.service)}
           data-qa="contact-service"
           id="contact-service"
@@ -95,7 +95,7 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
           ))}
         </select>
         <p className="contact-form__hint" id="contact-hint-service">
-          Puedes elegir “No estoy seguro” si todavia necesitas orientacion.
+          Puedes elegir &quot;No estoy seguro&quot; si todavia necesitas orientacion.
         </p>
         {errors.service ? <p className="contact-form__error" id="contact-error-service">{errors.service}</p> : null}
       </div>
@@ -122,7 +122,9 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
 
       <div className="contact-form__grid">
         <div className="contact-form__field">
-          <label htmlFor="contact-company">Empresa o marca <span>(opcional)</span></label>
+          <label htmlFor="contact-company">
+            Empresa o marca <span>(opcional)</span>
+          </label>
           <input
             ref={fieldRefs.company}
             aria-describedby={getFieldDescribedBy('company', errors)}
@@ -137,7 +139,9 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
         </div>
 
         <div className="contact-form__field">
-          <label htmlFor="contact-phone">Telefono <span>(opcional)</span></label>
+          <label htmlFor="contact-phone">
+            Telefono <span>(opcional)</span>
+          </label>
           <input
             ref={fieldRefs.phone}
             aria-describedby={getFieldDescribedBy('phone', errors)}
@@ -153,7 +157,9 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
         </div>
 
         <div className="contact-form__field">
-          <label htmlFor="contact-budget">Presupuesto aproximado <span>(opcional)</span></label>
+          <label htmlFor="contact-budget">
+            Presupuesto aproximado <span>(opcional)</span>
+          </label>
           <input
             ref={fieldRefs.budget}
             aria-describedby={getFieldDescribedBy('budget', errors, 'contact-hint-budget')}
@@ -170,7 +176,9 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
         </div>
 
         <div className="contact-form__field">
-          <label htmlFor="contact-timeline">Plazo o fecha <span>(opcional)</span></label>
+          <label htmlFor="contact-timeline">
+            Plazo o fecha <span>(opcional)</span>
+          </label>
           <input
             ref={fieldRefs.timeline}
             aria-describedby={getFieldDescribedBy('timeline', errors)}
@@ -184,7 +192,9 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
         </div>
 
         <div className="contact-form__field">
-          <label htmlFor="contact-website">URL actual <span>(opcional)</span></label>
+          <label htmlFor="contact-website">
+            URL actual <span>(opcional)</span>
+          </label>
           <input
             ref={fieldRefs.website}
             aria-describedby={getFieldDescribedBy('website', errors)}
@@ -200,7 +210,9 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
         </div>
 
         <div className="contact-form__field">
-          <label htmlFor="contact-preference">Preferencia de contacto <span>(opcional)</span></label>
+          <label htmlFor="contact-preference">
+            Preferencia de contacto <span>(opcional)</span>
+          </label>
           <select
             ref={fieldRefs.contactPreference}
             aria-describedby={getFieldDescribedBy('contactPreference', errors)}
@@ -225,7 +237,7 @@ export function ContactFormFields({ errors, fieldRefs, onChange, values }: Conta
         </div>
       </div>
 
-      <div className="contact-form__honeypot" aria-hidden="true">
+      <div aria-hidden="true" className="contact-form__honeypot">
         <label htmlFor="contact-honey">No completar</label>
         <input
           autoComplete="off"

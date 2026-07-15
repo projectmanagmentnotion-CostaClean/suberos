@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
-import { homeAnchors } from '../../app/routes'
 import gsap from 'gsap'
 
+import { homeAnchors } from '../../app/routes'
 import { Cluster } from '../../components/layout/Cluster'
 import { Container } from '../../components/layout/Container'
 import { Button } from '../../components/ui/Button'
@@ -12,11 +12,13 @@ import { siteContact, siteNavigation } from '../../data/siteContent'
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock'
 import { useHeaderScrollState } from '../../hooks/useHeaderScrollState'
 import { useMenuMotion } from '../../hooks/useMenuMotion'
+import { getFocusableElements } from '../../lib/accessibility/getFocusableElements'
+import { isolateElements } from '../../lib/accessibility/isolateElements'
+import { cx } from '../../lib/utils/cx'
 import { refreshManager } from '../../motion/core/refreshManager'
+import { useGsapContext } from '../../motion/hooks/useGsapContext'
 import { useMotionPreferences } from '../../motion/hooks/useMotionPreferences'
 import { createMotionMedia } from '../../motion/lib/createMotionMedia'
-import { useGsapContext } from '../../motion/hooks/useGsapContext'
-import { cx } from '../../lib/utils/cx'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,35 +28,43 @@ export function Header() {
   const reducedMotion = preferences.reducedMotion
   const isElevated = useHeaderScrollState()
   const panelId = useId()
+  const menuTitleId = useId()
   const headerRef = useRef<HTMLElement | null>(null)
   const menuButtonRef = useRef<HTMLButtonElement | null>(null)
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
   const overlayRef = useRef<HTMLDivElement | null>(null)
   const panelRef = useRef<HTMLDivElement | null>(null)
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([])
 
   const finalizeMenuClose = useCallback(() => {
     setIsMenuReady(false)
+
     if (shouldRestoreFocus) {
       menuButtonRef.current?.focus()
     }
   }, [shouldRestoreFocus])
 
-  const closeMenu = useCallback((restoreFocus = true) => {
-    setShouldRestoreFocus(restoreFocus)
+  const closeMenu = useCallback(
+    (restoreFocus = true) => {
+      setShouldRestoreFocus(restoreFocus)
 
-    if (reducedMotion) {
-      setIsMenuOpen(false)
-      setIsMenuReady(false)
-      if (restoreFocus) {
-        window.requestAnimationFrame(() => {
-          menuButtonRef.current?.focus()
-        })
+      if (reducedMotion) {
+        setIsMenuOpen(false)
+        setIsMenuReady(false)
+
+        if (restoreFocus) {
+          window.requestAnimationFrame(() => {
+            menuButtonRef.current?.focus()
+          })
+        }
+
+        return
       }
-      return
-    }
 
-    setIsMenuOpen(false)
-  }, [reducedMotion])
+      setIsMenuOpen(false)
+    },
+    [reducedMotion],
+  )
 
   const openMenu = useCallback(() => {
     setIsMenuReady(true)
@@ -107,10 +117,49 @@ export function Header() {
       return
     }
 
+    const releaseIsolation = isolateElements([
+      document.querySelector<HTMLElement>('#main-content'),
+      document.querySelector<HTMLElement>('[data-site-footer]'),
+    ])
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.preventDefault()
         closeMenu()
+        return
+      }
+
+      if (event.key !== 'Tab' || !panelRef.current) {
+        return
+      }
+
+      const focusableElements = getFocusableElements(panelRef.current)
+
+      if (focusableElements.length === 0) {
+        event.preventDefault()
+        panelRef.current.focus()
+        return
+      }
+
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+      const activeElement = document.activeElement instanceof HTMLElement ? document.activeElement : null
+
+      if (!activeElement || !panelRef.current.contains(activeElement)) {
+        event.preventDefault()
+        firstElement.focus()
+        return
+      }
+
+      if (event.shiftKey && activeElement === firstElement) {
+        event.preventDefault()
+        lastElement.focus()
+        return
+      }
+
+      if (!event.shiftKey && activeElement === lastElement) {
+        event.preventDefault()
+        firstElement.focus()
       }
     }
 
@@ -118,6 +167,7 @@ export function Header() {
 
     return () => {
       document.removeEventListener('keydown', onKeyDown)
+      releaseIsolation()
     }
   }, [closeMenu, isMenuReady])
 
@@ -127,10 +177,18 @@ export function Header() {
       return
     }
 
-    window.requestAnimationFrame(() => {
-      itemRefs.current[0]?.focus()
+    let nestedFrame = 0
+    const frame = window.requestAnimationFrame(() => {
+      nestedFrame = window.requestAnimationFrame(() => {
+        closeButtonRef.current?.focus()
+      })
     })
-  }, [isMenuReady])
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.cancelAnimationFrame(nestedFrame)
+    }
+  }, [isMenuOpen, isMenuReady])
 
   useEffect(() => {
     if (!isMenuReady || isMenuOpen || reducedMotion) {
@@ -149,8 +207,8 @@ export function Header() {
   return (
     <header className={cx('site-header', isElevated && 'is-elevated')} data-site-header="" ref={headerRef}>
       <Container className="site-header__inner">
-        <a className="site-header__brand" href={homeAnchors.inicio} aria-label="SUBEROS, volver al inicio">
-          <img src="/branding/suberos-icon-192.png" width="40" height="40" alt="" aria-hidden="true" />
+        <a aria-label="SUBEROS, volver al inicio" className="site-header__brand" href={homeAnchors.inicio}>
+          <img alt="" aria-hidden="true" height="40" src="/branding/suberos-icon-192.png" width="40" />
           <span>SUBEROS</span>
         </a>
 
@@ -165,16 +223,17 @@ export function Header() {
         </nav>
 
         <Cluster className="site-header__actions" gap="sm">
-          <Button href={homeAnchors.contacto} variant="secondary" size="small">
+          <Button href={homeAnchors.contacto} size="small" variant="secondary">
             Cuentanos tu proyecto
           </Button>
           <IconButton
-            aria-controls={panelId}
+            aria-controls={isMenuReady ? panelId : undefined}
             aria-expanded={isMenuReady}
             className="site-header__menu-button"
             label={isMenuReady ? 'Cerrar menu principal' : 'Abrir menu principal'}
             onClick={() => (isMenuReady ? closeMenu() : openMenu())}
             ref={menuButtonRef}
+            tabIndex={isMenuReady ? -1 : undefined}
           >
             <span className={cx('menu-icon', isMenuReady && 'is-open')}>
               <span />
@@ -188,14 +247,26 @@ export function Header() {
       {isMenuReady ? (
         <div className="menu-drawer" aria-hidden={!isMenuOpen && !reducedMotion}>
           <div className="menu-drawer__overlay" onClick={() => closeMenu()} ref={overlayRef} />
-          <div className="menu-drawer__panel" id={panelId} ref={panelRef}>
+          <div
+            aria-labelledby={menuTitleId}
+            aria-modal="true"
+            className="menu-drawer__panel"
+            id={panelId}
+            ref={panelRef}
+            role="dialog"
+            tabIndex={-1}
+          >
             <Container className="menu-drawer__content" size="content">
               <div className="menu-drawer__header">
                 <p className="menu-drawer__eyebrow">Navegacion</p>
+                <h2 className="sr-only" id={menuTitleId}>
+                  Menu principal movil
+                </h2>
                 <IconButton
                   className="menu-drawer__close-button"
                   label="Cerrar menu principal"
                   onClick={() => closeMenu()}
+                  ref={closeButtonRef}
                 >
                   <span className={cx('menu-icon', 'is-open')}>
                     <span />

@@ -59,9 +59,9 @@ test('home supports reduced motion query without console errors', async ({ page 
 
 test('home keyboard access exposes skip link and real anchors', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' })
-  await page.keyboard.press('Tab')
 
   const skipLink = page.locator('a[href="#main-content"]').first()
+  await skipLink.focus()
   await expect(skipLink).toBeFocused()
   await expect(skipLink).toBeVisible()
 

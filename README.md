@@ -14,6 +14,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Sprint 07 completado: motor de frame sequences y Sequence Lab privado.
 - Sprint 08 completado localmente: motor de contacto y conversion con QA local y bloqueo honesto de produccion sin backend real.
 - Sprint 09 completado localmente: arquitectura SEO, legal, privacidad y compliance con preview de produccion en `127.0.0.1:4173`.
+- Sprint 10 completado localmente: baseline de accesibilidad, teclado, inclusive motion y QA automatizada con aria + axe.
 
 ## Stack
 
@@ -34,6 +35,9 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run qa:privacy`
 - `npm run qa:seo`
 - `npm run qa:legal`
+- `npm run qa:aria`
+- `npm run qa:a11y`
+- `npm run qa:a11y:axe`
 - `npm run qa:visual`
 - `npm run lint`
 - `npm run build`
@@ -61,6 +65,7 @@ src/
     sequence-lab/
   hooks/
   lib/
+    accessibility/
     forms/
     gsap/
     seo/
@@ -130,6 +135,10 @@ tests/
 - `docs/SPA_SEO_LIMITATIONS.md`
 - `docs/LEGAL_PAGE_STATUS.md`
 - `docs/SPRINT_09_REPORT.md`
+- `docs/WCAG_2_2_AA_AUDIT.md`
+- `docs/ACCESSIBILITY_TEST_PLAN.md`
+- `docs/INCLUSIVE_MOTION_AUDIT.md`
+- `docs/SPRINT_10_REPORT.md`
 
 ## Reglas de desarrollo
 
@@ -141,4 +150,4 @@ tests/
 - No permitir que el mock del formulario se active en preview publico por hostname; solo en QA explicita.
 - Centralizar nuevos tokens, estados de UI y metadata; no duplicar logica ad hoc.
 - Registrar GSAP una sola vez y limpiar contextos y side effects.
-- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run qa:sequences`, `npm run qa:contact`, `npm run qa:privacy`, `npm run qa:seo`, `npm run qa:legal`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.
+- Validar siempre `npm run qa:isolation`, `npm run qa:portfolio`, `npm run qa:sequences`, `npm run qa:contact`, `npm run qa:privacy`, `npm run qa:seo`, `npm run qa:legal`, `npm run qa:aria`, `npm run qa:a11y`, `npm run qa:a11y:axe`, `npm run lint`, `npm run build` y `npm run qa:visual` antes de cerrar un bloque grande.

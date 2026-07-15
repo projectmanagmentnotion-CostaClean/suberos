@@ -17,7 +17,10 @@
     "qa:privacy": "node scripts/check-privacy-storage.mjs && set PLAYWRIGHT_PORT=4177&& playwright test tests/privacy.spec.ts",
     "qa:seo": "node scripts/check-seo.mjs",
     "qa:legal": "node scripts/check-legal-readiness.mjs",
-    "qa:visual": "set PLAYWRIGHT_PORT=4178&& set PLAYWRIGHT_CONTACT_MOCK=1&& playwright test"
+    "qa:visual": "set PLAYWRIGHT_PORT=4178&& set PLAYWRIGHT_CONTACT_MOCK=1&& playwright test",
+    "qa:aria": "node scripts/check-aria-integrity.mjs",
+    "qa:a11y": "set PLAYWRIGHT_PORT=4179&& set PLAYWRIGHT_CONTACT_MOCK=1&& playwright test tests/accessibility.spec.ts",
+    "qa:a11y:axe": "node scripts/check-accessibility.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -27,21 +30,23 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@eslint/js": "^9.33.0",
     "@playwright/test": "^1.61.1",
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
+    "axe-core": "^4.12.1",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "playwright": "^1.61.1",
     "sharp": "^0.35.3",
+    "tsx": "^4.20.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
-    "tsx": "^4.20.3",
     "vite": "^7.1.2"
   }
 }

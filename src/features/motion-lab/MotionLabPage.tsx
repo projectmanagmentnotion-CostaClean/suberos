@@ -10,6 +10,7 @@ import { Divider } from '../../components/ui/Divider'
 import { MediaFrame } from '../../components/ui/MediaFrame'
 import { SectionHeader } from '../../components/ui/SectionHeader'
 import { TextLink } from '../../components/ui/TextLink'
+import { usePageHeadingFocus } from '../../lib/accessibility/usePageHeadingFocus'
 import { refreshManager } from '../../motion/core/refreshManager'
 import { ScrollTrigger } from '../../motion/core/registerGsap'
 import { useElementReveal } from '../../motion/hooks/useElementReveal'
@@ -32,6 +33,8 @@ export function MotionLabPage() {
   const horizontalTrackRef = useRef<HTMLDivElement | null>(null)
   const velocityRef = useRef<HTMLElement | null>(null)
   const velocityState = useScrollVelocity(velocityRef)
+
+  usePageHeadingFocus('motion-lab-title')
 
   useElementReveal(revealRef, { selector: '[data-reveal-item]' })
   useElementReveal(velocityRef)
@@ -65,14 +68,15 @@ export function MotionLabPage() {
         <Container>
           <Stack gap="xl">
             <SectionHeader
-              eyebrow="Internal QA"
-              title="Motion Lab"
-              body="Laboratorio interno para validar reveal, parallax, pinning, horizontal scroll, velocity y reduced motion antes del hero y el preloader cinematograficos."
               action={
                 <Button onClick={() => refreshManager.requestRefresh('layout-change')} size="small" variant="secondary">
                   Solicitar refresh
                 </Button>
               }
+              body="Laboratorio interno para validar reveal, parallax, pinning, horizontal scroll, velocity y reduced motion antes del hero y el preloader cinematograficos."
+              eyebrow="Internal QA"
+              title="Motion Lab"
+              titleId="motion-lab-title"
               width="wide"
             />
             <Grid columns="thirds" gap="md">
@@ -97,9 +101,9 @@ export function MotionLabPage() {
         <Container>
           <Stack gap="xl">
             <SectionHeader
+              body="Los bloques se revelan de forma moderada cuando entran en viewport. En perfil reduced el contenido queda visible inmediatamente."
               eyebrow="Reveal"
               title="Entrada editorial con stagger y fallback reduced."
-              body="Los bloques se revelan de forma moderada cuando entran en viewport. En perfil reduced el contenido queda visible inmediatamente."
             />
             <Grid columns="thirds" gap="md">
               <Surface data-reveal-item="" padding="lg">
@@ -108,7 +112,7 @@ export function MotionLabPage() {
               </Surface>
               <Surface data-reveal-item="" padding="lg">
                 <h3>Media</h3>
-                <p>Sirve como validación para futuras escenas con fotografia, video, canvas y secuencias.</p>
+                <p>Sirve como validacion para futuras escenas con fotografia, video, canvas y secuencias.</p>
               </Surface>
               <Surface data-reveal-item="" padding="lg">
                 <h3>CTA</h3>
@@ -119,14 +123,19 @@ export function MotionLabPage() {
         </Container>
       </Section>
 
-      <Section aria-labelledby="motion-lab-parallax-title" className="motion-lab__scene" id="motion-lab-parallax" ref={parallaxRef}>
+      <Section
+        aria-labelledby="motion-lab-parallax-title"
+        className="motion-lab__scene"
+        id="motion-lab-parallax"
+        ref={parallaxRef}
+      >
         <Container>
           <Grid columns="content-aside" gap="lg">
             <Stack gap="lg">
               <SectionHeader
+                body="La capa visual se desplaza con scrub suave. En mobile y reduced se degrada sin bloquear la lectura."
                 eyebrow="Parallax"
                 title="Profundidad controlada y limitada por perfil."
-                body="La capa visual se desplaza con scrub suave. En mobile y reduced se degrada sin bloquear la lectura."
               />
               <TextLink href="?motion-lab=1&reduced-motion=1">Probar reduced motion en este laboratorio</TextLink>
             </Stack>
@@ -134,7 +143,6 @@ export function MotionLabPage() {
               <MediaFrame
                 caption="Laboratorio interno: valida scrub y cleanup."
                 fallback={<span>Parallax preview</span>}
-                ratio="portrait"
                 media={
                   <img
                     alt="Simbolo de SUBEROS dentro del laboratorio de motion"
@@ -143,6 +151,7 @@ export function MotionLabPage() {
                     width="494"
                   />
                 }
+                ratio="portrait"
               />
             </div>
           </Grid>
@@ -153,15 +162,15 @@ export function MotionLabPage() {
         <Container>
           <Stack gap="xl">
             <SectionHeader
+              body="Esta escena no es el hero final. Solo valida pin, spacing, refresh y desmontaje sin saltos de layout."
               eyebrow="Pinned"
               title="Pin controlado con fallback mobile."
-              body="Esta escena no es el hero final. Solo valida pin, spacing, refresh y desmontaje sin saltos de layout."
             />
             <div className="motion-lab__pin-wrap">
               <Surface className="motion-lab__pin-card" padding="lg" ref={pinnedCardRef}>
                 <h3>Escena fijada</h3>
                 <p>
-                  El pin solo se activa en perfiles no reducidos y fuera del fallback mobile. La intención aquí es
+                  El pin solo se activa en perfiles no reducidos y fuera del fallback mobile. La intencion aqui es
                   estructural, no decorativa.
                 </p>
                 <Divider />
@@ -176,9 +185,9 @@ export function MotionLabPage() {
         <Container>
           <Stack gap="xl">
             <SectionHeader
+              body="Se mantiene fuera de la navegacion publica y no representa aun una seccion final de portfolio."
               eyebrow="Horizontal"
-              title="Implementación de laboratorio para anchura, resize y cleanup."
-              body="Se mantiene fuera de la navegación pública y no representa aún una sección final de portfolio."
+              title="Implementacion de laboratorio para anchura, resize y cleanup."
             />
             <div className="motion-lab__horizontal-viewport" ref={horizontalViewportRef}>
               <div className="motion-lab__horizontal-track" ref={horizontalTrackRef}>
@@ -198,14 +207,14 @@ export function MotionLabPage() {
         <Container>
           <Stack gap="xl">
             <SectionHeader
+              body="Esta demostracion prepara futuras respuestas tipograficas o de imagen sin deformaciones agresivas."
               eyebrow="Velocity"
-              title="Velocidad y dirección de scroll suavizadas."
-              body="Esta demostración prepara futuras respuestas tipográficas o de imagen sin deformaciones agresivas."
+              title="Velocidad y direccion de scroll suavizadas."
             />
             <Grid columns="halves" gap="lg">
               <Surface padding="lg">
                 <h3>Estado actual</h3>
-                <p>Dirección: {velocityState.direction}</p>
+                <p>Direccion: {velocityState.direction}</p>
                 <p>Velocidad: {velocityState.velocity}</p>
               </Surface>
               <Surface className="motion-lab__velocity-card" padding="lg">

@@ -5,6 +5,7 @@ import { Surface } from '../../components/layout/Surface'
 import { TextLink } from '../../components/ui/TextLink'
 import { homeAnchors, legalPaths } from '../../app/routes'
 import { legalPageContent } from '../../data/legalContent'
+import { usePageHeadingFocus } from '../../lib/accessibility/usePageHeadingFocus'
 import './legal-pages.css'
 
 type LegalPageProps = {
@@ -13,6 +14,8 @@ type LegalPageProps = {
 
 export function LegalPage({ slug }: LegalPageProps) {
   const documentContent = legalPageContent[slug]
+
+  usePageHeadingFocus('legal-page-title')
 
   return (
     <Section aria-labelledby="legal-page-title" className="legal-page" spacing="scene" tone="raised">

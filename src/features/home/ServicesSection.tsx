@@ -66,7 +66,7 @@ export function ServicesSection() {
               ))}
             </div>
 
-            <div className="services-scene__list" role="list">
+            <div className="services-scene__list">
               {siteServices.map((service, index) => (
                 <article
                   className="services-scene__item"
@@ -75,7 +75,6 @@ export function ServicesSection() {
                   ref={(element) => {
                     itemRefs.current[index] = element
                   }}
-                  role="listitem"
                 >
                   <Cluster className="services-scene__item-head" gap="sm" justify="between">
                     <span className="services-scene__item-index">0{index + 1}</span>

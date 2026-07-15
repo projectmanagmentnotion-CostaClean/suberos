@@ -11,6 +11,7 @@ import { Button } from '../../components/ui/Button'
 import { ProjectDraftCard } from '../../components/ui/ProjectDraftCard'
 import { SectionHeader } from '../../components/ui/SectionHeader'
 import { TextLink } from '../../components/ui/TextLink'
+import { usePageHeadingFocus } from '../../lib/accessibility/usePageHeadingFocus'
 import {
   getPortfolioProjectsByStatus,
   getPortfolioValidationSummary,
@@ -69,6 +70,8 @@ export function PortfolioLabPage() {
   const preferences = useMotionPreferences()
   const summary = getPortfolioValidationSummary()
   const rootRef = useRef<HTMLDivElement | null>(null)
+
+  usePageHeadingFocus('portfolio-lab-title')
 
   useElementReveal(rootRef, {
     selector: '.portfolio-lab__reveal',

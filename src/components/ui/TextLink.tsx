@@ -24,7 +24,7 @@ export function TextLink({
       <span>{children}</span>
       {isExternal ? (
         <>
-          <span className="text-link__icon" aria-hidden="true">
+          <span aria-hidden="true" className="text-link__icon">
             ↗
           </span>
           <span className="sr-only">{externalLabel}</span>

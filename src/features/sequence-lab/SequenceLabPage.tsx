@@ -9,6 +9,7 @@ import { ApprovalBadge } from '../../components/ui/ApprovalBadge'
 import { Button } from '../../components/ui/Button'
 import { SectionHeader } from '../../components/ui/SectionHeader'
 import { TextLink } from '../../components/ui/TextLink'
+import { usePageHeadingFocus } from '../../lib/accessibility/usePageHeadingFocus'
 import { FrameSequenceScene } from '../frame-sequence/FrameSequenceScene'
 import { FrameSequenceController } from '../../motion/sequences/FrameSequenceController'
 import { getSequenceLabManifest } from '../../motion/sequences/sequenceManifest'
@@ -22,6 +23,8 @@ export function SequenceLabPage() {
   const params = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search)
   const shouldFailAssets = params?.get('asset-fail') === '1'
   const manifest = useMemo(() => getSequenceLabManifest({ failFrames: shouldFailAssets }), [shouldFailAssets])
+
+  usePageHeadingFocus('sequence-lab-title')
 
   useEffect(() => {
     return () => {
@@ -38,11 +41,13 @@ export function SequenceLabPage() {
               <p className="eyebrow">Internal sequence QA</p>
               <h1 id="sequence-lab-title">Sequence Lab</h1>
               <p className="section-header__body">
-                Laboratorio interno para validar un motor canvas scroll-linked con fallback, reduced motion, carga progresiva y control de memoria antes de integrar secuencias reales de SUBEROS.
+                Laboratorio interno para validar un motor canvas scroll-linked con fallback, reduced motion, carga
+                progresiva y control de memoria antes de integrar secuencias reales de SUBEROS.
               </p>
             </Stack>
 
             <Grid columns="thirds" gap="md">
+              <h2 className="sr-only">Resumen del laboratorio</h2>
               <Surface padding="lg">
                 <h3>Motion profile</h3>
                 <p>{preferences.profile}</p>
@@ -79,11 +84,16 @@ export function SequenceLabPage() {
           <Stack gap="xl">
             <SectionHeader
               action={
-                <Button onClick={() => controller.setPaused(!state.paused)} size="small" variant="secondary">
+                <Button
+                  aria-pressed={state.paused}
+                  onClick={() => controller.setPaused(!state.paused)}
+                  size="small"
+                  variant="secondary"
+                >
                   {state.paused ? 'Resume loader' : 'Pause loader'}
                 </Button>
               }
-              body="La escena usa posters y fallback siempre presentes en HTML. El canvas solo se activa cuando el perfil, el viewport y el estado de la pestaña lo permiten."
+              body="La escena usa posters y fallback siempre presentes en HTML. El canvas solo se activa cuando el perfil, el viewport y el estado de la pestana lo permiten."
               eyebrow="Canvas engine"
               title="Abstract motion sequence"
               titleId="sequence-lab-scene-title"
@@ -100,7 +110,10 @@ export function SequenceLabPage() {
               <Grid columns="halves" gap="lg">
                 <Surface padding="lg">
                   <h3>Scroll integration</h3>
-                  <p>Un unico ScrollTrigger controla el progreso del frame. No se crea un ticker paralelo ni una segunda instancia global de RAF.</p>
+                  <p>
+                    Un unico ScrollTrigger controla el progreso del frame. No se crea un ticker paralelo ni una segunda
+                    instancia global de RAF.
+                  </p>
                 </Surface>
                 <Surface padding="lg">
                   <h3>Reduced motion</h3>

@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef } from 'react'
 
+import { isolateElements } from '../../lib/accessibility/isolateElements'
+import { refreshManager } from '../../motion/core/refreshManager'
 import { Flip, gsap } from '../../motion/core/registerGsap'
 import { useGsapContext } from '../../motion/hooks/useGsapContext'
 import { useMotionPreferences } from '../../motion/hooks/useMotionPreferences'
-import { refreshManager } from '../../motion/core/refreshManager'
 import { PreloaderLogo } from './PreloaderLogo'
 import { PreloaderProgress } from './PreloaderProgress'
 import { CriticalAsset } from './preloader.types'
@@ -62,6 +63,41 @@ export function Preloader({ onComplete }: PreloaderProps) {
       onComplete()
     }
   }, [onComplete, phase])
+
+  useEffect(() => {
+    if (!rootRef.current || phase === 'skipped' || phase === 'complete') {
+      return
+    }
+
+    const main = document.querySelector<HTMLElement>('#main-content')
+    const mainSiblings = main
+      ? Array.from(main.children).filter(
+          (child): child is HTMLElement => child instanceof HTMLElement && child !== rootRef.current,
+        )
+      : []
+
+    const releaseIsolation = isolateElements([
+      document.querySelector<HTMLElement>('[data-site-header]'),
+      document.querySelector<HTMLElement>('[data-site-footer]'),
+      ...mainSiblings,
+    ])
+
+    rootRef.current.focus()
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Tab') {
+        event.preventDefault()
+        rootRef.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      releaseIsolation()
+    }
+  }, [phase])
 
   useGsapContext(
     () => {
@@ -230,8 +266,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
       .to(
         panelRef.current,
         {
-          clipPath:
-            preferences.profile === 'full' ? 'inset(0 0 100% 0 round 0)' : 'inset(0 0 100% 0 round 0)',
+          clipPath: 'inset(0 0 100% 0 round 0)',
           duration: preferences.profile === 'full' ? 0.96 : 0.74,
         },
         0.12,
@@ -269,17 +304,23 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
   return (
     <div
-      aria-hidden="true"
+      aria-describedby="preloader-assistive"
+      aria-labelledby="preloader-title"
+      aria-modal="true"
       className="preloader"
       data-phase={phase}
       data-preloader-root=""
       ref={rootRef}
-      role="presentation"
+      role="dialog"
+      tabIndex={-1}
     >
       <div className="preloader__backdrop" />
       <div className="preloader__grain" />
       <div className="preloader__panel" ref={panelRef}>
         <div className="preloader__header">
+          <h2 className="sr-only" id="preloader-title">
+            Carga inicial de SUBEROS
+          </h2>
           <span className="preloader__eyebrow">
             {preferences.profile === 'full'
               ? 'Sesion inicial / experiencia completa'
@@ -287,9 +328,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
                 ? 'Sesion inicial / experiencia balanceada'
                 : 'Sesion inicial / reduced'}
           </span>
-          <span className="preloader__hint">
-            {forced ? 'QA / forced preload' : 'Critical assets loading'}
-          </span>
+          <span className="preloader__hint">{forced ? 'QA / forced preload' : 'Critical assets loading'}</span>
         </div>
 
         <div className="preloader__center">
@@ -302,9 +341,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
         <div className="preloader__footer">
           <span className="preloader__hint">
-            {failedAssetIds.length
-              ? `Fallback ready / ${failedAssetIds.length} asset error`
-              : 'Logo, font, favicon and hero visual'}
+            {failedAssetIds.length ? `Fallback ready / ${failedAssetIds.length} asset error` : 'Logo, font, favicon and hero visual'}
           </span>
           <span className="preloader__eyebrow">
             {resolvedBy === 'timeout'
@@ -315,7 +352,9 @@ export function Preloader({ onComplete }: PreloaderProps) {
           </span>
         </div>
       </div>
-      <span className="preloader__assistive">Cargando activos criticos de la primera vista.</span>
+      <span className="preloader__assistive" id="preloader-assistive">
+        Cargando activos criticos de la primera vista.
+      </span>
     </div>
   )
 }

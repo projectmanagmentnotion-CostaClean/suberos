@@ -4,6 +4,7 @@ import { Stack } from '../../components/layout/Stack'
 import { Surface } from '../../components/layout/Surface'
 import { Button } from '../../components/ui/Button'
 import { homeAnchors } from '../../app/routes'
+import { usePageHeadingFocus } from '../../lib/accessibility/usePageHeadingFocus'
 import './not-found.css'
 
 type NotFoundPageProps = {
@@ -11,6 +12,8 @@ type NotFoundPageProps = {
 }
 
 export function NotFoundPage({ pathname }: NotFoundPageProps) {
+  usePageHeadingFocus('not-found-title')
+
   return (
     <Section aria-labelledby="not-found-title" className="not-found-page" spacing="scene" tone="raised">
       <Container size="content">
