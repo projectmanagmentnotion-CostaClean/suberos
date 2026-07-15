@@ -37,6 +37,11 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 ## Tipografia y branding
 
 - Fuente display publica: `Syncopate` 400/700 self-hosted en `public/branding/fonts/syncopate/`.
+- Repositorio oficial: `google/fonts/apache/syncopate`
+- Licencia: `Apache License 2.0`
+- Uso comercial: permitido
+- Self-hosting: permitido
+- Redistribucion: permitida conservando la licencia y avisos aplicables
 - Evidencia de licencia y hashes:
   - `docs/licenses/SYNCOPATE_LICENSE.md`
   - `docs/licenses/SYNCOPATE_CHECKSUMS.txt`

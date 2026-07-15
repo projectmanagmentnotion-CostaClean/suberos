@@ -6,7 +6,7 @@ Fecha: 2026-07-15
 | ---- | ------ | --------- | ------- | ----------- | ------ |
 | contenido | GO | `docs/CONTENT_FINAL_AUDIT.md` | No | Codex / titular | Mantener copy factual |
 | marca | GO | logo, favicon, social card y Syncopate locales | No | titular | Conservar inventario |
-| licencias | GO | `docs/ASSET_LICENSE_STATUS.md`, `docs/licenses/SYNCOPATE_LICENSE.md` | No critico en runtime actual | Codex / titular | Mantener trazabilidad si cambia la fuente |
+| licencias | GO | `docs/ASSET_LICENSE_STATUS.md`, `docs/licenses/SYNCOPATE_LICENSE.md` | Bloqueo tipografico resuelto con Apache License 2.0 | Codex / titular | Mantener trazabilidad si cambia la fuente |
 | portfolio | CONDITIONAL GO | `docs/PORTFOLIO_READINESS.md` | No hay casos publicados | titular | Solo publicar con permisos reales |
 | contacto | CONDITIONAL GO | `docs/FORM_ENDPOINT_STATUS.md` | Formulario no operativo | titular | Confirmar si la landing sale sin endpoint o definir proveedor real |
 | legal | NO-GO | `docs/LEGAL_OWNER_INFORMATION_REQUIRED.md` | Falta titular, NIF/CIF y domicilio legal | titular | Entregar datos verificados |

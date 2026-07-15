@@ -16,7 +16,7 @@ Fecha de auditoria: 2026-07-15
 - Tipografia publica aprobada:
   - `public/branding/fonts/syncopate/Syncopate-Regular.woff2`
   - `public/branding/fonts/syncopate/Syncopate-Bold.woff2`
-  - `public/branding/fonts/syncopate/OFL.txt`
+  - `public/branding/fonts/syncopate/LICENSE.txt`
 - Fuentes legacy retiradas del build publico:
   - `resources/fonts/legacy/StretchPro.otf`
   - `resources/fonts/legacy/StretchPro-legacy.otf`
@@ -37,7 +37,7 @@ Fecha de auditoria: 2026-07-15
 | brand-social-card-png | `public/branding/suberos-social-card.png` | imagen | interna SUBEROS | 29873 | PNG | `og:image` y `twitter:image` | optimizado | si | Exportada desde la composicion propia |
 | brand-font-syncopate-regular | `public/branding/fonts/syncopate/Syncopate-Regular.woff2` | fuente | aprobada | 32344 | WOFF2 | display 400 de apoyo | optimizado | si | Fuente oficial self-hosted |
 | brand-font-syncopate-bold | `public/branding/fonts/syncopate/Syncopate-Bold.woff2` | fuente | aprobada | 17432 | WOFF2 | display 700 critica | optimizado | si | Peso preload above the fold |
-| brand-font-syncopate-license | `public/branding/fonts/syncopate/OFL.txt` | licencia | aprobada | 11358 | TXT | evidencia de licencia | original | si | Se conserva el texto oficial sin modificar |
+| brand-font-syncopate-license | `public/branding/fonts/syncopate/LICENSE.txt` | licencia | Apache License 2.0 | 11358 | TXT | evidencia de licencia | original | si | Uso comercial, self-hosting y redistribucion permitidos con la licencia y avisos aplicables |
 
 ## Legacy no publicable
 

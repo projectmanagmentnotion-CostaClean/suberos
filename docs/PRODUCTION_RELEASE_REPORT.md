@@ -19,7 +19,13 @@ BUILD DE PRODUCCION VALIDADO LOCALMENTE; PUBLICACION FINAL EN `NO-GO` HASTA DISP
 - `dist/branding/fonts/syncopate/` publica exactamente:
   - `Syncopate-Regular.woff2`
   - `Syncopate-Bold.woff2`
-  - `OFL.txt`
+  - `LICENSE.txt`
+- Fuente: `Syncopate`
+- Repositorio oficial: `google/fonts/apache/syncopate`
+- Licencia: `Apache License 2.0`
+- Uso comercial: permitido
+- Self-hosting: permitido
+- Redistribucion: permitida conservando la licencia y avisos aplicables
 - `dist/` no contiene referencias a `StretchPro`, `couture-bld`, `fonts.googleapis.com` ni `fonts.gstatic.com`
 - ZIP de produccion esperado: `C:\Users\USUARIO\Documents\SUBEROS-real\release\suberos-production-2026-07-15.zip`
 

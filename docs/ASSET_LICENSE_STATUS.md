@@ -4,7 +4,7 @@ Fecha: 2026-07-15
 
 ## Estado general
 
-SUBEROS mantiene los assets propios de marca en local y ha sustituido la fuente display publica por `Syncopate` self-hosted desde una fuente oficial verificable. Las fuentes legacy sin evidencia suficiente ya no forman parte de `public/` ni del build de produccion.
+SUBEROS mantiene los assets propios de marca en local y ha sustituido la fuente display publica por `Syncopate` self-hosted desde una fuente oficial verificable. El bloqueo de licencia tipografica queda resuelto con evidencia de `Apache License 2.0`. Las fuentes legacy sin evidencia suficiente ya no forman parte de `public/` ni del build de produccion.
 
 ## Aprobados para produccion actual
 
@@ -19,7 +19,7 @@ SUBEROS mantiene los assets propios de marca en local y ha sustituido la fuente 
 | Social card PNG | `public/branding/suberos-social-card.png` | Approved | Export de la composicion propia |
 | Syncopate Regular | `public/branding/fonts/syncopate/Syncopate-Regular.woff2` | Approved | Fuente oficial self-hosted para soporte de peso 400 |
 | Syncopate Bold | `public/branding/fonts/syncopate/Syncopate-Bold.woff2` | Approved | Fuente oficial self-hosted critica para hero y titulares |
-| Syncopate license file | `public/branding/fonts/syncopate/OFL.txt` | Approved | Copia literal del fichero de licencia oficial descargado |
+| Syncopate license file | `public/branding/fonts/syncopate/LICENSE.txt` | Approved | Copia literal del fichero oficial `Apache License 2.0` descargado |
 
 ## Retirados del build publico
 
@@ -32,7 +32,12 @@ SUBEROS mantiene los assets propios de marca en local y ha sustituido la fuente 
 
 ## Evidencia
 
-- Fuente oficial usada: Google Fonts / repositorio oficial `google/fonts`.
+- Fuente: `Syncopate`
+- Repositorio oficial: `google/fonts/apache/syncopate`
+- Licencia: `Apache License 2.0`
+- Uso comercial: permitido
+- Self-hosting: permitido
+- Redistribucion: permitida conservando la licencia y avisos aplicables
 - Trazabilidad y licencia: `docs/licenses/SYNCOPATE_LICENSE.md`.
 - Checksums SHA-256: `docs/licenses/SYNCOPATE_CHECKSUMS.txt`.
 - Inventario maestro de assets: `docs/SUBEROS_VISUAL_ASSET_INVENTORY.md`.

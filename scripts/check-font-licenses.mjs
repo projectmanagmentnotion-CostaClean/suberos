@@ -33,7 +33,7 @@ async function walk(relativePath) {
 const publicFonts = [
   'public/branding/fonts/syncopate/Syncopate-Regular.woff2',
   'public/branding/fonts/syncopate/Syncopate-Bold.woff2',
-  'public/branding/fonts/syncopate/OFL.txt',
+  'public/branding/fonts/syncopate/LICENSE.txt',
 ]
 
 for (const relativePath of publicFonts) {
@@ -108,7 +108,7 @@ for (const docPath of [
 
 if (existsSync(resolveFromRoot('docs/licenses/SYNCOPATE_CHECKSUMS.txt'))) {
   const checksums = read('docs/licenses/SYNCOPATE_CHECKSUMS.txt')
-  for (const marker of ['Syncopate-Regular.woff2', 'Syncopate-Bold.woff2', 'OFL.txt']) {
+  for (const marker of ['Syncopate-Regular.woff2', 'Syncopate-Bold.woff2', 'LICENSE.txt']) {
     if (!checksums.includes(marker)) {
       failures.push(`Checksum document is missing ${marker}.`)
     }
