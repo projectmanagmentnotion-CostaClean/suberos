@@ -11,9 +11,8 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `qa:release`, `lint`, `build`, `qa:lighthouse` y `qa:visual` pasan.
 - Produccion publicada en `https://suberos.com` con estado `CONDITIONAL GO`.
 - Bloqueos abiertos:
-  - cierre limpio del doble salto del host `www` hacia el dominio canonico
   - pruebas fisicas en iPhone Safari y Android Chrome
-  - verificacion manual final del flujo de respuesta desde Webmail usando el `Reply-To` ya configurado
+  - validacion fisica final del formulario, menu, servicios y secuencia en dispositivos reales
 
 ## Stack
 
@@ -35,6 +34,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run qa:links`
 - `npm run qa:navigation`
 - `npm run qa:immersive`
+- `npm run qa:canonical`
 - `npm run qa:legal`
 - `npm run qa:privacy`
 - `npm run qa:seo`

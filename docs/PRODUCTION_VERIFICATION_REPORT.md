@@ -4,7 +4,7 @@ Fecha: 2026-07-16
 
 ## Estado
 
-`CONDITIONAL GO - VERIFICACION PUBLICA COMPLETADA CON FORMULARIO OPERATIVO`
+`CONDITIONAL GO - VERIFICACION PUBLICA COMPLETADA, QA FISICA PENDIENTE`
 
 ## Verificacion publica ejecutada
 
@@ -38,6 +38,7 @@ Fecha: 2026-07-16
   - `POST /api/contact` devuelve JSON real
   - `requestId` de prueba: `84682fe34295195a`
   - recepcion real verificada en `info@suberos.com`
+  - borrador de respuesta en Roundcube precarga el visitante de prueba mediante `Reply-To`
 - Favicon publicado:
   - `/branding/suberos-icon-32.png`
   - `/branding/suberos-icon-192.png`
@@ -60,4 +61,4 @@ Fecha: 2026-07-16
 
 - El doble salto de `http://www.suberos.com/` sigue pendiente de resolucion limpia en infraestructura.
 - No se ejecuto prueba fisica en iPhone Safari ni Android Chrome.
-- Falta una comprobacion manual final de respuesta desde Webmail usando el `Reply-To` del visitante.
+- Las pruebas fisicas en iPhone Safari y Android Chrome siguen pendientes.

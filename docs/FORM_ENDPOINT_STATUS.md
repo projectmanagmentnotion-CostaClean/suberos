@@ -20,5 +20,5 @@ Opcion A: formulario real activo.
 
 ## Lo que queda por confirmar en este sprint
 
-- prueba manual completa de respuesta desde Webmail usando el `Reply-To`
 - documentacion final de retencion y operativa del buzon
+- pruebas fisicas del flujo de contacto en iPhone Safari y Android Chrome

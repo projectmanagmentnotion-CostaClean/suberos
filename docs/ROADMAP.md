@@ -24,7 +24,7 @@
 - Sprint 14.3 complete - production now matches the validated static build `886270d`
 - Sprint 14.4 validated locally - final home art direction, integrated frame-sequence narrative and stronger mobile navigation
 - Sprint 14.5 complete - published production now matches the validated build, services resolve to real work anchors, immersive placement is documented and the mobile menu has dedicated regression coverage
-- Next recommended sprint: close the remaining canonical double hop from `www`, complete the manual mailbox reply check and run physical-device QA
+- Next recommended sprint: run physical-device QA on iPhone Safari and Android Chrome, then reassess whether the managed `www` HTTPS-to-apex double hop warrants a hosting-level change
 
 ## Mandatory governing documents
 

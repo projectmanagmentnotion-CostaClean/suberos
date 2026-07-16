@@ -27,7 +27,7 @@ Fecha: 2026-07-16
 - El mensaje `SUBEROS contacto: branding - Prueba Codex` aparecio en la bandeja de `info@suberos.com` a las `11:15` del `2026-07-16`.
 - La decision final del lanzamiento permanece en `CONDITIONAL GO` por el doble salto de `http://www.suberos.com/` y por la ausencia de pruebas fisicas en iPhone/Android, no por el formulario.
 
-## Pendiente para activar el formulario
+## Pendiente posterior al cierre tecnico
 
-- comprobacion manual completa del flujo de respuesta desde Webmail usando el `Reply-To` del visitante
 - politica final de retencion operativa del buzon y de los logs temporales del endpoint
+- pruebas fisicas del formulario en iPhone Safari y Android Chrome

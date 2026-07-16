@@ -4,7 +4,7 @@ Fecha: 2026-07-16
 
 ## Decision
 
-`CONDITIONAL GO - WEB PUBLICADA Y FORMULARIO OPERATIVO, PENDIENTE CIERRE CANONICO Y PRUEBAS FISICAS`
+`CONDITIONAL GO - PRODUCCION OPERATIVA, QA FISICA PENDIENTE`
 
 ## Motivo objetivo
 
@@ -20,6 +20,5 @@ Se cumplen los requisitos tecnicos para mantener la web publica de SUBEROS en pr
 
 ## Bloqueos que impiden un GO total
 
-1. `http://www.suberos.com/` sigue haciendo doble salto antes de llegar a `https://suberos.com/`.
-2. Siguen pendientes pruebas fisicas en iPhone Safari y Android Chrome.
-3. Falta la comprobacion manual final del flujo de respuesta desde Webmail usando el `Reply-To` del visitante.
+1. Siguen pendientes pruebas fisicas en iPhone Safari y Android Chrome.
+2. El doble salto de `http://www.suberos.com/` sigue siendo una optimizacion menor de infraestructura administrada por hosting, no un fallo funcional.

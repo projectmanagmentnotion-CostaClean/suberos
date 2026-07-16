@@ -20,6 +20,7 @@
     "qa:sequences": "node scripts/check-frame-sequences.mjs",
     "qa:smoke": "node scripts/run-playwright-suite.mjs --port=4175 tests/smoke tests/navigation tests/contact/contact.spec.ts tests/legal tests/seo tests/labs tests/performance --project chromium --grep-invert @qa-mock",
     "qa:contact": "node scripts/check-contact-system.mjs && node scripts/run-playwright-suite.mjs --port=4176 --contact-mock=1 tests/contact/contact.spec.ts --project chromium",
+    "qa:canonical": "node scripts/check-canonical-domain.mjs",
     "qa:privacy": "node scripts/check-privacy-storage.mjs && node scripts/run-playwright-suite.mjs --port=4177 tests/contact/contact.spec.ts --project chromium --grep \"runtime stores no personal data|do not persist after reload|stays honestly blocked\"",
     "qa:seo": "node scripts/check-seo.mjs && node scripts/run-playwright-suite.mjs --port=4178 tests/seo tests/navigation/navigation.spec.ts --project chromium",
     "qa:legal": "node scripts/check-legal-readiness.mjs && node scripts/run-playwright-suite.mjs --port=4179 tests/legal tests/navigation/navigation.spec.ts --project chromium",
