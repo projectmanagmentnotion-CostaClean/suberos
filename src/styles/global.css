@@ -612,10 +612,6 @@ html[data-qa-static='true'] *::after {
   color: var(--color-muted-text);
 }
 
-.menu-drawer__close-button {
-  display: inline-flex;
-}
-
 .menu-drawer__list {
   display: grid;
   gap: var(--space-md);
@@ -885,10 +881,6 @@ html[data-qa-static='true'] *::after {
     display: grid;
   }
 
-  .hero__actions .button {
-    min-width: 0;
-  }
-
   .hero__meta {
     display: grid;
     gap: var(--space-xs);
@@ -900,10 +892,6 @@ html[data-qa-static='true'] *::after {
 
   .motion-lab__horizontal-track {
     grid-auto-columns: minmax(14rem, 80vw);
-  }
-
-  .hero__actions .button {
-    width: 100%;
   }
 
   .site-footer__bottom {

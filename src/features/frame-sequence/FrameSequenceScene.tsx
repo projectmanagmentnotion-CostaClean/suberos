@@ -123,7 +123,14 @@ export function FrameSequenceScene({
   )
 
   return (
-    <div className={cx('frame-sequence-scene', className)} ref={sceneRef}>
+    <div
+      className={cx('frame-sequence-scene', className)}
+      data-sequence-frame={state.currentFrame}
+      data-sequence-phase={state.phase}
+      data-sequence-profile={state.activeProfile ?? 'none'}
+      data-sequence-total={state.totalFrames}
+      ref={sceneRef}
+    >
       <div className="frame-sequence-scene__media" data-qa="frame-sequence-media" ref={mediaRef}>
         <FrameSequenceFallback
           alt={fallbackAlt}

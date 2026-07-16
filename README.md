@@ -6,13 +6,14 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 
 - Fases 0 a 14 completadas.
 - Sprint 14.4 validado localmente: direccion de arte final de home, nueva escena inmersiva integrada en narrativa publica y mejora del menu movil.
+- Sprint 14.5 publicado: servicios conectados con trabajo real, nueva cobertura `qa:links`, `qa:navigation` y `qa:immersive`, decision formal sobre la posicion de la secuencia publica y produccion alineada con el build validado.
 - Sustitucion tipografica completada: `StretchPro` ha salido del build publico y el runtime usa `Syncopate` self-hosted.
 - `qa:release`, `lint`, `build`, `qa:lighthouse` y `qa:visual` pasan.
 - Produccion publicada en `https://suberos.com` con estado `CONDITIONAL GO`.
 - Bloqueos abiertos:
   - endpoint real del formulario
   - recepcion real en `info@suberos.com`
-  - publicacion y verificacion real de la redireccion `www -> https://suberos.com/`
+  - cierre limpio del doble salto `http://www.suberos.com/ -> https://suberos.com/`
   - pruebas fisicas en iPhone Safari y Android Chrome
 
 ## Stack
@@ -32,6 +33,9 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `npm run qa:font-licenses`
 - `npm run qa:assets`
 - `npm run qa:overflow`
+- `npm run qa:links`
+- `npm run qa:navigation`
+- `npm run qa:immersive`
 - `npm run qa:legal`
 - `npm run qa:privacy`
 - `npm run qa:seo`

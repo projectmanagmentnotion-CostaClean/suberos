@@ -7,7 +7,7 @@ type WorkProjectProps = {
 
 export function WorkProject({ item }: WorkProjectProps) {
   return (
-    <article className="work-project-card">
+    <article className="work-project-card" data-work-card={item.id} tabIndex={-1}>
       <div className="work-project-card__header">
         <span className="work-project-card__index">{item.label}</span>
         <div>

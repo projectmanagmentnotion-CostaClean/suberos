@@ -195,6 +195,25 @@ export function Header() {
       return
     }
 
+    const handleResize = () => {
+      if (window.matchMedia('(min-width: 64rem)').matches) {
+        closeMenu(false)
+      }
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [closeMenu, isMenuReady])
+
+  useEffect(() => {
+    if (!isMenuReady) {
+      return
+    }
+
     const handleHashChange = () => {
       closeMenu(false)
     }

@@ -9,6 +9,13 @@ export const homeAnchors = {
   contacto: '/#contacto',
 } as const
 
+export const workDisciplineAnchors = {
+  fotografia: '/#fotografia',
+  branding: '/#branding',
+  produccion: '/#produccion',
+  web: '/#web',
+} as const
+
 export const legalPaths = {
   avisoLegal: '/legal/aviso-legal',
   privacidad: '/legal/privacidad',

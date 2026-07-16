@@ -15,6 +15,7 @@ export function WorkProjectIndex({ activeId, items, onSelect }: WorkProjectIndex
           aria-pressed={item.id === activeId}
           className="work-index__item"
           data-active={item.id === activeId}
+          data-work-control={item.id}
           key={item.id}
           onClick={() => onSelect(item.id)}
           type="button"

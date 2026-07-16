@@ -12,9 +12,9 @@ export function HomePage() {
   return (
     <>
       <HeroSection />
-      <SequenceNarrativeSection />
       <StudioSection />
       <ServicesSection />
+      <SequenceNarrativeSection />
       <WorkShowcase />
       <ProcessEditorial />
       <BrandStatementSection />

@@ -9,7 +9,10 @@ if (!npmCliPath) {
 const steps = [
   ['npm', ['run', 'qa:isolation']],
   ['npm', ['run', 'qa:assets']],
+  ['npm', ['run', 'qa:links']],
+  ['npm', ['run', 'qa:navigation']],
   ['npm', ['run', 'qa:overflow']],
+  ['npm', ['run', 'qa:immersive']],
   ['npm', ['run', 'qa:portfolio']],
   ['npm', ['run', 'qa:sequences']],
   ['npm', ['run', 'qa:contact']],

@@ -70,7 +70,7 @@ export function ServicesSection() {
               {siteServices.map((service, index) => (
                 <article
                   className="services-scene__item"
-                  id={service.id}
+                  data-service-id={service.id}
                   key={service.id}
                   ref={(element) => {
                     itemRefs.current[index] = element

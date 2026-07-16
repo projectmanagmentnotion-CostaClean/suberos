@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { Container } from '../../components/layout/Container'
 import { Section } from '../../components/layout/Section'
@@ -24,6 +24,45 @@ export function WorkShowcase() {
     [activeId],
   )
 
+  useEffect(() => {
+    const validIds = new Set(workShowcaseDisciplines.map((item) => item.id))
+
+    const syncFromHash = () => {
+      const nextHash = window.location.hash.replace('#', '')
+
+      if (!validIds.has(nextHash)) {
+        return
+      }
+
+      setActiveId(nextHash)
+
+      window.requestAnimationFrame(() => {
+        const targetSelector = window.matchMedia('(max-width: 48rem)').matches
+          ? `[data-work-card="${nextHash}"]`
+          : `[data-work-control="${nextHash}"]`
+        const target = document.querySelector<HTMLElement>(targetSelector)
+
+        if (!target) {
+          return
+        }
+
+        target.focus({ preventScroll: true })
+        target.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'center',
+          inline: 'nearest',
+        })
+      })
+    }
+
+    syncFromHash()
+    window.addEventListener('hashchange', syncFromHash)
+
+    return () => {
+      window.removeEventListener('hashchange', syncFromHash)
+    }
+  }, [])
+
   return (
     <Section
       aria-labelledby="work-title"
@@ -33,6 +72,11 @@ export function WorkShowcase() {
       ref={sectionRef}
     >
       <Container>
+        <div aria-hidden="true" className="work-showcase__anchors">
+          {workShowcaseDisciplines.map((item) => (
+            <span id={item.id} key={item.id} />
+          ))}
+        </div>
         <div className="work-showcase__intro">
           <p className="work-showcase__eyebrow">{homeContent.work.eyebrow}</p>
           <div className="work-showcase__heading">
