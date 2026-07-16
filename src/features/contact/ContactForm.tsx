@@ -40,14 +40,14 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
     website: useRef<HTMLInputElement | null>(null),
     contactPreference: useRef<HTMLSelectElement | null>(null),
   }
-  const isProductionEndpointUnavailable = !CONTACT_REAL_ENDPOINT_ENABLED
   const isQaMockMode =
     import.meta.env.DEV &&
     typeof window !== 'undefined' &&
     window.__SUBEROS_CONTACT_TEST_MODE__ === true &&
     typeof window.__SUBEROS_CONTACT_TEST_SCENARIO__ === 'string' &&
     window.__SUBEROS_CONTACT_TEST_SCENARIO__.length > 0
-  const shouldDisableSubmit = isProductionEndpointUnavailable && !isQaMockMode
+  const isProductionEndpointUnavailable = !CONTACT_REAL_ENDPOINT_ENABLED && !isQaMockMode
+  const shouldDisableSubmit = status === 'submitting' || isProductionEndpointUnavailable
 
   function syncStatus(nextStatus: ContactFormStatus) {
     setStatus(nextStatus)
@@ -204,7 +204,7 @@ export function ContactForm({ onStatusChange }: ContactFormProps) {
             <p className="contact-form__meta">
               {isProductionEndpointUnavailable
                 ? 'El formulario online estara disponible proximamente. Mientras tanto, puedes escribirnos o llamarnos directamente.'
-                : 'Sin cookies no esenciales. Sin analitica. Sin datos personales en la URL.'}
+                : 'Sin cookies no esenciales. Sin analitica. Sin datos personales en la URL. Respuesta operativa a traves de info@suberos.com.'}
             </p>
           </div>
         </form>

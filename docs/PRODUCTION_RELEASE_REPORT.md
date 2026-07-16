@@ -4,7 +4,7 @@ Fecha: 2026-07-16
 
 ## Estado exacto
 
-WEB PUBLICADA EN `https://suberos.com` CON ESTADO `CONDITIONAL GO`. EL FORMULARIO SIGUE BLOQUEADO HASTA DISPONER DE ENDPOINT REAL Y RECEPCION COMPROBADA.
+WEB PUBLICADA EN `https://suberos.com` CON ESTADO `CONDITIONAL GO`. EL FORMULARIO YA ESTA OPERATIVO EN PRODUCCION Y LA RECEPCION EN `info@suberos.com` ESTA VERIFICADA.
 
 ## Codigo
 
@@ -41,10 +41,12 @@ WEB PUBLICADA EN `https://suberos.com` CON ESTADO `CONDITIONAL GO`. EL FORMULARI
 ## Verificacion publica
 
 - hash publico de `index.html` alineado con `dist/index.html`
-- `/assets/index-BoFbJRjq.js` y `/assets/index-B71Yuaov.css` verificados con contenido real
+- `/assets/index-B4OUHjhi.js` y `/assets/index-deA8oNZV.css` verificados con contenido real
 - home visual publicada verificada
 - legales, robots, sitemap y fallback de rutas SPA verificados
 - HTTP redirige a HTTPS
 - `www` sigue pendiente de redireccion a la canonica apex
+- `POST /api/contact` responde en produccion con `ok: true` y `deliveryMode: production`
+- el correo `SUBEROS contacto: branding - Prueba Codex` quedo visible en la bandeja real de `info@suberos.com`
 - reduced motion publico verificado
 - sin errores de consola ni assets `404` en la comprobacion publica final

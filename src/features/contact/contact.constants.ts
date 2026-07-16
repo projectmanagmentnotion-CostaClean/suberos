@@ -101,10 +101,10 @@ export const contactPreferenceOptions: readonly ContactPreferenceOption[] = [
 ] as const
 
 export const contactPrivacyNotice =
-  'Responsable pendiente de completar con identidad legal verificada. Usaremos estos datos unicamente para responder y gestionar tu solicitud. La base juridica final, el proveedor de envio y los plazos de conservacion siguen pendientes de validacion antes del lanzamiento.'
+  'Responsable identificado con identidad legal verificada. Usaremos estos datos unicamente para responder y gestionar tu solicitud desde el canal operativo de SUBEROS.'
 
 export const contactSuccessMessage =
-  'Solicitud recibida en el entorno tecnico de SUBEROS. La entrega real por correo sigue bloqueada hasta aprobar el backend y el proveedor final.'
+  'Hemos recibido tu solicitud y responderemos desde info@suberos.com lo antes posible.'
 
 export const contactBlockedMessage =
   companyProfile.runtimeStatus.form.fallbackMessage
@@ -119,4 +119,4 @@ export const contactGenericErrorMessage =
   'No hemos podido procesar tu solicitud ahora mismo. Revisa los campos o utiliza correo o telefono como alternativa.'
 
 export const contactConsentContext =
-  'Al enviar, nos autorizas a usar estos datos para responder a tu solicitud. No activamos marketing ni seguimiento adicional en este formulario.'
+  'Al enviar, nos autorizas a usar estos datos para responder a tu solicitud. No activamos marketing ni seguimiento adicional en este formulario y el correo del visitante se usa tambien como Reply-To para facilitar la respuesta.'

@@ -11,10 +11,10 @@ export const companyProfile = {
   },
   runtimeStatus: {
     form: {
-      endpointEnabled: false,
+      endpointEnabled: true,
       publicMessage:
-        'El formulario online permanece desactivado en esta version publica mientras se define el endpoint real y la capa legal definitiva.',
-      fallbackMessage: 'El formulario online estara disponible proximamente. Puedes contactar ahora por email o telefono.',
+        'El formulario online de SUBEROS ya esta activo y entrega las solicitudes al correo operativo info@suberos.com.',
+      fallbackMessage: 'Si el envio online falla, puedes contactar ahora por email o telefono.',
     },
     legal: {
       ownerDataVerified: true,

@@ -21,8 +21,8 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
     intro:
       'Esta version publica resume la informacion corporativa y de uso actualmente verificada para SUBEROS y la limita a los datos confirmados para evitar declaraciones no respaldadas.',
     statusNote:
-      'Titular y contacto publico verificados. El formulario online sigue bloqueado hasta desplegar un endpoint real y validar su tratamiento completo.',
-    updatedAt: '2026-07-15',
+      'Titular y contacto publico verificados. El formulario online ya esta activo y la capa pendiente se concentra en cerrar la documentacion final de tratamiento y retencion.',
+    updatedAt: '2026-07-16',
     sections: [
       {
         title: 'Titularidad y contacto publicado',
@@ -70,15 +70,15 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
     intro:
       'Esta politica describe el tratamiento real observable en la version tecnica actual de SUBEROS y evita declarar integraciones o proveedores que no estan activos en produccion.',
     statusNote:
-      'Responsable identificado. El cierre pendiente es habilitar un endpoint real para el formulario, documentar su proveedor y fijar la politica operativa de recepcion y retencion.',
-    updatedAt: '2026-07-15',
+      'Responsable identificado. El formulario ya usa un endpoint real y el cierre pendiente se concentra en fijar y documentar retencion, logs y operativa final.',
+    updatedAt: '2026-07-16',
     sections: [
       {
         title: 'Datos y canales actualmente visibles',
         paragraphs: [
           'Responsable publicado: Anderson David Subero Garcia, NIF 60952573C, con presencia operativa en Calella, 08370, Barcelona, Espana.',
           'SUBEROS publica hoy un correo de contacto, un telefono y un formulario web de presentacion inicial.',
-          `El formulario online de produccion no esta conectado a un endpoint real. Mientras no exista backend definitivo, el canal operativo real sigue siendo el contacto directo por email o telefono: ${companyProfile.contact.email} y ${companyProfile.contact.phoneDisplay}.`,
+          `El formulario online de produccion esta conectado a un endpoint server-side propio y entrega las solicitudes al canal operativo ${companyProfile.contact.email}, manteniendo tambien el telefono ${companyProfile.contact.phoneDisplay} como via directa alternativa.`,
         ],
       },
       {
@@ -91,8 +91,8 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
       {
         title: 'Destinatarios y proveedores',
         paragraphs: [
-          'No existe hoy un proveedor activo de envio real para el formulario en produccion dentro de este repositorio.',
-          'El hosting y las herramientas de desarrollo del proyecto se documentan por separado en el inventario tecnico de proveedores y no implican, por si mismos, que reciban datos del formulario de visitantes finales mientras el endpoint siga desactivado.',
+          'El endpoint server-side del formulario se ejecuta en la infraestructura activa de SiteGround y entrega los mensajes al buzon operativo info@suberos.com.',
+          'El correo del visitante se usa como Reply-To para facilitar la respuesta desde el canal corporativo de SUBEROS.',
         ],
       },
       {
@@ -105,7 +105,7 @@ export const legalPageContent: Record<'aviso-legal' | 'privacidad' | 'cookies' |
       {
         title: 'Derechos y version final',
         paragraphs: [
-          `Mientras el formulario permanezca desactivado, cualquier consulta sobre privacidad o ejercicio de derechos puede dirigirse a ${companyProfile.contact.email}. Cuando se active un canal de envio real, esta politica se ampliara con base juridica, plazos de conservacion y destinatarios efectivos.`,
+          `Cualquier consulta sobre privacidad o ejercicio de derechos puede dirigirse a ${companyProfile.contact.email}. Esta politica todavia debe ampliarse con la definicion final de plazos de conservacion, logs y transferencias si llegan a aplicar.`,
         ],
         bullets: [
           `Canales actuales de contacto: ${homeAnchors.contacto}`,

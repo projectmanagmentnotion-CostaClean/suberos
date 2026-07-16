@@ -5,8 +5,8 @@ Fecha: 2026-07-14
 ## Estado real
 
 - Sprint 08 implementa la arquitectura tecnica del contacto.
-- No existe un proveedor de envio real activo en produccion.
-- El formulario no envia emails reales desde `https://suberos.com/`.
+- Existe un endpoint server-side real en `public/api/contact.php`.
+- El formulario envia solicitudes reales desde `https://suberos.com/`.
 - El mock solo existe para desarrollo local y QA en `127.0.0.1` o `localhost`.
 
 ## Arquitectura
@@ -73,11 +73,16 @@ Tecnicos:
 
 ## Produccion
 
-Para activar envio real hacen falta:
+Arquitectura activa:
 
-- endpoint server-side real
-- secreto solo en servidor
-- destinatario real confirmado
-- remitente autenticado
-- actualizacion de privacidad y vendors
-- nueva QA end-to-end sobre dominio publico
+- endpoint server-side real en SiteGround
+- destinatario operativo: `info@suberos.com`
+- `Reply-To` configurado con el email del visitante
+- rate limit server-side real
+- honeypot y tiempo minimo de envio mantenidos en servidor
+
+Pendientes de cierre final:
+
+- verificacion continuada de entrega y respuesta real
+- definicion final de retencion operativa
+- QA publica de cierre tras cualquier cambio futuro del endpoint

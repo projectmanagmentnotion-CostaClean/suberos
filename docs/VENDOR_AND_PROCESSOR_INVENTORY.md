@@ -1,6 +1,6 @@
 # Vendor And Processor Inventory
 
-Fecha: 2026-07-14
+Fecha: 2026-07-16
 
 ## Runtime publico actual
 
@@ -9,7 +9,7 @@ Activos en la web:
 - ninguna plataforma de analytics
 - ningun pixel
 - ningun SDK de terceros para contacto
-- ningun proveedor real de formularios
+- endpoint server-side real de contacto
 - ninguna request de tracking a dominios externos en el alcance auditado
 
 ## Dependencias tecnicas del frontend
@@ -28,13 +28,13 @@ Estas dependencias no reciben datos del formulario por diseno en el runtime actu
   - datos de visitantes web: ninguno por el runtime publico
   - clasificacion: proveedor tecnico de desarrollo, no encargado del formulario publico actual
 - SiteGround
-  - rol: hosting previsto o documentado para despliegue
-  - datos de visitantes web: potenciales logs tecnicos del hosting cuando la publicacion exista
-  - clasificacion: proveedor tecnico a revisar como posible encargado o subencargado segun la configuracion final
+  - rol: hosting activo del sitio y del endpoint server-side del formulario
+  - datos de visitantes web: potenciales logs tecnicos del hosting y procesamiento server-side del formulario
+  - clasificacion: proveedor tecnico activo del canal de contacto
 - correo corporativo real
-  - rol: pendiente de confirmar
-  - estado: no documentado aun como receptor definitivo de formularios
-  - clasificacion: pendiente
+  - rol: recepcion operativa de solicitudes en `info@suberos.com`
+  - estado: activo
+  - clasificacion: canal operativo activo
 
 ## Desarrollo y QA
 
@@ -46,16 +46,15 @@ Estas dependencias no reciben datos del formulario por diseno en el runtime actu
 
 ## Proveedores activos para contacto en produccion
 
-- ninguno
+- SiteGround como hosting y capa server-side del endpoint
+- buzon corporativo `info@suberos.com` como canal receptor operativo
 
-## Procesadores pendientes de definir antes de lanzar envio real
+## Procesadores pendientes de definir antes de cerrar documentalmente el envio real
 
-- proveedor de correo transaccional o backend
-- hosting o funcion server-side que procese el formulario
-- personal o cuenta receptora
 - politica de logs
 - ubicacion y transferencias
+- retencion operativa del buzon
 
 ## Riesgo abierto
 
-No existe todavia inventario final de procesadores porque no hay pipeline real de entrega en produccion.
+El pipeline real de entrega ya existe, pero la politica documental final de retencion, logs y transferencias sigue pendiente.

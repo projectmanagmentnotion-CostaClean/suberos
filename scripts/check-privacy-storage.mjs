@@ -48,7 +48,7 @@ if (!serviceSource.includes('__SUBEROS_CONTACT_TEST_MODE__')) {
 }
 
 if (!serviceSource.includes('CONTACT_REAL_ENDPOINT_ENABLED')) {
-  throw new Error('Privacy checks expect the public contact flow to remain blocked until a real endpoint exists.')
+  throw new Error('Privacy checks expect the public contact flow to expose the real endpoint gate.')
 }
 
 console.log('Privacy static checks passed.')

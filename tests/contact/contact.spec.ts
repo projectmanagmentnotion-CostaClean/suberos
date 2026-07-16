@@ -22,7 +22,7 @@ for (const viewport of smokeViewports) {
     await expect(page.getByLabel('Correo electronico')).toBeVisible()
     await expect(page.getByLabel('Tipo de proyecto o servicio')).toBeVisible()
     await expect(page.getByLabel('Proyecto o necesidad')).toBeVisible()
-    await expect(page.getByRole('button', { name: /formulario temporalmente desactivado/i })).toBeVisible()
+    await expect(page.getByRole('button', { name: /enviar solicitud/i })).toBeVisible()
     await expect(page.locator('.contact-alternatives').getByRole('link', { name: 'info@suberos.com' })).toBeVisible()
     await expect(page.locator('.contact-alternatives').getByRole('link', { name: '698 911 517' })).toBeVisible()
 
@@ -60,12 +60,12 @@ test('contact form rejects invalid email without losing the message content @qa-
   )
 })
 
-test('contact form stays honestly blocked outside QA mock mode', async ({ page }) => {
+test('contact form stays enabled and keeps direct alternatives visible outside QA mock mode', async ({ page }) => {
   await gotoContact(page)
   await fillValidContactForm(page)
-  await expect(page.locator('[data-qa="contact-submit"]')).toBeDisabled()
-  await expect(page.locator('[data-qa="contact-production-status"]')).toContainText(/canal online/i)
-  await expect(page.locator('[data-qa="contact-state"]')).toContainText('formulario online estara disponible proximamente')
+  await expect(page.locator('[data-qa="contact-submit"]')).toBeEnabled()
+  await expect(page.locator('[data-qa="contact-production-status"]')).toHaveCount(0)
+  await expect(page.locator('[data-qa="contact-state"]')).toContainText('Sin cookies no esenciales')
   await expect(page).not.toHaveURL(/marta@example\.com|Marta/)
 })
 
@@ -77,7 +77,7 @@ test('contact form succeeds against the QA mock endpoint only in explicit QA mod
   await page.locator('[data-qa="contact-submit"]').click()
 
   await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('Solicitud recibida')
-  await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('entorno tecnico de SUBEROS')
+  await expect(page.locator('[data-qa="contact-feedback"]')).toContainText('info@suberos.com')
 })
 
 test('contact form exposes a recoverable server error state @qa-mock', async ({ page }) => {

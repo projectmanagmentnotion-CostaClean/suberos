@@ -1,6 +1,6 @@
 # SUBEROS
 
-Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El proyecto mantiene shell semantico, motion encapsulado, QA automatizada, contacto honestamente bloqueado sin backend real y una capa de marca local sin dependencias tipograficas externas.
+Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El proyecto mantiene shell semantico, motion encapsulado, QA automatizada, formulario real en produccion con entrega verificada a `info@suberos.com` y una capa de marca local sin dependencias tipograficas externas.
 
 ## Estado actual
 
@@ -11,10 +11,9 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - `qa:release`, `lint`, `build`, `qa:lighthouse` y `qa:visual` pasan.
 - Produccion publicada en `https://suberos.com` con estado `CONDITIONAL GO`.
 - Bloqueos abiertos:
-  - endpoint real del formulario
-  - recepcion real en `info@suberos.com`
-  - cierre limpio del doble salto `http://www.suberos.com/ -> https://suberos.com/`
+  - cierre limpio del doble salto del host `www` hacia el dominio canonico
   - pruebas fisicas en iPhone Safari y Android Chrome
+  - verificacion manual final del flujo de respuesta desde Webmail usando el `Reply-To` ya configurado
 
 ## Stack
 
@@ -68,7 +67,7 @@ Base tecnica de SUBEROS construida con React, TypeScript, Vite, GSAP y Lenis. El
 - Mantener contenido 100 % real y verificable.
 - No hotlinkear assets del sitio legado.
 - No introducir requests a `fonts.googleapis.com` ni `fonts.gstatic.com` en produccion.
-- No declarar el formulario operativo mientras no exista backend real aprobado.
+- Mantener el formulario operativo solo mientras el endpoint real siga desplegado y auditado.
 - Centralizar tokens, estados y motion; no duplicar logica ad hoc.
 - Validar siempre `npm run qa:release` antes de cerrar un bloque grande.
 - Usar `artifacts/reports/assets/asset-inventory.json` y `artifacts/reports/overflow/overflow-report.json` como evidencia automatizada del estado visual y de assets.

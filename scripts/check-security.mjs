@@ -84,17 +84,26 @@ if (htaccess.includes('unsafe-eval')) {
 
 const contactConstants = read('src/features/contact/contact.constants.ts')
 const companyProfile = read('src/data/companyProfile.ts')
-const formBlockedInProfile =
-  companyProfile.includes('endpointEnabled: false') &&
-  companyProfile.includes('El formulario online estara disponible proximamente') &&
-  companyProfile.includes('El formulario online permanece desactivado en esta version publica')
-const formBlockedInConstants =
-  contactConstants.includes('runtimeStatus.form.endpointEnabled') &&
-  contactConstants.includes('runtimeStatus.form.fallbackMessage') &&
-  contactConstants.includes('runtimeStatus.form.publicMessage')
+const contactEndpoint = read('public/api/contact.php')
+const formEnabledInProfile =
+  companyProfile.includes('endpointEnabled: true') &&
+  companyProfile.includes('El formulario online de SUBEROS ya esta activo')
+const endpointSecurityMarkers = [
+  'Reply-To:',
+  'SUBEROS_CONTACT_RATE_LIMIT_MAX_REQUESTS',
+  'SUBEROS_CONTACT_MIN_SUBMIT_DELAY_MS',
+  "reason' => 'rate-limited'",
+  'mail(',
+]
 
-if (!formBlockedInProfile || !formBlockedInConstants) {
-  failures.push('Public contact endpoint must remain blocked until a production endpoint exists.')
+if (!formEnabledInProfile || !contactConstants.includes('runtimeStatus.form.endpointEnabled')) {
+  failures.push('Public contact endpoint must be enabled in the published runtime state.')
+}
+
+for (const marker of endpointSecurityMarkers) {
+  if (!contactEndpoint.includes(marker)) {
+    failures.push(`public/api/contact.php is missing required contact security marker: ${marker}`)
+  }
 }
 
 const envCandidates = ['.env', '.env.production', '.env.local']
@@ -142,7 +151,7 @@ for (const relativePath of publicFiles) {
     failures.push(`${relativePath}: sensitive file type must not be public.`)
   }
 
-  if (fileStat.size > 0 && /\.(?:html|txt|xml|svg|css|js|json|webmanifest)$/u.test(relativePath)) {
+  if (fileStat.size > 0 && /\.(?:html|txt|xml|svg|css|js|json|webmanifest|php)$/u.test(relativePath)) {
     scanText(relativePath, read(relativePath))
   }
 }

@@ -49,13 +49,13 @@ Content-Security-Policy:
 - `img-src 'self' data: blob:`
   - cubre branding y posibles blobs internos de media
 - `font-src 'self' data:`
-  - cubre `StretchPro` y futuras fuentes self-hosted
+  - cubre Syncopate y futuras fuentes self-hosted
 - `connect-src 'self'`
   - en build publica el formulario no debe conectar con `localhost`
 - `frame-src 'none'`
   - no hay iframes
 - `form-action 'self'`
-  - compatible con el formulario bloqueado sin endpoint externo
+  - compatible con el endpoint server-side activo en el mismo origen
 - `frame-ancestors 'self'`
   - endurece framing basico
 

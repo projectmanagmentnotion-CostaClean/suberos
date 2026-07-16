@@ -31,6 +31,7 @@ const vendorInventory = read('docs/VENDOR_AND_PROCESSOR_INVENTORY.md')
 const legalMatrix = read('docs/LEGAL_APPLICABILITY_MATRIX.md')
 const legalPageStatus = read('docs/LEGAL_PAGE_STATUS.md')
 const assetInventory = read('docs/SUBEROS_VISUAL_ASSET_INVENTORY.md')
+const contactFlow = read('docs/CONTACT_DATA_FLOW.md')
 
 const footerMarkers = [
   '/legal/aviso-legal',
@@ -58,22 +59,22 @@ for (const marker of footerMarkers) {
   }
 }
 
-const formBlockedInProfile =
-  companyProfile.includes('endpointEnabled: false') &&
-  companyProfile.includes('El formulario online estara disponible proximamente') &&
-  companyProfile.includes('El formulario online permanece desactivado en esta version publica')
+const formEnabledInProfile =
+  companyProfile.includes('endpointEnabled: true') &&
+  companyProfile.includes('El formulario online de SUBEROS ya esta activo') &&
+  companyProfile.includes('Si el envio online falla, puedes contactar ahora por email o telefono.')
 
-const formBlockedInConstants =
+const formEnabledInConstants =
   contactConstants.includes('runtimeStatus.form.endpointEnabled') &&
   contactConstants.includes('runtimeStatus.form.fallbackMessage') &&
   contactConstants.includes('runtimeStatus.form.publicMessage')
 
-if (!formBlockedInProfile || !formBlockedInConstants) {
-  throw new Error('The public contact form must remain blocked until a real endpoint exists.')
+if (!formEnabledInProfile || !formEnabledInConstants) {
+  throw new Error('The public contact form must document the active production endpoint state.')
 }
 
-if (!companyProfile.includes('El formulario online estara disponible proximamente') || !contactConstants.includes('runtimeStatus.form.fallbackMessage')) {
-  throw new Error('The public contact form must show an honest blocked message.')
+if (!contactFlow.includes('SiteGround') || !contactFlow.includes('info@suberos.com') || !contactFlow.includes('Reply-To')) {
+  throw new Error('Contact data flow must document the active production delivery path and reply channel.')
 }
 
 const forbiddenMarkers = ['lorem ipsum', '123 fake', 'nif pendiente', 'domicilio por confirmar']
@@ -93,8 +94,9 @@ for (const field of requiredOwnerFields) {
   }
 }
 
-if (!vendorInventory.toLowerCase().includes('ninguno') || !vendorInventory.toLowerCase().includes('proveedor')) {
-  throw new Error('Vendor inventory must document that there is no active production contact provider yet.')
+const vendorInventoryLowered = vendorInventory.toLowerCase()
+if (!vendorInventoryLowered.includes('siteground') || !vendorInventoryLowered.includes('info@suberos.com') || !vendorInventoryLowered.includes('activo')) {
+  throw new Error('Vendor inventory must document the active production contact provider and mailbox.')
 }
 
 if (!legalMatrix.includes('Bloquea lanzamiento') || !legalMatrix.toLowerCase().includes('syncopate')) {

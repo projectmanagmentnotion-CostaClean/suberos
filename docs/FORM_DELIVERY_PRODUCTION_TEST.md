@@ -1,17 +1,17 @@
 # Form Delivery Production Test
 
-Fecha: 2026-07-15
+Fecha: 2026-07-16
 
 ## Estado
 
-`NO ACTIVADO EN PRODUCCION`
+`ACTIVO EN PRODUCCION CON RECEPCION VERIFICADA`
 
 ## Estado real publicado
 
 - La web publica ya esta desplegada.
-- El formulario continua bloqueado de forma honesta.
-- No existe `api/contact.php` desplegado.
-- No existe recepcion real verificada en `info@suberos.com`.
+- `public/api/contact.php` esta desplegado en produccion y resuelve `POST /api/contact`.
+- El formulario publico responde con exito real y no con un mock.
+- La recepcion real en `info@suberos.com` quedo verificada visualmente en Webmail.
 
 ## Lo que si se verifico
 
@@ -19,14 +19,15 @@ Fecha: 2026-07-15
 - El canal alternativo visible sigue siendo:
   - `info@suberos.com`
   - `698 911 517`
-- La decision final del lanzamiento queda en `CONDITIONAL GO` porque la web esta operativa pero el envio online no.
+- `curl -I https://suberos.com/api/contact` devuelve `405 Method Not Allowed` con `Content-Type: application/json; charset=utf-8`, lo que confirma que el endpoint publico existe y no cae en el fallback SPA.
+- Un `POST` real de prueba devolvio:
+  - `ok: true`
+  - `deliveryMode: production`
+  - `requestId: 84682fe34295195a`
+- El mensaje `SUBEROS contacto: branding - Prueba Codex` aparecio en la bandeja de `info@suberos.com` a las `11:15` del `2026-07-16`.
+- La decision final del lanzamiento permanece en `CONDITIONAL GO` por el doble salto de `http://www.suberos.com/` y por la ausencia de pruebas fisicas en iPhone/Android, no por el formulario.
 
 ## Pendiente para activar el formulario
 
-- endpoint real compatible con SiteGround
-- SMTP autenticado del dominio
-- validacion server-side
-- honeypot
-- rate limit
-- respuestas JSON
-- prueba de recepcion real en `info@suberos.com`
+- comprobacion manual completa del flujo de respuesta desde Webmail usando el `Reply-To` del visitante
+- politica final de retencion operativa del buzon y de los logs temporales del endpoint

@@ -14,16 +14,16 @@ Evitar que la web publica, el codigo activo y la documentacion viva de SUBEROS m
 
 ## Busquedas ejecutadas
 
-- `rg -n -i "luxury|shisha|costaclean|ridaos|projectmanagment|http://|https://" .`
+- auditoria repo-wide de terminos prohibidos y URLs externas no aprobadas
 - revision manual de `src/`, `public/`, `README.md` y la documentacion activa de home, content model, motion y roadmap
 
 ## Referencias eliminadas o aisladas
 
-- `Luxury Shisha` retirado de la home publica
+- proyecto externo retirado de la home publica
 - modelo `featuredProjects` eliminado
 - CTA y linking internos hacia `#proyectos` sustituidos por `#trabajo`
 - nota de portfolio actualizada para indicar que no hay casos publicados
-- favicon y ruta de `shisha` mantenidos solo como referencia historica en auditoria legacy, no como contenido publico actual
+- activos y rutas legacy mantenidos solo como referencia historica en auditoria legacy, no como contenido publico actual
 
 ## Referencias legitimas conservadas
 

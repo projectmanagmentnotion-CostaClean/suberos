@@ -1,26 +1,24 @@
 # Form Endpoint Status
 
-Fecha: 2026-07-15
+Fecha: 2026-07-16
 
 ## Estado decidido
 
-Opcion B: formulario bloqueado.
+Opcion A: formulario real activo.
 
 ## Evidencia actual
 
-- `CONTACT_REAL_ENDPOINT_ENABLED` sigue efectivamente desactivado a traves de `src/data/companyProfile.ts`.
-- El runtime publico muestra un mensaje honesto de indisponibilidad.
-- El fallback operativo real sigue siendo:
+- `CONTACT_REAL_ENDPOINT_ENABLED` queda activado a traves de `src/data/companyProfile.ts`.
+- El runtime publico apunta a `/api/contact`.
+- El endpoint real se sirve desde `public/api/contact.php`.
+- El destinatario operativo configurado es:
   - `info@suberos.com`
-  - `698 911 517`
-- `qa:contact`, `qa:privacy`, `qa:legal` y `qa:release` validan que el formulario no simula exito fuera del modo QA.
+- `Reply-To` usa el correo del visitante.
+- `qa:contact`, `qa:privacy`, `qa:legal` y `qa:release` validan ya el nuevo estado activo sin exito falso.
+- La entrega productiva quedo verificada el `2026-07-16` con el `requestId 84682fe34295195a`.
+- El mensaje de prueba fue visible en la bandeja de `info@suberos.com` con asunto `SUBEROS contacto: branding - Prueba Codex`.
 
-## Lo que no existe todavia
+## Lo que queda por confirmar en este sprint
 
-- proveedor de envio real
-- endpoint de produccion
-- cuenta receptora confirmada
-- validacion server-side real
-- rate limit server-side real
-- DPA o inventario definitivo del proveedor
-- prueba de recepcion real en produccion
+- prueba manual completa de respuesta desde Webmail usando el `Reply-To`
+- documentacion final de retencion y operativa del buzon

@@ -1,10 +1,10 @@
 # GO / NO-GO Decision
 
-Fecha: 2026-07-15
+Fecha: 2026-07-16
 
 ## Decision
 
-`CONDITIONAL GO - WEB PUBLICADA, FORMULARIO TEMPORALMENTE DESACTIVADO`
+`CONDITIONAL GO - WEB PUBLICADA Y FORMULARIO OPERATIVO, PENDIENTE CIERRE CANONICO Y PRUEBAS FISICAS`
 
 ## Motivo objetivo
 
@@ -14,11 +14,12 @@ Se cumplen los requisitos tecnicos para mantener la web publica de SUBEROS en pr
 2. el document root y la web anterior fueron auditados;
 3. la nueva web publica ya responde en el dominio principal;
 4. legales, robots, sitemap y 404 fueron verificados publicamente;
-5. la caché dinámica fue purgada y la cuenta FTP temporal eliminada.
+5. la cache dinamica fue purgada y la cuenta FTP temporal eliminada;
+6. existe endpoint productivo del formulario;
+7. existe recepcion real verificada en `info@suberos.com`.
 
 ## Bloqueos que impiden un GO total
 
-1. No existe endpoint productivo del formulario.
-2. No existe recepcion real verificada en `info@suberos.com`.
-3. `www.suberos.com` no redirige todavia a la canonica `https://suberos.com/`.
-4. Siguen pendientes pruebas fisicas en iPhone Safari y Android Chrome.
+1. `http://www.suberos.com/` sigue haciendo doble salto antes de llegar a `https://suberos.com/`.
+2. Siguen pendientes pruebas fisicas en iPhone Safari y Android Chrome.
+3. Falta la comprobacion manual final del flujo de respuesta desde Webmail usando el `Reply-To` del visitante.

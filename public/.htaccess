@@ -7,6 +7,8 @@ RewriteCond %{HTTP_HOST} ^www\.suberos\.com$ [NC,OR]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://suberos.com%{REQUEST_URI} [L,R=301]
 
+RewriteRule ^api/contact/?$ api/contact.php [L,NC]
+
 <Files "xmlrpc.php">
   <IfModule mod_authz_core.c>
     Require all denied

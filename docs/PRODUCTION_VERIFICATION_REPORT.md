@@ -4,11 +4,11 @@ Fecha: 2026-07-16
 
 ## Estado
 
-`CONDITIONAL GO - VERIFICACION PUBLICA COMPLETADA CON FORMULARIO BLOQUEADO`
+`CONDITIONAL GO - VERIFICACION PUBLICA COMPLETADA CON FORMULARIO OPERATIVO`
 
 ## Verificacion publica ejecutada
 
-- `https://suberos.com/` responde `200` y publica Sprint 14.5.
+- `https://suberos.com/` responde `200` y publica Sprint 14.6.
 - `http://suberos.com/` redirige a `https://suberos.com/`.
 - `https://www.suberos.com/` redirige a `https://suberos.com/`.
 - `http://www.suberos.com/` todavia hace doble salto:
@@ -22,6 +22,7 @@ Fecha: 2026-07-16
 - `https://suberos.com/legal/cookies` responde `200`.
 - `https://suberos.com/legal/accesibilidad` responde `200`.
 - `https://suberos.com/ruta-inexistente` responde por fallback SPA.
+- `https://suberos.com/api/contact` responde `405` por `GET`, lo que confirma el endpoint publico fuera del fallback SPA.
 
 ## Evidencia tecnica
 
@@ -33,6 +34,10 @@ Fecha: 2026-07-16
 - Tipos de contenido verificados:
   - JS: `application/javascript`
   - CSS: `text/css`
+- Endpoint de contacto:
+  - `POST /api/contact` devuelve JSON real
+  - `requestId` de prueba: `84682fe34295195a`
+  - recepcion real verificada en `info@suberos.com`
 - Favicon publicado:
   - `/branding/suberos-icon-32.png`
   - `/branding/suberos-icon-192.png`
@@ -55,4 +60,4 @@ Fecha: 2026-07-16
 
 - El doble salto de `http://www.suberos.com/` sigue pendiente de resolucion limpia en infraestructura.
 - No se ejecuto prueba fisica en iPhone Safari ni Android Chrome.
-- El formulario no se activo en produccion.
+- Falta una comprobacion manual final de respuesta desde Webmail usando el `Reply-To` del visitante.

@@ -14,6 +14,7 @@ const requiredFiles = [
   'src/features/contact/contact.schema.ts',
   'src/features/contact/contact.service.ts',
   'scripts/contact-mock-server.ts',
+  'public/api/contact.php',
 ]
 
 for (const relativePath of requiredFiles) {

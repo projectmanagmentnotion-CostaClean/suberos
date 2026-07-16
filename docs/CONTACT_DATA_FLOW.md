@@ -12,20 +12,24 @@ Fecha: 2026-07-14
    - el foco salta al primer error
 4. Si pasa la validacion:
    - `submitContactRequest()` serializa el payload normalizado
-   - la build publica comprueba primero si existe endpoint real habilitado
-   - si no existe y no se ha activado QA explicita, el flujo devuelve bloqueo honesto sin enviar red
-5. Solo en QA explicita:
+   - la build publica hace `POST` JSON a `/api/contact`
+5. En produccion:
+   - `public/api/contact.php` vuelve a validar
+   - aplica honeypot, tiempo minimo y rate limit por IP
+   - entrega el correo a `info@suberos.com`
+   - fija `Reply-To` con el email del visitante
+6. Solo en QA explicita:
    - `window.__SUBEROS_CONTACT_TEST_MODE__ = true`
    - escenario de mock valido
    - el cliente hace `POST` JSON al mock local
-6. El endpoint local mock vuelve a validar en servidor.
-7. El mock responde con:
+7. El endpoint local mock vuelve a validar en servidor.
+8. El mock responde con:
    - exito tecnico
    - error recuperable
    - rate limit
    - timeout
    - bloqueo
-8. La UI muestra el estado accesible correspondiente.
+9. La UI muestra el estado accesible correspondiente.
 
 ## Destino QA de datos
 
@@ -38,21 +42,20 @@ Fecha: 2026-07-14
 
 ## Destino en produccion hoy
 
-- No existe backend real documentado en este repositorio.
+- Backend real documentado en este repositorio: `public/api/contact.php`
+- Hosting operativo del endpoint: SiteGround
+- Buzon receptor: `info@suberos.com`
 - El build publico no incorpora el mock.
-- La build publica responde con un mensaje de indisponibilidad del canal online mientras `CONTACT_REAL_ENDPOINT_ENABLED` siga en `false`.
 
 ## Retencion
 
-- No hay almacenamiento persistente implementado en el repositorio actual.
-- La retencion real no puede declararse hasta definir backend y operador real.
+- No hay persistencia propia de solicitudes dentro del repositorio.
+- El tratamiento operativo ocurre en el buzon `info@suberos.com` y en logs tecnicos acotados del servidor.
+- La politica final de retencion sigue pendiente de concretar documentalmente.
 
-## Datos pendientes para una version real
+## Datos pendientes de cierre documental
 
-- responsable juridico
 - base legitimadora exacta
-- destinatario de correo o CRM
-- procesador o proveedor
-- retencion
-- canal de supresion
+- retencion operativa final
+- canal documental de supresion y ejercicio de derechos
 - politica final de privacidad

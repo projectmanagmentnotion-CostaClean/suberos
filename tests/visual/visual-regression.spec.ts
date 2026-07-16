@@ -52,12 +52,12 @@ test.describe('visual regression baselines', () => {
     }
   })
 
-  test('contact blocked state keeps a stable baseline in tablet QA mode', async ({ page }) => {
+  test('contact default state keeps a stable baseline in tablet QA mode', async ({ page }) => {
     await page.setViewportSize(qaViewports.tablet)
 
     await gotoQaStatic(page, '/#contacto')
     await page.locator('#contacto').scrollIntoViewIfNeeded()
-    await expect(page.locator('[data-qa="section-contact"]')).toHaveScreenshot('contact-blocked-tablet.png')
+    await expect(page.locator('[data-qa="section-contact"]')).toHaveScreenshot('contact-default-tablet.png')
   })
 
   test('contact success state keeps a stable baseline in tablet QA mode', async ({ page }) => {

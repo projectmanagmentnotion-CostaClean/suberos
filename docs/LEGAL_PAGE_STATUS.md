@@ -1,10 +1,10 @@
 # Legal Page Status
 
-Fecha: 2026-07-15
+Fecha: 2026-07-16
 
 ## Estado general
 
-Las paginas legales de SUBEROS existen ya como parte de la aplicacion publica, pero permanecen en estado provisional y con `noindex,nofollow`.
+Las paginas legales de SUBEROS existen ya como parte de la aplicacion publica, siguen en estado prudente y mantienen `noindex,nofollow`.
 
 ## Rutas publicadas
 
@@ -17,13 +17,13 @@ Las paginas legales de SUBEROS existen ya como parte de la aplicacion publica, p
 
 - Se evita mostrar placeholders falsos en la interfaz publica.
 - Se evita inventar razon social, NIF/CIF, domicilio o plazos de conservacion no verificados.
-- Se comunica de forma honesta que la capa legal definitiva requiere validacion documental adicional.
+- Se comunica de forma honesta que la capa legal definitiva todavia requiere validacion documental adicional.
 
 ## Lo que ya cubren
 
 - estructura minima profesional;
 - enlaces persistentes desde el footer;
-- informacion publica real sobre contacto, ausencia de analytics y estado del formulario;
+- informacion publica real sobre contacto, ausencia de analytics y formulario operativo;
 - alcance de accesibilidad y reduced motion;
 - politica de cookies coherente con el runtime actual.
 
@@ -34,7 +34,7 @@ Las paginas legales de SUBEROS existen ya como parte de la aplicacion publica, p
 - domicilio legal completo;
 - datos registrales si aplican;
 - base juridica final y canal de ejercicio de derechos;
-- endpoint real de contacto y proveedor definitivo;
+- politica documental final del endpoint de contacto y su operativa;
 - politica final de retencion;
 - revision legal cualificada si el titular la considera necesaria.
 
@@ -42,5 +42,5 @@ Las paginas legales de SUBEROS existen ya como parte de la aplicacion publica, p
 
 - Build local: permitida
 - Preview local: permitido
-- Publicacion final indexable: bloqueada hasta cerrar los datos obligatorios
-- Estado de lanzamiento derivado: `NO-GO`
+- Publicacion final indexable: pendiente de decidir tras cerrar la capa documental final
+- Estado de lanzamiento derivado: `CONDITIONAL GO`
