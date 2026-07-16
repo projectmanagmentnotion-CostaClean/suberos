@@ -1,6 +1,6 @@
 # Production Release Report
 
-Fecha: 2026-07-15
+Fecha: 2026-07-16
 
 ## Estado exacto
 
@@ -34,12 +34,16 @@ WEB PUBLICADA EN `https://suberos.com` CON ESTADO `CONDITIONAL GO`. EL FORMULARI
 - Document root real: `public_html`
 - WordPress previo conservado
 - Base de datos MySQL detectada: `dbry6hsvvnegv5`
-- Caché dinámica purgada
+- La base WordPress legacy queda excluida del rollback requerido por decision expresa del propietario al tratarse de una demo desechable sin datos criticos
+- Cache dinamica purgada
 - Cuenta FTP temporal eliminada
 
 ## Verificacion publica
 
-- home, legales, robots, sitemap y 404 verificados
+- hash publico de `index.html` alineado con `dist/index.html`
+- `/assets/index-BoFbJRjq.js` y `/assets/index-B71Yuaov.css` verificados con contenido real
+- home visual publicada verificada
+- legales, robots, sitemap y fallback de rutas SPA verificados
 - HTTP redirige a HTTPS
 - `www` sigue pendiente de redireccion a la canonica apex
 - reduced motion publico verificado

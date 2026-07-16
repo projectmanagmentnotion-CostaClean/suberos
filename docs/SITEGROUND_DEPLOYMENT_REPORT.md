@@ -1,6 +1,6 @@
 # SiteGround Deployment Report
 
-Fecha: 2026-07-15
+Fecha: 2026-07-16
 
 ## Estado
 
@@ -14,6 +14,10 @@ Fecha: 2026-07-15
 - Web anterior identificada: instalacion WordPress activa en `public_html`
 - Base de datos detectada en SiteGround MySQL: `dbry6hsvvnegv5`
 - PHP presente por instalacion WordPress existente
+
+## Decision del propietario
+
+Legacy WordPress database intentionally excluded from the required rollback because the previous website was a disposable demonstration without business-critical data. The owner explicitly authorised treating SUBEROS as a new static website.
 
 ## Web anterior conservada
 
@@ -31,11 +35,17 @@ Fecha: 2026-07-15
   - cabeceras de seguridad
   - preservacion del bloqueo `xmlrpc.php`
 - `index.html` se subio al final, despues del resto de assets.
-- La web publica responde ya con el `index.html` del build estatico (`Content-Length: 3239`).
+- Se verifico primero la disponibilidad publica de:
+  - `/assets/index-BoFbJRjq.js`
+  - `/assets/index-B71Yuaov.css`
+- Ambos responden con contenido real y tipos correctos:
+  - `application/javascript`
+  - `text/css`
+- La web publica responde con el `index.html` exacto del build estatico y coincide por SHA-256 con `dist/index.html`.
 
 ## Cache y acceso temporal
 
-- Caché dinámica purgada en SuperCacher con confirmacion: `Caché de suberos.com vaciada.`
+- Cache dinamica purgada en SuperCacher con confirmacion: `Cache de suberos.com vaciada.`
 - La cuenta FTP temporal `codexdeploy@suberos.com` fue eliminada tras el despliegue.
 - No se detecto necesidad de rollback durante esta ejecucion.
 

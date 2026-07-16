@@ -20,8 +20,9 @@
 - Phase 13 complete locally - Content, legal and launch-readiness audit with objective NO-GO
 - Typography compliance update complete locally - StretchPro removed from public build and replaced by self-hosted Syncopate
 - Phase 14 complete - SiteGround production deployed with conditional GO and form still blocked
-- Sprint 14.2 in progress locally - editorial redesign of portfolio/process/contact plus asset and overflow automation
-- Next recommended sprint after 14.2: implement the real contact endpoint, verify email delivery and close `www -> apex` canonical redirect
+- Sprint 14.2 complete - editorial redesign of portfolio/process/contact plus asset and overflow automation
+- Sprint 14.3 complete - production now matches the validated static build `886270d`
+- Next recommended sprint: implement the real contact endpoint, verify email delivery and close `www -> apex` canonical redirect
 
 ## Mandatory governing documents
 
@@ -47,8 +48,7 @@ The experience must remain:
 
 ## Remaining pre-launch blockers
 
-- production still does not match the current local editorial build;
 - verified legal-owner data;
 - real contact endpoint and provider;
 - physical-device accessibility and performance validation;
-- hosting access, backup verification and deployment checks.
+- `www -> apex` canonical redirect.
