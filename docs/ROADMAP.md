@@ -22,7 +22,8 @@
 - Phase 14 complete - SiteGround production deployed with conditional GO and form still blocked
 - Sprint 14.2 complete - editorial redesign of portfolio/process/contact plus asset and overflow automation
 - Sprint 14.3 complete - production now matches the validated static build `886270d`
-- Next recommended sprint: implement the real contact endpoint, verify email delivery and close `www -> apex` canonical redirect
+- Sprint 14.4 validated locally - final home art direction, integrated frame-sequence narrative and stronger mobile navigation
+- Next recommended sprint: deploy Sprint 14.4, implement the real contact endpoint, verify email delivery and close `www -> apex` canonical redirect
 
 ## Mandatory governing documents
 

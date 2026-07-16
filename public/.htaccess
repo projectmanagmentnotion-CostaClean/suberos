@@ -3,8 +3,9 @@ DirectoryIndex index.html index.php
 
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} ^www\.suberos\.com$ [NC,OR]
 RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://suberos.com%{REQUEST_URI} [L,R=301]
 
 <Files "xmlrpc.php">
   <IfModule mod_authz_core.c>

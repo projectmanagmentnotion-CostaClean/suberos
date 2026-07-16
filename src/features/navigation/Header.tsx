@@ -191,6 +191,22 @@ export function Header() {
   }, [isMenuOpen, isMenuReady])
 
   useEffect(() => {
+    if (!isMenuReady) {
+      return
+    }
+
+    const handleHashChange = () => {
+      closeMenu(false)
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [closeMenu, isMenuReady])
+
+  useEffect(() => {
     if (!isMenuReady || isMenuOpen || reducedMotion) {
       return
     }
@@ -274,6 +290,12 @@ export function Header() {
                     <span />
                   </span>
                 </IconButton>
+              </div>
+              <div className="menu-drawer__summary">
+                <p>Fotografia, diseno, impresion y web dentro de una misma direccion visual.</p>
+                <Button href={homeAnchors.contacto} onClick={() => closeMenu(false)} size="small" variant="secondary">
+                  Cuentanos tu proyecto
+                </Button>
               </div>
               <nav aria-label="Menu movil">
                 <ul className="menu-drawer__list">
